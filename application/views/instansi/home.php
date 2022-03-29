@@ -53,9 +53,6 @@
 
 <?php echo $modal_tambah_instansi; ?>
 
-<div id="tempat-modal"></div>
-
-<?php //show_my_confirm('konfirmasiHapus', 'hapus-dataInstansi', 'Hapus Data Ini?', 'Ya, Hapus Data Ini'); ?>
 <?php
   // $data['judul'] = 'Kota';
   // $data['url'] = 'Kota/import';
@@ -63,6 +60,8 @@
 ?>
 
 <!--Modals-->
+
+<!--Modal Update-->
   <?php foreach ($dataInstansi as $value): ?>
     <div class="modal fade" id="updateModal<?=$value->Id_Instansi?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -93,7 +92,9 @@
         </div>
     </div>
   <?php endforeach ?>
+<!--End of Modal Update-->
 
+<!--Modal Delete-->
   <?php foreach ($dataInstansi as $value): ?>
     <div class="modal fade" id="deleteModal<?=$value->Id_Instansi?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -114,3 +115,9 @@
         </div>
     </div>
   <?php endforeach ?>
+<!--End of Modal Delete-->
+
+<?php
+/* End of file home.php */
+/* Location: ./application/views/instansi/home.php */
+?>

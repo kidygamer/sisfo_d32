@@ -81,5 +81,5 @@ class Laporan_Persandian extends AUTH_Controller {
 
 	}
 
-/* End of file Instansi.php */
-/* Location: ./application/controllers/Instansi.php */
+/* End of file Laporan_Persandian.php */
+/* Location: ./application/controllers/Laporan_Persandian.php */
