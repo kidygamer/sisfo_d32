@@ -28,7 +28,7 @@
           <th>Nama Instansi</th>
           <th>Tahun</th>
           <th>Detail</th>
-          <th>Dok.</th>
+          <th>Dokumen</th>
           <th style="text-align: center;width: 5%;">Aksi</th>
         </tr>
       </thead>
@@ -57,7 +57,7 @@
               </td>
               <td class="text-center" style="min-width:230px;">
                   <a href="#" data-toggle="modal" data-target="#updateModal<?=$lapsan->Id_LapSan?>" class="btn btn-warning btn-sm"><i class="glyphicon glyphicon-repeat"></i> Update</a>
-                  <a href="#" data-toggle="modal" data-target="#deleteModal<?=$lapsan->Id_LapSan?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Hapus</a>
+                  <!--<a href="#" data-toggle="modal" data-target="#deleteModal<?php //$lapsan->Id_LapSan ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Hapus</a> -->
               </td>
             </tr>
             <?php
@@ -86,31 +86,28 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">             
                 <div class="modal-header">
-                     <center><h3 class="modal-title" id="exampleModalLabel">Update Data Laporan Persandian <br> <b><?= $value->Nama_Instansi ?></b> Tahun <b><?= $value->Tahun ?></b></h3></center>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
+                     <center><h3 class="modal-title" id="exampleModalLabel">Laporan Persandian <br> <b><?= $value->Nama_Instansi ?></b> Tahun <b><?= $value->Tahun ?></b></h3></center>
                 </div>
                 <div class="modal-body">
                 	<table class="table table-striped">
                 		<tr>
-                			<td style="width:30%">Jumlah SDM Persandian</td>
+                			<td style="width:40%"><b>Jumlah SDM Persandian</b></td>
                 			<td><b><?php echo $value->Jml_SDM ?></b> orang</td>
                 		</tr>
                 		<tr>
-                			<td>Jumlah Alat Sandi</td>
+                			<td><b>Jumlah Alat Sandi</b></td>
                 			<td><b><?php echo $value->Jml_Palsan ?></b> buah</td>
                 		</tr>
                 		<tr>
-                			<td>Jumlah APU</td>
+                			<td><b>Jumlah APU</b></td>
                 			<td><b><?php echo $value->Jml_APU ?></b> buah</td>
                 		</tr>
                 		<tr>
-                			<td>Jumlah Sistem Elektronik</td>
+                			<td><b>Jumlah Sistem Elektronik</b></td>
                 			<td><b><?php echo $value->Jml_SE ?></b> sistem</td>
                 		</tr>
                 		<tr>
-                			<td>Saran untuk BSSN</td>
+                			<td><b>Saran untuk BSSN</b></td>
                 			<td><p><?php echo nl2br($value->Saran_uBSSN) ?></p></td>
                 		</tr>
                 	</table>
@@ -127,7 +124,7 @@
 
 <!--Modal Update-->
   <?php foreach ($dataLaporan_Persandian as $value): ?>
-    <div class="modal" id="updateModal<?=$value->Id_LapSan?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <div class="modal fade" id="updateModal<?=$value->Id_LapSan?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -140,46 +137,64 @@
                 </div>
                 <div class="modal-body">
                   <input type="hidden" name="Id_LapSan" value="<?php echo $value->Id_LapSan?>">
-                    <div class="input-group form-group">
-                      <span class="input-group-addon" id="sizing-addon2">
-                        <i class="glyphicon glyphicon-pencil"></i>
-                      </span>
-                      <input type="number" class="form-control" placeholder="Tahun" name="Tahun" aria-describedby="sizing-addon2" min="0" required value="<?= $value->Tahun ?>">
+                  <input type="hidden" name="Instansi" value="<?php echo $value->Instansi?>">
+                    <div class="form-group">
+                        <label for="Tahun"><strong>Tahun</strong></label>
+                        <input type="number" class="form-control" placeholder="Tahun" name="Tahun" aria-describedby="sizing-addon2" min="0" required value="<?= $value->Tahun ?>">
                     </div>
-                    <div class="input-group form-group">
-                      <span class="input-group-addon" id="sizing-addon2">
-                        <i class="glyphicon glyphicon-pencil"></i>
-                      </span>
-                      <textarea class="form-control" name="Saran_uBSSN" placeholder="Saran untuk BSSN" required><?= $value->Saran_uBSSN ?></textarea>
+                    <div class="form-group">
+                      <label for="Saran_uBSSN"><strong>Saran untuk BSSN</strong></label>
+                      <textarea class="form-control" name="Saran_uBSSN" placeholder="Saran untuk BSSN" required rows="5"><?= $value->Saran_uBSSN ?></textarea>
                     </div>
-                    <div class="input-group form-group">
-                      <span class="input-group-addon" id="sizing-addon2">
-                        <i class="glyphicon glyphicon-pencil"></i>
-                      </span>
-                      <input type="number" class="form-control" placeholder="Jumlah SDM Persandian" name="Jml_SDM" aria-describedby="sizing-addon2" min="0" required value="<?= $value->Jml_SDM ?>">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                              <label for="Jml_SDM"><strong>Jumlah SDM Persandian</strong></label>
+                              <input type="number" class="form-control" placeholder="Jumlah SDM Persandian" name="Jml_SDM" aria-describedby="sizing-addon2" min="0" required value="<?= $value->Jml_SDM ?>">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                              <label for="Jml_Palsan"><strong>Jumlah Peralatan Sandi</strong></label>
+                              <input type="number" class="form-control" placeholder="Jumlah Peralatan Sandi" name="Jml_Palsan" aria-describedby="sizing-addon2" min="0" required value="<?= $value->Jml_Palsan ?>">
+                            </div>
+                        </div>
                     </div>
-                    <div class="input-group form-group">
-                      <span class="input-group-addon" id="sizing-addon2">
-                        <i class="glyphicon glyphicon-pencil"></i>
-                      </span>
-                      <input type="number" class="form-control" placeholder="Jumlah Peralatan Sandi" name="Jml_Palsan" aria-describedby="sizing-addon2" min="0" required value="<?= $value->Jml_Palsan ?>">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                              <label for="Jml_APU"><strong>Jumlah APU</strong></label>
+                              <input type="number" class="form-control" placeholder="Jumlah APU" name="Jml_APU" aria-describedby="sizing-addon2" min="0" required value="<?= $value->Jml_APU ?>">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                              <label for="Jml_SE"><strong>Jumlah Sistem Elektronik</strong></label>
+                              <input type="number" class="form-control" placeholder="Jumlah Sistem Elektronik" name="Jml_SE" aria-describedby="sizing-addon2" min="0" required value="<?= $value->Jml_SE ?>">
+                            </div>
+                        </div>
                     </div>
-                    <div class="input-group form-group">
-                      <span class="input-group-addon" id="sizing-addon2">
-                        <i class="glyphicon glyphicon-pencil"></i>
-                      </span>
-                      <input type="number" class="form-control" placeholder="Jumlah APU" name="Jml_APU" aria-describedby="sizing-addon2" min="0" required value="<?= $value->Jml_APU ?>">
-                    </div>
-                    <div class="input-group form-group">
-                      <span class="input-group-addon" id="sizing-addon2">
-                        <i class="glyphicon glyphicon-pencil"></i>
-                      </span>
-                      <input type="number" class="form-control" placeholder="Jumlah Sistem Elektronik" name="Jml_SE" aria-describedby="sizing-addon2" min="0" required value="<?= $value->Jml_SE ?>">
-                    </div>
-                    <div class="input-group form-group">
-                      <label for="Dokumen"><strong>Unggah Dokumen:</strong></label>
-                      <br>                      
-                      <input type="file" class="form-control" name="Dokumen">      
+                    <div class="row">
+                        <div class="col-sm-6">
+                             <?php
+                                if ($value->Dokumen==NUlL) {
+                                    echo "Dokumen Belum Diunggah";
+                                }else{
+                            ?>
+                               <a target="_blank" href="<?= base_url('assets')?>/pdf_files/laporan_persandian/<?= $value->Dokumen?>"><img src="<?= base_url('assets')?>/img/PDF_icon.png" width="20%"><br><?= $value->Dokumen ?></a>
+                            <?php
+                                }
+                            ?>
+                            
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="hidden" name="recent_dokumen" value="<?php echo $value->Dokumen?>">
+                            <div class="form-group">
+                              <label for="Dokumen"><strong>Unggah Dokumen:</strong></label>
+                              <br>                      
+                              <input type="file" class="form-control" name="Dokumen">      
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">

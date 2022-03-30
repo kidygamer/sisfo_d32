@@ -14,6 +14,14 @@ class M_laporan_persandian extends CI_Model {
 		return $data->result();
 	}
 
+	public function select_by_id($id) {
+		$sql = "SELECT * FROM laporan_persandian WHERE Id_Lapsan = '{$id}'";
+
+		$data = $this->db->query($sql);
+
+		return $data->row();
+	}
+
 	public function total_rows() {
 		$data = $this->db->get('laporan_persandian');
 
@@ -28,21 +36,22 @@ class M_laporan_persandian extends CI_Model {
 		return $this->db->affected_rows();
 	}
 
-	// public function select_by_id($id) {
-	// 	$sql = "SELECT * FROM instansi WHERE Id_Instansi = '{$id}'";
+	public function update($data) {
+		$dbdata = array(
+	          'Tahun' => $data['Tahun'],
+	          'Saran_uBSSN' => $data['Saran_uBSSN'],
+	          'Jml_SDM' => $data['Jml_SDM'],
+	          'Jml_Palsan' => $data['Jml_Palsan'],
+	          'Jml_APU' => $data['Jml_APU'],
+	          'Jml_SE' => $data['Jml_SE'],
+	          'Dokumen' => $data['Dokumen']
+	          //'updated_by' => $data['updated_by']
+	     ); 
+		$this->db->where('Id_LapSan', $data['Id_LapSan']); 
+	    $this->db->update('laporan_persandian', $dbdata);
 
-	// 	$data = $this->db->query($sql);
-
-	// 	return $data->row();
-	// }
-
-	// public function update($data) {
-	// 	$sql = "UPDATE instansi SET Nama_Instansi='" .$data['Nama_Instansi'] ."' WHERE Id_Instansi='" .$data['Id_Instansi'] ."'";
-
-	// 	$this->db->query($sql);
-
-	// 	return $this->db->affected_rows();
-	// }
+		return $this->db->affected_rows();
+	}
 
 	// public function delete($id) {
 	// 	$sql = "DELETE FROM instansi WHERE Id_Instansi='" .$id ."'";

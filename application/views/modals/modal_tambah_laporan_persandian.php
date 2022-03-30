@@ -58,7 +58,7 @@
     <div class="input-group form-group">
       <label for="Dokumen"><strong>Unggah Dokumen:</strong></label>
       <br>                      
-      <input type="file" class="form-control" name="Dokumen">      
+      <input type="file" class="form-control" name="Dokumen" required>      
     </div>
     <div class="form-group">
       <div class="col-md-12">
