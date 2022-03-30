@@ -14,20 +14,26 @@ class M_laporan_persandian extends CI_Model {
 		return $data->result();
 	}
 
+	public function total_rows() {
+		$data = $this->db->get('laporan_persandian');
+
+		return $data->num_rows();
+	}
+
+	public function insert($data) {
+		$sql = "INSERT INTO laporan_persandian VALUES('','" .$data['Tahun'] ."', '" .$data['Saran_uBSSN'] ."','" .$data['Jml_SDM'] ."','" .$data['Jml_Palsan'] ."','" .$data['Jml_APU'] ."','" .$data['Jml_SE'] ."','" .$data['Instansi'] ."','" .$data['Dokumen'] ."')";
+
+		$this->db->query($sql);
+
+		return $this->db->affected_rows();
+	}
+
 	// public function select_by_id($id) {
 	// 	$sql = "SELECT * FROM instansi WHERE Id_Instansi = '{$id}'";
 
 	// 	$data = $this->db->query($sql);
 
 	// 	return $data->row();
-	// }
-
-	// public function insert($data) {
-	// 	$sql = "INSERT INTO instansi VALUES('','" .$data['Nama_Instansi'] ."')";
-
-	// 	$this->db->query($sql);
-
-	// 	return $this->db->affected_rows();
 	// }
 
 	// public function update($data) {
@@ -67,11 +73,6 @@ class M_laporan_persandian extends CI_Model {
 	// 	return $data->num_rows();
 	// }
 
-	// public function total_rows() {
-	// 	$data = $this->db->get('kota');
-
-	// 	return $data->num_rows();
-	// }
 }
 
 /* End of file M_kota.php */

@@ -4,7 +4,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Instansi extends AUTH_Controller {
 	public function __construct() {
 		parent::__construct();
-		$this->load->library('session');
 		$this->load->model('M_instansi');
 	}
 
@@ -22,38 +21,60 @@ class Instansi extends AUTH_Controller {
 	}
 
 	public function prosesTambah() {
-		$this->form_validation->set_rules('Nama_Instansi', 'Nama_Instansi', 'trim|required');
+		$this->form_validation->set_rules('Nama_Instansi', 'Nama_Instansi', 'trim|required|min_length[10]|max_length[30]');
 
-		$data 	= $this->input->post();
-		if ($this->form_validation->run() == TRUE) {
+		$check = $this->M_instansi->select_by_name($this->input->post('Nama_Instansi'));
+		if ($check) {
+			$this->session->set_flashdata('error', 'Data <strong>Sudah Ada</strong> Pada Database!');
+			redirect('Instansi');
+		} else{
+			$data 	= $this->input->post();
+			if ($this->form_validation->run() == TRUE) {
 
-			if($this->M_instansi->insert($data)){
-				$this->session->set_flashdata('success', 'Data <strong>Berhasil</strong> Ditambahkan!');
-				redirect('Instansi');
+				if($this->M_instansi->insert($data)){
+					$this->session->set_flashdata('success', 'Data <strong>Berhasil</strong> Ditambahkan!');
+					redirect('Instansi');
+				} else {
+					$this->session->set_flashdata('error', 'Data <strong>Gagal</strong> Ditambahkan!');
+					redirect('Instansi');
+				}
 			} else {
-				$this->session->set_flashdata('error', 'Data <strong>Gagal</strong> Ditambahkan!');
-				redirect('Instansi');
+				$out['msg'] = show_err_msg(validation_errors());
+				$this->session->set_flashdata('error', 'Data <strong>Gagal</strong> Ditambahkan!'.$out['msg']);
+					redirect('Instansi');
 			}
-		}  
+		}
+
 	}
 
 	public function prosesUpdate() {
-		$this->form_validation->set_rules('Nama_Instansi', 'Nama_Instansi', 'trim|required');
+		$this->form_validation->set_rules('Nama_Instansi', 'Nama_Instansi', 'trim|required|alpha|min_length[10]|max_length[50]');
 
-		$data = [
+		$check = $this->M_instansi->select_by_name($this->input->post('Nama_Instansi'));
+		if ($check) {
+			$this->session->set_flashdata('error', 'Data <strong>Sudah Ada</strong> Pada Database!');
+			redirect('Instansi');
+		} else {
+			$data = [
 				'Id_Instansi' => $this->input->post('Id_Instansi'),
 				'Nama_Instansi' => $this->input->post('Nama_Instansi')
 			];
-		if ($this->form_validation->run() == TRUE) {
-			
-			if($this->M_instansi->update($data)){
-				$this->session->set_flashdata('success', 'Data <strong>Berhasil</strong> Diupdate!');
-				redirect('Instansi');
+			if ($this->form_validation->run() == TRUE) {
+				
+				if($this->M_instansi->update($data)){
+					$this->session->set_flashdata('success', 'Data <strong>Berhasil</strong> Diupdate!');
+					redirect('Instansi');
+				} else {
+					$this->session->set_flashdata('error', 'Data <strong>Gagal</strong> Diupdate!');
+					redirect('Instansi');
+				}
 			} else {
-				$this->session->set_flashdata('error', 'Data <strong>Gagal</strong> Diupdate!');
-				redirect('Instansi');
+				$out['msg'] = show_err_msg(validation_errors());
+				$this->session->set_flashdata('error', 'Data <strong>Gagal</strong> Ditambahkan!'.$out['msg']);
+					redirect('Instansi');
 			}
-		}
+		} 
+
 	}
 
 	public function delete($id){

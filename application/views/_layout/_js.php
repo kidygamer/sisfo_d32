@@ -9,3 +9,4 @@
 <script src="<?php echo base_url(); ?>assets/dist/js/app.min.js"></script>
 <!-- My Ajax -->
 <?php include './assets/js/ajax.php'; ?>
+

@@ -10,6 +10,8 @@
 
     <!-- jQuery 2.2.3 -->
     <script src="<?php echo base_url(); ?>assets/plugins/jQuery/jquery-2.2.3.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
+
   </head>
 
   <body class="hold-transition skin-blue sidebar-mini">
@@ -31,5 +33,14 @@
 
     <!-- js -->
     <?php echo @$_js; ?>
+
   </body>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
+  <script type="text/javascript">
+     $(document).ready(function () {
+      $('select').selectize({
+          sortField: 'text'
+      });
+  });
+  </script>
 </html>

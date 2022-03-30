@@ -45,7 +45,15 @@
               	<a href="#" data-toggle="modal" data-target="#detailModal<?=$lapsan->Id_LapSan?>" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-eye-open"></i> Buka</a>
               </td>
               <td>
-              	<a href="#" class="btn btn-success btn-sm"><center><i class="glyphicon glyphicon-download"></i></center></a>
+                <?php
+                    if ($lapsan->Dokumen==NUlL) {
+                        echo "Belum Diunggah";
+                    }else{
+                ?>
+                    <a target="_blank" href="<?= base_url('assets')?>/pdf_files/laporan_persandian/<?= $lapsan->Dokumen?>" class="btn btn-success btn-sm"><center><i class="glyphicon glyphicon-download"></i>Download</center></a>
+                <?php
+                    }
+                ?>
               </td>
               <td class="text-center" style="min-width:230px;">
                   <a href="#" data-toggle="modal" data-target="#updateModal<?=$lapsan->Id_LapSan?>" class="btn btn-warning btn-sm"><i class="glyphicon glyphicon-repeat"></i> Update</a>
@@ -78,13 +86,13 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">             
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Laporan Persandian <b><?= $value->Nama_Instansi ?></b> Tahun <b><?= $value->Tahun ?></b></h5>
+                     <center><h3 class="modal-title" id="exampleModalLabel">Update Data Laporan Persandian <br> <b><?= $value->Nama_Instansi ?></b> Tahun <b><?= $value->Tahun ?></b></h3></center>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                	<table border="1">
+                	<table class="table table-striped">
                 		<tr>
                 			<td style="width:30%">Jumlah SDM Persandian</td>
                 			<td><b><?php echo $value->Jml_SDM ?></b> orang</td>
@@ -119,25 +127,60 @@
 
 <!--Modal Update-->
   <?php foreach ($dataLaporan_Persandian as $value): ?>
-    <div class="modal fade" id="updateModal<?=$value->Id_LapSan?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <div class="modal" id="updateModal<?=$value->Id_LapSan?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-              <form id="form-update-instansi" method="POST" action="<?php echo base_url('Laporan_Persandian/prosesUpdate'); ?>">
+              <form id="form-update-lapsan" method="POST" action="<?php echo base_url('Laporan_Persandian/prosesUpdate'); ?>" enctype="multipart/form-data">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Update data</h5>
+                    <center><h3 class="modal-title" id="exampleModalLabel">Update Data Laporan Persandian <br> <b><?= $value->Nama_Instansi ?></b> Tahun <b><?= $value->Tahun ?></b></h3></center>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                  <input type="hidden" name="Id_LapSan" value="<?php echo $instansi->Id_LapSan?>">
-                  <div class="input-group form-group">
-                    <span class="input-group-addon" id="sizing-addon2">
-                      <i class="glyphicon glyphicon-pencil"></i>
-                    </span>
-                    <input type="text" class="form-control" placeholder="Nama Instansi" name="Nama_Instansi" aria-describedby="sizing-addon2" value="#">
-                  </div>
+                  <input type="hidden" name="Id_LapSan" value="<?php echo $value->Id_LapSan?>">
+                    <div class="input-group form-group">
+                      <span class="input-group-addon" id="sizing-addon2">
+                        <i class="glyphicon glyphicon-pencil"></i>
+                      </span>
+                      <input type="number" class="form-control" placeholder="Tahun" name="Tahun" aria-describedby="sizing-addon2" min="0" required value="<?= $value->Tahun ?>">
+                    </div>
+                    <div class="input-group form-group">
+                      <span class="input-group-addon" id="sizing-addon2">
+                        <i class="glyphicon glyphicon-pencil"></i>
+                      </span>
+                      <textarea class="form-control" name="Saran_uBSSN" placeholder="Saran untuk BSSN" required><?= $value->Saran_uBSSN ?></textarea>
+                    </div>
+                    <div class="input-group form-group">
+                      <span class="input-group-addon" id="sizing-addon2">
+                        <i class="glyphicon glyphicon-pencil"></i>
+                      </span>
+                      <input type="number" class="form-control" placeholder="Jumlah SDM Persandian" name="Jml_SDM" aria-describedby="sizing-addon2" min="0" required value="<?= $value->Jml_SDM ?>">
+                    </div>
+                    <div class="input-group form-group">
+                      <span class="input-group-addon" id="sizing-addon2">
+                        <i class="glyphicon glyphicon-pencil"></i>
+                      </span>
+                      <input type="number" class="form-control" placeholder="Jumlah Peralatan Sandi" name="Jml_Palsan" aria-describedby="sizing-addon2" min="0" required value="<?= $value->Jml_Palsan ?>">
+                    </div>
+                    <div class="input-group form-group">
+                      <span class="input-group-addon" id="sizing-addon2">
+                        <i class="glyphicon glyphicon-pencil"></i>
+                      </span>
+                      <input type="number" class="form-control" placeholder="Jumlah APU" name="Jml_APU" aria-describedby="sizing-addon2" min="0" required value="<?= $value->Jml_APU ?>">
+                    </div>
+                    <div class="input-group form-group">
+                      <span class="input-group-addon" id="sizing-addon2">
+                        <i class="glyphicon glyphicon-pencil"></i>
+                      </span>
+                      <input type="number" class="form-control" placeholder="Jumlah Sistem Elektronik" name="Jml_SE" aria-describedby="sizing-addon2" min="0" required value="<?= $value->Jml_SE ?>">
+                    </div>
+                    <div class="input-group form-group">
+                      <label for="Dokumen"><strong>Unggah Dokumen:</strong></label>
+                      <br>                      
+                      <input type="file" class="form-control" name="Dokumen">      
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
