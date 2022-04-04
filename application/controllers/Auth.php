@@ -37,6 +37,7 @@ class Auth extends CI_Controller {
 				];
 				$this->session->set_userdata($session);
 				redirect('Home');
+				// print_r($session);
 			}
 		} else {
 			$this->session->set_flashdata('error_msg', validation_errors());

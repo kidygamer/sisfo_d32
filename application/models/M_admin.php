@@ -9,6 +9,21 @@ class M_admin extends CI_Model {
 		return $this->db->affected_rows();
 	}
 
+	public function updateAccount($data, $id)
+	{
+		$update=$this->db->query("UPDATE admin SET
+	    username=".$this->db->escape($data['username']).",
+	    nama=".$this->db->escape($data['nama']).",
+	    foto=".$this->db->escape($data['foto'])."
+	    WHERE id=".$this->db->escape_str($id)."
+	    ");
+	    if($update){
+	      return TRUE;
+	    }else{
+	      return FALSE;
+	    }
+	}
+
 	public function select($id = '') {
 		if ($id != '') {
 			$this->db->where('id', $id);

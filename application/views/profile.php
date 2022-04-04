@@ -7,11 +7,14 @@
 
         <h3 class="profile-username text-center"><?php echo $userdata->nama; ?></h3>
 
-        <p class="text-muted text-center">Web Developer</p>
+        <p class="text-muted text-center"><?php echo $userdata->role; ?></p>
 
         <ul class="list-group list-group-unbordered">
           <li class="list-group-item">
             <b>Username</b> <a class="pull-right"><?php echo $userdata->username; ?></a>
+          </li>
+          <li class="list-group-item">
+            <b>Jabatan</b> <a class="pull-right"><?php echo $userdata->jabatan; ?></a>
           </li>
         </ul>
       </div>
@@ -42,6 +45,7 @@
             <div class="form-group">
               <label for="inputFoto" class="col-sm-2 control-label">Foto</label>
               <div class="col-sm-10">
+                <input type="hidden" name="recent_foto" value="<?php echo $userdata->foto; ?>">
                 <input type="file" class="form-control" placeholder="Foto" name="foto">
               </div>
             </div>
@@ -64,13 +68,13 @@
             <div class="form-group">
               <label for="passBaru" class="col-sm-2 control-label">Password Baru</label>
               <div class="col-sm-10">
-                <input type="password" class="form-control" placeholder="Password Baru" name="passBaru">
+                <input type="password" class="form-control" placeholder="Password Baru (*Kombinasi huruf dan angka, min. 10 karakter,maks. 20 karakter)" name="passBaru">
               </div>
             </div>
             <div class="form-group">
               <label for="passKonf" class="col-sm-2 control-label">Konfirmasi Password</label>
               <div class="col-sm-10">
-                <input type="password" class="form-control" placeholder="Konfirmasi Password" name="passKonf">
+                <input type="password" class="form-control" placeholder="Konfirmasi Password (*Ketikkan kembali password baru Anda)" name="passKonf">
               </div>
             </div>
             

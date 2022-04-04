@@ -26,6 +26,13 @@
         </a>
       </li>
       
+      <li <?php if ($page == 'pengguna') {echo 'class="active"';} ?>>
+        <a href="<?php echo base_url('Pengguna'); ?>">
+          <i class="fa fa-user"></i>
+          <span>Data Pengguna</span>
+        </a>
+      </li>
+
       <li <?php if ($page == 'instansi') {echo 'class="active"';} ?>>
         <a href="<?php echo base_url('Instansi'); ?>">
           <i class="fa fa-building"></i>
