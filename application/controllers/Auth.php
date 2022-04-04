@@ -22,12 +22,13 @@ class Auth extends CI_Controller {
 		$this->form_validation->set_rules('password', 'Password', 'required');
 
 		if ($this->form_validation->run() == TRUE) {
-			$username = trim($_POST['username']);
-			$password = trim($_POST['password']);
+			$username = $this->input->post('username');
+			$password = $this->input->post('password');
 
-			$data = $this->M_auth->login($username, $password);
+			$data = $this->M_auth->login($username);
+			$password_db = $data->password;
 
-			if ($data == false) {
+			if (password_verify($password, $password_db)) {
 				$this->session->set_flashdata('error_msg', 'Username / Password Anda Salah.');
 				redirect('Auth');
 			} else {

@@ -68,16 +68,19 @@ class Profile extends AUTH_Controller {
 
 		$id = $this->userdata->id;
 		if ($this->form_validation->run() == TRUE) {
-			if (md5($this->input->post('passLama')) == $this->userdata->password) {
+			
+			//if (md5($this->input->post('passLama')) == $this->userdata->password) {
+			if (password_verify($this->input->post('passLama'), $this->userdata->password)) {
 				if ($this->input->post('passBaru') != $this->input->post('passKonf')) {
 					$this->session->set_flashdata('msg', show_err_msg('Password Baru dan Konfirmasi Password harus sama'));
 					redirect('Profile');
 				} else {
+					$hash = password_hash($this->input->post('passBaru'), PASSWORD_BCRYPT);
 					$data = [
-						'password' => md5($this->input->post('passBaru'))
+						'password' => $hash
 					];
 
-					$result = $this->M_admin->update($data, $id);
+					$result = $this->M_admin->updatePassword($data, $id);
 					if ($result > 0) {
 						$this->updateProfil();
 						$this->session->set_flashdata('msg', show_succ_msg('Password Berhasil diubah'));
