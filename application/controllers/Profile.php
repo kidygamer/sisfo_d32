@@ -5,11 +5,11 @@ class Profile extends AUTH_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('M_admin');
+		
 	}
 
 	public function index() {
 		$data['userdata'] 		= $this->userdata;
-		
 		$data['page'] 			= "profile";
 		$data['judul'] 			= "Profile";
 		$data['deskripsi'] 		= "Setting Profile";
@@ -17,6 +17,7 @@ class Profile extends AUTH_Controller {
 	}
 
 	public function update() {
+		$data['userdata'] 		= $this->userdata;
 		$this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[4]|max_length[15]');
 		$this->form_validation->set_rules('nama', 'Nama', 'trim|required');
 
@@ -25,7 +26,7 @@ class Profile extends AUTH_Controller {
 		
 		if ($this->form_validation->run() == TRUE) {
 			
-			$new_name = "ProfilePicture-".$this->session->userdata('nama');
+			$new_name = "ProfilePicture-".$data['userdata']->username;
 			$config['upload_path'] = "./assets/img";
 			$config['allowed_types'] = "jpg|png";
 			$config['max_size'] = 30000;

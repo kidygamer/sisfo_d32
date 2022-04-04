@@ -20,11 +20,6 @@ class M_admin extends CI_Model {
 	}
 
 	public function updatePassword($data, $id) {
-		// $this->db->where("id", $id);
-		// $this->db->update("admin", $data);
-
-		// return $this->db->affected_rows();
-
 		$update = $this->db->query("UPDATE admin SET
 	    							password=".$this->db->escape($data['password'])."
 	    							WHERE id=".$this->db->escape_str($id)."

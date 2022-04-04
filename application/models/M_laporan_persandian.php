@@ -29,11 +29,25 @@ class M_laporan_persandian extends CI_Model {
 	}
 
 	public function insert($data) {
-		$sql = "INSERT INTO laporan_persandian VALUES('','" .$data['Tahun'] ."', '" .$data['Saran_uBSSN'] ."','" .$data['Jml_SDM'] ."','" .$data['Jml_Palsan'] ."','" .$data['Jml_APU'] ."','" .$data['Jml_SE'] ."','" .$data['Instansi'] ."','" .$data['Dokumen'] ."')";
 
-		$this->db->query($sql);
-
-		return $this->db->affected_rows();
+		$simpan=$this->db->query("INSERT INTO laporan_persandian
+									(Tahun,Saran_uBSSN,Jml_SDM,Jml_Palsan,Jml_APU,Jml_SE,Instansi,Dokumen,updated_by)
+      							  VALUES(								        
+								        ".$this->db->escape($data['Tahun']).",
+								        ".$this->db->escape($data['Saran_uBSSN']).",
+								        ".$this->db->escape($data['Jml_SDM']).",
+								        ".$this->db->escape($data['Jml_Palsan']).",
+								        ".$this->db->escape($data['Jml_APU']).",
+								        ".$this->db->escape($data['Jml_SE']).",
+								        ".$this->db->escape($data['Instansi']).",
+								        ".$this->db->escape($data['Dokumen']).",
+								        ".$this->db->escape($data['updated_by'])."
+      								)");
+	    if($simpan){
+	      return TRUE;
+	    }else{
+	      return FALSE;
+	    }
 	}
 
 	public function update($data) {
@@ -44,8 +58,8 @@ class M_laporan_persandian extends CI_Model {
 	          'Jml_Palsan' => $data['Jml_Palsan'],
 	          'Jml_APU' => $data['Jml_APU'],
 	          'Jml_SE' => $data['Jml_SE'],
-	          'Dokumen' => $data['Dokumen']
-	          //'updated_by' => $data['updated_by']
+	          'Dokumen' => $data['Dokumen'],
+	          'updated_by' => $data['updated_by']
 	     ); 
 		$this->db->where('Id_LapSan', $data['Id_LapSan']); 
 	    $this->db->update('laporan_persandian', $dbdata);

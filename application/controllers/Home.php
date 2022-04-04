@@ -13,10 +13,22 @@ class Home extends AUTH_Controller {
 		$data['jml_laporan_persandian'] = $this->M_laporan_persandian->total_rows();
 		$data['userdata'] 		= $this->userdata;
 
+		
 		$data['page'] 			= "home";
 		$data['judul'] 			= "Beranda";
-		$data['deskripsi'] 		= "Manage Data CRUD";
+		$data['deskripsi'] 		= "Selamat Datang, Administrator - ".$data['userdata']->nama;
 		$this->template->views('home', $data);
+		
+	}
+
+	public function editor()
+	{
+		echo "Ini page editor";
+	}
+
+	public function pimpinan()
+	{
+		echo "Ini page pimpinan";
 	}
 }
 

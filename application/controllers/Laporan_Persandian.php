@@ -23,6 +23,7 @@ class Laporan_Persandian extends AUTH_Controller {
 	}
 
 	public function prosesTambah() {
+		$data['userdata'] 		= $this->userdata;
 		$rules = array(
 	        array(
 	                'field' => 'Instansi',
@@ -87,7 +88,8 @@ class Laporan_Persandian extends AUTH_Controller {
 				'Jml_APU' => $this->input->post('Jml_APU'),
 				'Jml_SE' => $this->input->post('Jml_SE'),
 				'Instansi' => $this->input->post('Instansi'),
-				'Dokumen' => $dokumen_lapsan
+				'Dokumen' => $dokumen_lapsan,				
+				'updated_by' => $data['userdata']->username
 		];
 
 		if ($this->form_validation->run() == TRUE) {
@@ -107,6 +109,7 @@ class Laporan_Persandian extends AUTH_Controller {
 	}
 
 	public function prosesUpdate() {
+		$data['userdata'] 		= $this->userdata;
 		$rules = array(
 	        array(
 	                'field' => 'Tahun',
@@ -167,8 +170,8 @@ class Laporan_Persandian extends AUTH_Controller {
 				'Jml_APU' => $this->input->post('Jml_APU'),
 				'Jml_SE' => $this->input->post('Jml_SE'),
 				'Instansi' => $this->input->post('Instansi'),
-				'Dokumen' => $dokumen_lapsan				
-				//'updated_by' => $this->input->post('Instansi')
+				'Dokumen' => $dokumen_lapsan,				
+				'updated_by' => $data['userdata']->username
 		];
 
 		if ($this->form_validation->run() == TRUE) {
@@ -185,8 +188,6 @@ class Laporan_Persandian extends AUTH_Controller {
 			$this->session->set_flashdata('error', 'Data <strong>Gagal</strong> Diupdate!'.$out['msg']);
 			redirect('Laporan_Persandian');
 		}
-		//echo  $this->session->userdata[0]['nama'];
-		//print_r( $this->session->userdata); 
 	 
 	}
 

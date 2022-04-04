@@ -37,8 +37,15 @@ class Auth extends CI_Controller {
 					'status' => "Loged in"
 				];
 				$this->session->set_userdata($session);
-				redirect('Home');
-				// print_r($session);
+
+				if ($session['userdata']->role == 'administrator') {
+					redirect('Home');
+				}else if ($session['userdata']->role == 'editor') {
+					redirect('Home/editor');
+				} else {
+					redirect('Home/pimpinan');
+				}	
+				
 			}
 		} else {
 			$this->session->set_flashdata('error_msg', validation_errors());
