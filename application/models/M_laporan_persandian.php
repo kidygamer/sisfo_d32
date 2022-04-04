@@ -6,6 +6,7 @@ class M_laporan_persandian extends CI_Model {
 		$this->db->select('*');
 		$this->db->from('laporan_persandian a');
 		$this->db->join('instansi b', 'a.Instansi = b.Id_Instansi');
+		$this->db->where('a.archieved', '0');
 		$this->db->order_by('Id_LapSan','ASC');
 
 
@@ -51,29 +52,34 @@ class M_laporan_persandian extends CI_Model {
 	}
 
 	public function update($data) {
-		$dbdata = array(
-	          'Tahun' => $data['Tahun'],
-	          'Saran_uBSSN' => $data['Saran_uBSSN'],
-	          'Jml_SDM' => $data['Jml_SDM'],
-	          'Jml_Palsan' => $data['Jml_Palsan'],
-	          'Jml_APU' => $data['Jml_APU'],
-	          'Jml_SE' => $data['Jml_SE'],
-	          'Dokumen' => $data['Dokumen'],
-	          'updated_by' => $data['updated_by']
-	     ); 
-		$this->db->where('Id_LapSan', $data['Id_LapSan']); 
-	    $this->db->update('laporan_persandian', $dbdata);
+
+		$update = $this->db->query("UPDATE laporan_persandian SET
+	    							Tahun=".$this->db->escape($data['Tahun']).",
+	    							Saran_uBSSN=".$this->db->escape($data['Saran_uBSSN']).",
+	    							Jml_SDM=".$this->db->escape($data['Jml_SDM']).",
+	    							Jml_Palsan=".$this->db->escape($data['Jml_Palsan']).",
+	    							Jml_APU=".$this->db->escape($data['Jml_APU']).",
+	    							Jml_SE=".$this->db->escape($data['Jml_SE']).",
+	    							Dokumen=".$this->db->escape($data['Dokumen'])."
+	    							WHERE Id_LapSan=".$this->db->escape($data['Id_LapSan'])."
+	    ");
+
+	    if($update){
+	      return TRUE;
+	    }else{
+	      return FALSE;
+	    }
+	}
+	
+
+	public function archieve($id) {
+		$true = 1;
+		$sql = "UPDATE laporan_persandian SET archieved='" .$true ."' WHERE Id_LapSan='" .$id."'";
+
+		$this->db->query($sql);
 
 		return $this->db->affected_rows();
 	}
-
-	// public function delete($id) {
-	// 	$sql = "DELETE FROM instansi WHERE Id_Instansi='" .$id ."'";
-
-	// 	$this->db->query($sql);
-
-	// 	return $this->db->affected_rows();
-	// }
 
 	// public function select_by_pegawai($id) {
 	// 	$sql = " SELECT pegawai.id AS id, pegawai.nama AS pegawai, pegawai.telp AS telp, kota.nama AS kota, kelamin.nama AS kelamin, posisi.nama AS posisi FROM pegawai, kota, kelamin, posisi WHERE pegawai.id_kelamin = kelamin.id AND pegawai.id_posisi = posisi.id AND pegawai.id_kota = kota.id AND pegawai.id_kota={$id}";

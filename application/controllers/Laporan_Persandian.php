@@ -191,16 +191,19 @@ class Laporan_Persandian extends AUTH_Controller {
 	 
 	}
 
-	// public function delete($id){
+	public function archieve($id){
 
-	// 	if($this->M_instansi->delete($id)){
-	// 		$this->session->set_flashdata('success', 'Instansi <strong>Berhasil</strong> Dihapus!');
-	// 		redirect('Instansi');
-	// 	} else {
-	// 		$this->session->set_flashdata('error', 'Instansi <strong>Gagal</strong> Dihapus!');
-	// 		redirect('Instansi');
-	// 	}
-	// }
+		if($this->M_laporan_persandian->archieve($id)){
+				// $this->session->set_flashdata('success', 'Data <strong>Berhasil</strong> Diarsipkan!');
+				// redirect('Laporan_Persandian');
+			echo "success";
+		} else {
+				// $this->session->set_flashdata('error', 'Data <strong>Gagal</strong> Diarsipkan!');
+				// echo "update failed";
+				// redirect('Laporan_Persandian');
+			echo "failed";
+		}
+	}
 
 
 	// public function detail() {
