@@ -63,8 +63,8 @@ class Profile extends AUTH_Controller {
 	}
 
 	public function ubah_password() {
-		$this->form_validation->set_rules('passLama', 'Password Lama', 'trim|required');
-		$this->form_validation->set_rules('passBaru', 'Password Baru', 'alpha_numeric|required|min_length[10]|max_length[20]');
+		$this->form_validation->set_rules('passLama', 'Password Lama', 'trim|required|alpha_numeric');
+		$this->form_validation->set_rules('passBaru', 'Password Baru', 'alpha_numeric|required|min_length[8]|max_length[15]');
 		$this->form_validation->set_rules('passKonf', 'Password Konfirmasi', 'alpha_numeric|required|min_length[10]|max_length[20]');
 
 		$id = $this->userdata->id;

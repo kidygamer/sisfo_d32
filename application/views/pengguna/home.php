@@ -16,7 +16,7 @@
         <?php endif ?>
   <div class="box-header">
     <div class="col-md-6">
-        <button class="form-control btn btn-primary" data-toggle="modal" data-target="#tambah-laporan_persandian"><i class="glyphicon glyphicon-plus-sign"></i> Tambah Data</button>
+        <button class="form-control btn btn-primary" data-toggle="modal" data-target="#tambah-pengguna"><i class="glyphicon glyphicon-plus-sign"></i> Tambah Data</button>
     </div>
   </div>
   <!-- /.box-header -->
@@ -28,7 +28,6 @@
           <th>Username</th>
           <th>Nama</th>
           <th>Jabatan</th>
-          <th>Email</th>
           <th style="text-align: center;width: 5%;">Aksi</th>
         </tr>
       </thead>
@@ -42,7 +41,6 @@
               <td><?php echo $user->username; ?></td>
               <td><?php echo $user->nama ?></td>
               <td><?php echo $user->jabatan ?></td>
-              <td><?php echo $user->email ?></td>
               <td class="text-center" style="min-width:230px;">
               	 <a href="#" data-toggle="modal" data-target="#detailModal<?=$user->id?>" class="btn btn-success btn-sm"><i class="glyphicon glyphicon-eye-open"></i> Detail</a>
                  <a href="#" data-toggle="modal" data-target="#updateModal<?=$user->id?>" class="btn btn-warning btn-sm"><i class="glyphicon glyphicon-repeat"></i> Update</a>
@@ -58,7 +56,7 @@
   </div>
 </div>
 
-<?php //echo $modal_tambah_laporan_persandian; ?>
+<?php echo $modal_tambah_pengguna; ?>
 
 <?php
   // $data['judul'] = 'Kota';

@@ -27,37 +27,46 @@ class M_pengguna extends CI_Model {
 	}
 
 	public function insert($data) {
-		$sql = "INSERT INTO pengguna VALUES('','" .$data['username'] ."', '" .$data['password'] ."','" .$data['role'] ."','" .$data['nama'] ."','" .$data['nik'] ."','" .$data['jabatan'] ."','" .$data['Instansi'] ."','" .$data['Dokumen'] ."')";
+		$simpan=$this->db->query("INSERT INTO admin
+									(username,password,role,nama,nik,jabatan,email)
+      							  VALUES(								        
+								        ".$this->db->escape($data['username']).",
+								        ".$this->db->escape($data['password']).",
+								        ".$this->db->escape($data['role']).",
+								        ".$this->db->escape($data['nama']).",
+								        ".$this->db->escape($data['nik']).",
+								        ".$this->db->escape($data['jabatan']).",
+								        ".$this->db->escape($data['email'])."
+      								)");
+	    if($simpan){
+	      return TRUE;
+	    }else{
+	      return FALSE;
+	    }
+	}
+
+	public function update($data) {
+		$dbdata = array(
+	          'username' => $data['username'],
+	          'password' => $data['password'],
+	          'role' => $data['role'],
+	          'nama' => $data['nama'],
+	          'nik' => $data['nik'],
+	          'jabatan' => $data['jabatan']
+	     ); 
+		$this->db->where('id', $data['id']); 
+	    $this->db->update('laporan_persandian', $dbdata);
+
+		return $this->db->affected_rows();
+	}
+
+	public function delete($id) {
+		$sql = "DELETE FROM instansi WHERE Id_Instansi='" .$id ."'";
 
 		$this->db->query($sql);
 
 		return $this->db->affected_rows();
 	}
-
-	// public function update($data) {
-	// 	$dbdata = array(
-	//           'Tahun' => $data['Tahun'],
-	//           'Saran_uBSSN' => $data['Saran_uBSSN'],
-	//           'Jml_SDM' => $data['Jml_SDM'],
-	//           'Jml_Palsan' => $data['Jml_Palsan'],
-	//           'Jml_APU' => $data['Jml_APU'],
-	//           'Jml_SE' => $data['Jml_SE'],
-	//           'Dokumen' => $data['Dokumen']
-	//           //'updated_by' => $data['updated_by']
-	//      ); 
-	// 	$this->db->where('Id_LapSan', $data['Id_LapSan']); 
-	//     $this->db->update('laporan_persandian', $dbdata);
-
-	// 	return $this->db->affected_rows();
-	// }
-
-	// public function delete($id) {
-	// 	$sql = "DELETE FROM instansi WHERE Id_Instansi='" .$id ."'";
-
-	// 	$this->db->query($sql);
-
-	// 	return $this->db->affected_rows();
-	// }
 
 	// public function select_by_pegawai($id) {
 	// 	$sql = " SELECT pegawai.id AS id, pegawai.nama AS pegawai, pegawai.telp AS telp, kota.nama AS kota, kelamin.nama AS kelamin, posisi.nama AS posisi FROM pegawai, kota, kelamin, posisi WHERE pegawai.id_kelamin = kelamin.id AND pegawai.id_posisi = posisi.id AND pegawai.id_kota = kota.id AND pegawai.id_kota={$id}";
