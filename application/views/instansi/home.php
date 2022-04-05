@@ -39,7 +39,7 @@
               <td><?php echo $instansi->Nama_Instansi; ?></td>
               <td class="text-center" style="min-width:230px;">
                   <a href="#" data-toggle="modal" data-target="#updateModal<?=$instansi->Id_Instansi?>" class="btn btn-warning btn-sm"><i class="glyphicon glyphicon-repeat"></i> Update</a>
-                  <a href="#" data-toggle="modal" data-target="#deleteModal<?=$instansi->Id_Instansi?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Hapus</a>
+                  <a href="#" data-toggle="modal" data-target="#deleteModal<?=$instansi->Id_Instansi?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Arsipkan</a>
               </td>
             </tr>
             <?php
@@ -101,15 +101,15 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Hapus data ini?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Arsipkan data ini?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Anda yakin menghapus data instansi <b><?=  $value->Nama_Instansi ?></b>?</div>
+                <div class="modal-body">Anda yakin mengarsipkan data instansi <b><?=  $value->Nama_Instansi ?></b>?</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a href="<?= base_url('Instansi/delete/' . $value->Id_Instansi) ?>" class="btn btn-danger">Hapus</a>
+                    <a href="<?= base_url('Instansi/archieve/' . $value->Id_Instansi) ?>" class="btn btn-danger">Arsipkan</a>
                 </div>
             </div>
         </div>

@@ -5,6 +5,7 @@ class Instansi extends AUTH_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('M_instansi');
+		$this->load->model('M_laporan_persandian');
 	}
 
 	public function index() {
@@ -21,6 +22,7 @@ class Instansi extends AUTH_Controller {
 	}
 
 	public function prosesTambah() {
+		$data['userdata'] 		= $this->userdata;
 		$this->form_validation->set_rules('Nama_Instansi', 'Nama_Instansi', 'trim|required|min_length[10]|max_length[30]');
 
 		$check = $this->M_instansi->select_by_name($this->input->post('Nama_Instansi'));
@@ -28,7 +30,10 @@ class Instansi extends AUTH_Controller {
 			$this->session->set_flashdata('error', 'Data <strong>Sudah Ada</strong> Pada Database!');
 			redirect('Instansi');
 		} else{
-			$data 	= $this->input->post();
+			$data = [
+				'Nama_Instansi' => $this->input->post('Nama_Instansi'),
+				'updated_by' => $data['userdata']->username
+		    ];
 			if ($this->form_validation->run() == TRUE) {
 
 				if($this->M_instansi->insert($data)){
@@ -48,7 +53,8 @@ class Instansi extends AUTH_Controller {
 	}
 
 	public function prosesUpdate() {
-		$this->form_validation->set_rules('Nama_Instansi', 'Nama_Instansi', 'trim|required|alpha|min_length[10]|max_length[50]');
+		$data['userdata'] 		= $this->userdata;
+		$this->form_validation->set_rules('Nama_Instansi', 'Nama_Instansi', 'trim|required|min_length[10]|max_length[50]');
 
 		$check = $this->M_instansi->select_by_name($this->input->post('Nama_Instansi'));
 		if ($check) {
@@ -57,7 +63,8 @@ class Instansi extends AUTH_Controller {
 		} else {
 			$data = [
 				'Id_Instansi' => $this->input->post('Id_Instansi'),
-				'Nama_Instansi' => $this->input->post('Nama_Instansi')
+				'Nama_Instansi' => $this->input->post('Nama_Instansi'),
+				'updated_by' => $data['userdata']->username
 			];
 			if ($this->form_validation->run() == TRUE) {
 				
@@ -77,14 +84,23 @@ class Instansi extends AUTH_Controller {
 
 	}
 
-	public function delete($id){
-
-		if($this->M_instansi->delete($id)){
-			$this->session->set_flashdata('success', 'Instansi <strong>Berhasil</strong> Dihapus!');
+	public function archieve($id){
+		$lapsan = $this->M_laporan_persandian->select_by_instansi($id);
+		
+		if($this->M_instansi->archieve($id)){
+		
+			//mengarsipkan jg data-data yg berelasi dgn instansi yg diarsipkan
+			if ($lapsan) {
+				$this->M_laporan_persandian->archieve($lapsan->Id_Lapsan);
+			}
+			
+			$this->session->set_flashdata('success', 'Data <strong>Berhasil</strong> Diarsipkan!');
 			redirect('Instansi');
+			echo "success";
 		} else {
-			$this->session->set_flashdata('error', 'Instansi <strong>Gagal</strong> Dihapus!');
+			$this->session->set_flashdata('error', 'Data <strong>Gagal</strong> Diarsipkan!');
 			redirect('Instansi');
+			echo "failed";
 		}
 	}
 

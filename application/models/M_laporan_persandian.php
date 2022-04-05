@@ -23,6 +23,14 @@ class M_laporan_persandian extends CI_Model {
 		return $data->row();
 	}
 
+	public function select_by_instansi($id) {
+		$sql = "SELECT Id_Lapsan FROM laporan_persandian WHERE Instansi = '{$id}'";
+
+		$data = $this->db->query($sql);
+
+		return $data->row();
+	}
+
 	public function total_rows() {
 		$data = $this->db->get('laporan_persandian');
 
@@ -60,7 +68,8 @@ class M_laporan_persandian extends CI_Model {
 	    							Jml_Palsan=".$this->db->escape($data['Jml_Palsan']).",
 	    							Jml_APU=".$this->db->escape($data['Jml_APU']).",
 	    							Jml_SE=".$this->db->escape($data['Jml_SE']).",
-	    							Dokumen=".$this->db->escape($data['Dokumen'])."
+	    							Dokumen=".$this->db->escape($data['Dokumen']).",
+	    							updated_by=".$this->db->escape($data['updated_by'])."
 	    							WHERE Id_LapSan=".$this->db->escape($data['Id_LapSan'])."
 	    ");
 

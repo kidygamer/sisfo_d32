@@ -194,14 +194,13 @@ class Laporan_Persandian extends AUTH_Controller {
 	public function archieve($id){
 
 		if($this->M_laporan_persandian->archieve($id)){
-				// $this->session->set_flashdata('success', 'Data <strong>Berhasil</strong> Diarsipkan!');
-				// redirect('Laporan_Persandian');
-			echo "success";
+			$this->session->set_flashdata('success', 'Data <strong>Berhasil</strong> Diarsipkan!');
+			redirect('Laporan_Persandian');
+			//echo "success";
 		} else {
-				// $this->session->set_flashdata('error', 'Data <strong>Gagal</strong> Diarsipkan!');
-				// echo "update failed";
-				// redirect('Laporan_Persandian');
-			echo "failed";
+			$this->session->set_flashdata('error', 'Data <strong>Gagal</strong> Diarsipkan!');
+			redirect('Laporan_Persandian');
+			//echo "failed";
 		}
 	}
 
