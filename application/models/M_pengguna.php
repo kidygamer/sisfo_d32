@@ -5,7 +5,7 @@ class M_pengguna extends CI_Model {
 	public function select_all() {
 		$this->db->select('*');
 		$this->db->from('admin a');
-
+		$this->db->where('a.archieved', '0');
 
 		$data = $this->db->get();
 
@@ -46,48 +46,31 @@ class M_pengguna extends CI_Model {
 	}
 
 	public function update($data) {
-		$dbdata = array(
-	          'username' => $data['username'],
-	          'password' => $data['password'],
-	          'role' => $data['role'],
-	          'nama' => $data['nama'],
-	          'nik' => $data['nik'],
-	          'jabatan' => $data['jabatan']
-	     ); 
-		$this->db->where('id', $data['id']); 
-	    $this->db->update('laporan_persandian', $dbdata);
+		$update = $this->db->query("UPDATE admin SET
+									username=".$this->db->escape($data['username']).",
+	    							role=".$this->db->escape($data['role']).",
+	    							nama=".$this->db->escape($data['nama']).",
+	    							nik=".$this->db->escape($data['nik']).",
+	    							jabatan=".$this->db->escape($data['jabatan']).",
+	    							email=".$this->db->escape($data['email'])."
+	    							WHERE id=".$this->db->escape($data['id'])."
+	    ");
 
-		return $this->db->affected_rows();
+	    if($update){
+	      return TRUE;
+	    }else{
+	      return FALSE;
+	    }
 	}
 
-	public function delete($id) {
-		$sql = "DELETE FROM instansi WHERE Id_Instansi='" .$id ."'";
+	public function archieve($id) {
+		$true = 1;
+		$sql = "UPDATE admin SET archieved='" .$true ."' WHERE id='" .$id."'";
 
 		$this->db->query($sql);
 
 		return $this->db->affected_rows();
 	}
-
-	// public function select_by_pegawai($id) {
-	// 	$sql = " SELECT pegawai.id AS id, pegawai.nama AS pegawai, pegawai.telp AS telp, kota.nama AS kota, kelamin.nama AS kelamin, posisi.nama AS posisi FROM pegawai, kota, kelamin, posisi WHERE pegawai.id_kelamin = kelamin.id AND pegawai.id_posisi = posisi.id AND pegawai.id_kota = kota.id AND pegawai.id_kota={$id}";
-
-	// 	$data = $this->db->query($sql);
-
-	// 	return $data->result();
-	// }
-
-	// public function insert_batch($data) {
-	// 	$this->db->insert_batch('kota', $data);
-		
-	// 	return $this->db->affected_rows();
-	// }
-
-	// public function check_nama($nama) {
-	// 	$this->db->where('nama', $nama);
-	// 	$data = $this->db->get('kota');
-
-	// 	return $data->num_rows();
-	// }
 
 }
 

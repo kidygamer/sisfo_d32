@@ -28,7 +28,7 @@
           <th>Username</th>
           <th>Nama</th>
           <th>Jabatan</th>
-          <th style="text-align: center;width: 5%;">Aksi</th>
+          <th style="text-align: center;">Aksi</th>
         </tr>
       </thead>
       <tbody id="data-instansi">
@@ -42,7 +42,8 @@
               <td><?php echo $user->nama ?></td>
               <td><?php echo $user->jabatan ?></td>
               <td class="text-center" style="min-width:230px;">
-              	 <a href="#" data-toggle="modal" data-target="#detailModal<?=$user->id?>" class="btn btn-success btn-sm"><i class="glyphicon glyphicon-eye-open"></i> Detail</a>
+                 <a href="#" data-toggle="modal" data-target="#detailModal<?=$user->id?>" class="btn btn-success btn-sm"><i class="glyphicon glyphicon-eye-open"></i> Detail</a>
+              	 <a href="#" data-toggle="modal" data-target="#rpModal<?=$user->id?>" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-wrench"></i> Reset Password</a>
                  <a href="#" data-toggle="modal" data-target="#updateModal<?=$user->id?>" class="btn btn-warning btn-sm"><i class="glyphicon glyphicon-repeat"></i> Update</a>
                  <a href="#" data-toggle="modal" data-target="#deleteModal<?=$user->id?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Arsipkan</a>
               </td>
@@ -77,11 +78,11 @@
                 </div>
                 <div class="modal-body">
                 	<table class="table table-striped">
-                		<tr><td>Nama</td><td><?= $value->nama ?></td></tr>
-                		<tr><td>NIK</td><td><?= $value->nik ?></td></tr>
-                		<tr><td>Jabatan</td><td><?= $value->jabatan ?></td></tr>
-                		<tr><td>Email</td><td><?= $value->email ?></td></tr>
-                		<tr><td>Role</td><td><?= $value->role ?></td></tr>
+                		<tr><td><b>Nama</b></td><td><?= $value->nama ?></td></tr>
+                		<tr><td><b>NIK</b></td><td><?= $value->nik ?></td></tr>
+                		<tr><td><b>Jabatan</b></td><td><?= $value->jabatan ?></td></tr>
+                		<tr><td><b>Email</b></td><td><?= $value->email ?></td></tr>
+                		<tr><td><b>Role</b></td><td><?= $value->role ?></td></tr>
                 	</table>
                  
                 </div>
@@ -108,7 +109,54 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                  
+                    <input type="hidden" name="id" value="<?php echo $value->id?>">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="Nama"><strong>Nama Lengkap</strong></label>
+                                <input type="text" class="form-control" name="nama" aria-describedby="sizing-addon2" required value="<?= $value->nama ?>" placeholder="Nama Lengkap">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="NIK"><strong>NIK</strong></label>
+                                <input type="number" class="form-control" name="nik" aria-describedby="sizing-addon2" required value="<?= $value->nik ?>" minlength="18" min="0" placeholder="NIK">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="Jabatan"><strong>Jabatan</strong></label>
+                                <input type="text" class="form-control" name="jabatan" aria-describedby="sizing-addon2" required value="<?= $value->jabatan ?>" placeholder="Jabatan">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="Email"><strong>Email</strong></label>
+                                <input type="email" class="form-control" name="email" aria-describedby="sizing-addon2" required value="<?= $value->email ?>" placeholder="email">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="Role"><strong>Role</strong></label>
+                                <select name="role">
+                                    <option value="">--Role--</option>
+                                    <option value="editor" <?php if ($value->role == "editor") : ?> selected<?php endif; ?> >Editor</option>
+                                    <option value="pimpinan" <?php if ($value->role == "pimpinan") : ?> selected<?php endif; ?> >Pimpinan</option>
+                                    <option value="administrator" <?php if ($value->role == "administrator") : ?> selected<?php endif; ?> >Administrator</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="Username"><strong>Username</strong></label>
+                                <input type="text" class="form-control" name="username" aria-describedby="sizing-addon2" required value="<?= $value->username ?>" placeholder="Username">
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
