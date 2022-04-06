@@ -169,6 +169,44 @@
   <?php endforeach ?>
 <!--End of Modal Update-->
 
+<!--Modal Update Password-->
+  <?php foreach ($dataPengguna as $value): ?>
+    <div class="modal fade" id="rpModal<?=$value->id?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <form id="form-update-password" method="POST" action="<?php echo base_url('Pengguna/resetPassword'); ?>">
+                <div class="modal-header">
+                    <center><h3 class="modal-title" id="exampleModalLabel">Reset Password <br> <b><?= $value->nama." - ".$value->username ?></b></h3></center>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="id" value="<?php echo $value->id?>">
+                   
+                    <div class="form-group">
+                        <label for="Password_Baru"><strong>Password Baru</strong></label>
+                        <input type="password" class="form-control" name="passBaru" aria-describedby="sizing-addon2" required placeholder="Password Baru">
+                    </div>
+                      
+                    <div class="form-group">
+                        <label for="Password_Lama"><strong>Konfirmasi Password</strong></label>
+                        <input type="password" class="form-control" name="passKonf" aria-describedby="sizing-addon2" required placeholder="Konfirmasi Password">
+                    </div>
+                        
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <input type="submit" name="" class="btn btn-warning" value="Update">
+                </div>
+              </form>
+            </div>
+        </div>
+    </div>
+  <?php endforeach ?>
+<!--End of Modal Update Password-->
+
 <!--Modal Delete-->
   <?php foreach ($dataPengguna as $value): ?>
     <div class="modal fade" id="deleteModal<?=$value->id?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"

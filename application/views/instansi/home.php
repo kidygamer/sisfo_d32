@@ -75,7 +75,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                  <input type="hidden" name="Id_Instansi" value="<?php echo $instansi->Id_Instansi?>">
+                  <input type="hidden" name="Id_Instansi" value="<?php echo $value->Id_Instansi?>">
                   <div class="input-group form-group">
                     <span class="input-group-addon" id="sizing-addon2">
                       <i class="glyphicon glyphicon-pencil"></i>
