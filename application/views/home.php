@@ -1,6 +1,6 @@
 <div class="row">
-  <div class="col-lg-4 col-xs-6">
-    <div class="small-box bg-aqua">
+  <div class="col-lg-4 col-xs-4">
+    <div class="small-box bg-">
       <div class="inner">
         <h3><?php echo $jml_instansi; ?></h3>
 
@@ -12,7 +12,7 @@
       <a href="<?php echo base_url('Instansi') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
     </div>
   </div>
-  <div class="col-lg-4 col-xs-6">
+  <div class="col-lg-4 col-xs-4">
     <div class="small-box bg-yellow">
       <div class="inner">
         <h3><?php echo $jml_laporan_persandian; ?></h3>
@@ -20,9 +20,61 @@
         <p>Laporan Persandian</p>
       </div>
       <div class="icon">
-        <i class="ion ion-location"></i>
+        <i class="ion ion-ios-book"></i>
       </div>
       <a href="<?php echo base_url('Laporan_Persandian') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+    </div>
+  </div>
+  <div class="col-lg-4 col-xs-4">
+    <div class="small-box bg-green">
+      <div class="inner">
+        <h3><?php echo $jml_ikami; ?></h3>
+
+        <p>IKAMI</p>
+      </div>
+      <div class="icon">
+        <i class="ion ion-ios-book"></i>
+      </div>
+      <a href="<?php echo base_url('Ikami') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+    </div>
+  </div>
+  <div class="col-lg-4 col-xs-4">
+    <div class="small-box bg-purple">
+      <div class="inner">
+        <h3><?php echo $jml_csm; ?></h3>
+
+        <p>CSM</p>
+      </div>
+      <div class="icon">
+        <i class="ion ion-ios-book"></i>
+      </div>
+      <a href="<?php echo base_url('CSM') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+    </div>
+  </div>
+  <div class="col-lg-4 col-xs-4">
+    <div class="small-box bg-red">
+      <div class="inner">
+        <h3><?php echo "0"; ?></h3>
+
+        <p>CSIRT</p>
+      </div>
+      <div class="icon">
+        <i class="ion ion-ios-book"></i>
+      </div>
+      <a href="<?php //echo base_url('CSM') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+    </div>
+  </div>
+  <div class="col-lg-4 col-xs-4">
+    <div class="small-box bg-aqua">
+      <div class="inner">
+        <h3><?php echo "0"; ?></h3>
+
+        <p>TMPI</p>
+      </div>
+      <div class="icon">
+        <i class="ion ion-ios-book"></i>
+      </div>
+      <a href="<?php //echo base_url('CSM') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
     </div>
   </div>
 

@@ -5,7 +5,15 @@
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel">
       <div class="pull-left image">
-        <img src="<?php echo base_url(); ?>assets/img/<?php echo $userdata->foto; ?>" class="img-circle" alt="User Image">
+        <?php if ($userdata->foto==NUlL) {
+          ?>
+            <img src="<?php echo base_url(); ?>assets/img/ProfilePicture-1.jpg" class="img-circle" alt="User Image">
+          <?php
+          }else{
+          ?>
+            <img src="<?php echo base_url(); ?>assets/img/<?php echo $userdata->foto; ?>" class="img-circle" alt="User Image">
+          <?php
+          } ?>
       </div>
       <div class="pull-left info">
         <p><?php echo $userdata->nama; ?></p>
@@ -25,11 +33,47 @@
           <span>Beranda</span>
         </a>
       </li>
+
+      <li <?php if ($page == 'provinsi') {echo 'class="active"';} ?>>
+        <a href="<?php echo base_url('Instansi/dashboard'); ?>">
+          <i class="fa fa-building"></i>
+          <span>Provinsi</span>
+        </a>
+      </li>
       
-      <li <?php if ($page == 'pengguna') {echo 'class="active"';} ?>>
-        <a href="<?php echo base_url('Pengguna'); ?>">
-          <i class="fa fa-user"></i>
-          <span>Data Pengguna</span>
+
+      <li <?php if ($page == 'laporan_persandian') {echo 'class="active"';} ?>>
+        <a href="<?php echo base_url('Laporan_Persandian'); ?>">
+          <i class="fa fa-book"></i>
+          <span>Data Laporan Persandian</span>
+        </a>
+      </li>
+
+      <li <?php if ($page == 'ikami') {echo 'class="active"';} ?>>
+        <a href="<?php echo base_url('Ikami'); ?>">
+          <i class="fa fa-book"></i>
+          <span>Data IKAMI</span>
+        </a>
+      </li>
+
+      <li <?php if ($page == 'csm') {echo 'class="active"';} ?>>
+        <a href="<?php echo base_url('Csm'); ?>">
+          <i class="fa fa-book"></i>
+          <span>Data CSM</span>
+        </a>
+      </li>
+
+       <li <?php if ($page == 'csirt') {echo 'class="active"';} ?>>
+        <a href="<?php echo base_url('Csirt'); ?>">
+          <i class="fa fa-book"></i>
+          <span>Data CSIRT</span>
+        </a>
+      </li>
+
+       <li <?php if ($page == 'tmpi') {echo 'class="active"';} ?>>
+        <a href="<?php echo base_url('Tmpi'); ?>">
+          <i class="fa fa-book"></i>
+          <span>Data TMPI</span>
         </a>
       </li>
 
@@ -40,10 +84,10 @@
         </a>
       </li>
 
-      <li <?php if ($page == 'laporan_persandian') {echo 'class="active"';} ?>>
-        <a href="<?php echo base_url('Laporan_Persandian'); ?>">
-          <i class="fa fa-book"></i>
-          <span>Data Laporan Persandian</span>
+      <li <?php if ($page == 'pengguna') {echo 'class="active"';} ?>>
+        <a href="<?php echo base_url('Pengguna'); ?>">
+          <i class="fa fa-user"></i>
+          <span>Data Pengguna</span>
         </a>
       </li>
 

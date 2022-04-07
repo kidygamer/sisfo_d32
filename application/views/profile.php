@@ -3,7 +3,16 @@
     <!-- Profile Image -->
     <div class="box box-primary">
       <div class="box-body box-profile">
-        <img class="profile-user-img img-responsive img-circle" src="<?php echo base_url(); ?>assets/img/<?php echo $userdata->foto; ?>" alt="User profile picture">
+       
+        <?php if ($userdata->foto==NUlL) {
+          ?>
+            <img src="<?php echo base_url(); ?>assets/img/ProfilePicture-1.jpg" class="profile-user-img img-responsive img-circle" alt="User profile picture">
+          <?php
+          }else{
+          ?>
+             <img class="profile-user-img img-responsive img-circle" src="<?php echo base_url(); ?>assets/img/<?php echo $userdata->foto; ?>" alt="User profile picture">
+          <?php
+          } ?>
 
         <h3 class="profile-username text-center"><?php echo $userdata->nama; ?></h3>
 

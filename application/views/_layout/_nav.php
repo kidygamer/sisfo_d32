@@ -11,14 +11,33 @@
         <!-- Menu Toggle Button -->
         <a href="<?php echo base_url(); ?>assets/#" class="dropdown-toggle" data-toggle="dropdown">
           <!-- The user image in the navbar-->
-          <img src="<?php echo base_url(); ?>assets/img/<?php echo $userdata->foto; ?>" class="user-image" alt="User Image">
+          <?php if ($userdata->foto==NUlL) {
+          ?>
+            <img src="<?php echo base_url(); ?>assets/img/ProfilePicture-1.jpg" class="user-image" alt="User Image">
+          <?php
+          }else{
+          ?>
+             <img src="<?php echo base_url(); ?>assets/img/<?php echo $userdata->foto; ?>" class="user-image" alt="User Image">
+          <?php
+          } ?>
+         
           <!-- hidden-xs hides the username on small devices so only the image appears. -->
           <span class="hidden-xs"><?php echo $userdata->nama; ?></span>
         </a>
         <ul class="dropdown-menu">
           <!-- The user image in the menu -->
           <li class="user-header">
-            <img src="<?php echo base_url(); ?>assets/img/<?php echo $userdata->foto; ?>" class="img-circle" alt="User Image">
+           
+
+             <?php if ($userdata->foto==NUlL) {
+          ?>
+            <img src="<?php echo base_url(); ?>assets/img/ProfilePicture-1.jpg" class="user-image" alt="User Image">
+          <?php
+          }else{
+          ?>
+              <img src="<?php echo base_url(); ?>assets/img/<?php echo $userdata->foto; ?>" class="img-circle" alt="User Image">
+          <?php
+          } ?>
 
             <p>
               <?php echo $userdata->nama; ?> - <?php echo $userdata->role; ?>

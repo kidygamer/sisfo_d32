@@ -76,7 +76,7 @@ class Profile extends AUTH_Controller {
 					$this->session->set_flashdata('msg', show_err_msg('Password Baru dan Konfirmasi Password harus sama'));
 					redirect('Profile');
 				} else {
-					$hash = password_hash($this->input->post('passBaru'), PASSWORD_BCRYPT);
+					$hash = password_hash($this->input->post('passBaru'), PASSWORD_DEFAULT);
 					$data = [
 						'password' => $hash
 					];

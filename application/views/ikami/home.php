@@ -16,7 +16,7 @@
         <?php endif ?>
   <div class="box-header">
     <div class="col-md-6">
-        <button class="form-control btn btn-primary" data-toggle="modal" data-target="#tambah-instansi"><i class="glyphicon glyphicon-plus-sign"></i> Tambah Data</button>
+        <button class="form-control btn btn-primary" data-toggle="modal" data-target="#tambah-tambah_ikami"><i class="glyphicon glyphicon-plus-sign"></i> Tambah Data</button>
     </div>
   </div>
   <!-- /.box-header -->
@@ -26,21 +26,28 @@
         <tr>
           <th>#</th>
           <th>Nama Instansi</th>
-          <th style="text-align: center;">Aksi</th>
+          <th><center>Tahun</center></th>
+          <th><center>Hasil</center></th>
+          <th><center>Kategori SE</center></th>
+          <th><center>Nilai</center></th>
+          <th style="text-align: center;width: 5%;">Aksi</th>
         </tr>
       </thead>
       <tbody id="data-instansi">
         <?php
           $no = 1;
-          foreach ($dataInstansi as $instansi) {
+          foreach ($dataIkami as $ikami) {
             ?>
             <tr>
               <td><?php echo $no; ?></td>
-              <td><?php echo $instansi->Nama_Instansi; ?></td>
+              <td><?php echo $ikami->Nama_Instansi; ?></td>
+              <td><center><?php echo $ikami->Tahun ?></center></td>
+              <td><center><?php echo $ikami->Hasil_IKAMI ?></center></td>
+              <td><center><?php echo $ikami->Kategori_SE ?></center></td>
+              <td><center><?php echo $ikami->Nilai ?></center></td>
               <td class="text-center" style="min-width:230px;">
-                  <a href="#" data-toggle="modal" data-target="#detailModal<?=$instansi->Id_Instansi?>" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-eye-open"></i> Detail</a>
-                  <a href="#" data-toggle="modal" data-target="#updateModal<?=$instansi->Id_Instansi?>" class="btn btn-warning btn-sm"><i class="glyphicon glyphicon-repeat"></i> Update</a>
-                  <a href="#" data-toggle="modal" data-target="#deleteModal<?=$instansi->Id_Instansi?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Arsipkan</a>
+                  <a href="#" data-toggle="modal" data-target="#updateModal<?=$ikami->Id_IKAMI?>" class="btn btn-warning btn-sm"><i class="glyphicon glyphicon-repeat"></i> Update</a>
+                 <a href="#" data-toggle="modal" data-target="#deleteModal<?=$ikami->Id_IKAMI?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Arsipkan</a>
               </td>
             </tr>
             <?php
@@ -52,7 +59,7 @@
   </div>
 </div>
 
-<?php echo $modal_tambah_instansi; ?>
+<?php echo $modal_tambah_ikami; ?>
 
 <?php
   // $data['judul'] = 'Kota';
@@ -63,26 +70,26 @@
 <!--Modals-->
 
 <!--Modal Update-->
-  <?php foreach ($dataInstansi as $value): ?>
-    <div class="modal fade" id="updateModal<?=$value->Id_Instansi?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  <?php foreach ($dataIkami as $value): ?>
+    <div class="modal fade" id="updateModal<?=$value->Id_IKAMI?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-              <form id="form-update-instansi" method="POST" action="<?php echo base_url('Instansi/prosesUpdate'); ?>">
+              <form id="form-update-ikami" method="POST" action="<?php echo base_url('Laporan_Persandian/prosesUpdate'); ?>" enctype="multipart/form-data">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Update data</h5>
+                    <center><h3 class="modal-title" id="exampleModalLabel">Update Data IKAMI<br> <b><?= $value->Nama_Instansi ?></b> Tahun <b><?= $value->Tahun ?></b></h3></center>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                  <input type="hidden" name="Id_Instansi" value="<?php echo $value->Id_Instansi?>">
-                  <div class="input-group form-group">
-                    <span class="input-group-addon" id="sizing-addon2">
-                      <i class="glyphicon glyphicon-pencil"></i>
-                    </span>
-                    <input type="text" class="form-control" placeholder="Nama Instansi" name="Nama_Instansi" aria-describedby="sizing-addon2" value="<?=  $value->Nama_Instansi ?>">
-                  </div>
+                  <input type="hidden" name="Id_IKAMI" value="<?php echo $value->Id_IKAMI?>">
+                  <input type="hidden" name="Instansi" value="<?php echo $value->Instansi?>">
+                    <div class="form-group">
+                        <label for="Tahun"><strong>Tahun</strong></label>
+                        <input type="number" class="form-control" placeholder="Tahun" name="Tahun" aria-describedby="sizing-addon2" min="0" required value="<?= $value->Tahun ?>">
+                    </div>
+                                    
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
@@ -96,8 +103,8 @@
 <!--End of Modal Update-->
 
 <!--Modal Delete-->
-  <?php foreach ($dataInstansi as $value): ?>
-    <div class="modal fade" id="deleteModal<?=$value->Id_Instansi?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  <?php foreach ($dataIkami as $value): ?>
+    <div class="modal fade" id="deleteModal<?=$value->Id_IKAMI?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -107,10 +114,10 @@
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Anda yakin mengarsipkan data instansi <b><?=  $value->Nama_Instansi ?></b>?</div>
+                <div class="modal-body">Anda yakin mengarsipkan data IKAMI instansi <b><?=  $value->Nama_Instansi ?></b>?</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a href="<?= base_url('Instansi/archieve/' . $value->Id_Instansi) ?>" class="btn btn-danger">Arsipkan</a>
+                    <a href="<?= base_url('Ikami/archieve/' . $value->Id_IKAMI) ?>" class="btn btn-danger">Arsipkan</a>
                 </div>
             </div>
         </div>
@@ -119,6 +126,6 @@
 <!--End of Modal Delete-->
 
 <?php
-/* End of file home.php */
-/* Location: ./application/views/instansi/home.php */
+/* End of file laporan_persandian.php */
+/* Location: ./application/views/laporan_persandian/home.php */
 ?>

@@ -5,7 +5,6 @@ class Instansi extends AUTH_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('M_instansi');
-		$this->load->model('M_laporan_persandian');
 	}
 
 	public function index() {
@@ -102,6 +101,18 @@ class Instansi extends AUTH_Controller {
 			redirect('Instansi');
 			echo "failed";
 		}
+	}
+
+	public function dashboard()
+	{
+		$data['dataProvinsi'] 	= $this->M_instansi->select_provinsi();
+		$data['jmlProvinsi'] 	= $this->M_instansi->total_rows_provinsi();
+		$data['userdata'] 		= $this->userdata;
+
+		
+		$data['page'] 			= "home";
+		$data['judul'] 			= "Provinsi";
+		$this->template->views('instansi_dashboard', $data);
 	}
 
 

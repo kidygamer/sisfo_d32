@@ -187,12 +187,12 @@
                    
                     <div class="form-group">
                         <label for="Password_Baru"><strong>Password Baru</strong></label>
-                        <input type="password" class="form-control" name="passBaru" aria-describedby="sizing-addon2" required placeholder="Password Baru">
+                        <input type="password" class="form-control" name="passBaru" aria-describedby="sizing-addon2" required placeholder="Password Baru (*Kombinasi huruf dan angka, min. 10 karakter,maks. 20 karakter)">
                     </div>
                       
                     <div class="form-group">
                         <label for="Password_Lama"><strong>Konfirmasi Password</strong></label>
-                        <input type="password" class="form-control" name="passKonf" aria-describedby="sizing-addon2" required placeholder="Konfirmasi Password">
+                        <input type="password" class="form-control" name="passKonf" aria-describedby="sizing-addon2" required placeholder="Konfirmasi Password (*Ketikkan kembali password baru Anda)">
                     </div>
                         
                 </div>

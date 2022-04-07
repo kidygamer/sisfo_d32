@@ -1,13 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class M_laporan_persandian extends CI_Model {
+class M_csm extends CI_Model {
 	public function select_all() {
 		$this->db->select('*');
-		$this->db->from('laporan_persandian a');
+		$this->db->from('csm a');
 		$this->db->join('instansi b', 'a.Instansi = b.Id_Instansi');
 		$this->db->where('a.archieved', '0');
-		$this->db->order_by('Id_LapSan','ASC');
+		$this->db->order_by('Id_Csm','ASC');
 
 
 		$data = $this->db->get();
@@ -16,7 +16,7 @@ class M_laporan_persandian extends CI_Model {
 	}
 
 	public function select_by_id($id) {
-		$sql = "SELECT * FROM laporan_persandian WHERE Id_Lapsan = '{$id}'";
+		$sql = "SELECT * FROM csm WHERE Id_csm = '{$id}'";
 
 		$data = $this->db->query($sql);
 
@@ -24,7 +24,7 @@ class M_laporan_persandian extends CI_Model {
 	}
 
 	public function select_by_instansi($id) {
-		$sql = "SELECT Id_Lapsan FROM laporan_persandian WHERE Instansi = '{$id}'";
+		$sql = "SELECT Id_csm FROM csm WHERE Instansi = '{$id}'";
 
 		$data = $this->db->query($sql);
 
@@ -32,14 +32,14 @@ class M_laporan_persandian extends CI_Model {
 	}
 
 	public function total_rows() {
-		$data = $this->db->get('laporan_persandian');
+		$data = $this->db->get('csm');
 
 		return $data->num_rows();
 	}
 
 	public function insert($data) {
 
-		$simpan=$this->db->query("INSERT INTO laporan_persandian
+		$simpan=$this->db->query("INSERT INTO csm
 									(Tahun,Saran_uBSSN,Jml_SDM,Jml_Palsan,Jml_APU,Jml_SE,Instansi,Dokumen,updated_by)
       							  VALUES(								        
 								        ".$this->db->escape($data['Tahun']).",
@@ -61,7 +61,7 @@ class M_laporan_persandian extends CI_Model {
 
 	public function update($data) {
 
-		$update = $this->db->query("UPDATE laporan_persandian SET
+		$update = $this->db->query("UPDATE csm SET
 	    							Tahun=".$this->db->escape($data['Tahun']).",
 	    							Saran_uBSSN=".$this->db->escape($data['Saran_uBSSN']).",
 	    							Jml_SDM=".$this->db->escape($data['Jml_SDM']).",
@@ -70,7 +70,7 @@ class M_laporan_persandian extends CI_Model {
 	    							Jml_SE=".$this->db->escape($data['Jml_SE']).",
 	    							Dokumen=".$this->db->escape($data['Dokumen']).",
 	    							updated_by=".$this->db->escape($data['updated_by'])."
-	    							WHERE Id_LapSan=".$this->db->escape($data['Id_LapSan'])."
+	    							WHERE Id_csm=".$this->db->escape($data['Id_csm'])."
 	    ");
 
 	    if($update){
@@ -83,7 +83,7 @@ class M_laporan_persandian extends CI_Model {
 
 	public function archieve($id) {
 		$true = 1;
-		$sql = "UPDATE laporan_persandian SET archieved='" .$true ."' WHERE Id_LapSan='" .$id."'";
+		$sql = "UPDATE csm SET archieved='" .$true ."' WHERE Id_csm='" .$id."'";
 
 		$this->db->query($sql);
 
@@ -93,5 +93,5 @@ class M_laporan_persandian extends CI_Model {
 
 }
 
-/* End of file M_laporan_persandian.php */
+/* End of file M_csm.php */
 /* Location: ./application/models/M_lapopran_persandian.php */

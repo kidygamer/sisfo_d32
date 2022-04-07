@@ -63,6 +63,23 @@ class M_instansi extends CI_Model {
 		return $data->num_rows();
 	}
 
+	public function select_provinsi()
+	{
+		$this->db->select('*');
+		$this->db->from('wilayah_provinsi');
+		$this->db->order_by('id','ASC');
+
+		$data = $this->db->get();
+
+		return $data->result();
+	}
+
+	public function total_rows_provinsi() {
+		$data = $this->db->get('wilayah_provinsi');
+
+		return $data->num_rows();
+	}
+
 }
 
 /* End of file M_kota.php */

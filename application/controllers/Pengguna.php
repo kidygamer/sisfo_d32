@@ -5,6 +5,7 @@ class Pengguna extends AUTH_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('M_pengguna');
+		$this->load->model('M_admin');
 	}
 
 	public function index() {
@@ -65,7 +66,7 @@ class Pengguna extends AUTH_Controller {
 
 
 		if ($this->form_validation->run() == TRUE) {
-			$hash = password_hash($this->input->post('password'), PASSWORD_BCRYPT);
+			$hash = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
 		
 			$data = [
 					'username' => $this->input->post('username'),
@@ -172,19 +173,42 @@ class Pengguna extends AUTH_Controller {
 		}
 	}
 
+	public function resetPassword()
+	{
+		$id = $this->input->post('id');
 
-	// public function detail() {
-	// 	$data['userdata'] 	= $this->userdata;
+		$this->form_validation->set_rules('passBaru', 'Password Baru', 'alpha_numeric|required|min_length[8]|max_length[15]');
+		$this->form_validation->set_rules('passKonf', 'Password Konfirmasi', 'alpha_numeric|required|min_length[10]|max_length[20]');
 
-	// 	$id 				= trim($_POST['id']);
-	// 	$data['Instansi'] = $this->M_Instansi->select_by_id($id);
-	// 	$data['jumlahInstansi'] = $this->M_Instansi->total_rows();
-	// 	$data['dataInstansi'] = $this->M_Instansi->select_by_pegawai($id);
+			if ($this->input->post('passBaru') != $this->input->post('passKonf')) {
+					$this->session->set_flashdata('error', 'Password baru dan konfirmasi password harus sama');
+					redirect('Pengguna');
+					//echo "Password Baru dan Konfirmasi Password harus sama";
+			} else {
+					$hash = password_hash($this->input->post('passBaru'), PASSWORD_DEFAULT);
+					$data = [
+						'password' => $hash
+					];
 
-	// 	echo show_my_modal('modals/modal_detail_Instansi', 'detail-Instansi', $data, 'lg');
-	// }
-
+					$result = $this->M_admin->updatePassword($data, $id);
+					if ($result > 0) {
+						$this->session->set_flashdata('success', 'Password berasil diubah');
+						redirect('Pengguna');
+						//echo "Password Berhasil diubah";
+					} else {
+						$this->session->set_flashdata('error', 'Password gagal diubah');
+						redirect('Pengguna');
+						//echo "Password Gagal diubah";
+					}
+			}
+			
 	}
+
+}
+
+
+	
+	
 
 /* End of file Laporan_Persandian.php */
 /* Location: ./application/controllers/Laporan_Persandian.php */
