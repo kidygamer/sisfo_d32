@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-lg-4 col-xs-4">
-    <div class="small-box bg-">
+    <div class="small-box bg-cyan">
       <div class="inner">
         <h3><?php echo $jml_instansi; ?></h3>
 

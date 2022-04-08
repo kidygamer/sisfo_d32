@@ -45,8 +45,8 @@ class M_instansi extends CI_Model {
 
 		$data = $this->db->query($sql);
 
-		//return $data->result();
-		return json_encode($data->result());
+		return $data->result();
+		//return json_encode($data->result());
 	}
 
 	public function insert($data) {
