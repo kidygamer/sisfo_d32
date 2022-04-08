@@ -34,10 +34,10 @@
         </a>
       </li>
 
-      <li <?php if ($page == 'provinsi') {echo 'class="active"';} ?>>
-        <a href="<?php echo base_url('Instansi/dashboard'); ?>">
+      <li <?php if ($page == 'instansi') {echo 'class="active"';} ?>>
+        <a href="<?php echo base_url('Instansi'); ?>">
           <i class="fa fa-building"></i>
-          <span>Provinsi</span>
+          <span>Daftar Instansi</span>
         </a>
       </li>
       
@@ -45,49 +45,50 @@
       <li <?php if ($page == 'laporan_persandian') {echo 'class="active"';} ?>>
         <a href="<?php echo base_url('Laporan_Persandian'); ?>">
           <i class="fa fa-book"></i>
-          <span>Data Laporan Persandian</span>
+          <span>Laporan Persandian</span>
         </a>
       </li>
 
       <li <?php if ($page == 'ikami') {echo 'class="active"';} ?>>
         <a href="<?php echo base_url('Ikami'); ?>">
           <i class="fa fa-book"></i>
-          <span>Data IKAMI</span>
+          <span>IKAMI</span>
         </a>
       </li>
 
       <li <?php if ($page == 'csm') {echo 'class="active"';} ?>>
         <a href="<?php echo base_url('Csm'); ?>">
           <i class="fa fa-book"></i>
-          <span>Data CSM</span>
+          <span>CSM</span>
         </a>
       </li>
 
        <li <?php if ($page == 'csirt') {echo 'class="active"';} ?>>
         <a href="<?php echo base_url('Csirt'); ?>">
           <i class="fa fa-book"></i>
-          <span>Data CSIRT</span>
+          <span>CSIRT</span>
         </a>
       </li>
 
        <li <?php if ($page == 'tmpi') {echo 'class="active"';} ?>>
         <a href="<?php echo base_url('Tmpi'); ?>">
           <i class="fa fa-book"></i>
-          <span>Data TMPI</span>
+          <span>TMPI</span>
         </a>
       </li>
 
-      <li <?php if ($page == 'instansi') {echo 'class="active"';} ?>>
-        <a href="<?php echo base_url('Instansi'); ?>">
-          <i class="fa fa-building"></i>
-          <span>Data Instansi</span>
-        </a>
-      </li>
 
       <li <?php if ($page == 'pengguna') {echo 'class="active"';} ?>>
         <a href="<?php echo base_url('Pengguna'); ?>">
           <i class="fa fa-user"></i>
           <span>Data Pengguna</span>
+        </a>
+      </li>
+
+      <li <?php if ($page == 'provinsi') {echo 'class="active"';} ?>>
+        <a href="<?php echo base_url('Instansi/dashboard'); ?>">
+          <i class="fa fa-building"></i>
+          <span>Provinsi</span>
         </a>
       </li>
 

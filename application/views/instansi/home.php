@@ -38,7 +38,7 @@
               <td><?php echo $no; ?></td>
               <td><?php echo $instansi->Nama_Instansi; ?></td>
               <td class="text-center" style="min-width:230px;">
-                  <a href="#" data-toggle="modal" data-target="#detailModal<?=$instansi->Id_Instansi?>" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-eye-open"></i> Detail</a>
+                  <a href="<?php echo base_url('Instansi/detail_grand/'.$instansi->Id_Instansi); ?>" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-eye-open"></i> Detail</a>
                   <a href="#" data-toggle="modal" data-target="#updateModal<?=$instansi->Id_Instansi?>" class="btn btn-warning btn-sm"><i class="glyphicon glyphicon-repeat"></i> Update</a>
                   <a href="#" data-toggle="modal" data-target="#deleteModal<?=$instansi->Id_Instansi?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Arsipkan</a>
               </td>

@@ -20,6 +20,20 @@ class Instansi extends AUTH_Controller {
 		$this->template->views('instansi/home', $data);
 	}
 
+	public function detail_grand($id)
+	{
+		$data['userdata'] 	= $this->userdata;
+		$data['dataGrand'] 	= $this->M_instansi->select_grand($id);
+
+		$data['page'] 		= "Detail Instansi";
+		$data['judul'] 		= "Detail Data Instansi";
+		$data['deskripsi'] 	= "(Laporan Persandian, IKAMI, CSM, TMPI, dan CSIRT)";
+
+		print_r($data['dataGrand'] );
+
+		//$this->template->views('instansi/detail_grand', $data);
+	}
+
 	public function prosesTambah() {
 		$data['userdata'] 		= $this->userdata;
 		$this->form_validation->set_rules('Nama_Instansi', 'Nama_Instansi', 'trim|required|min_length[10]|max_length[30]');

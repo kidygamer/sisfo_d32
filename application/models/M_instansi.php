@@ -21,6 +21,34 @@ class M_instansi extends CI_Model {
 		return $data->row();
 	}
 
+	public function select_grand($id) {
+		$sql = "SELECT instansi.Nama_Instansi, a.Tahun, 
+                lp.Saran_uBSSN, lp.Jml_SDM, lp.Jml_Palsan, lp.Jml_APU, lp.Jml_SE, lp.Dokumen,
+                csirt.Status, csirt.Tgl_Launching, csirt.Nama_CSIRT, csirt.Nomor_Sertifikat, csirt.Nama_Narahubung, csirt.Nomor_HP,
+				ikami.Hasil_IKAMI, ikami.Kategori_SE, ikami.Nilai,
+				csm.Skor, csm.Lv_Kematangan,
+				tmpi.Nilai_TMPI, tmpi.Level
+				FROM instansi 
+				JOIN (
+					SELECT Tahun FROM ikami 
+				    UNION SELECT Tahun FROM laporan_persandian
+				    UNION SELECT Tahun FROM csm
+				    UNION SELECT Tahun FROM csirt
+				    UNION SELECT Tahun FROM tmpi
+				) as a
+				LEFT JOIN laporan_persandian lp ON lp.Instansi = instansi.Id_Instansi AND lp.Tahun = a.Tahun
+				LEFT JOIN csirt ON csirt.Instansi = instansi.Id_Instansi AND csirt.Tahun = a.Tahun
+				LEFT JOIN ikami ON ikami.Instansi = instansi.Id_Instansi AND ikami.Tahun = a.Tahun
+				LEFT JOIN csm ON csm.Instansi = instansi.Id_Instansi AND csm.Tahun = a.Tahun
+				LEFT JOIN tmpi ON tmpi.Instansi = instansi.Id_Instansi AND tmpi.Tahun = a.Tahun 
+				WHERE instansi.Id_Instansi = '{$id}'";
+
+		$data = $this->db->query($sql);
+
+		//return $data->result();
+		return json_encode($data->result());
+	}
+
 	public function insert($data) {
 		$sql = "INSERT INTO instansi VALUES('','" .$data['Nama_Instansi'] ."')";
 
