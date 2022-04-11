@@ -145,6 +145,7 @@ class Ikami extends AUTH_Controller {
 		}
 
 		$data = [
+				'Id_IKAMI' => $this->input->post('Id_IKAMI'),
 				'Tahun' => $this->input->post('Tahun'),
 				'Hasil_IKAMI' => $this->input->post('Hasil_IKAMI'),
 				'Kategori_SE' => $this->input->post('Kategori_SE'),
@@ -157,10 +158,11 @@ class Ikami extends AUTH_Controller {
 		if ($this->form_validation->run() == TRUE) {
 			if($this->M_ikami->update($data)){
 				$this->session->set_flashdata('success', 'Data <strong>Berhasil</strong> Diupdate!');
+				//echo "update success";
 				redirect('Ikami');
 			} else {
 				$this->session->set_flashdata('error', 'Data <strong>Gagal</strong> Diupdate!');
-				echo "update failed";
+				//echo "update failed";
 				redirect('Ikami');
 			}
 		} else {
@@ -168,6 +170,8 @@ class Ikami extends AUTH_Controller {
 			$this->session->set_flashdata('error', 'Data <strong>Gagal</strong> Diupdate!'.$out['msg']);
 			redirect('Ikami');
 		}
+
+		//print_r($data);
 	 
 	}
 

@@ -191,7 +191,7 @@
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-              <form id="form-update-ikami" method="POST" action="<?php echo base_url('Laporan_Persandian/prosesUpdate'); ?>" enctype="multipart/form-data">
+              <form id="form-update-ikami" method="POST" action="<?php echo base_url('Ikami/prosesUpdate'); ?>" enctype="multipart/form-data">
                 <div class="modal-header">
                     <center><h3 class="modal-title" id="exampleModalLabel">Update Data IKAMI<br> <b><?= $value->Nama_Instansi ?></b> Tahun <b><?= $value->Tahun ?></b></h3></center>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
@@ -298,6 +298,6 @@
 <!--End of Modal Delete-->
 
 <?php
-/* End of file laporan_persandian.php */
-/* Location: ./application/views/laporan_persandian/home.php */
+/* End of file home.php */
+/* Location: ./application/views/ikami/home.php */
 ?>

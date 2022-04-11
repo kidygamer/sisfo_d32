@@ -91,4 +91,4 @@ class M_ikami extends CI_Model {
 }
 
 /* End of file M_ikami.php */
-/* Location: ./application/models/M_lapopran_persandian.php */
+/* Location: ./application/models/M_ikami.php */
