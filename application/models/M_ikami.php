@@ -40,16 +40,14 @@ class M_ikami extends CI_Model {
 	public function insert($data) {
 
 		$simpan=$this->db->query("INSERT INTO ikami
-									(Tahun,Saran_uBSSN,Jml_SDM,Jml_Palsan,Jml_APU,Jml_SE,Instansi,Dokumen,updated_by)
+									(Tahun,Hasil_IKAMI,Kategori_SE,Nilai,Dokumen,Instansi,updated_by)
       							  VALUES(								        
 								        ".$this->db->escape($data['Tahun']).",
-								        ".$this->db->escape($data['Saran_uBSSN']).",
-								        ".$this->db->escape($data['Jml_SDM']).",
-								        ".$this->db->escape($data['Jml_Palsan']).",
-								        ".$this->db->escape($data['Jml_APU']).",
-								        ".$this->db->escape($data['Jml_SE']).",
-								        ".$this->db->escape($data['Instansi']).",
+								        ".$this->db->escape($data['Hasil_IKAMI']).",
+								        ".$this->db->escape($data['Kategori_SE']).",
+								        ".$this->db->escape($data['Nilai']).",
 								        ".$this->db->escape($data['Dokumen']).",
+								        ".$this->db->escape($data['Instansi']).",
 								        ".$this->db->escape($data['updated_by'])."
       								)");
 	    if($simpan){
@@ -63,12 +61,11 @@ class M_ikami extends CI_Model {
 
 		$update = $this->db->query("UPDATE ikami SET
 	    							Tahun=".$this->db->escape($data['Tahun']).",
-	    							Saran_uBSSN=".$this->db->escape($data['Saran_uBSSN']).",
-	    							Jml_SDM=".$this->db->escape($data['Jml_SDM']).",
-	    							Jml_Palsan=".$this->db->escape($data['Jml_Palsan']).",
-	    							Jml_APU=".$this->db->escape($data['Jml_APU']).",
-	    							Jml_SE=".$this->db->escape($data['Jml_SE']).",
+	    							Hasil_IKAMI=".$this->db->escape($data['Hasil_IKAMI']).",
+	    							Kategori_SE=".$this->db->escape($data['Kategori_SE']).",
+	    							Nilai=".$this->db->escape($data['Nilai']).",
 	    							Dokumen=".$this->db->escape($data['Dokumen']).",
+	    							Instansi=".$this->db->escape($data['Instansi']).",
 	    							updated_by=".$this->db->escape($data['updated_by'])."
 	    							WHERE Id_IKAMI=".$this->db->escape($data['Id_IKAMI'])."
 	    ");

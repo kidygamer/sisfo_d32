@@ -1,9 +1,9 @@
 <div class="col-md-offset-1 col-md-10 col-md-offset-1 well">
   <div class="form-msg"></div>
   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <h3 style="display:block; text-align:center;">Tambah Data Laporan Persandian</h3>
+  <h3 style="display:block; text-align:center;">Tambah Data IKAMI</h3>
 
-  <form id="form-tambah-instansi" method="POST" action="<?php echo base_url('Laporan_Persandian/prosesTambah'); ?>" enctype="multipart/form-data">
+  <form id="form-tambah-instansi" method="POST" action="<?php echo base_url('Ikami/prosesTambah'); ?>" enctype="multipart/form-data">
     <div class="input-group form-group">
       <span class="input-group-addon" id="sizing-addon2">
         <i class="glyphicon glyphicon-pencil"></i>
@@ -17,6 +17,17 @@
         <?php
           }
         ?>
+      </select>    
+    </div>
+     <div class="input-group form-group">
+      <span class="input-group-addon" id="sizing-addon2">
+        <i class="glyphicon glyphicon-pencil"></i>
+      </span>
+      <select name="Hasil_IKAMI" placeholder="Hasil IKAMI">
+        <option value="Pemenuhan KK Dasar" selected >Pemenuhan KK Dasa</option>
+        <option value="Baik">Baik</option>
+        <option value="Cukup">Cukup</option>
+        <option value="Tidak Layak">Tidak Layak</option>
       </select>    
     </div>
     <div class="input-group form-group">

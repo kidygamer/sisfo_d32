@@ -16,7 +16,7 @@
         <?php endif ?>
   <div class="box-header">
     <div class="col-md-6">
-        <button class="form-control btn btn-primary" data-toggle="modal" data-target="#tambah-tambah_ikami"><i class="glyphicon glyphicon-plus-sign"></i> Tambah Data</button>
+        <a href="#" data-toggle="modal" data-target="#addModal" class="form-control btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Tambah Data</a>
     </div>
   </div>
   <!-- /.box-header -->
@@ -27,9 +27,9 @@
           <th>#</th>
           <th>Nama Instansi</th>
           <th><center>Tahun</center></th>
-          <th><center>Hasil</center></th>
-          <th><center>Kategori SE</center></th>
-          <th><center>Nilai</center></th>
+          <th><center>Hasil</center></th>          
+          <th>Detail</th>
+          <th>Dokumen</th>
           <th style="text-align: center;width: 5%;">Aksi</th>
         </tr>
       </thead>
@@ -43,10 +43,22 @@
               <td><?php echo $ikami->Nama_Instansi; ?></td>
               <td><center><?php echo $ikami->Tahun ?></center></td>
               <td><center><?php echo $ikami->Hasil_IKAMI ?></center></td>
-              <td><center><?php echo $ikami->Kategori_SE ?></center></td>
-              <td><center><?php echo $ikami->Nilai ?></center></td>
+              <td>
+                <a href="#" data-toggle="modal" data-target="#detailModal<?=$ikami->Id_IKAMI?>" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-eye-open"></i> Buka</a>
+              </td>
+              <td>
+                <?php
+                    if ($ikami->Dokumen==NUlL) {
+                        echo "Belum Diunggah";
+                    }else{
+                ?>
+                    <a target="_blank" href="<?= base_url('assets')?>/pdf_files/ikami/<?= $ikami->Dokumen?>" class="btn btn-success btn-sm"><center><i class="glyphicon glyphicon-download"></i>Download</center></a>
+                <?php
+                    }
+                ?>
+              </td>
               <td class="text-center" style="min-width:230px;">
-                  <a href="#" data-toggle="modal" data-target="#updateModal<?=$ikami->Id_IKAMI?>" class="btn btn-warning btn-sm"><i class="glyphicon glyphicon-repeat"></i> Update</a>
+                 <a href="#" data-toggle="modal" data-target="#updateModal<?=$ikami->Id_IKAMI?>" class="btn btn-warning btn-sm"><i class="glyphicon glyphicon-repeat"></i> Update</a>
                  <a href="#" data-toggle="modal" data-target="#deleteModal<?=$ikami->Id_IKAMI?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Arsipkan</a>
               </td>
             </tr>
@@ -59,7 +71,7 @@
   </div>
 </div>
 
-<?php echo $modal_tambah_ikami; ?>
+<?php //echo $modal_tambah_ikami; ?>
 
 <?php
   // $data['judul'] = 'Kota';
@@ -68,6 +80,110 @@
 ?>
 
 <!--Modals-->
+
+<!--Modal Detail-->
+<?php foreach ($dataIkami as $value): ?>
+    <div class="modal fade" id="detailModal<?= $value->Id_IKAMI ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">             
+                <div class="modal-header">
+                     <center><h3 class="modal-title" id="exampleModalLabel">Hasil IKAMI <br> <b><?= $value->Nama_Instansi ?></b> Tahun <b><?= $value->Tahun ?></b></h3></center>
+                </div>
+                <div class="modal-body">
+                  <table class="table table-striped">
+                    <tr>
+                      <td style="width:40%"><b>Hasil IKAMI</b></td>
+                      <td><?php echo $value->Hasil_IKAMI ?></td>
+                    </tr>
+                    <tr>
+                      <td><b>Kategori SE</b></td>
+                      <td><?php echo $value->Kategori_SE ?></td>
+                    </tr>
+                    <tr>
+                      <td><b>Nilai</b></td>
+                      <td><?php echo $value->Nilai ?></td>
+                    </tr>
+                  </table>
+                 
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Tutup</button>
+                </div>              
+            </div>
+        </div>
+    </div>
+  <?php endforeach ?>
+<!--End of Modal Detail-->
+
+<!--Modal Add-->
+    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <form id="form-add-ikami" method="POST" action="<?php echo base_url('Ikami/prosesTambah'); ?>" enctype="multipart/form-data">
+                <div class="modal-header">
+                    <center><h3 class="modal-title" id="exampleModalLabel">Tambah Data IKAMI</h3></center>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="Instansi"><strong>Instansi</strong></label>
+                        <select name="Instansi" placeholder="Pilih instansi...">
+                          <option value="" selected>--Instansi--</option>
+                          <?php
+                            foreach ($dataInstansi as $instansi) {
+                              ?>
+                              <option value="<?=$instansi->Id_Instansi ?>"><?= $instansi->Nama_Instansi ?></option>
+                          <?php
+                            }
+                          ?>
+                        </select>    
+                    </div>
+                    <div class="form-group">
+                        <label for="Tahun"><strong>Tahun</strong></label>
+                        <input type="number" class="form-control" placeholder="Tahun" name="Tahun" aria-describedby="sizing-addon2" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="Hasil_IKAMI"><strong>Hasil IKAMI</strong></label>
+                        <select name="Hasil_IKAMI" placeholder="Hasil IKAMI">
+                          <option value="" selected disabled>--Pilih--</option>
+                          <option value="Pemenuhan KK Dasar">1. Pemenuhan KK Dasar</option>
+                          <option value="Baik">2. Baik</option>
+                          <option value="Cukup">3. Cukup</option>
+                          <option value="Tidak Layak">4. Tidak Layak</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="Kategori_SE"><strong>Kategori SE</strong></label>
+                        <select name="Kategori_SE" placeholder="Kategori SE">
+                          <option value="" selected disabled>--Pilih--</option>
+                          <option value="Tinggi">1. Tinggi</option>
+                          <option value="Strategis">2. Strategis</option>
+                          <option value="Rendah">3. Rendah</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="Nilai_IKAMI"><strong>Nilai IKAMI</strong></label>
+                        <input type="number" class="form-control" placeholder="Nilai IKAMI" name="Nilai" aria-describedby="sizing-addon2" min="0" required>
+                    </div>  
+                    <div class="form-group">
+                      <label for="Dokumen"><strong>Unggah Dokumen:</strong></label>
+                      <br>                      
+                      <input type="file" class="form-control" name="Dokumen">
+                    </div>            
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <input type="submit" name="" class="btn btn-warning" value="Update">
+                </div>
+              </form>
+            </div>
+        </div>
+    </div>
+<!--End of Modal Add-->
 
 <!--Modal Update-->
   <?php foreach ($dataIkami as $value): ?>
@@ -84,11 +200,67 @@
                 </div>
                 <div class="modal-body">
                   <input type="hidden" name="Id_IKAMI" value="<?php echo $value->Id_IKAMI?>">
-                  <input type="hidden" name="Instansi" value="<?php echo $value->Instansi?>">
+                   <div class="form-group">
+                        <label for="Instansi"><strong>Instansi</strong></label>
+                        <select name="Instansi" placeholder="Pilih instansi...">
+                          <option value="" selected>--Instansi--</option>
+                          <?php
+                            foreach ($dataInstansi as $instansi) {
+                              ?>
+                              <option value="<?=$instansi->Id_Instansi ?>" <?php if ($value->Instansi == $instansi->Id_Instansi) : ?> selected<?php endif; ?>>
+                                <?= $instansi->Nama_Instansi ?></option>
+                          <?php
+                            }
+                          ?>
+                        </select>    
+                    </div>
                     <div class="form-group">
                         <label for="Tahun"><strong>Tahun</strong></label>
                         <input type="number" class="form-control" placeholder="Tahun" name="Tahun" aria-describedby="sizing-addon2" min="0" required value="<?= $value->Tahun ?>">
                     </div>
+                    <div class="form-group">
+                        <label for="Hasil_IKAMI"><strong>Hasil IKAMI</strong></label>
+                        <select name="Hasil_IKAMI" placeholder="Hasil IKAMI">
+                          <option value="Pemenuhan KK Dasar" <?php if ($value->Hasil_IKAMI == "Pemenuhan KK Dasar") : ?> selected<?php endif; ?> >1. Pemenuhan KK Dasar</option>
+                          <option value="Baik" <?php if ($value->Hasil_IKAMI == "Baik") : ?> selected<?php endif; ?> >2. Baik</option>
+                          <option value="Cukup" <?php if ($value->Hasil_IKAMI == "Cukup") : ?> selected<?php endif; ?> >3. Cukup</option>
+                          <option value="Tidak Layak" <?php if ($value->Hasil_IKAMI == "Tidak Layak") : ?> selected<?php endif; ?> >4. Tidak Layak</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="Kategori_SE"><strong>Kategori SE</strong></label>
+                        <select name="Kategori_SE" placeholder="Kategori SE">
+                          <option value="Tinggi" <?php if ($value->Kategori_SE == "Tinggi") : ?> selected<?php endif; ?> >1. Tinggi</option>
+                          <option value="Strategis" <?php if ($value->Kategori_SE == "Strategis") : ?> selected<?php endif; ?> >2. Strategis</option>
+                          <option value="Rendah" <?php if ($value->Kategori_SE == "Rendah") : ?> selected<?php endif; ?> >3. Rendah</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="Nilai_IKAMI"><strong>Nilai IKAMI</strong></label>
+                        <input type="number" class="form-control" placeholder="Nilai IKAMI" name="Nilai" aria-describedby="sizing-addon2" min="0" required value="<?= $value->Nilai ?>">
+                    </div>  
+                    <div class="row">
+                        <div class="col-sm-6">
+                             <?php
+                                if ($value->Dokumen==NUlL) {
+                                    echo "Dokumen Belum Diunggah";
+                                }else{
+                            ?>
+                               <a target="_blank" href="<?= base_url('assets')?>/pdf_files/ikami/<?= $value->Dokumen?>"><img src="<?= base_url('assets')?>/img/PDF_icon.png" width="20%"><br><?= $value->Dokumen ?></a>
+                            <?php
+                                }
+                            ?>
+                            
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="hidden" name="recent_dokumen" value="<?php echo $value->Dokumen?>">
+                            <div class="form-group">
+                              <label for="Dokumen"><strong>Unggah Dokumen:</strong></label>
+                              <br>                      
+                              <input type="file" class="form-control" name="Dokumen">      
+                            </div>
+                        </div>
+                    </div> 
                                     
                 </div>
                 <div class="modal-footer">
