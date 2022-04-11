@@ -46,7 +46,7 @@
                 <!-- CSIRT  -->
                 <tr class="bg-yellow"><th colspan="5"><b><center>CSIRT</center></b></th></tr>
                   <?php
-                    if ($value->Tgl_Launching == Null && $value->Nomor_Sertifikat == Null && $value->Nama_CSIRT == Null && $value->Nama_Narahubung == Null && $value->Nomor_HP == Null ) {
+                    if ($value->Nomor_Sertifikat == Null && $value->Nama_CSIRT == Null && $value->Nama_Narahubung == Null && $value->Nomor_HP == Null ) {
                   ?>
                     <tr style="text-align:center;">
                       <td colspan="5" class="bg-gray"><strong>---</strong></td>
@@ -55,14 +55,12 @@
                     }else{
                   ?>
                         <tr style="text-align:center;">
-                          <td><b>Tanggal Launching</b></td>
                           <td><b>No.Sertifikat</b></td>
                           <td><b>Nama CSIRT</b></td>
                           <td><b>Nama Narahubung</b></td>
                           <td><b>No.Tlp.</b></td>
                         </tr>
                         <tr style="text-align:center;">
-                          <td><?php echo date("d M Y", strtotime($value->Tgl_Launching)) ;?></td>
                           <td><?= $value->Nomor_Sertifikat?></td>
                           <td><?= $value->Nama_CSIRT?></td>
                           <td><?= $value->Nama_Narahubung?></td>
