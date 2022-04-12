@@ -17,8 +17,6 @@ class CSM extends AUTH_Controller {
 		$data['judul'] 		= "Data CSM";
 		$data['deskripsi'] 	= "Manage Data CSM";
 
-		$data['modal_tambah_ikami'] = show_my_modal('modals/modal_tambah_ikami', 'tambah-ikami', $data);
-
 		$this->template->views('csm/home', $data);
 	}
 
