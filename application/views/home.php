@@ -48,7 +48,7 @@
       <div class="icon">
         <i class="ion ion-ios-book"></i>
       </div>
-      <a href="<?php echo base_url('CSM') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+      <a href="<?php echo base_url('Csm') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
     </div>
   </div>
   <div class="col-lg-4 col-xs-4">
@@ -61,7 +61,7 @@
       <div class="icon">
         <i class="ion ion-ios-book"></i>
       </div>
-      <a href="<?php //echo base_url('CSM') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+      <a href="<?php echo base_url('Csirt') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
     </div>
   </div>
   <div class="col-lg-4 col-xs-4">

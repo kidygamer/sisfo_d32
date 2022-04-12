@@ -69,14 +69,6 @@
   </div>
 </div>
 
-<?php //echo $modal_tambah_Csm; ?>
-
-<?php
-  // $data['judul'] = 'Kota';
-  // $data['url'] = 'Kota/import';
-  // echo show_my_modal('modals/modal_import', 'import-kota', $data);
-?>
-
 <!--Modals-->
 
 <!--Modal Add-->

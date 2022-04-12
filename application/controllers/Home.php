@@ -8,14 +8,16 @@ class Home extends AUTH_Controller {
 		$this->load->model('M_laporan_persandian');
 		$this->load->model('M_ikami');
 		$this->load->model('M_csm');
+		$this->load->model('M_csirt');
 	}
 
 	public function index() {
-		$data['jml_instansi'] 	= $this->M_instansi->total_rows();
+		$data['jml_instansi'] 			= $this->M_instansi->total_rows();
 		$data['jml_laporan_persandian'] = $this->M_laporan_persandian->total_rows();
-		$data['jml_ikami'] = $this->M_ikami->total_rows();
-		$data['jml_csm'] = $this->M_csm->total_rows();
-		$data['userdata'] 		= $this->userdata;
+		$data['jml_ikami'] 				= $this->M_ikami->total_rows();
+		$data['jml_csm'] 				= $this->M_csm->total_rows();
+		$data['jml_csirt'] 				= $this->M_csirt->total_rows();
+		$data['userdata'] 				= $this->userdata;
 
 		
 		$data['page'] 			= "home";

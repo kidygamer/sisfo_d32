@@ -39,16 +39,18 @@ class M_csirt extends CI_Model {
 	public function insert($data) {
 
 		$simpan=$this->db->query("INSERT INTO csirt
-									(Tahun,Saran_uBSSN,Jml_SDM,Jml_Palsan,Jml_APU,Jml_SE,Instansi,Dokumen,updated_by)
+									(Status,Nama_Narahubung,Nomor_HP,Nomor_Sertifikat,Tgl_STR,Tgl_Launching,Nama_CSIRT,Dokumen,Instansi,Tahun,updated_by)
       							  VALUES(								        
-								        ".$this->db->escape($data['Tahun']).",
-								        ".$this->db->escape($data['Saran_uBSSN']).",
-								        ".$this->db->escape($data['Jml_SDM']).",
-								        ".$this->db->escape($data['Jml_Palsan']).",
-								        ".$this->db->escape($data['Jml_APU']).",
-								        ".$this->db->escape($data['Jml_SE']).",
-								        ".$this->db->escape($data['Instansi']).",
+								        ".$this->db->escape($data['Status']).",
+								        ".$this->db->escape($data['Nama_Narahubung']).",
+								        ".$this->db->escape($data['Nomor_HP']).",
+								        ".$this->db->escape($data['Nomor_Sertifikat']).",
+								        ".$this->db->escape($data['Tgl_STR']).",
+								        ".$this->db->escape($data['Tgl_Launching']).",
+								        ".$this->db->escape($data['Nama_CSIRT']).",
 								        ".$this->db->escape($data['Dokumen']).",
+								        ".$this->db->escape($data['Instansi']).",
+								        ".$this->db->escape($data['Tahun']).",
 								        ".$this->db->escape($data['updated_by'])."
       								)");
 	    if($simpan){
@@ -61,15 +63,18 @@ class M_csirt extends CI_Model {
 	public function update($data) {
 
 		$update = $this->db->query("UPDATE csirt SET
-	    							Tahun=".$this->db->escape($data['Tahun']).",
-	    							Saran_uBSSN=".$this->db->escape($data['Saran_uBSSN']).",
-	    							Jml_SDM=".$this->db->escape($data['Jml_SDM']).",
-	    							Jml_Palsan=".$this->db->escape($data['Jml_Palsan']).",
-	    							Jml_APU=".$this->db->escape($data['Jml_APU']).",
-	    							Jml_SE=".$this->db->escape($data['Jml_SE']).",
-	    							Dokumen=".$this->db->escape($data['Dokumen']).",
-	    							updated_by=".$this->db->escape($data['updated_by'])."
-	    							WHERE Id_csirt=".$this->db->escape($data['Id_csirt'])."
+	    							Status				=".$this->db->escape($data['Status']).",
+	    							Nama_Narahubung		=".$this->db->escape($data['Nama_Narahubung']).",
+	    							Nomor_HP			=".$this->db->escape($data['Nomor_HP']).",
+	    							Nomor_Sertifikat	=".$this->db->escape($data['Nomor_Sertifikat']).",
+	    							Tgl_STR				=".$this->db->escape($data['Tgl_STR']).",
+	    							Tgl_Launching		=".$this->db->escape($data['Tgl_Launching']).",
+	    							Nama_CSIRT			=".$this->db->escape($data['Nama_CSIRT']).",
+	    							Dokumen				=".$this->db->escape($data['Dokumen']).",
+	    							Instansi			=".$this->db->escape($data['Instansi']).",
+	    							Tahun				=".$this->db->escape($data['Tahun']).",
+	    							updated_by			=".$this->db->escape($data['updated_by'])."
+	    							WHERE Id_CSIRT		=".$this->db->escape($data['Id_CSIRT'])."
 	    ");
 
 	    if($update){
@@ -82,7 +87,7 @@ class M_csirt extends CI_Model {
 
 	public function archieve($id) {
 		$true = 1;
-		$sql = "UPDATE csirt SET archieved='" .$true ."' WHERE Id_csirt='" .$id."'";
+		$sql = "UPDATE csirt SET archieved='" .$true ."' WHERE Id_CSIRT='" .$id."'";
 
 		$this->db->query($sql);
 

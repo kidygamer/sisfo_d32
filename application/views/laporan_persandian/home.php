@@ -69,14 +69,6 @@
   </div>
 </div>
 
-<?php //cho $modal_tambah_laporan_persandian; ?>
-
-<?php
-  // $data['judul'] = 'Kota';
-  // $data['url'] = 'Kota/import';
-  // echo show_my_modal('modals/modal_import', 'import-kota', $data);
-?>
-
 <!--Modals-->
 
 <!--Modal Detail-->

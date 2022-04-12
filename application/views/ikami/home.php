@@ -71,14 +71,6 @@
   </div>
 </div>
 
-<?php //echo $modal_tambah_ikami; ?>
-
-<?php
-  // $data['judul'] = 'Kota';
-  // $data['url'] = 'Kota/import';
-  // echo show_my_modal('modals/modal_import', 'import-kota', $data);
-?>
-
 <!--Modals-->
 
 <!--Modal Detail-->
@@ -150,19 +142,19 @@
                         <label for="Hasil_IKAMI"><strong>Hasil IKAMI</strong></label>
                         <select name="Hasil_IKAMI" placeholder="Hasil IKAMI">
                           <option value="" selected disabled>--Pilih--</option>
-                          <option value="Pemenuhan KK Dasar">1. Pemenuhan KK Dasar</option>
-                          <option value="Baik">2. Baik</option>
-                          <option value="Cukup">3. Cukup</option>
-                          <option value="Tidak Layak">4. Tidak Layak</option>
+                          <option value="Baik">1. Baik (584-645)</option>
+                          <option value="Cukup Baik">2. Cukup Baik (456-583)</option>
+                          <option value="Pemenuhan KK Dasar">3. Pemenuhan KK Dasar (175-312)</option>
+                          <option value="Tidak Layak">4. Tidak Layak (0-174)</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="Kategori_SE"><strong>Kategori SE</strong></label>
                         <select name="Kategori_SE" placeholder="Kategori SE">
                           <option value="" selected disabled>--Pilih--</option>
-                          <option value="Tinggi">1. Tinggi</option>
-                          <option value="Strategis">2. Strategis</option>
-                          <option value="Rendah">3. Rendah</option>
+                          <option value="Strategis">1. Strategis (35-50)</option>
+                          <option value="Tinggi">2. Tinggi (16-34)</option>
+                          <option value="Rendah">3. Rendah (10-15)</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -221,18 +213,18 @@
                     <div class="form-group">
                         <label for="Hasil_IKAMI"><strong>Hasil IKAMI</strong></label>
                         <select name="Hasil_IKAMI" placeholder="Hasil IKAMI">
-                          <option value="Pemenuhan KK Dasar" <?php if ($value->Hasil_IKAMI == "Pemenuhan KK Dasar") : ?> selected<?php endif; ?> >1. Pemenuhan KK Dasar</option>
-                          <option value="Baik" <?php if ($value->Hasil_IKAMI == "Baik") : ?> selected<?php endif; ?> >2. Baik</option>
-                          <option value="Cukup" <?php if ($value->Hasil_IKAMI == "Cukup") : ?> selected<?php endif; ?> >3. Cukup</option>
-                          <option value="Tidak Layak" <?php if ($value->Hasil_IKAMI == "Tidak Layak") : ?> selected<?php endif; ?> >4. Tidak Layak</option>
+                          <option value="Baik" <?php if ($value->Hasil_IKAMI == "Baik") : ?> selected<?php endif; ?> >1. Baik (584-645)</option>
+                          <option value="Cukup Baik" <?php if ($value->Hasil_IKAMI == "Cukup") : ?> selected<?php endif; ?> >2. Cukup Baik (456-583)</option>
+                          <option value="Pemenuhan KK Dasar" <?php if ($value->Hasil_IKAMI == "Pemenuhan KK Dasar") : ?> selected<?php endif; ?> >3. Pemenuhan KK Dasar (175-312)</option>
+                          <option value="Tidak Layak" <?php if ($value->Hasil_IKAMI == "Tidak Layak") : ?> selected<?php endif; ?> >4. Tidak Layak (0-174)</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="Kategori_SE"><strong>Kategori SE</strong></label>
                         <select name="Kategori_SE" placeholder="Kategori SE">
-                          <option value="Tinggi" <?php if ($value->Kategori_SE == "Tinggi") : ?> selected<?php endif; ?> >1. Tinggi</option>
-                          <option value="Strategis" <?php if ($value->Kategori_SE == "Strategis") : ?> selected<?php endif; ?> >2. Strategis</option>
-                          <option value="Rendah" <?php if ($value->Kategori_SE == "Rendah") : ?> selected<?php endif; ?> >3. Rendah</option>
+                          <option value="Strategis" <?php if ($value->Kategori_SE == "Strategis") : ?> selected<?php endif; ?> >1. Strategis (35-50)</option>
+                          <option value="Tinggi" <?php if ($value->Kategori_SE == "Tinggi") : ?> selected<?php endif; ?> >2. Tinggi (16-34)</option>                          
+                          <option value="Rendah" <?php if ($value->Kategori_SE == "Rendah") : ?> selected<?php endif; ?> >3. Rendah (10-15)</option>
                         </select>
                     </div>
                     <div class="form-group">

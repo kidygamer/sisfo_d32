@@ -18,7 +18,7 @@
       <div class="pull-left info">
         <p><?php echo $userdata->nama; ?></p>
         <!-- Status -->
-        <a href="<?php echo base_url(); ?>assets/#"><i class="fa fa-circle text-success"></i> Online</a>
+        <i class="fa fa-circle text-success"></i> Online</a>
       </div>
     </div>
 
