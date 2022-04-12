@@ -79,9 +79,6 @@
 
 <!--Modals-->
 
-<!--Modals-->
-
-q
 <!--Modal Add-->
     <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -117,7 +114,7 @@ q
                         <input type="number" class="form-control" placeholder="Skor" name="Skor" aria-describedby="sizing-addon2" min="0" required step="any">
                     </div>
                     <div class="form-group">
-                        <label for="Lv_Kematangan"><strong>Lv Kematangan</strong></label>
+                        <label for="Lv_Kematangan"><strong>Level Kematangan</strong></label>
                         <input type="number" class="form-control" placeholder="Level Kematangan" name="Lv_Kematangan" aria-describedby="sizing-addon2" min="0" required>
                     </div>  
                     <div class="form-group">

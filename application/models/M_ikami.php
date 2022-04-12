@@ -7,7 +7,7 @@ class M_ikami extends CI_Model {
 		$this->db->from('ikami a');
 		$this->db->join('instansi b', 'a.Instansi = b.Id_Instansi');
 		$this->db->where('a.archieved', '0');
-		$this->db->order_by('Id_IKAMI','ASC');
+		$this->db->order_by('Tahun','DESC');
 
 
 		$data = $this->db->get();
@@ -60,14 +60,14 @@ class M_ikami extends CI_Model {
 	public function update($data) {
 
 		$update = $this->db->query("UPDATE ikami SET
-	    							Tahun=".$this->db->escape($data['Tahun']).",
-	    							Hasil_IKAMI=".$this->db->escape($data['Hasil_IKAMI']).",
-	    							Kategori_SE=".$this->db->escape($data['Kategori_SE']).",
-	    							Nilai=".$this->db->escape($data['Nilai']).",
-	    							Dokumen=".$this->db->escape($data['Dokumen']).",
-	    							Instansi=".$this->db->escape($data['Instansi']).",
-	    							updated_by=".$this->db->escape($data['updated_by'])."
-	    							WHERE Id_IKAMI=".$this->db->escape($data['Id_IKAMI'])."
+	    							Tahun			=".$this->db->escape($data['Tahun']).",
+	    							Hasil_IKAMI		=".$this->db->escape($data['Hasil_IKAMI']).",
+	    							Kategori_SE		=".$this->db->escape($data['Kategori_SE']).",
+	    							Nilai			=".$this->db->escape($data['Nilai']).",
+	    							Dokumen			=".$this->db->escape($data['Dokumen']).",
+	    							Id_Instansi		=".$this->db->escape($data['Instansi']).",
+	    							updated_by		=".$this->db->escape($data['updated_by'])."
+	    							WHERE Id_IKAMI	=".$this->db->escape($data['Id_IKAMI'])."
 	    ");
 
 	    if($update){

@@ -16,7 +16,7 @@
         <?php endif ?>
   <div class="box-header">
     <div class="col-md-6">
-        <button class="form-control btn btn-primary" data-toggle="modal" data-target="#tambah-laporan_persandian"><i class="glyphicon glyphicon-plus-sign"></i> Tambah Data</button>
+        <a href="#" data-toggle="modal" data-target="#addModal" class="form-control btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Tambah Data</a>
     </div>
   </div>
   <!-- /.box-header -->
@@ -69,7 +69,7 @@
   </div>
 </div>
 
-<?php echo $modal_tambah_laporan_persandian; ?>
+<?php //cho $modal_tambah_laporan_persandian; ?>
 
 <?php
   // $data['judul'] = 'Kota';
@@ -121,6 +121,85 @@
     </div>
   <?php endforeach ?>
 <!--End of Modal Detail-->
+
+<!--Modal Add-->
+    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <form id="form-update-lapsan" method="POST" action="<?php echo base_url('Laporan_Persandian/prosesTambah'); ?>" enctype="multipart/form-data">
+                <div class="modal-header">
+                    <center><h3 class="modal-title" id="exampleModalLabel">Tambah Data Laporan Persandian</h3></center>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="Instansi"><strong>Instansi</strong></label>
+                        <select name="Instansi" placeholder="Pilih instansi...">
+                          <option value="" selected>--Instansi--</option>
+                          <?php
+                            foreach ($dataInstansi as $instansi) {
+                              ?>
+                              <option value="<?=$instansi->Id_Instansi ?>"><?= $instansi->Nama_Instansi ?></option>
+                          <?php
+                            }
+                          ?>
+                        </select>    
+                    </div>
+                    <div class="form-group">
+                        <label for="Tahun"><strong>Tahun</strong></label>
+                        <input type="number" class="form-control" placeholder="Tahun" name="Tahun" aria-describedby="sizing-addon2" min="0" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="Saran_uBSSN"><strong>Saran untuk BSSN</strong></label>
+                      <textarea class="form-control" name="Saran_uBSSN" placeholder="Saran untuk BSSN" required rows="5"></textarea>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                              <label for="Jml_SDM"><strong>Jumlah SDM Persandian</strong></label>
+                              <input type="number" class="form-control" placeholder="Jumlah SDM Persandian" name="Jml_SDM" aria-describedby="sizing-addon2" min="0" required >
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                              <label for="Jml_Palsan"><strong>Jumlah Peralatan Sandi</strong></label>
+                              <input type="number" class="form-control" placeholder="Jumlah Peralatan Sandi" name="Jml_Palsan" aria-describedby="sizing-addon2" min="0" required >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                              <label for="Jml_APU"><strong>Jumlah APU</strong></label>
+                              <input type="number" class="form-control" placeholder="Jumlah APU" name="Jml_APU" aria-describedby="sizing-addon2" min="0" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                              <label for="Jml_SE"><strong>Jumlah Sistem Elektronik</strong></label>
+                              <input type="number" class="form-control" placeholder="Jumlah Sistem Elektronik" name="Jml_SE" aria-describedby="sizing-addon2" min="0" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="Dokumen"><strong>Unggah Dokumen:</strong></label>
+                      <br>                      
+                      <input type="file" class="form-control" name="Dokumen">
+                    </div>   
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <input type="submit" name="" class="btn btn-warning" value="Tambah Data">
+                </div>
+              </form>
+            </div>
+        </div>
+    </div>
+  
+<!--End of Modal Add-->
 
 <!--Modal Update-->
   <?php foreach ($dataLaporan_Persandian as $value): ?>

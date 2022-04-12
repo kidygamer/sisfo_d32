@@ -53,8 +53,8 @@ class Ikami extends AUTH_Controller {
 
 		$this->form_validation->set_rules($rules);
 
-		$nama_instansi = $this->M_instansi->select_by_id($this->input->post('Instansi'));
-		$new_name = "Ikami-".$nama_instansi->Nama_Instansi."-".$this->input->post('Tahun');
+		$nama_instansi = $this->M_instansi->select_by_id($this->security->xss_clean($this->input->post('Instansi')));
+		$new_name = "Ikami-".$nama_instansi->Nama_Instansi."-".$this->security->xss_clean($this->input->post('Tahun'));
 		$config['upload_path'] = "./assets/pdf_files/ikami";
 		$config['allowed_types'] = "pdf";
 		$config['max_size'] = 30000;
@@ -70,13 +70,13 @@ class Ikami extends AUTH_Controller {
 		}
 
 		$data = [
-				'Tahun' => $this->input->post('Tahun'),
-				'Hasil_IKAMI' => $this->input->post('Hasil_IKAMI'),
-				'Kategori_SE' => $this->input->post('Kategori_SE'),
-				'Nilai' => $this->input->post('Nilai'),
-				'Dokumen' => $dokumen_ikami,	
-				'Instansi' => $this->input->post('Instansi'),			
-				'updated_by' => $data['userdata']->username
+				'Tahun' 		=> $this->security->xss_clean($this->input->post('Tahun')),
+				'Hasil_IKAMI' 	=> $this->security->xss_clean($this->input->post('Hasil_IKAMI')),
+				'Kategori_SE' 	=> $this->security->xss_clean($this->input->post('Kategori_SE')),
+				'Nilai'			=> $this->security->xss_clean($this->input->post('Nilai')),
+				'Dokumen' 		=> $dokumen_ikami,	
+				'Instansi' 		=> $this->security->xss_clean($this->input->post('Instansi')),			
+				'updated_by' 	=> $data['userdata']->username
 		];
 
 		if ($this->form_validation->run() == TRUE) {
@@ -128,8 +128,8 @@ class Ikami extends AUTH_Controller {
 
 		$this->form_validation->set_rules($rules);
 
-		$nama_instansi = $this->M_instansi->select_by_id($this->input->post('Instansi'));
-		$new_name = "Ikami-".$nama_instansi->Nama_Instansi."-".$this->input->post('Tahun');
+		$nama_instansi = $this->M_instansi->select_by_id($this->security->xss_clean($this->input->post('Instansi')));
+		$new_name = "Ikami-".$nama_instansi->Nama_Instansi."-".$this->security->xss_clean($this->input->post('Tahun'));
 		$config['upload_path'] = "./assets/pdf_files/ikami";
 		$config['allowed_types'] = "pdf";
 		$config['max_size'] = 30000;
@@ -145,14 +145,14 @@ class Ikami extends AUTH_Controller {
 		}
 
 		$data = [
-				'Id_IKAMI' => $this->input->post('Id_IKAMI'),
-				'Tahun' => $this->input->post('Tahun'),
-				'Hasil_IKAMI' => $this->input->post('Hasil_IKAMI'),
-				'Kategori_SE' => $this->input->post('Kategori_SE'),
-				'Nilai' => $this->input->post('Nilai'),
-				'Dokumen' => $dokumen_ikami,	
-				'Instansi' => $this->input->post('Instansi'),			
-				'updated_by' => $data['userdata']->username
+				'Id_IKAMI' 		=> $this->security->xss_clean($this->input->post('Id_IKAMI')),
+				'Tahun' 		=> $this->security->xss_clean($this->input->post('Tahun')),
+				'Hasil_IKAMI' 	=> $this->security->xss_clean($this->input->post('Hasil_IKAMI')),
+				'Kategori_SE' 	=> $this->security->xss_clean($this->input->post('Kategori_SE')),
+				'Nilai' 		=> $this->security->xss_clean($this->input->post('Nilai')),
+				'Dokumen' 		=> $dokumen_ikami,	
+				'Instansi' 		=> $this->security->xss_clean($this->input->post('Instansi')),			
+				'updated_by' 	=> $data['userdata']->username
 		];
 
 		if ($this->form_validation->run() == TRUE) {
@@ -189,18 +189,7 @@ class Ikami extends AUTH_Controller {
 	}
 
 
-	// public function detail() {
-	// 	$data['userdata'] 	= $this->userdata;
-
-	// 	$id 				= trim($_POST['id']);
-	// 	$data['Instansi'] = $this->M_Instansi->select_by_id($id);
-	// 	$data['jumlahInstansi'] = $this->M_Instansi->total_rows();
-	// 	$data['dataInstansi'] = $this->M_Instansi->select_by_pegawai($id);
-
-	// 	echo show_my_modal('modals/modal_detail_Instansi', 'detail-Instansi', $data, 'lg');
-	// }
-
-	}
+}
 
 /* End of file Ikami.php */
 /* Location: ./application/controllers/Ikami.php */

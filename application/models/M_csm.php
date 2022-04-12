@@ -16,7 +16,7 @@ class M_csm extends CI_Model {
 	}
 
 	public function select_by_id($id) {
-		$sql = "SELECT * FROM csm WHERE Id_csm = '{$id}'";
+		$sql = "SELECT * FROM csm WHERE Id_CSM = '{$id}'";
 
 		$data = $this->db->query($sql);
 
@@ -24,7 +24,7 @@ class M_csm extends CI_Model {
 	}
 
 	public function select_by_instansi($id) {
-		$sql = "SELECT Id_csm FROM csm WHERE Instansi = '{$id}'";
+		$sql = "SELECT Id_CSM FROM csm WHERE Instansi = '{$id}'";
 
 		$data = $this->db->query($sql);
 
@@ -40,16 +40,13 @@ class M_csm extends CI_Model {
 	public function insert($data) {
 
 		$simpan=$this->db->query("INSERT INTO csm
-									(Tahun,Saran_uBSSN,Jml_SDM,Jml_Palsan,Jml_APU,Jml_SE,Instansi,Dokumen,updated_by)
+									(Tahun,Skor,Lv_Kematangan,Dokumen,Instansi,updated_by)
       							  VALUES(								        
 								        ".$this->db->escape($data['Tahun']).",
-								        ".$this->db->escape($data['Saran_uBSSN']).",
-								        ".$this->db->escape($data['Jml_SDM']).",
-								        ".$this->db->escape($data['Jml_Palsan']).",
-								        ".$this->db->escape($data['Jml_APU']).",
-								        ".$this->db->escape($data['Jml_SE']).",
-								        ".$this->db->escape($data['Instansi']).",
+								        ".$this->db->escape($data['Skor']).",
+								        ".$this->db->escape($data['Lv_Kematangan']).",
 								        ".$this->db->escape($data['Dokumen']).",
+								        ".$this->db->escape($data['Instansi']).",
 								        ".$this->db->escape($data['updated_by'])."
       								)");
 	    if($simpan){
@@ -62,15 +59,13 @@ class M_csm extends CI_Model {
 	public function update($data) {
 
 		$update = $this->db->query("UPDATE csm SET
-	    							Tahun=".$this->db->escape($data['Tahun']).",
-	    							Saran_uBSSN=".$this->db->escape($data['Saran_uBSSN']).",
-	    							Jml_SDM=".$this->db->escape($data['Jml_SDM']).",
-	    							Jml_Palsan=".$this->db->escape($data['Jml_Palsan']).",
-	    							Jml_APU=".$this->db->escape($data['Jml_APU']).",
-	    							Jml_SE=".$this->db->escape($data['Jml_SE']).",
-	    							Dokumen=".$this->db->escape($data['Dokumen']).",
-	    							updated_by=".$this->db->escape($data['updated_by'])."
-	    							WHERE Id_csm=".$this->db->escape($data['Id_csm'])."
+	    							Tahun			=".$this->db->escape($data['Tahun']).",
+	    							Skor			=".$this->db->escape($data['Skor']).",
+	    							Lv_Kematangan	=".$this->db->escape($data['Lv_Kematangan']).",
+	    							Dokumen			=".$this->db->escape($data['Dokumen']).",
+	    							Id_Instansi		=".$this->db->escape($data['Instansi']).",
+	    							updated_by		=".$this->db->escape($data['updated_by'])."
+	    							WHERE Id_CSM	=".$this->db->escape($data['Id_CSM'])."
 	    ");
 
 	    if($update){
@@ -83,7 +78,7 @@ class M_csm extends CI_Model {
 
 	public function archieve($id) {
 		$true = 1;
-		$sql = "UPDATE csm SET archieved='" .$true ."' WHERE Id_csm='" .$id."'";
+		$sql = "UPDATE csm SET archieved='" .$true ."' WHERE Id_CSM='" .$id."'";
 
 		$this->db->query($sql);
 
@@ -94,4 +89,4 @@ class M_csm extends CI_Model {
 }
 
 /* End of file M_csm.php */
-/* Location: ./application/models/M_lapopran_persandian.php */
+/* Location: ./application/models/M_csm.php */

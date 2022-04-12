@@ -20,201 +20,163 @@ class CSM extends AUTH_Controller {
 		$this->template->views('csm/home', $data);
 	}
 
-	// public function prosesTambah() {
-	// 	$data['userdata'] 		= $this->userdata;
-	// 	$rules = array(
-	//         array(
-	//                 'field' => 'Instansi',
-	//                 'label' => 'Instansi',
-	//                 'rules' => 'required'
-	//         ),
-	//         array(
-	//                 'field' => 'Tahun',
-	//                 'label' => 'Tahun',
-	//                 'rules' => 'required|numeric|exact_length[4]'
-	//         ),
-	//         array(
-	//                 'field' => 'Saran_uBSSN',
-	//                 'label' => 'Saran untuk BSSN',
-	//                 'rules' => 'required'
-	//         ),
-	//         array(
-	//                 'field' => 'Jml_SDM',
-	//                 'label' => 'Jumlah SDM Persandian',
-	//                 'rules' => 'required|numeric|min_length[1]'
-	//         ),
-	//         array(
-	//                 'field' => 'Jml_Palsan',
-	//                 'label' => 'Jumlah Peralatan Sandi',
-	//                 'rules' => 'required|numeric|min_length[1]'
-	//         ),
-	//         array(
-	//                 'field' => 'Jml_APU',
-	//                 'label' => 'Jumlah APU',
-	//                 'rules' => 'required|numeric|min_length[1]'
-	//         ),
-	//         array(
-	//                 'field' => 'Jml_SE',
-	//                 'label' => 'Jumlah Sistem Elektronik',
-	//                 'rules' => 'required|numeric|min_length[1]'
-	//         ),
-	// 	);
+	public function prosesTambah() {
+		$data['userdata'] 		= $this->userdata;
+		$rules = array(
+	        array(
+	                'field' => 'Instansi',
+	                'label' => 'Instansi',
+	                'rules' => 'required'
+	        ),
+	        array(
+	                'field' => 'Tahun',
+	                'label' => 'Tahun',
+	                'rules' => 'required|numeric|exact_length[4]'
+	        ),
+	         array(
+	                'field' => 'Skor',
+	                'label' => 'Skor',
+	                'rules' => 'required'
+	        ),
+	         array(
+	                'field' => 'Lv_Kematangan',
+	                'label' => 'Level Kematangan',
+	                'rules' => 'required'
+	        )
+		);
 
-	// 	$this->form_validation->set_rules($rules);
+		$this->form_validation->set_rules($rules);
 
-	// 	$nama_instansi = $this->M_instansi->select_by_id($this->input->post('Instansi'));
-	// 	$new_name = "Ikami-".$nama_instansi->Nama_Instansi."-".$this->input->post('Tahun');
-	// 	$config['upload_path'] = "./assets/pdf_files/ikami";
-	// 	$config['allowed_types'] = "pdf";
-	// 	$config['max_size'] = 30000;
-	// 	$config['file_name'] = $new_name; 
-	// 	$this->load->library('upload',$config);
+		$nama_instansi = $this->M_instansi->select_by_id($this->security->xss_clean($this->input->post('Instansi')));
+		$new_name = "Csm-".$nama_instansi->Nama_Instansi."-".$this->security->xss_clean($this->input->post('Tahun'));
+		$config['upload_path'] = "./assets/pdf_files/csm";
+		$config['allowed_types'] = "pdf";
+		$config['max_size'] = 30000;
+		$config['file_name'] = $new_name; 
+		$this->load->library('upload',$config);
 
-	// 	if ($this->upload->do_upload('Dokumen')) {
-	// 		$file_pdf = $this->upload->data();
+		if ($this->upload->do_upload('Dokumen')) {
+			$file_pdf = $this->upload->data();
 
-	// 		$dokumen_lapsan = $file_pdf['file_name'];
-	// 	}else {
-	// 		$dokumen_lapsan = NULL;
-	// 	}
+			$dokumen_csm = $file_pdf['file_name'];
+		}else {
+			$dokumen_csm = NULL;
+		}
 
-	// 	$data = [
-	// 			'Tahun' => $this->input->post('Tahun'),
-	// 			'Saran_uBSSN' => $this->input->post('Saran_uBSSN'),
-	// 			'Jml_SDM' => $this->input->post('Jml_SDM'),
-	// 			'Jml_Palsan' => $this->input->post('Jml_Palsan'),
-	// 			'Jml_APU' => $this->input->post('Jml_APU'),
-	// 			'Jml_SE' => $this->input->post('Jml_SE'),
-	// 			'Instansi' => $this->input->post('Instansi'),
-	// 			'Dokumen' => $dokumen_lapsan,				
-	// 			'updated_by' => $data['userdata']->username
-	// 	];
+		$data = [
+				'Tahun' 		=> $this->security->xss_clean($this->input->post('Tahun')),
+				'Skor' 			=> $this->security->xss_clean($this->input->post('Skor')),
+				'Lv_Kematangan' => $this->security->xss_clean($this->input->post('Lv_Kematangan')),
+				'Dokumen' 		=> $dokumen_csm,	
+				'Instansi' 		=> $this->security->xss_clean($this->input->post('Instansi')),			
+				'updated_by' 	=> $data['userdata']->username
+		];
 
-	// 	if ($this->form_validation->run() == TRUE) {
-	// 		if($this->M_ikami->insert($data)){
-	// 			$this->session->set_flashdata('success', 'Data <strong>Berhasil</strong> Ditambahkan!');
-	// 			redirect('ikami');
-	// 		} else {
-	// 			$this->session->set_flashdata('error', 'Data <strong>Gagal</strong> Ditambahkan!');
-	// 			redirect('ikami');
-	// 		}
-	// 	} else {
-	// 		$out['msg'] = show_err_msg(validation_errors());
-	// 		$this->session->set_flashdata('error', 'Data <strong>Gagal</strong> Ditambahkan!'.$out['msg']);
-	// 		redirect('ikami');
-	// 	}
+		if ($this->form_validation->run() == TRUE) {
+			if($this->M_csm->insert($data)){
+				$this->session->set_flashdata('success', 'Data <strong>Berhasil</strong> Ditambahkan!');
+				redirect('Csm');
+			} else {
+				$this->session->set_flashdata('error', 'Data <strong>Gagal</strong> Ditambahkan!');
+				redirect('Csm');
+			}
+		} else {
+			$out['msg'] = show_err_msg(validation_errors());
+			$this->session->set_flashdata('error', 'Data <strong>Gagal</strong> Ditambahkan!'.$out['msg']);
+			redirect('Csm');
+		}
 	 
-	// }
-
-	// public function prosesUpdate() {
-	// 	$data['userdata'] 		= $this->userdata;
-	// 	$rules = array(
-	//         array(
-	//                 'field' => 'Tahun',
-	//                 'label' => 'Tahun',
-	//                 'rules' => 'required|numeric|exact_length[4]'
-	//         ),
-	//         array(
-	//                 'field' => 'Saran_uBSSN',
-	//                 'label' => 'Saran untuk BSSN',
-	//                 'rules' => 'required'
-	//         ),
-	//         array(
-	//                 'field' => 'Jml_SDM',
-	//                 'label' => 'Jumlah SDM Persandian',
-	//                 'rules' => 'required|numeric|min_length[1]'
-	//         ),
-	//         array(
-	//                 'field' => 'Jml_Palsan',
-	//                 'label' => 'Jumlah Peralatan Sandi',
-	//                 'rules' => 'required|numeric|min_length[1]'
-	//         ),
-	//         array(
-	//                 'field' => 'Jml_APU',
-	//                 'label' => 'Jumlah APU',
-	//                 'rules' => 'required|numeric|min_length[1]'
-	//         ),
-	//         array(
-	//                 'field' => 'Jml_SE',
-	//                 'label' => 'Jumlah Sistem Elektronik',
-	//                 'rules' => 'required|numeric|min_length[1]'
-	//         ),
-	// 	);
-
-	// 	$this->form_validation->set_rules($rules);
-
-	// 	$nama_instansi = $this->M_instansi->select_by_id($this->input->post('Instansi'));
-	// 	$new_name = "Ikami-".$nama_instansi->Nama_Instansi."-".$this->input->post('Tahun');
-	// 	$config['upload_path'] = "./assets/pdf_files/ikami";
-	// 	$config['allowed_types'] = "pdf";
-	// 	$config['max_size'] = 30000;
-	// 	$config['file_name'] = $new_name; 
-	// 	$this->load->library('upload',$config);
-
-	// 	if ($this->upload->do_upload('Dokumen')) {
-	// 		$file_pdf = $this->upload->data();
-
-	// 		$dokumen_lapsan = $file_pdf['file_name'];
-	// 	}else {
-	// 		$dokumen_lapsan =  $this->input->post('recent_dokumen');
-	// 	}
-
-	// 	$data = [
-	// 		    'Id_LapSan' => $this->input->post('Id_LapSan'),
-	// 			'Tahun' => $this->input->post('Tahun'),
-	// 			'Saran_uBSSN' => $this->input->post('Saran_uBSSN'),
-	// 			'Jml_SDM' => $this->input->post('Jml_SDM'),
-	// 			'Jml_Palsan' => $this->input->post('Jml_Palsan'),
-	// 			'Jml_APU' => $this->input->post('Jml_APU'),
-	// 			'Jml_SE' => $this->input->post('Jml_SE'),
-	// 			'Instansi' => $this->input->post('Instansi'),
-	// 			'Dokumen' => $dokumen_lapsan,				
-	// 			'updated_by' => $data['userdata']->username
-	// 	];
-
-	// 	if ($this->form_validation->run() == TRUE) {
-	// 		if($this->M_ikami->update($data)){
-	// 			$this->session->set_flashdata('success', 'Data <strong>Berhasil</strong> Diupdate!');
-	// 			redirect('ikami');
-	// 		} else {
-	// 			$this->session->set_flashdata('error', 'Data <strong>Gagal</strong> Diupdate!');
-	// 			echo "update failed";
-	// 			redirect('ikami');
-	// 		}
-	// 	} else {
-	// 		$out['msg'] = show_err_msg(validation_errors());
-	// 		$this->session->set_flashdata('error', 'Data <strong>Gagal</strong> Diupdate!'.$out['msg']);
-	// 		redirect('ikami');
-	// 	}
-	 
-	// }
-
-	// public function archieve($id){
-
-	// 	if($this->M_ikami->archieve($id)){
-	// 		$this->session->set_flashdata('success', 'Data <strong>Berhasil</strong> Diarsipkan!');
-	// 		redirect('ikami');
-	// 		//echo "success";
-	// 	} else {
-	// 		$this->session->set_flashdata('error', 'Data <strong>Gagal</strong> Diarsipkan!');
-	// 		redirect('ikami');
-	// 		//echo "failed";
-	// 	}
-	// }
-
-
-	// public function detail() {
-	// 	$data['userdata'] 	= $this->userdata;
-
-	// 	$id 				= trim($_POST['id']);
-	// 	$data['Instansi'] = $this->M_Instansi->select_by_id($id);
-	// 	$data['jumlahInstansi'] = $this->M_Instansi->total_rows();
-	// 	$data['dataInstansi'] = $this->M_Instansi->select_by_pegawai($id);
-
-	// 	echo show_my_modal('modals/modal_detail_Instansi', 'detail-Instansi', $data, 'lg');
-	// }
-
 	}
 
-/* End of file Ikami.php */
-/* Location: ./application/controllers/Ikami.php */
+	public function prosesUpdate() {
+		$data['userdata'] 		= $this->userdata;
+		$rules = array(
+	        array(
+	                'field' => 'Instansi',
+	                'label' => 'Instansi',
+	                'rules' => 'required'
+	        ),
+	        array(
+	                'field' => 'Tahun',
+	                'label' => 'Tahun',
+	                'rules' => 'required|numeric|exact_length[4]'
+	        ),
+	          array(
+	                'field' => 'Skor',
+	                'label' => 'Skor',
+	                'rules' => 'required'
+	        ),
+	         array(
+	                'field' => 'Lv_Kematangan',
+	                'label' => 'Level Kematangan',
+	                'rules' => 'required'
+	        )
+		);
+
+
+		$this->form_validation->set_rules($rules);
+
+		$nama_instansi = $this->M_instansi->select_by_id($this->input->post('Instansi'));
+		$new_name = "Csm-".$nama_instansi->Nama_Instansi."-".$this->input->post('Tahun');
+		$config['upload_path'] = "./assets/pdf_files/Csm";
+		$config['allowed_types'] = "pdf";
+		$config['max_size'] = 30000;
+		$config['file_name'] = $new_name; 
+		$this->load->library('upload',$config);
+
+		if ($this->upload->do_upload('Dokumen')) {
+			$file_pdf = $this->upload->data();
+
+			$dokumen_csm = $file_pdf['file_name'];
+		}else {
+			$dokumen_csm =  $this->input->post('recent_dokumen');
+		}
+
+		$data = [
+				'Id_CSM' 		=> $this->security->xss_clean($this->input->post('Id_CSM')),
+				'Tahun' 		=> $this->security->xss_clean($this->input->post('Tahun')),
+				'Skor' 			=> $this->security->xss_clean($this->input->post('Skor')),
+				'Lv_Kematangan' => $this->security->xss_clean($this->input->post('Lv_Kematangan')),
+				'Dokumen' 		=> $dokumen_csm,	
+				'Instansi' 		=> $this->security->xss_clean($this->input->post('Instansi')),				
+				'updated_by' 	=> $data['userdata']->username
+		];
+
+		if ($this->form_validation->run() == TRUE) {
+			if($this->M_csm->update($data)){
+				$this->session->set_flashdata('success', 'Data <strong>Berhasil</strong> Diupdate!');
+				//echo "update success";
+				redirect('Csm');
+			} else {
+				$this->session->set_flashdata('error', 'Data <strong>Gagal</strong> Diupdate!');
+				//echo "update failed";
+				redirect('Csm');
+			}
+		} else {
+			$out['msg'] = show_err_msg(validation_errors());
+			$this->session->set_flashdata('error', 'Data <strong>Gagal</strong> Diupdate!'.$out['msg']);
+			redirect('Csm');
+		}
+
+		//print_r($data);
+	 
+	}
+
+	public function archieve($id){
+
+		if($this->M_csm->archieve($id)){
+			$this->session->set_flashdata('success', 'Data <strong>Berhasil</strong> Diarsipkan!');
+			redirect('Csm');
+			//echo "success";
+		} else {
+			$this->session->set_flashdata('error', 'Data <strong>Gagal</strong> Diarsipkan!');
+			redirect('Csm');
+			//echo "failed";
+		}
+	}
+
+
+}
+
+/* End of file Csm.php */
+/* Location: ./application/controllers/Csm.php */

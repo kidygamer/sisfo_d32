@@ -17,8 +17,6 @@ class Laporan_Persandian extends AUTH_Controller {
 		$data['judul'] 		= "Data Laporan Persandian";
 		$data['deskripsi'] 	= "Manage Data Laporan Persandian";
 
-		$data['modal_tambah_laporan_persandian'] = show_my_modal('modals/modal_tambah_laporan_persandian', 'tambah-laporan_persandian', $data);
-
 		$this->template->views('laporan_persandian/home', $data);
 	}
 
@@ -64,8 +62,8 @@ class Laporan_Persandian extends AUTH_Controller {
 
 		$this->form_validation->set_rules($rules);
 
-		$nama_instansi = $this->M_instansi->select_by_id($this->input->post('Instansi'));
-		$new_name = "Laporan Persandian-".$nama_instansi->Nama_Instansi."-".$this->input->post('Tahun');
+		$nama_instansi = $this->M_instansi->select_by_id($this->security->xss_clean($this->input->post('Instansi')));
+		$new_name = "Laporan Persandian-".$nama_instansi->Nama_Instansi."-".$this->security->xss_clean($this->input->post('Tahun'));
 		$config['upload_path'] = "./assets/pdf_files/laporan_persandian";
 		$config['allowed_types'] = "pdf";
 		$config['max_size'] = 30000;
@@ -81,15 +79,15 @@ class Laporan_Persandian extends AUTH_Controller {
 		}
 
 		$data = [
-				'Tahun' => $this->input->post('Tahun'),
-				'Saran_uBSSN' => $this->input->post('Saran_uBSSN'),
-				'Jml_SDM' => $this->input->post('Jml_SDM'),
-				'Jml_Palsan' => $this->input->post('Jml_Palsan'),
-				'Jml_APU' => $this->input->post('Jml_APU'),
-				'Jml_SE' => $this->input->post('Jml_SE'),
-				'Instansi' => $this->input->post('Instansi'),
-				'Dokumen' => $dokumen_lapsan,				
-				'updated_by' => $data['userdata']->username
+				'Tahun' 		=> $this->security->xss_clean($this->input->post('Tahun')),
+				'Saran_uBSSN' 	=> $this->security->xss_clean($this->input->post('Saran_uBSSN')),
+				'Jml_SDM' 		=> $this->security->xss_clean($this->input->post('Jml_SDM')),
+				'Jml_Palsan' 	=> $this->security->xss_clean($this->input->post('Jml_Palsan')),
+				'Jml_APU' 		=> $this->security->xss_clean($this->input->post('Jml_APU')),
+				'Jml_SE' 		=> $this->security->xss_clean($this->input->post('Jml_SE')),
+				'Instansi' 		=> $this->security->xss_clean($this->input->post('Instansi')),
+				'Dokumen' 		=> $dokumen_lapsan,				
+				'updated_by' 	=> $data['userdata']->username
 		];
 
 		if ($this->form_validation->run() == TRUE) {
@@ -162,16 +160,16 @@ class Laporan_Persandian extends AUTH_Controller {
 		}
 
 		$data = [
-			    'Id_LapSan' => $this->input->post('Id_LapSan'),
-				'Tahun' => $this->input->post('Tahun'),
-				'Saran_uBSSN' => $this->input->post('Saran_uBSSN'),
-				'Jml_SDM' => $this->input->post('Jml_SDM'),
-				'Jml_Palsan' => $this->input->post('Jml_Palsan'),
-				'Jml_APU' => $this->input->post('Jml_APU'),
-				'Jml_SE' => $this->input->post('Jml_SE'),
-				'Instansi' => $this->input->post('Instansi'),
-				'Dokumen' => $dokumen_lapsan,				
-				'updated_by' => $data['userdata']->username
+			    'Id_LapSan' 	=> $this->security->xss_clean($this->input->post('Id_LapSan')),
+				'Tahun' 		=> $this->security->xss_clean($this->input->post('Tahun')),
+				'Saran_uBSSN' 	=> $this->security->xss_clean($this->input->post('Saran_uBSSN')),
+				'Jml_SDM' 		=> $this->security->xss_clean($this->input->post('Jml_SDM')),
+				'Jml_Palsan' 	=> $this->security->xss_clean($this->input->post('Jml_Palsan')),
+				'Jml_APU' 		=> $this->security->xss_clean($this->input->post('Jml_APU')),
+				'Jml_SE' 		=> $this->security->xss_clean($this->input->post('Jml_SE')),
+				'Instansi' 		=> $this->security->xss_clean($this->input->post('Instansi')),
+				'Dokumen'		=> $dokumen_lapsan,				
+				'updated_by' 	=> $data['userdata']->username
 		];
 
 		if ($this->form_validation->run() == TRUE) {
@@ -203,18 +201,6 @@ class Laporan_Persandian extends AUTH_Controller {
 			//echo "failed";
 		}
 	}
-
-
-	// public function detail() {
-	// 	$data['userdata'] 	= $this->userdata;
-
-	// 	$id 				= trim($_POST['id']);
-	// 	$data['Instansi'] = $this->M_Instansi->select_by_id($id);
-	// 	$data['jumlahInstansi'] = $this->M_Instansi->total_rows();
-	// 	$data['dataInstansi'] = $this->M_Instansi->select_by_pegawai($id);
-
-	// 	echo show_my_modal('modals/modal_detail_Instansi', 'detail-Instansi', $data, 'lg');
-	// }
 
 	}
 
