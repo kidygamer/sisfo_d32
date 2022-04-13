@@ -9,6 +9,7 @@ class Home extends AUTH_Controller {
 		$this->load->model('M_ikami');
 		$this->load->model('M_csm');
 		$this->load->model('M_csirt');
+		$this->load->model('M_tmpi');
 	}
 
 	public function index() {
@@ -17,6 +18,7 @@ class Home extends AUTH_Controller {
 		$data['jml_ikami'] 				= $this->M_ikami->total_rows();
 		$data['jml_csm'] 				= $this->M_csm->total_rows();
 		$data['jml_csirt'] 				= $this->M_csirt->total_rows();
+		$data['jml_tmpi'] 				= $this->M_tmpi->total_rows();
 		$data['userdata'] 				= $this->userdata;
 
 		

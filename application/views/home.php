@@ -17,7 +17,7 @@
       <div class="inner">
         <h3><?php echo $jml_laporan_persandian; ?></h3>
 
-        <p>Laporan Persandian</p>
+        <p> Data Laporan Persandian</p>
       </div>
       <div class="icon">
         <i class="ion ion-ios-book"></i>
@@ -30,7 +30,7 @@
       <div class="inner">
         <h3><?php echo $jml_ikami; ?></h3>
 
-        <p>IKAMI</p>
+        <p> Data IKAMI</p>
       </div>
       <div class="icon">
         <i class="ion ion-ios-book"></i>
@@ -43,7 +43,7 @@
       <div class="inner">
         <h3><?php echo $jml_csm; ?></h3>
 
-        <p>CSM</p>
+        <p> Data CSM</p>
       </div>
       <div class="icon">
         <i class="ion ion-ios-book"></i>
@@ -54,9 +54,9 @@
   <div class="col-lg-4 col-xs-4">
     <div class="small-box bg-red">
       <div class="inner">
-        <h3><?php echo "0"; ?></h3>
+        <h3><?php echo $jml_csirt; ?></h3>
 
-        <p>CSIRT</p>
+        <p> Data CSIRT</p>
       </div>
       <div class="icon">
         <i class="ion ion-ios-book"></i>
@@ -67,14 +67,14 @@
   <div class="col-lg-4 col-xs-4">
     <div class="small-box bg-aqua">
       <div class="inner">
-        <h3><?php echo "0"; ?></h3>
+        <h3><?php echo $jml_tmpi; ?></h3>
 
-        <p>TMPI</p>
+        <p> Data TMPI</p>
       </div>
       <div class="icon">
         <i class="ion ion-ios-book"></i>
       </div>
-      <a href="<?php //echo base_url('CSM') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+      <a href="<?php echo base_url('Tmpi') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
     </div>
   </div>
 
