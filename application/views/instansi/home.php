@@ -16,7 +16,7 @@
         <?php endif ?>
   <div class="box-header">
     <div class="col-md-6">
-        <button class="form-control btn btn-primary" data-toggle="modal" data-target="#tambah-instansi"><i class="glyphicon glyphicon-plus-sign"></i> Tambah Data</button>
+        <a href="#" data-toggle="modal" data-target="#addModal" class="form-control btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Tambah Data</a>
     </div>
   </div>
   <!-- /.box-header -->
@@ -26,6 +26,7 @@
         <tr>
           <th>#</th>
           <th>Nama Instansi</th>
+          <th>Provinsi</th>
           <th style="text-align: center;">Aksi</th>
         </tr>
       </thead>
@@ -37,6 +38,7 @@
             <tr>
               <td><?php echo $no; ?></td>
               <td><?php echo $instansi->Nama_Instansi; ?></td>
+              <td><?php echo $instansi->nama; ?></td>
               <td class="text-center" style="min-width:230px;">
                   <a href="<?php echo base_url('Instansi/detail_grand/'.$instansi->Id_Instansi); ?>" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-eye-open"></i> Detail</a>
                   <a href="#" data-toggle="modal" data-target="#updateModal<?=$instansi->Id_Instansi?>" class="btn btn-warning btn-sm"><i class="glyphicon glyphicon-repeat"></i> Update</a>
@@ -52,15 +54,48 @@
   </div>
 </div>
 
-<?php echo $modal_tambah_instansi; ?>
-
-<?php
-  // $data['judul'] = 'Kota';
-  // $data['url'] = 'Kota/import';
-  // echo show_my_modal('modals/modal_import', 'import-kota', $data);
-?>
-
 <!--Modals-->
+
+<!--Modal Add-->
+    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <form id="form-add-Instansi" method="POST" action="<?php echo base_url('Instansi/prosesTambah'); ?>" enctype="multipart/form-data">
+                <div class="modal-header">
+                    <center><h3 class="modal-title" id="exampleModalLabel">Tambah Data Instansi</h3></center>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="Provinsi"><strong>Provinsi</strong></label>
+                        <select name="Provinsi" placeholder="Provinsi">
+                          <option value="" selected>--Provinsi--</option>
+                          <?php
+                            foreach ($dataProvinsi as $prov) {
+                              ?>
+                              <option value="<?=$prov->id ?>"><?= $prov->nama ?></option>
+                          <?php
+                            }
+                          ?>
+                        </select>    
+                    </div>
+                    <div class="form-group">
+                        <label for="Nama_Instansi"><strong>Nama Instansi</strong></label>
+                        <input type="text" class="form-control" placeholder="Nama Instansi" name="Nama_Instansi" aria-describedby="sizing-addon2" required>
+                    </div>  
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <input type="submit" name="" class="btn btn-warning" value="Tambah Data">
+                </div>
+              </form>
+            </div>
+        </div>
+    </div>
+<!--End of Modal Add-->
 
 <!--Modal Update-->
   <?php foreach ($dataInstansi as $value): ?>
@@ -70,19 +105,31 @@
             <div class="modal-content">
               <form id="form-update-instansi" method="POST" action="<?php echo base_url('Instansi/prosesUpdate'); ?>">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Update data</h5>
+                     <center><h3 class="modal-title" id="exampleModalLabel">Update Data Instansi<br> <b><?= $value->Nama_Instansi ?></b></h3></center>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                  <input type="hidden" name="Id_Instansi" value="<?php echo $value->Id_Instansi?>">
-                  <div class="input-group form-group">
-                    <span class="input-group-addon" id="sizing-addon2">
-                      <i class="glyphicon glyphicon-pencil"></i>
-                    </span>
-                    <input type="text" class="form-control" placeholder="Nama Instansi" name="Nama_Instansi" aria-describedby="sizing-addon2" value="<?=  $value->Nama_Instansi ?>">
-                  </div>
+                 <div class="modal-body">
+                    <div class="form-group">
+                        <input type="hidden" name="Id_Instansi" value="<?php echo $value->Id_Instansi?>">
+                        <label for="Provinsi"><strong>Provinsi</strong></label>
+                        <select name="Provinsi" placeholder="Provinsi">
+                          <option value="" selected>--Provinsi--</option>
+                          <?php
+                            foreach ($dataProvinsi as $prov) {
+                              ?>
+                              <option value="<?=$prov->id ?>" <?php if ($value->Provinsi == $prov->id) : ?> selected<?php endif; ?>>
+                                <?= $prov->nama ?></option>
+                          <?php
+                            }
+                          ?>
+                        </select>    
+                    </div>
+                    <div class="form-group">
+                        <label for="Nama_Instansi"><strong>Nama Instansi</strong></label>
+                        <input type="text" class="form-control" placeholder="Nama Instansi" name="Nama_Instansi" aria-describedby="sizing-addon2" required value="<?= $value->Nama_Instansi?>">
+                    </div>  
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>

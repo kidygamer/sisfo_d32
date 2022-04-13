@@ -10,12 +10,11 @@ class Instansi extends AUTH_Controller {
 	public function index() {
 		$data['userdata'] 	= $this->userdata;
 		$data['dataInstansi'] 	= $this->M_instansi->select_all();
+		$data['dataProvinsi'] 	= $this->M_instansi->select_provinsi();
 
 		$data['page'] 		= "Instansi";
 		$data['judul'] 		= "Data Instansi";
 		$data['deskripsi'] 	= "Manage Data Instansi";
-
-		$data['modal_tambah_instansi'] = show_my_modal('modals/modal_tambah_instansi', 'tambah-instansi', $data);
 
 		$this->template->views('instansi/home', $data);
 	}
@@ -38,6 +37,7 @@ class Instansi extends AUTH_Controller {
 
 	public function prosesTambah() {
 		$data['userdata'] 		= $this->userdata;
+
 		$this->form_validation->set_rules('Nama_Instansi', 'Nama_Instansi', 'trim|required|min_length[10]|max_length[30]');
 
 		$check = $this->M_instansi->select_by_name($this->input->post('Nama_Instansi'));
@@ -46,8 +46,9 @@ class Instansi extends AUTH_Controller {
 			redirect('Instansi');
 		} else{
 			$data = [
-				'Nama_Instansi' => $this->input->post('Nama_Instansi'),
-				'updated_by' => $data['userdata']->username
+				'Nama_Instansi' => $this->security->xss_clean($this->input->post('Nama_Instansi')),
+				'Provinsi' 		=> $this->security->xss_clean($this->input->post('Provinsi')),
+				'updated_by' 	=> $data['userdata']->username
 		    ];
 			if ($this->form_validation->run() == TRUE) {
 
@@ -71,15 +72,12 @@ class Instansi extends AUTH_Controller {
 		$data['userdata'] 		= $this->userdata;
 		$this->form_validation->set_rules('Nama_Instansi', 'Nama_Instansi', 'trim|required|min_length[10]|max_length[50]');
 
-		$check = $this->M_instansi->select_by_name($this->input->post('Nama_Instansi'));
-		if ($check) {
-			$this->session->set_flashdata('error', 'Data <strong>Sudah Ada</strong> Pada Database!');
-			redirect('Instansi');
-		} else {
+		
 			$data = [
-				'Id_Instansi' => $this->input->post('Id_Instansi'),
-				'Nama_Instansi' => $this->input->post('Nama_Instansi'),
-				'updated_by' => $data['userdata']->username
+				'Id_Instansi' 	=> $this->security->xss_clean($this->input->post('Id_Instansi')),
+				'Nama_Instansi' => $this->security->xss_clean($this->input->post('Nama_Instansi')),
+				'Provinsi' 		=> $this->security->xss_clean($this->input->post('Provinsi')),
+				'updated_by' 	=> $data['userdata']->username
 			];
 			if ($this->form_validation->run() == TRUE) {
 				
@@ -95,27 +93,20 @@ class Instansi extends AUTH_Controller {
 				$this->session->set_flashdata('error', 'Data <strong>Gagal</strong> Ditambahkan!'.$out['msg']);
 					redirect('Instansi');
 			}
-		} 
+			//print_r($data);
 
 	}
 
 	public function archieve($id){
-		$lapsan = $this->M_laporan_persandian->select_by_instansi($id);
-		
+
 		if($this->M_instansi->archieve($id)){
-		
-			//mengarsipkan jg data-data yg berelasi dgn instansi yg diarsipkan
-			if ($lapsan) {
-				$this->M_laporan_persandian->archieve($lapsan->Id_Lapsan);
-			}
-			
 			$this->session->set_flashdata('success', 'Data <strong>Berhasil</strong> Diarsipkan!');
-			redirect('Instansi');
-			echo "success";
+			redirect('Csm');
+			//echo "success";
 		} else {
 			$this->session->set_flashdata('error', 'Data <strong>Gagal</strong> Diarsipkan!');
-			redirect('Instansi');
-			echo "failed";
+			redirect('Csm');
+			//echo "failed";
 		}
 	}
 

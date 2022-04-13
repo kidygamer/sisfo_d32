@@ -4,9 +4,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class M_instansi extends CI_Model {
 	public function select_all() {
 		$this->db->select('*');
-		$this->db->from('instansi');
-		$this->db->where('instansi.archieved', '0');
-		$this->db->order_by('Id_Instansi','ASC');
+		$this->db->from('instansi a');
+		$this->db->join('wilayah_provinsi b', 'a.Provinsi = b.id','left');
+		$this->db->where('a.archieved', '0');
+		$this->db->order_by('a.Id_Instansi','ASC');
 
 		$data = $this->db->get();
 
@@ -50,21 +51,33 @@ class M_instansi extends CI_Model {
 	}
 
 	public function insert($data) {
-		$sql = "INSERT INTO instansi VALUES('','" .$data['Nama_Instansi'] ."')";
-
-		$this->db->query($sql);
-
-		return $this->db->affected_rows();
+		$simpan=$this->db->query("INSERT INTO instansi
+									(Nama_Instansi,Provinsi,updated_by)
+      							  VALUES(								        
+								        ".$this->db->escape($data['Nama_Instansi']).",
+								        ".$this->db->escape($data['Provinsi']).",
+								        ".$this->db->escape($data['updated_by'])."				        
+      								)");
+	    if($simpan){
+	      return TRUE;
+	    }else{
+	      return FALSE;
+	    }
 	}
 
 	public function update($data) {
-		$sql = "UPDATE instansi SET Nama_Instansi='" .$data['Nama_Instansi'] ."',
-	    							updated_by=".$this->db->escape($data['updated_by'])."
-	    							WHERE Id_Instansi='" .$data['Id_Instansi'] ."'";
+		$update = $this->db->query("UPDATE instansi SET
+	    							Nama_Instansi	  =".$this->db->escape($data['Nama_Instansi']).",
+	    							Provinsi		  =".$this->db->escape($data['Provinsi']).",		
+	    							updated_by		=".$this->db->escape($data['updated_by'])."
+	    							WHERE Id_Instansi =".$this->db->escape($data['Id_Instansi'])."
+	    ");
 
-		$this->db->query($sql);
-
-		return $this->db->affected_rows();
+	    if($update){
+	      return TRUE;
+	    }else{
+	      return FALSE;
+	    }
 	}
 
 	public function archieve($id) {
