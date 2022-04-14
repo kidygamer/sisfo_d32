@@ -29,9 +29,6 @@ class Auth extends CI_Controller {
 			$password_db = $data->password;
 
 			if (password_verify($password, $password_db)) {
-				$this->session->set_flashdata('error_msg', 'Username / Password Anda Salah.');
-				redirect('Auth');
-			} else {
 				$session = [
 					'userdata' => $data,
 					'status' => "Loged in"
@@ -46,6 +43,9 @@ class Auth extends CI_Controller {
 					redirect('Home/pimpinan');
 				}	
 				
+			} else {				
+				$this->session->set_flashdata('error_msg', 'Username / Password Anda Salah.');
+				redirect('Auth');
 			}
 		} else {
 			$this->session->set_flashdata('error_msg', validation_errors());

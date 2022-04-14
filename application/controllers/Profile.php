@@ -5,6 +5,7 @@ class Profile extends AUTH_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('M_admin');
+		$this->load->model('M_auth');
 		
 	}
 
@@ -63,20 +64,28 @@ class Profile extends AUTH_Controller {
 	}
 
 	public function ubah_password() {
-		$this->form_validation->set_rules('passLama', 'Password Lama', 'trim|required|alpha_numeric');
+		$data['userdata'] 	    = $this->userdata;
+
+		$this->form_validation->set_rules('passLama', 'Password Lama', 'trim|required');
 		$this->form_validation->set_rules('passBaru', 'Password Baru', 'alpha_numeric|required|min_length[8]|max_length[15]');
 		$this->form_validation->set_rules('passKonf', 'Password Konfirmasi', 'alpha_numeric|required|min_length[10]|max_length[20]');
 
 		$id = $this->userdata->id;
 		if ($this->form_validation->run() == TRUE) {
-			
-			//if (md5($this->input->post('passLama')) == $this->userdata->password) {
-			if (password_verify($this->input->post('passLama'), $this->userdata->password)) {
-				if ($this->input->post('passBaru') != $this->input->post('passKonf')) {
+
+			$passLama = $this->security->xss_clean($this->input->post('passLama'));
+			$passBaru = $this->security->xss_clean($this->input->post('passBaru'));
+			$passKonf = $this->security->xss_clean($this->input->post('passKonf'));
+
+			$data = $this->M_auth->login($data['userdata']->username);
+			$password_db = $data->password;
+
+			if (password_verify($passLama, $password_db)) {
+				if ($passBaru != $passKonf) {
 					$this->session->set_flashdata('msg', show_err_msg('Password Baru dan Konfirmasi Password harus sama'));
 					redirect('Profile');
 				} else {
-					$hash = password_hash($this->input->post('passBaru'), PASSWORD_DEFAULT);
+					$hash = password_hash($passKonf, PASSWORD_DEFAULT);
 					$data = [
 						'password' => $hash
 					];
@@ -93,8 +102,10 @@ class Profile extends AUTH_Controller {
 				}
 			} else {
 				$this->session->set_flashdata('msg', show_err_msg('Password Salah'));
-				redirect('Profile');
+				redirect('Profile');				
 			}
+			
+			
 		} else {
 			$this->session->set_flashdata('msg', show_err_msg(validation_errors()));
 			redirect('Profile');
