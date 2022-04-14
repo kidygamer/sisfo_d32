@@ -16,7 +16,7 @@
         <?php endif ?>
   <div class="box-header">
     <div class="col-md-6">
-        <button class="form-control btn btn-primary" data-toggle="modal" data-target="#tambah-pengguna"><i class="glyphicon glyphicon-plus-sign"></i> Tambah Data</button>
+         <a href="#" data-toggle="modal" data-target="#addModal" class="form-control btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Tambah Data</a>
     </div>
   </div>
   <!-- /.box-header -->
@@ -27,7 +27,6 @@
           <th>#</th>
           <th>Username</th>
           <th>Nama</th>
-          <th>Jabatan</th>
           <th style="text-align: center;">Aksi</th>
         </tr>
       </thead>
@@ -40,7 +39,6 @@
               <td><?php echo $no; ?></td>
               <td><?php echo $user->username; ?></td>
               <td><?php echo $user->nama ?></td>
-              <td><?php echo $user->jabatan ?></td>
               <td class="text-center" style="min-width:230px;">
                  <a href="#" data-toggle="modal" data-target="#detailModal<?=$user->id?>" class="btn btn-success btn-sm"><i class="glyphicon glyphicon-eye-open"></i> Detail</a>
               	 <a href="#" data-toggle="modal" data-target="#rpModal<?=$user->id?>" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-wrench"></i> Reset Password</a>
@@ -56,14 +54,6 @@
     </table>
   </div>
 </div>
-
-<?php echo $modal_tambah_pengguna; ?>
-
-<?php
-  // $data['judul'] = 'Kota';
-  // $data['url'] = 'Kota/import';
-  // echo show_my_modal('modals/modal_import', 'import-kota', $data);
-?>
 
 <!--Modals-->
 
@@ -81,6 +71,7 @@
                 		<tr><td><b>Nama</b></td><td><?= $value->nama ?></td></tr>
                 		<tr><td><b>NIK</b></td><td><?= $value->nik ?></td></tr>
                 		<tr><td><b>Jabatan</b></td><td><?= $value->jabatan ?></td></tr>
+                        <tr><td><b>Unit</b></td><td><?= $value->unit ?></td></tr>
                 		<tr><td><b>Email</b></td><td><?= $value->email ?></td></tr>
                 		<tr><td><b>Role</b></td><td><?= $value->role ?></td></tr>
                 	</table>
@@ -94,6 +85,97 @@
     </div>
   <?php endforeach ?>
 <!--End of Modal Detail-->
+
+<!--Modal Add-->
+    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <form id="form-update-lapsan" method="POST" action="<?php echo base_url('Pengguna/prosesTambah'); ?>" enctype="multipart/form-data">
+                <div class="modal-header">
+                    <center><h3 class="modal-title" id="exampleModalLabel">Tambah Data Pengguna</center>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="Nama"><strong>Nama Lengkap</strong></label>
+                                <input type="text" class="form-control" name="nama" aria-describedby="sizing-addon2" required placeholder="Nama Lengkap">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="NIK"><strong>NIK</strong></label>
+                                <input type="number" class="form-control" name="nik" aria-describedby="sizing-addon2" required minlength="18" min="0" placeholder="NIK">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="Jabatan"><strong>Jabatan</strong></label>
+                                <input type="text" class="form-control" name="jabatan" aria-describedby="sizing-addon2" required placeholder="Jabatan">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="Email"><strong>Email</strong></label>
+                                <input type="email" class="form-control" name="email" aria-describedby="sizing-addon2" required placeholder="email">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="Role"><strong>Role</strong></label>
+                                <select name="role" required>
+                                    <option value="">--Role--</option>
+                                    <option value="editor">Editor</option>
+                                    <option value="pimpinan">Pimpinan</option>
+                                    <option value="administrator">Administrator</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="unit"><strong>Unit</strong></label>
+                                <select name="unit" required>
+                                    <option value="">--Unit--</option>
+                                    <option value="D32">D32</option>
+                                    <option value="D321">D321</option>
+                                    <option value="D322">D322</option>
+                                    <option value="D323">D323</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="Username"><strong>Username</strong></label>
+                                <input type="text" class="form-control" name="username" aria-describedby="sizing-addon2" required placeholder="Username">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="Password"><strong>Password</strong></label>
+                                <input type="password" class="form-control" name="password" aria-describedby="sizing-addon2" required placeholder="Password (*Kombinasi huruf dan angka, min. 10 karakter,maks. 20 karakter)">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <input type="submit" name="" class="btn btn-success" value="Tambah Data">
+                </div>
+              </form>
+            </div>
+        </div>
+    </div>
+<!--End of Modal Add-->
 
 <!--Modal Update-->
   <?php foreach ($dataPengguna as $value): ?>
@@ -139,14 +221,26 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-sm-3">
                             <div class="form-group">
                                 <label for="Role"><strong>Role</strong></label>
-                                <select name="role">
+                                <select name="role" required>
                                     <option value="">--Role--</option>
                                     <option value="editor" <?php if ($value->role == "editor") : ?> selected<?php endif; ?> >Editor</option>
                                     <option value="pimpinan" <?php if ($value->role == "pimpinan") : ?> selected<?php endif; ?> >Pimpinan</option>
                                     <option value="administrator" <?php if ($value->role == "administrator") : ?> selected<?php endif; ?> >Administrator</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label for="unit"><strong>Unit</strong></label>
+                                <select name="unit" required>
+                                    <option value="">--Unit--</option>
+                                    <option value="D32" <?php if ($value->unit == "D32") : ?> selected<?php endif; ?>>D32</option>
+                                    <option value="D321" <?php if ($value->unit == "D321") : ?> selected<?php endif; ?>>D321</option>
+                                    <option value="D322" <?php if ($value->unit == "D322") : ?> selected<?php endif; ?>>D322</option>
+                                    <option value="D323" <?php if ($value->unit == "D323") : ?> selected<?php endif; ?>>D323</option>
                                 </select>
                             </div>
                         </div>

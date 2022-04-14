@@ -38,9 +38,9 @@ class Auth extends CI_Controller {
 				if ($session['userdata']->role == 'administrator') {
 					redirect('Home');
 				}else if ($session['userdata']->role == 'editor') {
-					redirect('Home/editor');
+					redirect('Home');
 				} else {
-					redirect('Home/pimpinan');
+					redirect('Home');
 				}	
 				
 			} else {				

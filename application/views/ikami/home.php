@@ -16,7 +16,13 @@
         <?php endif ?>
   <div class="box-header">
     <div class="col-md-6">
-        <a href="#" data-toggle="modal" data-target="#addModal" class="form-control btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Tambah Data</a>
+        <?php 
+            if ($userdata->role == 'administrator' || $userdata->unit == 'D323') {
+        ?>
+                <a href="#" data-toggle="modal" data-target="#addModal" class="form-control btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Tambah Data</a>
+        <?php
+            }
+        ?> 
     </div>
   </div>
   <!-- /.box-header -->
@@ -30,7 +36,13 @@
           <th><center>Hasil</center></th>          
           <th>Detail</th>
           <th>Dokumen</th>
-          <th style="text-align: center;width: 5%;">Aksi</th>
+            <?php 
+                if ($userdata->role == 'administrator' || $userdata->unit == 'D323') {
+            ?>
+                    <th style="text-align: center;width: 5%;">Aksi</th>
+            <?php
+                }
+            ?>
         </tr>
       </thead>
       <tbody id="data-instansi">
@@ -57,10 +69,25 @@
                     }
                 ?>
               </td>
-              <td class="text-center" style="min-width:230px;">
-                 <a href="#" data-toggle="modal" data-target="#updateModal<?=$ikami->Id_IKAMI?>" class="btn btn-warning btn-sm"><i class="glyphicon glyphicon-repeat"></i> Update</a>
-                 <a href="#" data-toggle="modal" data-target="#deleteModal<?=$ikami->Id_IKAMI?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Arsipkan</a>
-              </td>
+              <?php 
+                    if ($userdata->role == 'administrator' || $userdata->unit == 'D323') {
+                ?>  
+                        <td class="text-center" style="min-width:230px;">
+                            <a href="#" data-toggle="modal" data-target="#updateModal<?=$ikami->Id_IKAMI?>" class="btn btn-warning btn-sm"><i class="glyphicon glyphicon-repeat"></i> Update</a>
+                        </td>
+                <?php
+                    }
+                ?>                   
+
+                <?php 
+                    if ($userdata->role == 'administrator') {
+                ?>
+                        <td>
+                            <a href="#" data-toggle="modal" data-target="#deleteModal<?=$ikami->Id_IKAMI?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Arsipkan</a>
+                        </td>
+                <?php
+                    }
+                ?> 
             </tr>
             <?php
             $no++;

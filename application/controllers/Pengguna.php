@@ -16,8 +16,6 @@ class Pengguna extends AUTH_Controller {
 		$data['judul'] 		= "Data Pengguna Aplikasi";
 		$data['deskripsi'] 	= "Manage Data Pengguna";
 
-		$data['modal_tambah_pengguna'] = show_my_modal('modals/modal_tambah_pengguna', 'tambah-pengguna', $data);
-
 		$this->template->views('pengguna/home', $data);
 	}
 
@@ -75,6 +73,7 @@ class Pengguna extends AUTH_Controller {
 					'nama' => $this->input->post('nama'),
 					'nik' => $this->input->post('nik'),
 					'jabatan' => $this->input->post('jabatan'),
+					'unit' => $this->input->post('unit'),
 					'email' => $this->input->post('email')
 			];
 			
@@ -112,6 +111,11 @@ class Pengguna extends AUTH_Controller {
 	                'label' => 'Jabatan',
 	                'rules' => 'required|max_length[50]|min_length[3]'
 	        ),
+	         array(
+	                'field' => 'unit',
+	                'label' => 'Unit',
+	                'rules' => 'required'
+	        ),
 	        array(
 	                'field' => 'email',
 	                'label' => 'Email',
@@ -142,6 +146,7 @@ class Pengguna extends AUTH_Controller {
 					'nama' => $this->input->post('nama'),
 					'nik' => $this->input->post('nik'),
 					'jabatan' => $this->input->post('jabatan'),
+					'unit' => $this->input->post('unit'),
 					'email' => $this->input->post('email')
 			];
 			

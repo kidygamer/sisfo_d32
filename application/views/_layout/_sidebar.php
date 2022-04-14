@@ -18,7 +18,7 @@
       <div class="pull-left info">
         <p><?php echo $userdata->nama; ?></p>
         <!-- Status -->
-        <i class="fa fa-circle text-success"></i> Online</a>
+        <i class="fa fa-circle text-success"></i> <?php echo $userdata->role." - ".$userdata->unit; ?></a>
       </div>
     </div>
 
@@ -77,20 +77,25 @@
         </a>
       </li>
 
+      <?php 
+        if ($userdata->role == 'administrator') {
+      ?>
+          <li <?php if ($page == 'pengguna') {echo 'class="active"';} ?>>
+            <a href="<?php echo base_url('Pengguna'); ?>">
+              <i class="fa fa-user"></i>
+              <span>Data Pengguna</span>
+            </a>
+          </li>
 
-      <li <?php if ($page == 'pengguna') {echo 'class="active"';} ?>>
-        <a href="<?php echo base_url('Pengguna'); ?>">
-          <i class="fa fa-user"></i>
-          <span>Data Pengguna</span>
-        </a>
-      </li>
-
-      <li <?php if ($page == 'provinsi') {echo 'class="active"';} ?>>
-        <a href="<?php echo base_url('Instansi/dashboard'); ?>">
-          <i class="fa fa-building"></i>
-          <span>Provinsi</span>
-        </a>
-      </li>
+          <li <?php if ($page == 'provinsi') {echo 'class="active"';} ?>>
+            <a href="<?php echo base_url('Instansi/dashboard'); ?>">
+              <i class="fa fa-building"></i>
+              <span>Provinsi</span>
+            </a>
+          </li>
+      <?php
+        }
+      ?>
 
     </ul>
     <!-- /.sidebar-menu -->

@@ -31,7 +31,7 @@
 
              <?php if ($userdata->foto==NUlL) {
           ?>
-            <img src="<?php echo base_url(); ?>assets/img/ProfilePicture-1.jpg" class="user-image" alt="User Image">
+            <img src="<?php echo base_url(); ?>assets/img/ProfilePicture-1.jpg" class="img-circle" alt="User Image">
           <?php
           }else{
           ?>
@@ -40,7 +40,7 @@
           } ?>
 
             <p>
-              <?php echo $userdata->nama; ?> - <?php echo $userdata->role; ?>
+              <?php echo $userdata->nama; ?> - <b><?php echo $userdata->unit; ?></b><br><b><?php echo $userdata->role; ?></b>
             </p>
           </li>
           <!-- Menu Footer-->

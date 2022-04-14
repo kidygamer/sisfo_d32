@@ -28,7 +28,7 @@ class M_pengguna extends CI_Model {
 
 	public function insert($data) {
 		$simpan=$this->db->query("INSERT INTO admin
-									(username,password,role,nama,nik,jabatan,email)
+									(username,password,role,nama,nik,jabatan,unit,email)
       							  VALUES(								        
 								        ".$this->db->escape($data['username']).",
 								        ".$this->db->escape($data['password']).",
@@ -36,6 +36,7 @@ class M_pengguna extends CI_Model {
 								        ".$this->db->escape($data['nama']).",
 								        ".$this->db->escape($data['nik']).",
 								        ".$this->db->escape($data['jabatan']).",
+								        ".$this->db->escape($data['unit']).",
 								        ".$this->db->escape($data['email'])."
       								)");
 	    if($simpan){
@@ -52,6 +53,7 @@ class M_pengguna extends CI_Model {
 	    							nama=".$this->db->escape($data['nama']).",
 	    							nik=".$this->db->escape($data['nik']).",
 	    							jabatan=".$this->db->escape($data['jabatan']).",
+	    							unit=".$this->db->escape($data['unit']).",
 	    							email=".$this->db->escape($data['email'])."
 	    							WHERE id=".$this->db->escape($data['id'])."
 	    ");
