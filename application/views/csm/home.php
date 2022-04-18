@@ -17,7 +17,7 @@
   <div class="box-header">
     <div class="col-md-6">
         <?php 
-            if ($userdata->role == 'administrator' || $userdata->unit == 'D323') {
+            if ($userdata->role == 'administrator' || $userdata->unit == 'D322') {
         ?>
                 <a href="#" data-toggle="modal" data-target="#addModal" class="form-control btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Tambah Data</a>
         <?php
@@ -37,7 +37,7 @@
           <th><center>Level Kematangan</center></th>          
           <th>Dokumen</th>
             <?php 
-                if ($userdata->role == 'administrator' || $userdata->unit == 'D323') {
+                if ($userdata->role == 'administrator' || $userdata->unit == 'D322') {
             ?>
                     <th style="text-align: center;width: 5%;">Aksi</th>
             <?php
@@ -69,7 +69,7 @@
               </td>
               
                 <?php 
-                    if ($userdata->role == 'administrator' || $userdata->unit == 'D323') {
+                    if ($userdata->role == 'administrator' || $userdata->unit == 'D322') {
                 ?>  
                         <td class="text-center" style="min-width:230px;">
                             <a href="#" data-toggle="modal" data-target="#updateModal<?=$csm->Id_CSM?>" class="btn btn-warning btn-sm"><i class="glyphicon glyphicon-repeat"></i> Update</a>
