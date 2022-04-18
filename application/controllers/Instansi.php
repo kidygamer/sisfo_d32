@@ -35,6 +35,29 @@ class Instansi extends AUTH_Controller {
 		$this->template->views('instansi/detail_grand_v2', $data);
 	}
 
+	public function detail_by_year()
+	{
+		$data['userdata'] 	= $this->userdata;
+		$id    = $this->input->post('Id_Instansi');
+		$year  = $this->security->xss_clean($this->input->post('Tahun'));
+		
+		$data['dataInstansi'] 	= $this->M_instansi->select_by_id($id);
+
+		if ($year == 'all') {
+			$data['dataGrand'] 	= $this->M_instansi->select_grand($id);
+		}else{
+			$data['dataGrand'] 	= $this->M_instansi->select_grand_by_year($id,$year);
+		}
+
+		$data['page'] 		= "Detail Instansi";
+		$data['judul'] 		= "Detail Data";
+		$data['deskripsi'] 	= "(Laporan Persandian, IKAMI, CSM, TMPI, dan CSIRT)";
+
+		//print_r($data['dataGrand'] );
+
+		$this->template->views('instansi/detail_grand_v2', $data);
+	}
+
 	public function prosesTambah() {
 		$data['userdata'] 		= $this->userdata;
 

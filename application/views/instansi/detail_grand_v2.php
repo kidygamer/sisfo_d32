@@ -3,6 +3,28 @@
     <div class="col-md-2">
       <a href="<?php echo base_url('Instansi'); ?>" class="form-control btn btn-primary"><i class="glyphicon glyphicon-arrow-left"></i> Kembali</a>         
     </div>
+    <div class="row" >
+      <form method="POST" action="<?php echo base_url('Instansi/detail_by_year'); ?>">
+        <input type="hidden" name="Id_Instansi" value="<?= $dataInstansi->Id_Instansi ?>">
+        <div class="col-md-2">
+          <div class="form-group">
+            <select name="Tahun" placeholder="Pilih Tahun">
+            <option value="" selected>--Tahun--</option>
+            <option value="all">Semua Tahun</option>
+            <option value="2022">2022</option>
+            <option value="2021">2021</option>
+            <option value="2020">2020</option>
+            <option value="2019">2019</option>
+            <option value="2019">2018</option>
+            </select>    
+          </div>
+        </div>
+        <div class="col-md-3">
+          <input type="submit" name="" class="btn btn-primary" value="Cari">
+        </div>
+      </form>
+    </div>
+
    <center><strong><h3><?= $dataInstansi->Nama_Instansi ?></h3></strong></center>
   </div>
   <!-- /.box-header -->
@@ -61,7 +83,7 @@
                   <td></td>
                   <td></td>
                   <td></td>
-                  <td><b>Nomor_HP</b></td><td><?php echo empty($value->Nomor_HP) ? "-" : $value->Nomor_HP; ?></td>
+                  <td><b>Nomor HP</b></td><td><?php echo empty($value->Nomor_HP) ? "-" : $value->Nomor_HP; ?></td>
                   <td></td>
                   <td></td>
                 </tr>
