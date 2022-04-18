@@ -16,7 +16,14 @@
         <?php endif ?>
   <div class="box-header">
     <div class="col-md-6">
-        <a href="#" data-toggle="modal" data-target="#addModal" class="form-control btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Tambah Data</a>
+        <?php 
+            if ($userdata->role == 'administrator') {
+        ?>
+                <a href="#" data-toggle="modal" data-target="#addModal" class="form-control btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Tambah Data</a>
+        <?php
+            }
+        ?>    
+        
     </div>
   </div>
   <!-- /.box-header -->
@@ -27,7 +34,7 @@
           <th>#</th>
           <th>Nama Instansi</th>
           <th>Provinsi</th>
-          <th style="text-align: center;">Aksi</th>
+          <th style="text-align: center;">Detail</th>
         </tr>
       </thead>
       <tbody id="data-instansi">
@@ -41,8 +48,15 @@
               <td><?php echo $instansi->nama; ?></td>
               <td class="text-center" style="min-width:230px;">
                   <a href="<?php echo base_url('Instansi/detail_grand/'.$instansi->Id_Instansi); ?>" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-eye-open"></i> Detail</a>
-                  <a href="#" data-toggle="modal" data-target="#updateModal<?=$instansi->Id_Instansi?>" class="btn btn-warning btn-sm"><i class="glyphicon glyphicon-repeat"></i> Update</a>
-                  <a href="#" data-toggle="modal" data-target="#deleteModal<?=$instansi->Id_Instansi?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Arsipkan</a>
+                  <?php 
+                      if ($userdata->role == 'administrator') {
+                  ?>
+                        <a href="#" data-toggle="modal" data-target="#updateModal<?=$instansi->Id_Instansi?>" class="btn btn-warning btn-sm"><i class="glyphicon glyphicon-repeat"></i> Update</a>
+                        <a href="#" data-toggle="modal" data-target="#deleteModal<?=$instansi->Id_Instansi?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Arsipkan</a>
+                  <?php
+                      }
+                  ?>  
+                 
               </td>
             </tr>
             <?php

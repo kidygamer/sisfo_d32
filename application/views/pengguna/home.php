@@ -69,7 +69,7 @@
                 <div class="modal-body">
                 	<table class="table table-striped">
                 		<tr><td><b>Nama</b></td><td><?= $value->nama ?></td></tr>
-                		<tr><td><b>NIK</b></td><td><?= $value->nik ?></td></tr>
+                		<tr><td><b>nip</b></td><td><?= $value->nip ?></td></tr>
                 		<tr><td><b>Jabatan</b></td><td><?= $value->jabatan ?></td></tr>
                         <tr><td><b>Unit</b></td><td><?= $value->unit ?></td></tr>
                 		<tr><td><b>Email</b></td><td><?= $value->email ?></td></tr>
@@ -108,8 +108,8 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="NIK"><strong>NIK</strong></label>
-                                <input type="number" class="form-control" name="nik" aria-describedby="sizing-addon2" required minlength="18" min="0" placeholder="NIK">
+                                <label for="NIP"><strong>NIP</strong></label>
+                                <input type="number" class="form-control" name="nip" aria-describedby="sizing-addon2" required minlength="18" min="0" placeholder="NIP">
                             </div>
                         </div>
                     </div>
@@ -201,8 +201,8 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="NIK"><strong>NIK</strong></label>
-                                <input type="number" class="form-control" name="nik" aria-describedby="sizing-addon2" required value="<?= $value->nik ?>" minlength="18" min="0" placeholder="NIK">
+                                <label for="nip"><strong>NIP</strong></label>
+                                <input type="number" class="form-control" name="nip" aria-describedby="sizing-addon2" required value="<?= $value->nip ?>" minlength="18" min="0" placeholder="NIP">
                             </div>
                         </div>
                     </div>

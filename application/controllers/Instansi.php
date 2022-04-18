@@ -32,7 +32,7 @@ class Instansi extends AUTH_Controller {
 
 		//print_r($data['dataGrand'] );
 
-		$this->template->views('instansi/detail_grand', $data);
+		$this->template->views('instansi/detail_grand_v2', $data);
 	}
 
 	public function prosesTambah() {

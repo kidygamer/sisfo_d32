@@ -28,8 +28,8 @@ class Pengguna extends AUTH_Controller {
 	                'rules' => 'required|max_length[50]|regex_match[/^([a-z ])+$/i]'
 	        ),
 	        array(
-	                'field' => 'nik',
-	                'label' => 'NIK',
+	                'field' => 'nip',
+	                'label' => 'NIP',
 	                'rules' => 'required|numeric|exact_length[18]'
 	        ),
 	        array(
@@ -71,7 +71,7 @@ class Pengguna extends AUTH_Controller {
 					'password' => $hash,
 					'role' => $this->input->post('role'),
 					'nama' => $this->input->post('nama'),
-					'nik' => $this->input->post('nik'),
+					'nip' => $this->input->post('nip'),
 					'jabatan' => $this->input->post('jabatan'),
 					'unit' => $this->input->post('unit'),
 					'email' => $this->input->post('email')
@@ -102,8 +102,8 @@ class Pengguna extends AUTH_Controller {
 	                'rules' => 'required|max_length[50]|regex_match[/^([a-z ])+$/i]'
 	        ),
 	        array(
-	                'field' => 'nik',
-	                'label' => 'NIK',
+	                'field' => 'nip',
+	                'label' => 'NIP',
 	                'rules' => 'required|numeric|exact_length[18]'
 	        ),
 	        array(
@@ -144,7 +144,7 @@ class Pengguna extends AUTH_Controller {
 					'username' => $this->input->post('username'),
 					'role' => $this->input->post('role'),
 					'nama' => $this->input->post('nama'),
-					'nik' => $this->input->post('nik'),
+					'nip' => $this->input->post('nip'),
 					'jabatan' => $this->input->post('jabatan'),
 					'unit' => $this->input->post('unit'),
 					'email' => $this->input->post('email')

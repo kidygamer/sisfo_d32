@@ -210,13 +210,13 @@
                         <div class="col-sm-6">
                           <div class="form-group">
                               <label for="Nama_Narahubung"><strong>Nama Narahubung</strong></label>
-                              <input type="text" class="form-control" placeholder="Nama Narahubung" name="Nama_Narahubung" aria-describedby="sizing-addon2" required>
+                              <input type="text" class="form-control" placeholder="Nama Narahubung" name="Nama_Narahubung" aria-describedby="sizing-addon2">
                           </div> 
                         </div>
                         <div class="col-sm-6">
                           <div class="form-group">
                               <label for="Nomor_HP"><strong>Nomor HP</strong></label>
-                              <input type="number" class="form-control" placeholder="Nomor HP" name="Nomor_HP" aria-describedby="sizing-addon2" min="0" required>
+                              <input type="number" class="form-control" placeholder="Nomor HP" name="Nomor_HP" aria-describedby="sizing-addon2" min="0">
                           </div> 
                         </div>
                     </div>                   
@@ -303,13 +303,13 @@
                         <div class="col-sm-6">
                           <div class="form-group">
                               <label for="Nama_Narahubung"><strong>Nama Narahubung</strong></label>
-                              <input type="text" class="form-control" placeholder="Nama Narahubung" name="Nama_Narahubung" aria-describedby="sizing-addon2" required value="<?= $value->Nama_Narahubung?>">
+                              <input type="text" class="form-control" placeholder="Nama Narahubung" name="Nama_Narahubung" aria-describedby="sizing-addon2" value="<?= $value->Nama_Narahubung?>">
                           </div> 
                         </div>
                         <div class="col-sm-6">
                           <div class="form-group">
                               <label for="Nomor_HP"><strong>Nomor HP</strong></label>
-                              <input type="number" class="form-control" placeholder="Nomor HP" name="Nomor_HP" aria-describedby="sizing-addon2" min="0" required value="<?= $value->Nomor_HP?>">
+                              <input type="number" class="form-control" placeholder="Nomor HP" name="Nomor_HP" aria-describedby="sizing-addon2" min="0" value="<?= $value->Nomor_HP?>">
                           </div> 
                         </div>
                     </div>

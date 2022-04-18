@@ -52,16 +52,6 @@ class CSIRT extends AUTH_Controller {
 	                'field' => 'Tgl_STR',
 	                'label' => 'Tanggal STR',
 	                'rules' => 'required'
-	        ),
-	         array(
-	                'field' => 'Nama_Narahubung',
-	                'label' => 'Nama Narahubung',
-	                'rules' => 'required|max_length[50]'
-	        ),
-	         array(
-	                'field' => 'Nomor_HP',
-	                'label' => 'Nomor HP',
-	                'rules' => 'required|numeric|min_length[10]|max_length[15]'
 	        )
 		);
 
@@ -145,16 +135,6 @@ class CSIRT extends AUTH_Controller {
 	                'field' => 'Tgl_STR',
 	                'label' => 'Tanggal STR',
 	                'rules' => 'required'
-	        ),
-	         array(
-	                'field' => 'Nama_Narahubung',
-	                'label' => 'Nama Narahubung',
-	                'rules' => 'required|max_length[50]'
-	        ),
-	         array(
-	                'field' => 'Nomor_HP',
-	                'label' => 'Nomor HP',
-	                'rules' => 'required|numeric|min_length[10]|max_length[15]'
 	        )
 		);
 
