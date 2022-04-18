@@ -37,7 +37,7 @@
       <li <?php if ($page == 'instansi') {echo 'class="active"';} ?>>
         <a href="<?php echo base_url('Instansi'); ?>">
           <i class="fa fa-building"></i>
-          <span>Daftar Instansi</span>
+          <span>INSTANSI PEMDA</span>
         </a>
       </li>
       
