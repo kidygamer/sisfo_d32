@@ -34,6 +34,11 @@ class Laporan_Persandian extends AUTH_Controller {
 	                'rules' => 'required|numeric|exact_length[4]'
 	        ),
 	        array(
+	                'field' => 'Jml_Kebijakan',
+	                'label' => 'Jumlah Kebijakan ',
+	                'rules' => 'required|numeric|min_length[1]'
+	        ),
+	        array(
 	                'field' => 'Saran_uBSSN',
 	                'label' => 'Saran untuk BSSN',
 	                'rules' => 'required'
@@ -58,6 +63,21 @@ class Laporan_Persandian extends AUTH_Controller {
 	                'label' => 'Jumlah Sistem Elektronik',
 	                'rules' => 'required|numeric|min_length[1]'
 	        ),
+	        array(
+	                'field' => 'Jml_PDok',
+	                'label' => 'Jumlah Pengelolaan Dokumen',
+	                'rules' => 'required|numeric|min_length[1]'
+	        ),
+	        array(
+	                'field' => 'Jml_LKamsi',
+	                'label' => 'Jumlah Layanan Keamanan Informasi',
+	                'rules' => 'required|numeric|min_length[1]'
+	        ),
+	        array(
+	                'field' => 'Jml_PHKS',
+	                'label' => 'Jumlah Pola Hubungan Komunikasi Sandi',
+	                'rules' => 'required|numeric|min_length[1]'
+	        )
 		);
 
 		$this->form_validation->set_rules($rules);
@@ -80,11 +100,15 @@ class Laporan_Persandian extends AUTH_Controller {
 
 		$data = [
 				'Tahun' 		=> $this->security->xss_clean($this->input->post('Tahun')),
+				'Jml_Kebijakan'	=> $this->security->xss_clean($this->input->post('Jml_Kebijakan')),
 				'Saran_uBSSN' 	=> $this->security->xss_clean($this->input->post('Saran_uBSSN')),
 				'Jml_SDM' 		=> $this->security->xss_clean($this->input->post('Jml_SDM')),
 				'Jml_Palsan' 	=> $this->security->xss_clean($this->input->post('Jml_Palsan')),
 				'Jml_APU' 		=> $this->security->xss_clean($this->input->post('Jml_APU')),
 				'Jml_SE' 		=> $this->security->xss_clean($this->input->post('Jml_SE')),
+				'Jml_PDok' 		=> $this->security->xss_clean($this->input->post('Jml_PDok')),
+				'Jml_LKamsi' 	=> $this->security->xss_clean($this->input->post('Jml_LKamsi')),
+				'Jml_PHKS' 		=> $this->security->xss_clean($this->input->post('Jml_PHKS')),
 				'Instansi' 		=> $this->security->xss_clean($this->input->post('Instansi')),
 				'Dokumen' 		=> $dokumen_lapsan,				
 				'updated_by' 	=> $data['userdata']->username
@@ -115,6 +139,11 @@ class Laporan_Persandian extends AUTH_Controller {
 	                'rules' => 'required|numeric|exact_length[4]'
 	        ),
 	        array(
+	                'field' => 'Jml_Kebijakan',
+	                'label' => 'Jumlah Kebijakan ',
+	                'rules' => 'required|numeric|min_length[1]'
+	        ),
+	        array(
 	                'field' => 'Saran_uBSSN',
 	                'label' => 'Saran untuk BSSN',
 	                'rules' => 'required'
@@ -139,6 +168,21 @@ class Laporan_Persandian extends AUTH_Controller {
 	                'label' => 'Jumlah Sistem Elektronik',
 	                'rules' => 'required|numeric|min_length[1]'
 	        ),
+	        array(
+	                'field' => 'Jml_PDok',
+	                'label' => 'Jumlah Pengelolaan Dokumen',
+	                'rules' => 'required|numeric|min_length[1]'
+	        ),
+	        array(
+	                'field' => 'Jml_LKamsi',
+	                'label' => 'Jumlah Layanan Keamanan Informasi',
+	                'rules' => 'required|numeric|min_length[1]'
+	        ),
+	        array(
+	                'field' => 'Jml_PHKS',
+	                'label' => 'Jumlah Pola Hubungan Komunikasi Sandi',
+	                'rules' => 'required|numeric|min_length[1]'
+	        )
 		);
 
 		$this->form_validation->set_rules($rules);
@@ -162,11 +206,16 @@ class Laporan_Persandian extends AUTH_Controller {
 		$data = [
 			    'Id_LapSan' 	=> $this->security->xss_clean($this->input->post('Id_LapSan')),
 				'Tahun' 		=> $this->security->xss_clean($this->input->post('Tahun')),
+				'Jml_Kebijakan'	=> $this->security->xss_clean($this->input->post('Jml_Kebijakan')),
 				'Saran_uBSSN' 	=> $this->security->xss_clean($this->input->post('Saran_uBSSN')),
 				'Jml_SDM' 		=> $this->security->xss_clean($this->input->post('Jml_SDM')),
 				'Jml_Palsan' 	=> $this->security->xss_clean($this->input->post('Jml_Palsan')),
 				'Jml_APU' 		=> $this->security->xss_clean($this->input->post('Jml_APU')),
 				'Jml_SE' 		=> $this->security->xss_clean($this->input->post('Jml_SE')),
+				'Jml_PDok' 		=> $this->security->xss_clean($this->input->post('Jml_PDok')),
+				'Jml_LKamsi' 	=> $this->security->xss_clean($this->input->post('Jml_LKamsi')),
+				'Jml_PHKS' 		=> $this->security->xss_clean($this->input->post('Jml_PHKS')),
+				'Instansi' 		=> $this->security->xss_clean($this->input->post('Instansi')),
 				'Instansi' 		=> $this->security->xss_clean($this->input->post('Instansi')),
 				'Dokumen'		=> $dokumen_lapsan,				
 				'updated_by' 	=> $data['userdata']->username

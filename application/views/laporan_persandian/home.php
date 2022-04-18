@@ -67,23 +67,21 @@
                     }
                 ?>
               </td>
-               <?php 
+              <td class="text-center" style="min-width:230px;">
+                <?php 
                     if ($userdata->role == 'administrator' || $userdata->unit == 'D321') {
-                ?>  
-                        <td class="text-center" style="min-width:230px;">
-                             <a href="#" data-toggle="modal" data-target="#updateModal<?=$lapsan->Id_LapSan?>" class="btn btn-warning btn-sm"><i class="glyphicon glyphicon-repeat"></i> Update</a>
-                        </td>
+                ?>
+                         <a href="#" data-toggle="modal" data-target="#updateModal<?=$lapsan->Id_LapSan?>" class="btn btn-warning btn-sm"><i class="glyphicon glyphicon-repeat"></i> Update</a>
                 <?php
                     }
-                ?>                   
 
-                <?php 
                     if ($userdata->role == 'administrator') {
-                ?>
-                       <a href="#" data-toggle="modal" data-target="#deleteModal<?=$lapsan->Id_LapSan?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Arsipkan</a>
+                ?> 
+                        <a href="#" data-toggle="modal" data-target="#deleteModal<?=$lapsan->Id_LapSan?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Arsipkan</a>     
                 <?php
                     }
                 ?>   
+              </td>                       
             </tr>
             <?php
             $no++;
@@ -111,6 +109,10 @@
                 			<td style="width:40%"><b>Jumlah SDM Persandian</b></td>
                 			<td><b><?php echo $value->Jml_SDM ?></b> orang</td>
                 		</tr>
+                        <tr>
+                            <td><b>Jumlah Kebijakan Kamsi</b></td>
+                            <td><b><?php echo $value->Jml_Kebijakan ?></b> kebijakan</td>
+                        </tr>
                 		<tr>
                 			<td><b>Jumlah Alat Sandi</b></td>
                 			<td><b><?php echo $value->Jml_Palsan ?></b> buah</td>
@@ -123,6 +125,18 @@
                 			<td><b>Jumlah Sistem Elektronik</b></td>
                 			<td><b><?php echo $value->Jml_SE ?></b> sistem</td>
                 		</tr>
+                        <tr>
+                            <td><b>Jumlah Pengelolaan Dokumen</b></td>
+                            <td><b><?php echo $value->Jml_PDok ?></b></td>
+                        </tr>
+                        <tr>
+                            <td><b>Jumlah Layanan Kamsi</b></td>
+                            <td><b><?php echo $value->Jml_LKamsi ?></b> layanan</td>
+                        </tr>
+                        <tr>
+                            <td><b>Jumlah PHKS</b></td>
+                            <td><b><?php echo $value->Jml_PHKS ?></b> JKS</td>
+                        </tr>
                 		<tr>
                 			<td><b>Saran untuk BSSN</b></td>
                 			<td><p><?php echo nl2br($value->Saran_uBSSN) ?></p></td>
@@ -176,14 +190,28 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
+                              <label for="Jml_Kebijakan"><strong>Jumlah Kebijakan Keamanan Informasi</strong></label>
+                              <input type="number" class="form-control" placeholder="0" name="Jml_Kebijakan" aria-describedby="sizing-addon2" min="0" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                              <label for="Jml_PHKS"><strong>Jumlah Pola Hubungan Komunikasi Sandi</strong></label>
+                              <input type="number" class="form-control" placeholder="0" name="Jml_PHKS" aria-describedby="sizing-addon2" min="0" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
                               <label for="Jml_SDM"><strong>Jumlah SDM Persandian</strong></label>
-                              <input type="number" class="form-control" placeholder="Jumlah SDM Persandian" name="Jml_SDM" aria-describedby="sizing-addon2" min="0" required >
+                              <input type="number" class="form-control" placeholder="0" name="Jml_SDM" aria-describedby="sizing-addon2" min="0" required >
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                               <label for="Jml_Palsan"><strong>Jumlah Peralatan Sandi</strong></label>
-                              <input type="number" class="form-control" placeholder="Jumlah Peralatan Sandi" name="Jml_Palsan" aria-describedby="sizing-addon2" min="0" required >
+                              <input type="number" class="form-control" placeholder="0" name="Jml_Palsan" aria-describedby="sizing-addon2" min="0" required >
                             </div>
                         </div>
                     </div>
@@ -191,13 +219,27 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                               <label for="Jml_APU"><strong>Jumlah APU</strong></label>
-                              <input type="number" class="form-control" placeholder="Jumlah APU" name="Jml_APU" aria-describedby="sizing-addon2" min="0" required>
+                              <input type="number" class="form-control" placeholder="0" name="Jml_APU" aria-describedby="sizing-addon2" min="0" required>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                               <label for="Jml_SE"><strong>Jumlah Sistem Elektronik</strong></label>
-                              <input type="number" class="form-control" placeholder="Jumlah Sistem Elektronik" name="Jml_SE" aria-describedby="sizing-addon2" min="0" required>
+                              <input type="number" class="form-control" placeholder="0" name="Jml_SE" aria-describedby="sizing-addon2" min="0" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                              <label for="Jml_PDok"><strong>Jumlah Pengelolaan Dokumen</strong></label>
+                              <input type="number" class="form-control" placeholder="0" name="Jml_PDok" aria-describedby="sizing-addon2" min="0" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                              <label for="Jml_LKamsi"><strong>Jumlah Layanan Keamanan Informasi</strong></label>
+                              <input type="number" class="form-control" placeholder="0" name="Jml_LKamsi" aria-describedby="sizing-addon2" min="0" required>
                             </div>
                         </div>
                     </div>
@@ -245,14 +287,28 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
+                              <label for="Jml_Kebijakan"><strong>Jumlah Kebijakan Keamanan Informasi</strong></label>
+                              <input type="number" class="form-control" placeholder="0" name="Jml_Kebijakan" aria-describedby="sizing-addon2" min="0" required value="<?= $value->Jml_Kebijakan ?>">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                              <label for="Jml_PHKS"><strong>Jumlah Pola Hubungan Komunikasi Sandi</strong></label>
+                              <input type="number" class="form-control" placeholder="0" name="Jml_PHKS" aria-describedby="sizing-addon2" min="0" required value="<?= $value->Jml_PHKS ?>">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
                               <label for="Jml_SDM"><strong>Jumlah SDM Persandian</strong></label>
-                              <input type="number" class="form-control" placeholder="Jumlah SDM Persandian" name="Jml_SDM" aria-describedby="sizing-addon2" min="0" required value="<?= $value->Jml_SDM ?>">
+                              <input type="number" class="form-control" placeholder="0" name="Jml_SDM" aria-describedby="sizing-addon2" min="0" required value="<?= $value->Jml_SDM ?>">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                               <label for="Jml_Palsan"><strong>Jumlah Peralatan Sandi</strong></label>
-                              <input type="number" class="form-control" placeholder="Jumlah Peralatan Sandi" name="Jml_Palsan" aria-describedby="sizing-addon2" min="0" required value="<?= $value->Jml_Palsan ?>">
+                              <input type="number" class="form-control" placeholder="0" name="Jml_Palsan" aria-describedby="sizing-addon2" min="0" required value="<?= $value->Jml_Palsan ?>">
                             </div>
                         </div>
                     </div>
@@ -260,13 +316,27 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                               <label for="Jml_APU"><strong>Jumlah APU</strong></label>
-                              <input type="number" class="form-control" placeholder="Jumlah APU" name="Jml_APU" aria-describedby="sizing-addon2" min="0" required value="<?= $value->Jml_APU ?>">
+                              <input type="number" class="form-control" placeholder="0" name="Jml_APU" aria-describedby="sizing-addon2" min="0" required value="<?= $value->Jml_APU ?>">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                               <label for="Jml_SE"><strong>Jumlah Sistem Elektronik</strong></label>
-                              <input type="number" class="form-control" placeholder="Jumlah Sistem Elektronik" name="Jml_SE" aria-describedby="sizing-addon2" min="0" required value="<?= $value->Jml_SE ?>">
+                              <input type="number" class="form-control" placeholder="0" name="Jml_SE" aria-describedby="sizing-addon2" min="0" required value="<?= $value->Jml_SE ?>">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                              <label for="Jml_PDok"><strong>Jumlah Pengelolaan Dokumen</strong></label>
+                              <input type="number" class="form-control" placeholder="0" name="Jml_PDok" aria-describedby="sizing-addon2" min="0" required value="<?= $value->Jml_PDok ?>">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                              <label for="Jml_LKamsi"><strong>Jumlah Layanan Keamanan Informasi</strong></label>
+                              <input type="number" class="form-control" placeholder="0" name="Jml_LKamsi" aria-describedby="sizing-addon2" min="0" required value="<?= $value->Jml_LKamsi ?>">
                             </div>
                         </div>
                     </div>

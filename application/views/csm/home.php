@@ -67,26 +67,21 @@
                     }
                 ?>
               </td>
-              
+              <td class="text-center" style="min-width:230px;">
                 <?php 
                     if ($userdata->role == 'administrator' || $userdata->unit == 'D322') {
-                ?>  
-                        <td class="text-center" style="min-width:230px;">
-                            <a href="#" data-toggle="modal" data-target="#updateModal<?=$csm->Id_CSM?>" class="btn btn-warning btn-sm"><i class="glyphicon glyphicon-repeat"></i> Update</a>
-                        </td>
-                <?php
-                    }
-                ?>                   
-
-                <?php 
-                    if ($userdata->role == 'administrator') {
                 ?>
-                        <td>
-                            <a href="#" data-toggle="modal" data-target="#deleteModal<?=$csm->Id_CSM?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Arsipkan</a>
-                        </td>
+                         <a href="#" data-toggle="modal" data-target="#updateModal<?=$csm->Id_CSM?>" class="btn btn-warning btn-sm"><i class="glyphicon glyphicon-repeat"></i> Update</a>
                 <?php
                     }
+
+                    if ($userdata->role == 'administrator') {
                 ?> 
+                        <a href="#" data-toggle="modal" data-target="#deleteModal<?=$csm->Id_CSM?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Arsipkan</a>    
+                <?php
+                    }
+                ?>   
+              </td>
             </tr>
             <?php
             $no++;

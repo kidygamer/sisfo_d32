@@ -69,25 +69,21 @@
                     }
                 ?>
               </td>
-              <?php 
-                    if ($userdata->role == 'administrator' || $userdata->unit == 'D322') {
-                ?>  
-                        <td class="text-center" style="min-width:230px;">
-                            <a href="#" data-toggle="modal" data-target="#updateModal<?=$ikami->Id_IKAMI?>" class="btn btn-warning btn-sm"><i class="glyphicon glyphicon-repeat"></i> Update</a>
-                        </td>
-                <?php
-                    }
-                ?>                   
-
+              <td class="text-center" style="min-width:230px;">
                 <?php 
-                    if ($userdata->role == 'administrator') {
+                    if ($userdata->role == 'administrator' || $userdata->unit == 'D322') {
                 ?>
-                        <td>
-                            <a href="#" data-toggle="modal" data-target="#deleteModal<?=$ikami->Id_IKAMI?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Arsipkan</a>
-                        </td>
+                         <a href="#" data-toggle="modal" data-target="#updateModal<?=$ikami->Id_IKAMI?>" class="btn btn-warning btn-sm"><i class="glyphicon glyphicon-repeat"></i> Update</a>
                 <?php
                     }
+
+                    if ($userdata->role == 'administrator') {
                 ?> 
+                        <a href="#" data-toggle="modal" data-target="#deleteModal<?=$ikami->Id_IKAMI?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Arsipkan</a>     
+                <?php
+                    }
+                ?>   
+              </td>
             </tr>
             <?php
             $no++;
