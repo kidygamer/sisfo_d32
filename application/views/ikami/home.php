@@ -56,7 +56,7 @@
               <td><center><?php echo $ikami->Tahun ?></center></td>
               <td><center><?php echo $ikami->Hasil_IKAMI ?></center></td>
               <td>
-                <a href="#" data-toggle="modal" data-target="#detailModal<?=$ikami->Id_IKAMI?>" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-eye-open"></i> Buka</a>
+                <a href="#" data-toggle="modal" data-target="#detailModal<?=$ikami->Id_IKAMI?>" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-eye-open"></i> Lihat</a>
               </td>
               <td>
                 <?php

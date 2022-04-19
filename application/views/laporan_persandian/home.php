@@ -54,7 +54,7 @@
               <td><?php echo $lapsan->Nama_Instansi; ?></td>
               <td><?php echo $lapsan->Tahun ?></td>
               <td>
-              	<a href="#" data-toggle="modal" data-target="#detailModal<?=$lapsan->Id_LapSan?>" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-eye-open"></i> Buka</a>
+              	<a href="#" data-toggle="modal" data-target="#detailModal<?=$lapsan->Id_LapSan?>" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-eye-open"></i> Lihat</a>
               </td>
               <td>
                 <?php
@@ -107,39 +107,39 @@
                 	<table class="table table-striped">
                 		<tr>
                 			<td style="width:40%"><b>Jumlah SDM Persandian</b></td>
-                			<td><b><?php echo $value->Jml_SDM ?></b> orang</td>
+                			<td><b><?php echo empty($value->Jml_SDM) ? "0" : $value->Jml_SDM; ?></b> orang</td>
                 		</tr>
                         <tr>
                             <td><b>Jumlah Kebijakan Kamsi</b></td>
-                            <td><b><?php echo $value->Jml_Kebijakan ?></b> kebijakan</td>
+                            <td><b><?php echo empty($value->Jml_Kebijakan) ? "0" : $value->Jml_Kebijakan; ?></b> kebijakan</td>
                         </tr>
                 		<tr>
                 			<td><b>Jumlah Alat Sandi</b></td>
-                			<td><b><?php echo $value->Jml_Palsan ?></b> buah</td>
+                			<td><b><?php echo empty($value->Jml_Palsan) ? "0" : $value->Jml_Palsan; ?></b> buah</td>
                 		</tr>
                 		<tr>
                 			<td><b>Jumlah APU</b></td>
-                			<td><b><?php echo $value->Jml_APU ?></b> buah</td>
+                			<td><b><?php echo empty($value->Jml_APU) ? "0" : $value->Jml_APU; ?></b> buah</td>
                 		</tr>
                 		<tr>
                 			<td><b>Jumlah Sistem Elektronik</b></td>
-                			<td><b><?php echo $value->Jml_SE ?></b> sistem</td>
+                			<td><b><?php echo empty($value->Jml_SE) ? "0" : $value->Jml_SE; ?></b> sistem</td>
                 		</tr>
                         <tr>
                             <td><b>Jumlah Pengelolaan Dokumen</b></td>
-                            <td><b><?php echo $value->Jml_PDok ?></b></td>
+                            <td><b><?php echo empty($value->Jml_PDok) ? "0" : $value->Jml_PDok; ?></b></td>
                         </tr>
                         <tr>
                             <td><b>Jumlah Layanan Kamsi</b></td>
-                            <td><b><?php echo $value->Jml_LKamsi ?></b> layanan</td>
+                            <td><b><?php echo empty($value->Jml_LKamsi) ? "0" : $value->Jml_LKamsi; ?></b> layanan</td>
                         </tr>
                         <tr>
                             <td><b>Jumlah PHKS</b></td>
-                            <td><b><?php echo $value->Jml_PHKS ?></b> JKS</td>
+                            <td><b><?php echo empty($value->Jml_PHKS) ? "0" : $value->Jml_PHKS; ?></b> JKS</td>
                         </tr>
                 		<tr>
                 			<td><b>Saran untuk BSSN</b></td>
-                			<td><p><?php echo nl2br($value->Saran_uBSSN) ?></p></td>
+                			<td><p><?php echo empty($value->Saran_uBSSN) ? "-" : nl2br($value->Saran_uBSSN); ?></p></td>
                 		</tr>
                 	</table>
                  
@@ -191,13 +191,13 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                               <label for="Jml_Kebijakan"><strong>Jumlah Kebijakan Keamanan Informasi</strong></label>
-                              <input type="number" class="form-control" placeholder="0" name="Jml_Kebijakan" aria-describedby="sizing-addon2" min="0" required>
+                              <input type="number" class="form-control" value="0" name="Jml_Kebijakan" aria-describedby="sizing-addon2" min="0" required>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                               <label for="Jml_PHKS"><strong>Jumlah Pola Hubungan Komunikasi Sandi</strong></label>
-                              <input type="number" class="form-control" placeholder="0" name="Jml_PHKS" aria-describedby="sizing-addon2" min="0" required>
+                              <input type="number" class="form-control" value="0" name="Jml_PHKS" aria-describedby="sizing-addon2" min="0" required>
                             </div>
                         </div>
                     </div>
@@ -205,13 +205,13 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                               <label for="Jml_SDM"><strong>Jumlah SDM Persandian</strong></label>
-                              <input type="number" class="form-control" placeholder="0" name="Jml_SDM" aria-describedby="sizing-addon2" min="0" required >
+                              <input type="number" class="form-control" value="0" name="Jml_SDM" aria-describedby="sizing-addon2" min="0" required >
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                               <label for="Jml_Palsan"><strong>Jumlah Peralatan Sandi</strong></label>
-                              <input type="number" class="form-control" placeholder="0" name="Jml_Palsan" aria-describedby="sizing-addon2" min="0" required >
+                              <input type="number" class="form-control" value="0" name="Jml_Palsan" aria-describedby="sizing-addon2" min="0" required >
                             </div>
                         </div>
                     </div>
@@ -219,13 +219,13 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                               <label for="Jml_APU"><strong>Jumlah APU</strong></label>
-                              <input type="number" class="form-control" placeholder="0" name="Jml_APU" aria-describedby="sizing-addon2" min="0" required>
+                              <input type="number" class="form-control" value="0" name="Jml_APU" aria-describedby="sizing-addon2" min="0" required>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                               <label for="Jml_SE"><strong>Jumlah Sistem Elektronik</strong></label>
-                              <input type="number" class="form-control" placeholder="0" name="Jml_SE" aria-describedby="sizing-addon2" min="0" required>
+                              <input type="number" class="form-control" value="0" name="Jml_SE" aria-describedby="sizing-addon2" min="0" required>
                             </div>
                         </div>
                     </div>
@@ -233,13 +233,13 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                               <label for="Jml_PDok"><strong>Jumlah Pengelolaan Dokumen</strong></label>
-                              <input type="number" class="form-control" placeholder="0" name="Jml_PDok" aria-describedby="sizing-addon2" min="0" required>
+                              <input type="number" class="form-control" value="0" name="Jml_PDok" aria-describedby="sizing-addon2" min="0" required>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                               <label for="Jml_LKamsi"><strong>Jumlah Layanan Keamanan Informasi</strong></label>
-                              <input type="number" class="form-control" placeholder="0" name="Jml_LKamsi" aria-describedby="sizing-addon2" min="0" required>
+                              <input type="number" class="form-control" value="0" name="Jml_LKamsi" aria-describedby="sizing-addon2" min="0" required>
                             </div>
                         </div>
                     </div>
@@ -288,13 +288,13 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                               <label for="Jml_Kebijakan"><strong>Jumlah Kebijakan Keamanan Informasi</strong></label>
-                              <input type="number" class="form-control" placeholder="0" name="Jml_Kebijakan" aria-describedby="sizing-addon2" min="0" required value="<?= $value->Jml_Kebijakan ?>">
+                              <input type="number" class="form-control" placeholder="0" name="Jml_Kebijakan" aria-describedby="sizing-addon2" min="0" required value="<?php echo empty($value->Jml_Kebijakan) ? "0" : $value->Jml_Kebijakan; ?>">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                               <label for="Jml_PHKS"><strong>Jumlah Pola Hubungan Komunikasi Sandi</strong></label>
-                              <input type="number" class="form-control" placeholder="0" name="Jml_PHKS" aria-describedby="sizing-addon2" min="0" required value="<?= $value->Jml_PHKS ?>">
+                              <input type="number" class="form-control" placeholder="0" name="Jml_PHKS" aria-describedby="sizing-addon2" min="0" required value="<?php echo empty($value->Jml_PHKS) ? "0" : $value->Jml_PHKS; ?>">
                             </div>
                         </div>
                     </div>
@@ -302,13 +302,13 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                               <label for="Jml_SDM"><strong>Jumlah SDM Persandian</strong></label>
-                              <input type="number" class="form-control" placeholder="0" name="Jml_SDM" aria-describedby="sizing-addon2" min="0" required value="<?= $value->Jml_SDM ?>">
+                              <input type="number" class="form-control" placeholder="0" name="Jml_SDM" aria-describedby="sizing-addon2" min="0" required value="<?php echo empty($value->Jml_SDM) ? "0" : $value->Jml_SDM; ?>">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                               <label for="Jml_Palsan"><strong>Jumlah Peralatan Sandi</strong></label>
-                              <input type="number" class="form-control" placeholder="0" name="Jml_Palsan" aria-describedby="sizing-addon2" min="0" required value="<?= $value->Jml_Palsan ?>">
+                              <input type="number" class="form-control" placeholder="0" name="Jml_Palsan" aria-describedby="sizing-addon2" min="0" required value="<?php echo empty($value->Jml_Palsan) ? "0" : $value->Jml_Palsan; ?>">
                             </div>
                         </div>
                     </div>
@@ -316,13 +316,13 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                               <label for="Jml_APU"><strong>Jumlah APU</strong></label>
-                              <input type="number" class="form-control" placeholder="0" name="Jml_APU" aria-describedby="sizing-addon2" min="0" required value="<?= $value->Jml_APU ?>">
+                              <input type="number" class="form-control" placeholder="0" name="Jml_APU" aria-describedby="sizing-addon2" min="0" required value="<?php echo empty($value->Jml_APU) ? "0" : $value->Jml_APU; ?>">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                               <label for="Jml_SE"><strong>Jumlah Sistem Elektronik</strong></label>
-                              <input type="number" class="form-control" placeholder="0" name="Jml_SE" aria-describedby="sizing-addon2" min="0" required value="<?= $value->Jml_SE ?>">
+                              <input type="number" class="form-control" placeholder="0" name="Jml_SE" aria-describedby="sizing-addon2" min="0" required value="<?php echo empty($value->Jml_SE) ? "0" : $value->Jml_SE; ?>">
                             </div>
                         </div>
                     </div>
@@ -330,13 +330,13 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                               <label for="Jml_PDok"><strong>Jumlah Pengelolaan Dokumen</strong></label>
-                              <input type="number" class="form-control" placeholder="0" name="Jml_PDok" aria-describedby="sizing-addon2" min="0" required value="<?= $value->Jml_PDok ?>">
+                              <input type="number" class="form-control" placeholder="0" name="Jml_PDok" aria-describedby="sizing-addon2" min="0" required value="<?php echo empty($value->Jml_PDok) ? "0" : $value->Jml_PDok; ?>">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                               <label for="Jml_LKamsi"><strong>Jumlah Layanan Keamanan Informasi</strong></label>
-                              <input type="number" class="form-control" placeholder="0" name="Jml_LKamsi" aria-describedby="sizing-addon2" min="0" required value="<?= $value->Jml_LKamsi ?>">
+                              <input type="number" class="form-control" placeholder="0" name="Jml_LKamsi" aria-describedby="sizing-addon2" min="0" required value="<?php echo empty($value->Jml_LKamsi) ? "0" : $value->Jml_LKamsi; ?>">
                             </div>
                         </div>
                     </div>

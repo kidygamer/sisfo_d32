@@ -56,7 +56,7 @@
               <td><center><?php echo $csirt->Status ?></center></td>
               <td><center><?php echo $csirt->Nama_CSIRT ?></center></td>
               <td>
-                <a href="#" data-toggle="modal" data-target="#detailModal<?=$csirt->Id_CSIRT?>" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-eye-open"></i> Buka</a>
+                <a href="#" data-toggle="modal" data-target="#detailModal<?=$csirt->Id_CSIRT?>" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-eye-open"></i> Lihat</a>
               </td>
               <td>
                 <?php
