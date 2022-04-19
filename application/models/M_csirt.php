@@ -39,15 +39,14 @@ class M_csirt extends CI_Model {
 	public function insert($data) {
 
 		$simpan=$this->db->query("INSERT INTO csirt
-									(Status,Nama_Narahubung,Nomor_HP,Nomor_Sertifikat,Tgl_STR,Tgl_Launching,Nama_CSIRT,Dokumen,Instansi,Tahun,updated_by)
+									(Status,Nomor_Sertifikat,Tgl_STR,Tgl_Launching,Nama_CSIRT,Narahubung,Dokumen,Instansi,Tahun,updated_by)
       							  VALUES(								        
 								        ".$this->db->escape($data['Status']).",
-								        ".$this->db->escape($data['Nama_Narahubung']).",
-								        ".$this->db->escape($data['Nomor_HP']).",
 								        ".$this->db->escape($data['Nomor_Sertifikat']).",
 								        ".$this->db->escape($data['Tgl_STR']).",
 								        ".$this->db->escape($data['Tgl_Launching']).",
 								        ".$this->db->escape($data['Nama_CSIRT']).",
+								        ".$this->db->escape($data['Narahubung']).",
 								        ".$this->db->escape($data['Dokumen']).",
 								        ".$this->db->escape($data['Instansi']).",
 								        ".$this->db->escape($data['Tahun']).",

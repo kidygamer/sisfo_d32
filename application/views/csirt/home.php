@@ -15,7 +15,7 @@
           </div>
         <?php endif ?>
   <div class="box-header">
-    <div class="col-md-6">
+    <div class="col-md-3">
        <?php 
             if ($userdata->role == 'administrator' || $userdata->unit == 'D323') {
         ?>
@@ -130,11 +130,7 @@
                     </tr>
                     <tr>
                       <td><b>Narahubung</b></td>
-                      <td><?php echo $value->Nama_Narahubung ?></td>
-                    </tr>
-                    <tr>
-                      <td><b>No.HP</b></td>
-                      <td><?php echo $value->Nomor_HP ?></td>
+                      <td><?php echo nl2br($value->Narahubung) ?></td>
                     </tr>
                   </table>
                  
@@ -202,24 +198,33 @@
                         <div class="col-sm-6">
                           <div class="form-group">
                               <label for="Tgl_STR"><strong>Tanggal STR</strong></label>
-                              <input type="date" class="form-control" name="Tgl_STR" aria-describedby="sizing-addon2" max="<?= date("Y-m-d") ?>" required>
+                              <input type="date" class="form-control" name="Tgl_STR" aria-describedby="sizing-addon2" max="<?= date("Y-m-d") ?>">
                           </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-6">
-                          <div class="form-group">
-                              <label for="Nama_Narahubung"><strong>Nama Narahubung</strong></label>
-                              <input type="text" class="form-control" placeholder="Nama Narahubung" name="Nama_Narahubung" aria-describedby="sizing-addon2">
-                          </div> 
-                        </div>
-                        <div class="col-sm-6">
-                          <div class="form-group">
-                              <label for="Nomor_HP"><strong>Nomor HP</strong></label>
-                              <input type="number" class="form-control" placeholder="Nomor HP" name="Nomor_HP" aria-describedby="sizing-addon2" min="0">
-                          </div> 
-                        </div>
-                    </div>                   
+
+                    <div id="dynamic_field">
+                      <div class="row">
+                          <div class="col-sm-5">
+                            <div class="form-group">
+                                <label for="Nama_Narahubung"><strong>Nama Narahubung</strong></label>
+                                <input type="text" id="name" class="form-control" placeholder="Nama Narahubung" name="Nama_Narahubung[]" aria-describedby="sizing-addon2">
+                            </div> 
+                          </div>
+                          <div class="col-sm-5">
+                            <div class="form-group">
+                                <label for="Nomor_HP"><strong>Nomor HP</strong></label>
+                                <input type="number" id="mobno" class="form-control" placeholder="Nomor HP" name="Nomor_HP[]" aria-describedby="sizing-addon2" min="0">
+                            </div> 
+                          </div>
+                          <div class="col-sm-1">
+                            <div class="form-group">
+                              <label for="Nomor_HP"><strong>Tambah</strong></label>
+                                <button type="button" name="add" id="add" class="btn btn-success">+</button>
+                            </div> 
+                          </div>
+                      </div>   
+                    </div>            
                     
                     <div class="form-group">
                       <label for="Dokumen"><strong>Unggah Dokumen:</strong></label>
@@ -299,19 +304,28 @@
                           </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-6">
-                          <div class="form-group">
-                              <label for="Nama_Narahubung"><strong>Nama Narahubung</strong></label>
-                              <input type="text" class="form-control" placeholder="Nama Narahubung" name="Nama_Narahubung" aria-describedby="sizing-addon2" value="<?= $value->Nama_Narahubung?>">
-                          </div> 
-                        </div>
-                        <div class="col-sm-6">
-                          <div class="form-group">
-                              <label for="Nomor_HP"><strong>Nomor HP</strong></label>
-                              <input type="number" class="form-control" placeholder="Nomor HP" name="Nomor_HP" aria-describedby="sizing-addon2" min="0" value="<?= $value->Nomor_HP?>">
-                          </div> 
-                        </div>
+                     
+                    <div id="dynamic_field">
+                      <div class="row">
+                          <div class="col-sm-5">
+                            <div class="form-group">
+                                <label for="Nama_Narahubung"><strong>Nama Narahubung</strong></label>
+                                <input type="text" id="name" class="form-control" placeholder="Nama Narahubung" name="Nama_Narahubung[]" aria-describedby="sizing-addon2">
+                            </div> 
+                          </div>
+                          <div class="col-sm-5">
+                            <div class="form-group">
+                                <label for="Nomor_HP"><strong>Nomor HP</strong></label>
+                                <input type="number" id="mobno" class="form-control" placeholder="Nomor HP" name="Nomor_HP[]" aria-describedby="sizing-addon2" min="0">
+                            </div> 
+                          </div>
+                          <div class="col-sm-1">
+                            <div class="form-group">
+                              <label for="Nomor_HP"><strong>Tambah</strong></label>
+                                <button type="button" name="add" id="add" class="btn btn-success">+</button>
+                            </div> 
+                          </div>
+                      </div>   
                     </div>
                     <div class="row">
                         <div class="col-sm-6">
@@ -370,6 +384,27 @@
     </div>
   <?php endforeach ?>
 <!--End of Modal Delete-->
+
+<script type="text/javascript">
+    $(document).ready(function(){      
+      var i=1;  
+   
+      $('#add').click(function(){  
+           i++;             
+           $('#dynamic_field').append('<div id="row'+i+'"><div class="row"><div class="col-sm-5"><div class="form-group"><label for="Nama_Narahubung">Nama Narahubung</label><input type="text" id="name" class="form-control" placeholder="Nama Narahubung" name="Nama_Narahubung[]" aria-describedby="sizing-addon2"></div></div><div class="col-sm-5"><div class="form-group"><label  for="Nomor_HP">Nomor HP</label><input type="number" class="form-control" id="mobno" placeholder="Nomor HP" name="Nomor_HP[]" aria-describedby="sizing-addon2"></div></div><div class="col-sm-1"><div class="form-group"><label for="x"><strong>Batalkan</strong></label><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></div></div></div>');
+     });
+     
+     $(document).on('click', '.btn_remove', function(){  
+           var button_id = $(this).attr("id"); 
+           var res = confirm('Anda yakin ingin dibatalkan?');
+           if(res==true){
+           $('#row'+button_id+'').remove();  
+           $('#'+button_id+'').remove();  
+           }
+      });  
+  
+    });  
+</script>
 
 <?php
 /* End of file home.php */

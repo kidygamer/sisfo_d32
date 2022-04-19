@@ -15,7 +15,7 @@
           </div>
         <?php endif ?>
   <div class="box-header">
-    <div class="col-md-6">
+    <div class="col-md-3">
         <?php 
             if ($userdata->role == 'administrator' || $userdata->unit == 'D322') {
         ?>
@@ -130,7 +130,7 @@
                     </div>
                     <div class="form-group">
                         <label for="Lv_Kematangan"><strong>Level Kematangan</strong></label>
-                        <input type="number" class="form-control" placeholder="Level Kematangan" name="Lv_Kematangan" aria-describedby="sizing-addon2" min="0" required>
+                        <input type="text" class="form-control" placeholder="Level Kematangan" name="Lv_Kematangan" aria-describedby="sizing-addon2" required>
                     </div>  
                     <div class="form-group">
                       <label for="Dokumen"><strong>Unggah Dokumen:</strong></label>
@@ -187,7 +187,7 @@
                     </div>
                     <div class="form-group">
                         <label for="Lv_Kematangan"><strong>Level Kematangan</strong></label>
-                        <input type="number" class="form-control" placeholder="Level Kematangan" name="Lv_Kematangan" aria-describedby="sizing-addon2" min="0" required value="<?= $value->Lv_Kematangan?>">
+                        <input type="text" class="form-control" placeholder="Level Kematangan" name="Lv_Kematangan" aria-describedby="sizing-addon2" required value="<?= $value->Lv_Kematangan?>">
                     </div>  
                     <div class="row">
                         <div class="col-sm-6">

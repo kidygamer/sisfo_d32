@@ -15,7 +15,7 @@
           </div>
         <?php endif ?>
   <div class="box-header">
-    <div class="col-md-6">
+    <div class="col-md-3">
          <a href="#" data-toggle="modal" data-target="#addModal" class="form-control btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Tambah Data</a>
     </div>
   </div>

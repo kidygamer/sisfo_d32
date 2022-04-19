@@ -15,7 +15,7 @@
           </div>
         <?php endif ?>
   <div class="box-header">
-    <div class="col-md-6">
+    <div class="col-md-3">
         <?php 
             if ($userdata->role == 'administrator' || $userdata->unit == 'D321') {
         ?>

@@ -29,7 +29,7 @@
   </div>
   <!-- /.box-header -->
   <div class="box-body">
-    <table class="table table-bordered">
+    <table class="table table-striped">
       <?php
         foreach ($dataGrand as $value) {
       ?>
