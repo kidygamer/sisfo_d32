@@ -32,7 +32,6 @@
         <tr>
           <th>#</th>
           <th>Nama Instansi</th>
-          <th><center>Status</center></th>
           <th><center>Nama CSIRT</center></th>
           <th><center>Detail</center></th>
           <th><center>Dokumen</center></th>
@@ -53,7 +52,6 @@
             <tr>
               <td><?php echo $no; ?></td>
               <td><?php echo $csirt->Nama_Instansi; ?></td>
-              <td><center><?php echo $csirt->Status ?></center></td>
               <td><center><?php echo $csirt->Nama_CSIRT ?></center></td>
               <td>
                 <a href="#" data-toggle="modal" data-target="#detailModal<?=$csirt->Id_CSIRT?>" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-eye-open"></i> Lihat</a>
@@ -152,9 +150,6 @@
               <form id="form-add-csirt" method="POST" action="<?php echo base_url('Csirt/prosesTambah'); ?>" enctype="multipart/form-data">
                 <div class="modal-header">
                     <center><h3 class="modal-title" id="exampleModalLabel">Tambah Data CSIRT</h3></center>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
@@ -252,9 +247,6 @@
               <form id="form-update-ikami" method="POST" action="<?php echo base_url('Csirt/prosesUpdate'); ?>" enctype="multipart/form-data">
                 <div class="modal-header">
                     <center><h3 class="modal-title" id="exampleModalLabel">Update Data CSIRT<br> <b><?= $value->Nama_Instansi ?></b></h3></center>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
                 </div>
                 <div class="modal-body">
                   <input type="hidden" name="Id_CSIRT" value="<?php echo $value->Id_CSIRT?>">
@@ -304,29 +296,84 @@
                           </div>
                         </div>
                     </div>
+
+                    <?php 
+                        // $data = array();
+                        // $data = explode(',', $value->Narahubung);
+                        //   //print_r ($val);
+                         
+                        // foreach($data as $key => $val) {
+                        //     $new = explode('-',$val);
+                        //     $data[$key] = $new;
+                        // }
+                        // $output = $data;
+
+                        // if ($value->Narahubung != NULL) {
+                        //    foreach ($output as $key => $val) {
+                          // code...
+                    ?>
+                                <!-- <div id="dynamic_field2">
+                                    <div class="row<?=$key?>">
+                                        <div class="col-sm-6">
+                                          <div class="form-group">
+                                              <label for="Nama_Narahubung"><strong>Nama Narahubung</strong></label>
+                                              <input type="text" id="name2" class="form-control" placeholder="Nama Narahubung" name="Nama_Narahubung[]" aria-describedby="sizing-addon2" value="<?php//=$val[0]?>">
+                                          </div> 
+                                        </div>
+                                        <div class="col-sm-6">
+                                          <div class="form-group">
+                                              <label for="Nomor_HP"><strong>Nomor HP</strong></label>
+                                              <input type="text" id="mobno2" class="form-control" placeholder="Nomor HP" name="Nomor_HP[]" aria-describedby="sizing-addon2" min="0" value="<?php//=$val[1]?>">
+                                          </div> 
+                                        </div>                       
+                                    </div>
+                                </div>  -->
+                      
+                    <?php
+                            //}
+
+                    ?>
+                           <!-- <div class="form-group" style="float:right;">        
+                            <div class="col-sm-1">
+                              <button type="button" name="add" id="add2" class="btn btn-success">+</button>
+                            </div>
+                          </div> -->
                      
-                    <div id="dynamic_field">
-                      <div class="row">
-                          <div class="col-sm-5">
-                            <div class="form-group">
-                                <label for="Nama_Narahubung"><strong>Nama Narahubung</strong></label>
-                                <input type="text" id="name" class="form-control" placeholder="Nama Narahubung" name="Nama_Narahubung[]" aria-describedby="sizing-addon2">
-                            </div> 
-                          </div>
-                          <div class="col-sm-5">
-                            <div class="form-group">
-                                <label for="Nomor_HP"><strong>Nomor HP</strong></label>
-                                <input type="number" id="mobno" class="form-control" placeholder="Nomor HP" name="Nomor_HP[]" aria-describedby="sizing-addon2" min="0">
-                            </div> 
-                          </div>
-                          <div class="col-sm-1">
-                            <div class="form-group">
-                              <label for="Nomor_HP"><strong>Tambah</strong></label>
-                                <button type="button" name="add" id="add" class="btn btn-success">+</button>
-                            </div> 
-                          </div>
-                      </div>   
-                    </div>
+
+                    <?php
+                            
+                        //}else{
+                    ?>
+                              <!-- <div id="dynamic_field3">
+                                <div class="row">
+                                    <div class="col-sm-5">
+                                      <div class="form-group">
+                                          <label for="Nama_Narahubung"><strong>Nama Narahubung</strong></label>
+                                          <input type="text" id="name3" class="form-control" placeholder="Nama Narahubung" name="Nama_Narahubung[]" aria-describedby="sizing-addon2">
+                                      </div> 
+                                    </div>
+                                    <div class="col-sm-5">
+                                      <div class="form-group">
+                                          <label for="Nomor_HP"><strong>Nomor HP</strong></label>
+                                          <input type="number" id="mobno3" class="form-control" placeholder="Nomor HP" name="Nomor_HP[]" aria-describedby="sizing-addon2" min="0">
+                                      </div> 
+                                    </div>
+                                    <div class="col-sm-1">
+                                      <div class="form-group">
+                                        <label for="Nomor_HP"><strong>Tambah</strong></label>
+                                          <button type="button" name="add" id="add3" class="btn btn-success">+</button>
+                                      </div> 
+                                    </div>
+                                </div>   
+                              </div> -->
+
+                    <?php
+
+                        //}                       
+                    // echo '<pre>';
+                    // print_r($output);
+                    ?>
+                    
                     <div class="row">
                         <div class="col-sm-6">
                              <?php
@@ -370,9 +417,6 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Arsipkan data ini?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
                 </div>
                 <div class="modal-body">Anda yakin mengarsipkan data CSIRT instansi <b><?=  $value->Nama_Instansi ?></b>?</div>
                 <div class="modal-footer">
@@ -391,19 +435,20 @@
    
       $('#add').click(function(){  
            i++;             
-           $('#dynamic_field').append('<div id="row'+i+'"><div class="row"><div class="col-sm-5"><div class="form-group"><label for="Nama_Narahubung">Nama Narahubung</label><input type="text" id="name" class="form-control" placeholder="Nama Narahubung" name="Nama_Narahubung[]" aria-describedby="sizing-addon2"></div></div><div class="col-sm-5"><div class="form-group"><label  for="Nomor_HP">Nomor HP</label><input type="number" class="form-control" id="mobno" placeholder="Nomor HP" name="Nomor_HP[]" aria-describedby="sizing-addon2"></div></div><div class="col-sm-1"><div class="form-group"><label for="x"><strong>Batalkan</strong></label><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></div></div></div>');
+           $('#dynamic_field').append('<div id="row'+i+'"><div class="row"><div class="col-sm-5"><div class="form-group"><label for="Nama_Narahubung">Nama Narahubung</label><input type="text" id="name" class="form-control" placeholder="Nama Narahubung" name="Nama_Narahubung[]" aria-describedby="sizing-addon2"></div></div><div class="col-sm-5"><div class="form-group"><label  for="Nomor_HP">Nomor HP</label><input type="number" class="form-control" id="mobno" placeholder="Nomor HP" name="Nomor_HP[]" aria-describedby="sizing-addon2"></div></div><div class="col-sm-1"><div class="form-group"><label for="x"><strong>Hapus</strong></label><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></div></div></div>');
      });
      
      $(document).on('click', '.btn_remove', function(){  
            var button_id = $(this).attr("id"); 
-           var res = confirm('Anda yakin ingin dibatalkan?');
+           var res = confirm('Hapus form ini?');
            if(res==true){
            $('#row'+button_id+'').remove();  
            $('#'+button_id+'').remove();  
            }
       });  
   
-    });  
+    });
+
 </script>
 
 <?php

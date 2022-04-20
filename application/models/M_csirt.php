@@ -59,12 +59,26 @@ class M_csirt extends CI_Model {
 	    }
 	}
 
+	// public function insert_narahubung($data_narahubung) {
+
+	// 	$simpan=$this->db->query("INSERT INTO narahubung_csirt
+	// 								(Nama_Narahubung,Nomor_HP,Id_CSIRT)
+ //      							  VALUES(								        
+	// 							        ".$this->db->escape($data['Nama_Narahubung']).",
+	// 							        ".$this->db->escape($data['Nomor_HP']).",
+	// 							        ".$this->db->escape($data['Id_CSIRT'])."
+ //      								)");
+	//     if($simpan){
+	//       return TRUE;
+	//     }else{
+	//       return FALSE;
+	//     }
+	// }
+
 	public function update($data) {
 
 		$update = $this->db->query("UPDATE csirt SET
 	    							Status				=".$this->db->escape($data['Status']).",
-	    							Nama_Narahubung		=".$this->db->escape($data['Nama_Narahubung']).",
-	    							Nomor_HP			=".$this->db->escape($data['Nomor_HP']).",
 	    							Nomor_Sertifikat	=".$this->db->escape($data['Nomor_Sertifikat']).",
 	    							Tgl_STR				=".$this->db->escape($data['Tgl_STR']).",
 	    							Tgl_Launching		=".$this->db->escape($data['Tgl_Launching']).",

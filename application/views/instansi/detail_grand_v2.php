@@ -73,7 +73,8 @@
                   <td></td>
                   <td></td>
                   <td></td>
-                  <td><b>Narahubung</b></td><td><?php echo empty($value->Nama_Narahubung) ? "-" : $value->Nama_Narahubung; ?></td> 
+                  <td></td>
+                  <td></td> 
                   <td></td>
                   <td></td>                 
                 </tr>
@@ -83,7 +84,8 @@
                   <td></td>
                   <td></td>
                   <td></td>
-                  <td><b>Nomor HP</b></td><td><?php echo empty($value->Nomor_HP) ? "-" : $value->Nomor_HP; ?></td>
+                  <td></td>
+                  <td></td>
                   <td></td>
                   <td></td>
                 </tr>
