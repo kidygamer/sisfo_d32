@@ -25,7 +25,7 @@ class M_instansi extends CI_Model {
 	public function select_grand($id) {
 		$sql = "SELECT instansi.Nama_Instansi, a.Tahun, 
                 lp.Saran_uBSSN, lp.Jml_Kebijakan, lp.Jml_SDM, lp.Jml_Palsan, lp.Jml_APU, lp.Jml_SE, lp.Jml_PDok, lp.Jml_LKamsi, lp.Jml_PHKS, lp.Dokumen,
-                csirt.Status, csirt.Tgl_Launching, csirt.Nama_CSIRT, csirt.Nomor_Sertifikat,
+                csirt.Status, csirt.Tgl_Launching, csirt.Nama_CSIRT, csirt.Nomor_Sertifikat, csirt.Narahubung,
 				ikami.Hasil_IKAMI, ikami.Kategori_SE, ikami.Nilai,
 				csm.Skor, csm.Lv_Kematangan,
 				tmpi.Nilai_TMPI, tmpi.Level
@@ -53,7 +53,7 @@ class M_instansi extends CI_Model {
 	public function select_grand_by_year($id,$year) {
 		$sql = "SELECT instansi.Nama_Instansi, a.Tahun, 
                 lp.Saran_uBSSN, lp.Jml_Kebijakan, lp.Jml_SDM, lp.Jml_Palsan, lp.Jml_APU, lp.Jml_SE, lp.Jml_PDok, lp.Jml_LKamsi, lp.Jml_PHKS, lp.Dokumen,
-                csirt.Status, csirt.Tgl_Launching, csirt.Nama_CSIRT, csirt.Nomor_Sertifikat, 
+                csirt.Status, csirt.Tgl_Launching, csirt.Nama_CSIRT, csirt.Nomor_Sertifikat, csirt.Narahubung,
 				ikami.Hasil_IKAMI, ikami.Kategori_SE, ikami.Nilai,
 				csm.Skor, csm.Lv_Kematangan,
 				tmpi.Nilai_TMPI, tmpi.Level

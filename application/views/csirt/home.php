@@ -128,7 +128,7 @@
                     </tr>
                     <tr>
                       <td><b>Narahubung</b></td>
-                      <td><?php echo nl2br($value->Narahubung) ?></td>
+                      <td><?php echo empty($value->Narahubung) ? "-" : $value->Narahubung; ?></td>
                     </tr>
                   </table>
                  

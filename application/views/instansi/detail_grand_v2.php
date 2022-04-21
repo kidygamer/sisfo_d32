@@ -73,7 +73,7 @@
                   <td></td>
                   <td></td>
                   <td></td>
-                  <td></td>
+                  <td><b>Narahubung</b></td><td><?php echo empty($value->Narahubung) ? "-" : $value->Narahubung; ?></td>
                   <td></td> 
                   <td></td>
                   <td></td>                 
