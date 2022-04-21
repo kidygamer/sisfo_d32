@@ -308,68 +308,42 @@
                         // }
                         // $output = $data;
 
-                        // if ($value->Narahubung != NULL) {
-                        //    foreach ($output as $key => $val) {
-                          // code...
+                        if ($value->Narahubung == NULL) {
                     ?>
-                                <!-- <div id="dynamic_field2">
-                                    <div class="row<?=$key?>">
-                                        <div class="col-sm-6">
-                                          <div class="form-group">
-                                              <label for="Nama_Narahubung"><strong>Nama Narahubung</strong></label>
-                                              <input type="text" id="name2" class="form-control" placeholder="Nama Narahubung" name="Nama_Narahubung[]" aria-describedby="sizing-addon2" value="<?php//=$val[0]?>">
-                                          </div> 
-                                        </div>
-                                        <div class="col-sm-6">
-                                          <div class="form-group">
-                                              <label for="Nomor_HP"><strong>Nomor HP</strong></label>
-                                              <input type="text" id="mobno2" class="form-control" placeholder="Nomor HP" name="Nomor_HP[]" aria-describedby="sizing-addon2" min="0" value="<?php//=$val[1]?>">
-                                          </div> 
-                                        </div>                       
-                                    </div>
-                                </div>  -->
-                      
-                    <?php
-                            //}
-
-                    ?>
-                           <!-- <div class="form-group" style="float:right;">        
-                            <div class="col-sm-1">
-                              <button type="button" name="add" id="add2" class="btn btn-success">+</button>
+                        <!-- <div id="dynamic_fields"> -->
+                          <div class="row">
+                            <div class="col-sm-6">
+                              <div class="form-group">
+                                  <label for="Nama_Narahubung"><strong>Nama Narahubung</strong></label>
+                                  <input type="text" id="names" class="form-control" placeholder="Nama Narahubung" name="Nama_Narahubung[]" aria-describedby="sizing-addon2">
+                               </div> 
                             </div>
-                          </div> -->
-                     
+                            <div class="col-sm-6">
+                              <div class="form-group">
+                                  <label for="Nomor_HP"><strong>Nomor HP</strong></label>
+                                  <input type="text" id="mobnos" class="form-control" placeholder="Nomor HP" name="Nomor_HP[]" aria-describedby="sizing-addon2" min="0">
+                              </div> 
+                            </div> 
+                                        <!-- <div class="col-sm-1">
+                                          <div class="form-group">
+                                            <label for="Nomor_HP"><strong>Tambah</strong></label>
+                                              <button type="button" name="adds" id="adds" class="btn btn-success">+</button>
+                                          </div> 
+                                        </div>  -->                     
+                          </div>
+                        <!-- </div> -->                                   
 
                     <?php
                             
-                        //}else{
-                    ?>
-                              <!-- <div id="dynamic_field3">
-                                <div class="row">
-                                    <div class="col-sm-5">
-                                      <div class="form-group">
-                                          <label for="Nama_Narahubung"><strong>Nama Narahubung</strong></label>
-                                          <input type="text" id="name3" class="form-control" placeholder="Nama Narahubung" name="Nama_Narahubung[]" aria-describedby="sizing-addon2">
-                                      </div> 
-                                    </div>
-                                    <div class="col-sm-5">
-                                      <div class="form-group">
-                                          <label for="Nomor_HP"><strong>Nomor HP</strong></label>
-                                          <input type="number" id="mobno3" class="form-control" placeholder="Nomor HP" name="Nomor_HP[]" aria-describedby="sizing-addon2" min="0">
-                                      </div> 
-                                    </div>
-                                    <div class="col-sm-1">
-                                      <div class="form-group">
-                                        <label for="Nomor_HP"><strong>Tambah</strong></label>
-                                          <button type="button" name="add" id="add3" class="btn btn-success">+</button>
-                                      </div> 
-                                    </div>
-                                </div>   
-                              </div> -->
-
+                        }else{
+                    ?>     
+                           <div class="form-group">
+                            <label for="Narahubung"><strong>Narahubung</strong></label>
+                            <textarea class="form-control" name="Narahubung" placeholder="Narahubung" required rows="5"><?= $value->Narahubung ?></textarea>
+                          </div>
                     <?php
 
-                        //}                       
+                        }                       
                     // echo '<pre>';
                     // print_r($output);
                     ?>
@@ -444,6 +418,23 @@
            if(res==true){
            $('#row'+button_id+'').remove();  
            $('#'+button_id+'').remove();  
+           }
+      });  
+
+
+     var j=1;  
+   
+      $('#adds').click(function(){  
+           j++;             
+           $('#dynamic_fields').append('<div id="rows'+j+'"><div class="row"><div class="col-sm-5"><div class="form-group"><label for="Nama_Narahubung">Nama Narahubung</label><input type="text" id="names" class="form-control" placeholder="Nama Narahubung" name="Nama_Narahubung[]" aria-describedby="sizing-addon2"></div></div><div class="col-sm-5"><div class="form-group"><label  for="Nomor_HP">Nomor HP</label><input type="number" class="form-control" id="mobnos" placeholder="Nomor HP" name="Nomor_HP[]" aria-describedby="sizing-addon2"></div></div><div class="col-sm-1"><div class="form-group"><label for="x"><strong>Hapus</strong></label><button type="button" name="remove" id="'+j+'" class="btn btn-danger btn_removes">X</button></div></div></div>');
+     });
+     
+     $(document).on('click', '.btn_removes', function(){  
+           var button_ids = $(this).attr("id"); 
+           var ress = confirm('Hapus form ini?');
+           if(ress==true){
+           $('#row'+button_ids+'').remove();  
+           $('#'+button_ids+'').remove();  
            }
       });  
   

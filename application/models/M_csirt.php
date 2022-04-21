@@ -83,6 +83,7 @@ class M_csirt extends CI_Model {
 	    							Tgl_STR				=".$this->db->escape($data['Tgl_STR']).",
 	    							Tgl_Launching		=".$this->db->escape($data['Tgl_Launching']).",
 	    							Nama_CSIRT			=".$this->db->escape($data['Nama_CSIRT']).",
+	    							Narahubung			=".$this->db->escape($data['Narahubung']).",
 	    							Dokumen				=".$this->db->escape($data['Dokumen']).",
 	    							Instansi			=".$this->db->escape($data['Instansi']).",
 	    							Tahun				=".$this->db->escape($data['Tahun']).",
