@@ -29,7 +29,7 @@ class Profile extends AUTH_Controller {
 			
 			$new_name = "ProfilePicture-".$data['userdata']->username;
 			$config['upload_path'] = "./assets/img";
-			$config['allowed_types'] = "jpg|png";
+			$config['allowed_types'] = "jpg|jpeg|png";
 			$config['max_size'] = 30000;
 			$config['file_name'] = $new_name; 
 			$this->load->library('upload',$config);

@@ -32,9 +32,8 @@ class M_csm extends CI_Model {
 	}
 
 	public function total_rows() {
-		$data = $this->db->get('csm');
-
-		return $data->num_rows();
+		$this->db->where('archieved', '0');
+    	return $this->db->get('csm')->num_rows();
 	}
 
 	public function insert($data) {
@@ -63,7 +62,7 @@ class M_csm extends CI_Model {
 	    							Skor			=".$this->db->escape($data['Skor']).",
 	    							Lv_Kematangan	=".$this->db->escape($data['Lv_Kematangan']).",
 	    							Dokumen			=".$this->db->escape($data['Dokumen']).",
-	    							Id_Instansi		=".$this->db->escape($data['Instansi']).",
+	    							Instansi		=".$this->db->escape($data['Instansi']).",
 	    							updated_by		=".$this->db->escape($data['updated_by'])."
 	    							WHERE Id_CSM	=".$this->db->escape($data['Id_CSM'])."
 	    ");

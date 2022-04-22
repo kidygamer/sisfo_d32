@@ -18,9 +18,7 @@
     <div class="col-md-3">
         <?php 
             if ($userdata->role == 'administrator' || $userdata->unit == 'D322') {
-        ?>
-                <a href="#" data-toggle="modal" data-target="#addModal" class="form-control btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Tambah Data</a>
-        <?php
+                echo "<a href='#' data-toggle='modal' data-target='#addModal' class='form-control btn btn-primary'><i class='glyphicon glyphicon-pencil'></i> Tambah Data</a>";
             }
         ?> 
     </div>
@@ -38,9 +36,7 @@
           <th>Dokumen</th>
             <?php 
                 if ($userdata->role == 'administrator' || $userdata->unit == 'D322') {
-            ?>
-                    <th style="text-align: center;width: 5%;">Aksi</th>
-            <?php
+                    echo "<th style='text-align: center;width: 5%;'>Aksi</th>";
                 }
             ?>  
         </tr>
@@ -67,17 +63,14 @@
                     }
                 ?>
               </td>
-              <td class="text-center" style="min-width:230px;">
+              
                 <?php 
                     if ($userdata->role == 'administrator' || $userdata->unit == 'D322') {
                 ?>
+                        <td class="text-center" style="min-width:230px;">
                          <a href="#" data-toggle="modal" data-target="#updateModal<?=$csm->Id_CSM?>" class="btn btn-warning btn-sm"><i class="glyphicon glyphicon-repeat"></i> Update</a>
-                <?php
-                    }
-
-                    if ($userdata->role == 'administrator') {
-                ?> 
-                        <a href="#" data-toggle="modal" data-target="#deleteModal<?=$csm->Id_CSM?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Arsipkan</a>    
+                         <a href="#" data-toggle="modal" data-target="#deleteModal<?=$csm->Id_CSM?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</a>
+                        </td>
                 <?php
                     }
                 ?>   
@@ -122,7 +115,14 @@
                     </div>
                     <div class="form-group">
                         <label for="Tahun"><strong>Tahun</strong></label>
-                        <input type="number" class="form-control" placeholder="Tahun" name="Tahun" aria-describedby="sizing-addon2" min="0" required>
+                        <select name="Tahun" placeholder="Pilih Tahun">
+                          <option value="" selected disabled>--Pilih--</option>
+                          <option value="2018">2018</option>
+                          <option value="2019">2019</option>
+                          <option value="2020">2020</option>
+                          <option value="2021">2021</option>
+                          <option value="2022">2022</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="Skor"><strong>Skor</strong></label>
@@ -139,7 +139,7 @@
                     </div>            
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Batalkan</button>
                     <input type="submit" name="" class="btn btn-warning" value="Tambah Data">
                 </div>
               </form>
@@ -179,7 +179,14 @@
                     </div>
                     <div class="form-group">
                         <label for="Tahun"><strong>Tahun</strong></label>
-                        <input type="number" class="form-control" placeholder="Tahun" name="Tahun" aria-describedby="sizing-addon2" min="0" required value="<?= $value->Tahun ?>">
+                        <select name="Tahun" placeholder="Pilih Tahun">
+                            <option value="" selected disabled>--Pilih--</option>
+                            <option value="2018" <?php if ($value->Tahun == "2018") : ?> selected<?php endif; ?>>2018</option>
+                            <option value="2019" <?php if ($value->Tahun == "2019") : ?> selected<?php endif; ?>>2019</option>
+                            <option value="2020" <?php if ($value->Tahun == "2020") : ?> selected<?php endif; ?>>2020</option>
+                            <option value="2021" <?php if ($value->Tahun == "2021") : ?> selected<?php endif; ?>>2021</option>
+                            <option value="2022" <?php if ($value->Tahun == "2022") : ?> selected<?php endif; ?>>2022</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="Skor"><strong>Skor</strong></label>
@@ -214,7 +221,7 @@
                                     
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Batalkan</button>
                     <input type="submit" name="" class="btn btn-warning" value="Update">
                 </div>
               </form>
@@ -231,15 +238,15 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Arsipkan data ini?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Hapus data ini?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Anda yakin mengarsipkan data CSM instansi <b><?=  $value->Nama_Instansi ?></b>?</div>
+                <div class="modal-body">Anda yakin menghapus data CSM instansi <b><?=  $value->Nama_Instansi ?></b>?</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a href="<?= base_url('Csm/archieve/' . $value->Id_CSM) ?>" class="btn btn-danger">Arsipkan</a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Batalkan</button>
+                    <a href="<?= base_url('Csm/archieve/' . $value->Id_CSM) ?>" class="btn btn-danger">Hapus</a>
                 </div>
             </div>
         </div>
@@ -247,7 +254,11 @@
   <?php endforeach ?>
 <!--End of Modal Delete-->
 
-
+<script type="text/javascript">
+    $('#addModal').on('hidden.bs.modal', function () {
+         location.reload();
+        })
+</script>
 <?php
 /* End of file home.php */
 /* Location: ./application/views/csm/home.php */

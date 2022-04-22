@@ -102,7 +102,7 @@
                     </div>  
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Batalkan</button>
                     <input type="submit" name="" class="btn btn-warning" value="Tambah Data">
                 </div>
               </form>
@@ -146,7 +146,7 @@
                     </div>  
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Batalkan</button>
                     <input type="submit" name="" class="btn btn-warning" value="Update">
                 </div>
               </form>
@@ -170,7 +170,7 @@
                 </div>
                 <div class="modal-body">Anda yakin mengarsipkan data instansi <b><?=  $value->Nama_Instansi ?></b>?</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Batalkan</button>
                     <a href="<?= base_url('Instansi/archieve/' . $value->Id_Instansi) ?>" class="btn btn-danger">Arsipkan</a>
                 </div>
             </div>
@@ -179,6 +179,11 @@
   <?php endforeach ?>
 <!--End of Modal Delete-->
 
+<script type="text/javascript">
+    $('#addModal').on('hidden.bs.modal', function () {
+         location.reload();
+        })
+</script>
 <?php
 /* End of file home.php */
 /* Location: ./application/views/instansi/home.php */

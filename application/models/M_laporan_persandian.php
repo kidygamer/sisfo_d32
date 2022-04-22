@@ -6,7 +6,6 @@ class M_laporan_persandian extends CI_Model {
 		$this->db->select('*');
 		$this->db->from('laporan_persandian a');
 		$this->db->join('instansi b', 'a.Instansi = b.Id_Instansi');
-		$this->db->where('a.archieved', '0');
 		$this->db->order_by('Id_LapSan','ASC');
 
 
@@ -32,9 +31,8 @@ class M_laporan_persandian extends CI_Model {
 	}
 
 	public function total_rows() {
-		$data = $this->db->get('laporan_persandian');
-
-		return $data->num_rows();
+		$this->db->where('archieved', '0');
+    	return $this->db->get('laporan_persandian')->num_rows();
 	}
 
 	public function insert($data) {

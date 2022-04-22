@@ -21,9 +21,8 @@ class M_pengguna extends CI_Model {
 	}
 
 	public function total_rows() {
-		$data = $this->db->get('pengguna');
-
-		return $data->num_rows();
+		$this->db->where('archieved', '0');
+    	return $this->db->get('pengguna')->num_rows();
 	}
 
 	public function insert($data) {

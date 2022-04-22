@@ -197,7 +197,7 @@ class Pengguna extends AUTH_Controller {
 
 					$result = $this->M_admin->updatePassword($data, $id);
 					if ($result > 0) {
-						$this->session->set_flashdata('success', 'Password berasil diubah');
+						$this->session->set_flashdata('success', 'Password berhasil diubah');
 						redirect('Pengguna');
 						//echo "Password Berhasil diubah";
 					} else {

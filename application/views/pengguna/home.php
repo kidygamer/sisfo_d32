@@ -43,7 +43,7 @@
                  <a href="#" data-toggle="modal" data-target="#detailModal<?=$user->id?>" class="btn btn-success btn-sm"><i class="glyphicon glyphicon-eye-open"></i> Detail</a>
               	 <a href="#" data-toggle="modal" data-target="#rpModal<?=$user->id?>" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-wrench"></i> Reset Password</a>
                  <a href="#" data-toggle="modal" data-target="#updateModal<?=$user->id?>" class="btn btn-warning btn-sm"><i class="glyphicon glyphicon-repeat"></i> Update</a>
-                 <a href="#" data-toggle="modal" data-target="#deleteModal<?=$user->id?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Arsipkan</a>
+                 <a href="#" data-toggle="modal" data-target="#deleteModal<?=$user->id?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</a>
               </td>
             </tr>
             <?php
@@ -168,7 +168,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Batalkan</button>
                     <input type="submit" name="" class="btn btn-success" value="Tambah Data">
                 </div>
               </form>
@@ -234,7 +234,7 @@
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group">
-                                <label for="unit"><strong>Unit</strong></label>
+                                <label for="unit"><strong>Sub-unit</strong></label>
                                 <select name="unit" required>
                                     <option value="">--Unit--</option>
                                     <option value="D32" <?php if ($value->unit == "D32") : ?> selected<?php endif; ?>>D32</option>
@@ -253,7 +253,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Batalkan</button>
                     <input type="submit" name="" class="btn btn-warning" value="Update">
                 </div>
               </form>
@@ -291,7 +291,7 @@
                         
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Batalkan</button>
                     <input type="submit" name="" class="btn btn-warning" value="Update">
                 </div>
               </form>
@@ -308,15 +308,15 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Arsipkan data ini?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Hapus data ini?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Anda yakin mengarsipkan data Pengguna ini?</div>
+                <div class="modal-body">Anda yakin menghapus data Pengguna ini?</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a href="<?= base_url('Pengguna/archieve/' . $value->id) ?>" class="btn btn-danger">Arsipkan</a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Batalkan</button>
+                    <a href="<?= base_url('Pengguna/archieve/' . $value->id) ?>" class="btn btn-danger">Hapus</a>
                 </div>
             </div>
         </div>
@@ -324,6 +324,11 @@
   <?php endforeach ?>
 <!--End of Modal Delete-->
 
+<script type="text/javascript">
+    $('#addModal').on('hidden.bs.modal', function () {
+         location.reload();
+        })
+</script>
 <?php
 /* End of file laporan_persandian.php */
 /* Location: ./application/views/laporan_persandian/home.php */

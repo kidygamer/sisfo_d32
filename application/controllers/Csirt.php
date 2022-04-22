@@ -69,28 +69,28 @@ class CSIRT extends AUTH_Controller {
 			$dokumen_csirt = NULL;
 		}
 
-		$attain 			= $this->input->post();
-	    $data_narahubung	= array(); //<-initialize
-	       for ($i = 0; $i < count($attain['Nama_Narahubung']); $i++) {
-	                //append array
-	                $data_narahubung[] = array(
-	                    'Nama_Narahubung' => $attain['Nama_Narahubung'][$i],
-	                    'Nomor_HP' => $attain['Nomor_HP'][$i]
-	                );
+		// $attain 			= $this->input->post();
+	 //    $data_narahubung	= array(); //<-initialize
+	 //       for ($i = 0; $i < count($attain['Nama_Narahubung']); $i++) {
+	 //                //append array
+	 //                $data_narahubung[] = array(
+	 //                    'Nama_Narahubung' => $attain['Nama_Narahubung'][$i],
+	 //                    'Nomor_HP' => $attain['Nomor_HP'][$i]
+	 //                );
 	               
-	       }
+	 //       }
 
-	       $rows = array(); // will hold all table rows to insert
-			foreach ($data_narahubung as $row) { // loops through your datasets
-			    $row_string = ''; // will hold the string for this row
-			    foreach ($row as $value) {
-			        // make sure that value is escaped
-			        $row_string .= addslashes($value) . ' - ';
-			    }
-			    $row_string = substr($row_string, 0, -2); // trim last ", " and wrap in brackets
-			    $rows[] = $row_string; // push row to rows array
-			}
-			$rows = implode(', ', $rows); // glue rows together into one string
+	 //       $rows = array(); // will hold all table rows to insert
+		// 	foreach ($data_narahubung as $row) { // loops through your datasets
+		// 	    $row_string = ''; // will hold the string for this row
+		// 	    foreach ($row as $value) {
+		// 	        // make sure that value is escaped
+		// 	        $row_string .= addslashes($value) . ' - ';
+		// 	    }
+		// 	    $row_string = substr($row_string, 0, -2); // trim last ", " and wrap in brackets
+		// 	    $rows[] = $row_string; // push row to rows array
+		// 	}
+		// 	$rows = implode(', ', $rows); // glue rows together into one string
 
 	       // print_r($data_narahubung);
 	       // echo "<br>";
@@ -104,7 +104,7 @@ class CSIRT extends AUTH_Controller {
 				'Tgl_STR' 			=> $this->security->xss_clean($this->input->post('Tgl_STR')),
 				'Tgl_Launching' 	=> $this->security->xss_clean($this->input->post('Tgl_Launching')),
 				'Nama_CSIRT' 		=> $this->security->xss_clean($this->input->post('Nama_CSIRT')),
-				'Narahubung' 		=> $rows,
+				'Narahubung' 		=> $this->security->xss_clean($this->input->post('Narahubung')),
 				'Dokumen' 			=> $dokumen_csirt,	
 				'Instansi' 			=> $this->security->xss_clean($this->input->post('Instansi')),	
 				'Tahun' 			=> $this->security->xss_clean($this->input->post('Tahun')),		

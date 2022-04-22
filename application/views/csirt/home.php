@@ -18,9 +18,7 @@
     <div class="col-md-3">
        <?php 
             if ($userdata->role == 'administrator' || $userdata->unit == 'D323') {
-        ?>
-                <a href="#" data-toggle="modal" data-target="#addModal" class="form-control btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Tambah Data</a>
-        <?php
+                echo "<a href='#' data-toggle='modal' data-target='#addModal' class='form-control btn btn-primary'><i class='glyphicon glyphicon-pencil'></i> Tambah Data</a>";
             }
         ?>          
     </div>
@@ -37,9 +35,7 @@
           <th><center>Dokumen</center></th>
             <?php 
                 if ($userdata->role == 'administrator' || $userdata->unit == 'D323') {
-            ?>
-                     <th style="text-align: center;width: 5%;">Aksi</th>
-            <?php
+                  echo "<th style='text-align: center;width: 5%;'>Aksi</th>";
                 }
             ?>           
         </tr>
@@ -67,17 +63,14 @@
                     }
                 ?>
               </td>
-              <td class="text-center" style="min-width:230px;">
+              
                 <?php 
                     if ($userdata->role == 'administrator' || $userdata->unit == 'D323') {
                 ?>
-                         <a href="#" data-toggle="modal" data-target="#updateModal<?=$csirt->Id_CSIRT?>" class="btn btn-warning btn-sm"><i class="glyphicon glyphicon-repeat"></i> Update</a>
-                <?php
-                    }
-
-                    if ($userdata->role == 'administrator') {
-                ?> 
-                        <a href="#" data-toggle="modal" data-target="#deleteModal<?=$csirt->Id_CSIRT?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Arsipkan</a>    
+                      <td class="text-center" style="min-width:230px;">
+                        <a href="#" data-toggle="modal" data-target="#updateModal<?=$csirt->Id_CSIRT?>" class="btn btn-warning btn-sm"><i class="glyphicon glyphicon-repeat"></i> Update</a>
+                        <a href="#" data-toggle="modal" data-target="#deleteModal<?=$csirt->Id_CSIRT?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</a> 
+                      </td>
                 <?php
                     }
                 ?>   
@@ -167,7 +160,14 @@
                     </div>
                     <div class="form-group">
                         <label for="Tahun"><strong>Tahun</strong></label>
-                        <input type="number" class="form-control" placeholder="Tahun" name="Tahun" aria-describedby="sizing-addon2" min="0" required>
+                        <select name="Tahun" placeholder="Pilih Tahun">
+                          <option value="" selected disabled>--Pilih--</option>
+                          <option value="2018">2018</option>
+                          <option value="2019">2019</option>
+                          <option value="2020">2020</option>
+                          <option value="2021">2021</option>
+                          <option value="2022">2022</option>
+                        </select>
                     </div>
                     <div class="row">
                         <div class="col-sm-6">
@@ -198,7 +198,7 @@
                         </div>
                     </div>
 
-                    <div id="dynamic_field">
+                    <!-- <div id="dynamic_field">
                       <div class="row">
                           <div class="col-sm-5">
                             <div class="form-group">
@@ -219,7 +219,11 @@
                             </div> 
                           </div>
                       </div>   
-                    </div>            
+                    </div> -->    
+                    <div class="form-group">
+                          <label for="Narahubung"><strong>Narahubung</strong></label>
+                          <textarea class="form-control" name="Narahubung" placeholder="Narahubung" required rows="5"></textarea>
+                    </div>        
                     
                     <div class="form-group">
                       <label for="Dokumen"><strong>Unggah Dokumen:</strong></label>
@@ -229,7 +233,7 @@
                             
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Batalkan</button>
                     <input type="submit" name="" class="btn btn-warning" value="Tambah Data">
                 </div>
               </form>
@@ -266,7 +270,14 @@
                     </div>
                     <div class="form-group">
                         <label for="Tahun"><strong>Tahun</strong></label>
-                        <input type="number" class="form-control" placeholder="Tahun" name="Tahun" aria-describedby="sizing-addon2" min="0" required value="<?= $value->Tahun ?>">
+                        <select name="Tahun" placeholder="Pilih Tahun">
+                            <option value="" selected disabled>--Pilih--</option>
+                            <option value="2018" <?php if ($value->Tahun == "2018") : ?> selected<?php endif; ?>>2018</option>
+                            <option value="2019" <?php if ($value->Tahun == "2019") : ?> selected<?php endif; ?>>2019</option>
+                            <option value="2020" <?php if ($value->Tahun == "2020") : ?> selected<?php endif; ?>>2020</option>
+                            <option value="2021" <?php if ($value->Tahun == "2021") : ?> selected<?php endif; ?>>2021</option>
+                            <option value="2022" <?php if ($value->Tahun == "2022") : ?> selected<?php endif; ?>>2022</option>
+                        </select>
                     </div>
                     <div class="row">
                         <div class="col-sm-6">
@@ -373,7 +384,7 @@
                                     
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Batalkan</button>
                     <input type="submit" name="" class="btn btn-warning" value="Update">
                 </div>
               </form>
@@ -390,12 +401,12 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Arsipkan data ini?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Hapus data ini?</h5>
                 </div>
-                <div class="modal-body">Anda yakin mengarsipkan data CSIRT instansi <b><?=  $value->Nama_Instansi ?></b>?</div>
+                <div class="modal-body">Anda yakin ingin menghapus data CSIRT instansi <b><?=  $value->Nama_Instansi ?></b>?</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a href="<?= base_url('Csirt/archieve/' . $value->Id_CSIRT) ?>" class="btn btn-danger">Arsipkan</a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Batalkan</button>
+                    <a href="<?= base_url('Csirt/archieve/' . $value->Id_CSIRT) ?>" class="btn btn-danger">Hapus</a>
                 </div>
             </div>
         </div>
@@ -440,6 +451,12 @@
   
     });
 
+</script>
+
+<script type="text/javascript">
+    $('#addModal').on('hidden.bs.modal', function () {
+         location.reload();
+        })
 </script>
 
 <?php

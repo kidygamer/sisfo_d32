@@ -31,9 +31,8 @@ class M_csirt extends CI_Model {
 	}
 
 	public function total_rows() {
-		$data = $this->db->get('csirt');
-
-		return $data->num_rows();
+		$this->db->where('archieved', '0');
+    	return $this->db->get('csirt')->num_rows();
 	}
 
 	public function insert($data) {

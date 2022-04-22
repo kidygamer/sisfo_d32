@@ -32,9 +32,8 @@ class M_ikami extends CI_Model {
 	}
 
 	public function total_rows() {
-		$data = $this->db->get('ikami');
-
-		return $data->num_rows();
+		$this->db->where('archieved', '0');
+    	return $this->db->get('ikami')->num_rows();
 	}
 
 	public function insert($data) {
@@ -65,7 +64,7 @@ class M_ikami extends CI_Model {
 	    							Kategori_SE		=".$this->db->escape($data['Kategori_SE']).",
 	    							Nilai			=".$this->db->escape($data['Nilai']).",
 	    							Dokumen			=".$this->db->escape($data['Dokumen']).",
-	    							Id_Instansi		=".$this->db->escape($data['Instansi']).",
+	    							Instansi		=".$this->db->escape($data['Instansi']).",
 	    							updated_by		=".$this->db->escape($data['updated_by'])."
 	    							WHERE Id_IKAMI	=".$this->db->escape($data['Id_IKAMI'])."
 	    ");

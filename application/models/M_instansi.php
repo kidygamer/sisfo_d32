@@ -42,7 +42,11 @@ class M_instansi extends CI_Model {
 				LEFT JOIN ikami ON ikami.Instansi = instansi.Id_Instansi AND ikami.Tahun = a.Tahun
 				LEFT JOIN csm ON csm.Instansi = instansi.Id_Instansi AND csm.Tahun = a.Tahun
 				LEFT JOIN tmpi ON tmpi.Instansi = instansi.Id_Instansi AND tmpi.Tahun = a.Tahun 
-				WHERE instansi.Id_Instansi = '{$id}'";
+				WHERE instansi.Id_Instansi = '{$id}' 
+                AND (lp.archieved = '0' OR 
+                csirt.archieved = '0' OR 
+                ikami.archieved = '0' OR 
+                csm.archieved = '0' OR tmpi.archieved = '0')";
 
 		$data = $this->db->query($sql);
 

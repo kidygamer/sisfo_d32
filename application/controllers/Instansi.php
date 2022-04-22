@@ -124,11 +124,11 @@ class Instansi extends AUTH_Controller {
 
 		if($this->M_instansi->archieve($id)){
 			$this->session->set_flashdata('success', 'Data <strong>Berhasil</strong> Diarsipkan!');
-			redirect('Csm');
+			redirect('Instansi');
 			//echo "success";
 		} else {
 			$this->session->set_flashdata('error', 'Data <strong>Gagal</strong> Diarsipkan!');
-			redirect('Csm');
+			redirect('Instansi');
 			//echo "failed";
 		}
 	}

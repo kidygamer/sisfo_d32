@@ -32,9 +32,8 @@ class M_tmpi extends CI_Model {
 	}
 
 	public function total_rows() {
-		$data = $this->db->get('tmpi');
-
-		return $data->num_rows();
+		$this->db->where('archieved', '0');
+    	return $this->db->get('tmpi')->num_rows();
 	}
 
 	public function insert($data) {
