@@ -71,7 +71,7 @@
                 		<tr><td><b>Nama</b></td><td><?= $value->nama ?></td></tr>
                 		<tr><td><b>nip</b></td><td><?= $value->nip ?></td></tr>
                 		<tr><td><b>Jabatan</b></td><td><?= $value->jabatan ?></td></tr>
-                        <tr><td><b>Unit</b></td><td><?= $value->unit ?></td></tr>
+                        <tr><td><b>Sub-unit</b></td><td><?= $value->unit ?></td></tr>
                 		<tr><td><b>Email</b></td><td><?= $value->email ?></td></tr>
                 		<tr><td><b>Role</b></td><td><?= $value->role ?></td></tr>
                 	</table>

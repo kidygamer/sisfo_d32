@@ -46,8 +46,10 @@ class Instansi extends AUTH_Controller {
 
 		if ($year == 'all') {
 			$data['dataGrand'] 	= $this->M_instansi->select_grand($id);
+			$data['det_ikami']		= $this->M_instansi->select_ikami($id);
 		}else{
 			$data['dataGrand'] 	= $this->M_instansi->select_grand_by_year($id,$year);
+			$data['det_ikami']		= $this->M_instansi->select_ikami_by_year($id,$year);
 		}
 
 		$data['page'] 		= "Detail Instansi";

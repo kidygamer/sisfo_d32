@@ -9,18 +9,24 @@
       color: '#7FFF00',
       hoverColor: '#F8F8FF'
       });
-    jQuery('#vmap').vectorMap('set','colors',{path15:'#FF0000',path11:'#FF0000',path12:'#FF0000',path13:'#FF0000'});
 
-    <?php
-              foreach ($det_ikami as $detikami) {
-              echo '"';
-              echo $detikami->Tahun;
-              echo '",';
+    jQuery('#vmap').vectorMap('set','colors',{
+      <?php
+              foreach ($sel_map as $codevmap) {
+              echo $codevmap->code_vmap;
+              echo ":'#FF0000',";
               }  
         ?>
+    });
 
-
-    jQuery('#vmap').vectorMap('set','colors',{path09:'#FF1493',path10:'#FF1493',path16:'#FF1493',path22:'#FF1493'});
+    jQuery('#vmap').vectorMap('set','colors',{
+      <?php
+              foreach ($sel_map2 as $codevmap2) {
+              echo $codevmap2->code_vmap;
+              echo ":'#FF1493',";
+              }  
+        ?>
+    });
     });
     </script>
 
@@ -108,7 +114,7 @@
     <div class="box box-info">
       <div class="box-header with-border">
         <i class="fa fa-briefcase"></i>
-        <h3 class="box-title">Computer Security Incident Response Team <small>Data CSIRT</small></h3>
+        <h3 class="box-title">TMPI INDONESIA<small> Data Pesebaran Level</small></h3>
 
         <div class="box-tools pull-right">
           <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -122,6 +128,25 @@
       </div>
     </div>
   </div>
+
+  <!-- <div class="col-lg-12 col-xs-12">
+    <div class="box box-info">
+      <div class="box-header with-border">
+        <i class="fa fa-briefcase"></i>
+        <h3 class="box-title">Computer Security Incident Response Team <small>Data CSIRT</small></h3>
+
+        <div class="box-tools pull-right">
+          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+          </button>
+          <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+        </div>
+      </div>
+      <div class="box-body">
+        <div id="vmap" style="height: 400px;"></div>
+
+      </div>
+    </div>
+  </div> -->
 
   <div class="col-lg-6 col-xs-12">
     <div class="box box-info">
@@ -219,11 +244,11 @@
   </div>
 
   
-  <div class="col-lg-12 col-xs-12">
+  <div class="col-lg-11 col-xs-12">
     <div class="box box-info">
       <div class="box-header with-border">
         <i class="fa fa-briefcase"></i>
-        <h3 class="box-title">Cyber Security Maturity <small>Data CSM</small></h3>
+        <h3 class="box-title">Cyber Security Maturity <small>Data CSM <b><?php echo $jml_csm; ?></b></small></h3>
 
         <div class="box-tools pull-right">
           <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -232,7 +257,7 @@
         </div>
       </div>
       <div class="box-body">
-      <div style="width: 100%; height: 40px; position: absolute; top: 10%; left: 0; margin-top: -20px; line-height:19px; text-align: center;"> <h1>CSM<br><b><?php echo $jml_csm; ?></b></h1> </div>
+      <div style="width: 100%; height: 40px; position: absolute; top: 10%; left: 0; margin-top: -20px; line-height:19px; text-align: center;"> <h1><b><?php echo $jml_csm; ?></b></h1> </div>
         <canvas id="barChartcsm" style="height:250px" ></canvas>
       </div>
     </div>
@@ -242,7 +267,7 @@
     <div class="box box-info">
       <div class="box-header with-border">
         <i class="fa fa-briefcase"></i>
-        <h3 class="box-title">Laporan Persandian 2020<small>PROVINSI</small></h3>
+        <h3 class="box-title">Laporan Persandian 2020 <small>PROVINSI</small></h3>
 
         <div class="box-tools pull-right">
           <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -251,7 +276,7 @@
         </div>
       </div>
       <div class="box-body">
-      <div style="width: 100%; height: 40px; position: absolute; top: 45%; left: 0; margin-top: -20px; line-height:19px; text-align: center;"> <h1>Persandian<br><b><?php echo $jml_lapsan; ?></b></h1> </div>
+      <div style="width: 100%; height: 40px; position: absolute; top: 45%; left: 0; margin-top: -20px; line-height:19px; text-align: center;"> <h1><b><?php echo $jml_lapsan; ?></b></h1> </div>
         <canvas id="pieChartlapsan" style="height:250px" ></canvas>
       </div>
     </div>
@@ -306,13 +331,13 @@ var pieChartCanvas = $("#pieChart").get(0).getContext("2d");
       value: <?php echo $jml_statcsirt; ?>,
       color: "#f56954",
       highlight: "#f56954",
-      label: "Provinsi Sudah CSIRT"
+      label: "Sudah CSIRT"
     },
     {
       value: <?php $kval=34; echo $kval - $jml_statcsirt; ?>,
       color: "#FFE4E1",
       highlight: "#FFE4E1",
-      label: "Provinsi Belum CSIRT"
+      label: "Belum CSIRT"
     }
   ];
   var pieOptions = {
@@ -340,13 +365,13 @@ var pieChartCanvas = $("#pieChart").get(0).getContext("2d");
       value: <?php echo $jml_csirtkab; ?>,
       color: "#f56954",
       highlight: "#f56954",
-      label: "Kab./Kota Sudah CSIRT"
+      label: "Sudah CSIRT"
     },
     {
       value: <?php $kvil=514; echo $kvil - $jml_csirtkab; ?>,
       color: "#FFE4E1",
       highlight: "#FFE4E1",
-      label: "Kab./Kota Belum CSIRT"
+      label: "Belum CSIRT"
     }
   ];
   var pieOptions = {
@@ -529,7 +554,7 @@ var pieChartCanvas = $("#pieChart").get(0).getContext("2d");
     ],
         datasets:[{
             label:"Level Kematangan",  
-            label:"Level CSM",  
+            label:"Level TMPI",  
             fillColor           : 'rgba(236, 0, 255, 0.83)',
             strokeColor         : 'rgba(236, 0, 255, 0.83)',
             pointColor          : '#3b8bba',

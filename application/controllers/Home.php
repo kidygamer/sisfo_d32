@@ -39,7 +39,7 @@ class Home extends AUTH_Controller {
 
 		$data['page'] 			= "home";
 		$data['judul'] 			= "Beranda";
-		$data['deskripsi'] 		= "Selamat Datang, Administrator - ".$data['userdata']->nama;
+		$data['deskripsi'] 		= "Selamat Datang, ".$data['userdata']->nama;
 		$this->template->views('home', $data);
 		
 	}

@@ -91,6 +91,20 @@ class M_instansi extends CI_Model {
 		return $data->result();
 	}
 
+	public function select_ikami_by_year($id,$year) {
+		$this->db->select('*');
+		$this->db->from('ikami a');
+		$this->db->join('instansi b', 'a.Instansi = b.Id_Instansi');
+		$this->db->where('a.Instansi', $id);
+		$this->db->where('a.Tahun', $year);
+		$this->db->order_by('Tahun','ASC');
+
+
+		$data = $this->db->get();
+
+		return $data->result();
+	}
+
 	public function insert($data) {
 		$simpan=$this->db->query("INSERT INTO instansi
 									(Nama_Instansi,Provinsi,updated_by)
