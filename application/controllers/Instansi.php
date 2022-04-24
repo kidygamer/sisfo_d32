@@ -21,10 +21,11 @@ class Instansi extends AUTH_Controller {
 
 	public function detail_grand($id)
 	{
-		$data['userdata'] 	= $this->userdata;
+		$data['userdata'] 		= $this->userdata;
 		$data['dataInstansi'] 	= $this->M_instansi->select_by_id($id);
 
-		$data['dataGrand'] 	= $this->M_instansi->select_grand($id);
+		$data['dataGrand'] 		= $this->M_instansi->select_grand($id);
+		$data['det_ikami']		= $this->M_instansi->select_ikami($id);
 
 		$data['page'] 		= "Detail Instansi";
 		$data['judul'] 		= "Detail Data";

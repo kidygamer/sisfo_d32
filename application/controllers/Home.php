@@ -10,6 +10,7 @@ class Home extends AUTH_Controller {
 		$this->load->model('M_csm');
 		$this->load->model('M_csirt');
 		$this->load->model('M_tmpi');
+		$this->load->model('M_chart');
 	}
 
 	public function index() {
@@ -20,8 +21,22 @@ class Home extends AUTH_Controller {
 		$data['jml_csirt'] 				= $this->M_csirt->total_rows();
 		$data['jml_tmpi'] 				= $this->M_tmpi->total_rows();
 		$data['userdata'] 				= $this->userdata;
+		$data['jml_statcsirt']			= $this->M_chart->total_by_status();
+		$data['jml_csirtkab']			= $this->M_chart->kabkot_total();
+		$data['lv_tmpi19']				= $this->M_chart->select_tmpi19();
+		$data['lv_tmpi20']				= $this->M_chart->select_tmpi20();
+		$data['lv_tmpi21']				= $this->M_chart->select_tmpi21();
+		$data['jml_lapsan']				= $this->M_chart->lapsan_total();
+		$data['jml_lapsankab']			= $this->M_chart->lapsan_totalkab();
+		$data['det_ikami']				= $this->M_chart->select_ikami();
+		$data['jml_tmpi19']				= $this->M_chart->total_tmpi19();
+		$data['jml_tmpi20']				= $this->M_chart->total_tmpi20();
+		$data['jml_tmpi21']				= $this->M_chart->total_tmpi21();
+		$data['val_csm']				= $this->M_chart->select_csm();
+		$data['sel_map'] 				= $this->M_tmpi->select_maplv3();
+		$data['sel_map2'] 				= $this->M_tmpi->select_maplv2();
 
-		
+
 		$data['page'] 			= "home";
 		$data['judul'] 			= "Beranda";
 		$data['deskripsi'] 		= "Selamat Datang, Administrator - ".$data['userdata']->nama;

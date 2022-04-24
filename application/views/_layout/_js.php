@@ -9,4 +9,6 @@
 <script src="<?php echo base_url(); ?>assets/dist/js/app.min.js"></script>
 <!-- My Ajax -->
 <?php include './assets/js/ajax.php'; ?>
-
+<!-- jQvMap -->
+<script src="<?php echo base_url('assets/jqvmap/jquery.vmap.js')?>"></script>
+<script src="<?php echo base_url('assets/jqvmap/maps/jquery.vmap.indonesia.js')?>" charset="utf-8"></script>

@@ -42,11 +42,7 @@ class M_instansi extends CI_Model {
 				LEFT JOIN ikami ON ikami.Instansi = instansi.Id_Instansi AND ikami.Tahun = a.Tahun
 				LEFT JOIN csm ON csm.Instansi = instansi.Id_Instansi AND csm.Tahun = a.Tahun
 				LEFT JOIN tmpi ON tmpi.Instansi = instansi.Id_Instansi AND tmpi.Tahun = a.Tahun 
-				WHERE instansi.Id_Instansi = '{$id}' 
-                AND (lp.archieved = '0' OR 
-                csirt.archieved = '0' OR 
-                ikami.archieved = '0' OR 
-                csm.archieved = '0' OR tmpi.archieved = '0')";
+				WHERE instansi.Id_Instansi = '{$id}'";
 
 		$data = $this->db->query($sql);
 
@@ -80,6 +76,19 @@ class M_instansi extends CI_Model {
 
 		return $data->result();
 		return json_encode($data->result());
+	}
+
+	public function select_ikami($id) {
+		$this->db->select('*');
+		$this->db->from('ikami a');
+		$this->db->join('instansi b', 'a.Instansi = b.Id_Instansi');
+		$this->db->where('a.Instansi', $id);
+		$this->db->order_by('Tahun','ASC');
+
+
+		$data = $this->db->get();
+
+		return $data->result();
 	}
 
 	public function insert($data) {

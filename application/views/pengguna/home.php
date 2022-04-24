@@ -152,20 +152,19 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-6">
+                    
+                        
                             <div class="form-group">
                                 <label for="Username"><strong>Username</strong></label>
                                 <input type="text" class="form-control" name="username" aria-describedby="sizing-addon2" required placeholder="Username">
                             </div>
-                        </div>
-                        <div class="col-sm-6">
+                       
                             <div class="form-group">
                                 <label for="Password"><strong>Password</strong></label>
                                 <input type="password" class="form-control" name="password" aria-describedby="sizing-addon2" required placeholder="Password (*Kombinasi huruf dan angka, min. 10 karakter,maks. 20 karakter)">
                             </div>
-                        </div>
-                    </div>
+                      
+                    
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Batalkan</button>

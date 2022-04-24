@@ -29,6 +29,34 @@
   </div>
   <!-- /.box-header -->
   <div class="box-body">
+
+    <!-- <div class="col-md-3">
+        <a href='#' data-toggle='modal' data-target='#showModal' class='form-control btn btn-primary'><i class='glyphicon glyphicon-signal'></i> Tampilkan Grafik</a>
+    </div> -->
+
+  
+        <!-- lineChart -->
+        <div class="col-lg-6 col-xs-12">
+          <div class="box box-info">
+            <div class="box-header with-border">
+              <i class="fa fa-briefcase"></i>
+              <h3 class="box-title">IKAMI <small><?= $dataInstansi->Nama_Instansi ?></small></h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
+            <div class="box-body">
+              <canvas id="lineChart" style="height:250px" ></canvas>
+            </div>
+          </div>
+        </div>
+        <!-- end of lineChart -->
+    
+    
+
     <table class="table table-striped">
       <?php
         foreach ($dataGrand as $value) {
@@ -137,7 +165,89 @@
   </div>
 </div>
 
+<!--Modal Grafik-->
+<!--     <div class="modal fade" id="showModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Grafik Data</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                  
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div> -->
+<!--End of Modal Grafik-->
 
+<script src="<?php echo base_url(); ?>assets/plugins/chartjs/Chart.min.js"></script>
+
+<script type="text/javascript">
+  //data test line
+  var lineChartCanvas = $("#lineChart").get(0).getContext("2d");
+  var lineChart = new Chart(lineChartCanvas);
+  var lineData = {
+    labels: [
+      <?php
+              foreach ($det_ikami as $detikami) {
+              echo '"';
+              echo $detikami->Tahun;
+              echo '",';
+              }  
+        ?>
+    ],
+    datasets: [{
+        label               : 'Digital Goods',
+        fillColor           : 'rgba(0, 236, 255, 0.8)',
+        strokeColor         : 'rgba(60,141,188,0.8)',
+        pointColor          : '#3b8bba',
+        pointStrokeColor    : 'rgba(60,141,188,1)',
+        pointHighlightFill  : '#fff',
+        pointHighlightStroke: 'rgba(60,141,188,1)', 
+        data: [
+          <?php
+              foreach ($det_ikami as $detikami) {
+              echo '"';
+              echo $detikami->Nilai;
+              echo '",';
+              }  
+            ?>
+        ],
+        label: "Jawa Barat",
+        backgroundColor: "rgba(100, 101, 188, 1.0)",
+        borderColor: "rgba(100, 101, 188, 0.1)",
+        fill: false
+      }]
+      };
+      var lineOptions = {
+      showScale               : true,
+      scaleShowGridLines      : true,
+      scaleGridLineColor      : 'rgba(0,0,0,.05)',
+      scaleGridLineWidth      : 1,
+      scaleShowHorizontalLines: true,
+      scaleShowVerticalLines  : true,
+      bezierCurve             : true,
+      bezierCurveTension      : 0.3,
+      pointDot                : true,
+      pointDotRadius          : 4,
+      pointDotStrokeWidth     : 1,
+      pointHitDetectionRadius : 20,
+      datasetStroke           : true,
+      datasetStrokeWidth      : 5,
+      datasetFill             : true,
+      legendTemplate          : '<ul class="<%=name.toLowerCase()%>-legend"><% for (var i=0; i<datasets.length; i++){%><li><span style="background-color:<%=datasets[i].lineColor%>"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>',
+      maintainAspectRatio     : true,
+      responsive              : true
+    };
+  lineChart.Line(lineData, lineOptions);
+</script>
 
 <?php
 /* End of file detail_grand.php */
