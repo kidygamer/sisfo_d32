@@ -253,7 +253,7 @@
                     <div class="form-group">
                       <label for="Dokumen"><strong>Unggah Dokumen:</strong></label>
                       <br>                      
-                      <input type="file" class="form-control" name="Dokumen">
+                      <input type="file" class="form-control" name="Dokumen"><br><small>*file format .pdf dengan ukuran maksimal 30Mb</small>
                     </div>   
                 </div>
                 <div class="modal-footer">
@@ -392,7 +392,7 @@
                             <div class="form-group">
                               <label for="Dokumen"><strong>Unggah Dokumen:</strong></label>
                               <br>                      
-                              <input type="file" class="form-control" name="Dokumen">      
+                              <input type="file" class="form-control" name="Dokumen"><br><small>*file format .pdf dengan ukuran maksimal 30Mb</small>      
                             </div>
                         </div>
                     </div>

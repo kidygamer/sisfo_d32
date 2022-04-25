@@ -55,7 +55,7 @@
               <label for="inputFoto" class="col-sm-2 control-label">Foto</label>
               <div class="col-sm-10">
                 <input type="hidden" name="recent_foto" value="<?php echo $userdata->foto; ?>">
-                <input type="file" class="form-control" placeholder="Foto" name="foto">
+                <input type="file" class="form-control" placeholder="Foto" name="foto"><br><small>*file format .jpg/.jpeg/.png dengan ukuran maksimal 30Mb</small>
               </div>
             </div>
             
