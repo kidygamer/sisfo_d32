@@ -27,7 +27,7 @@
   <body class="hold-transition login-page">
     <div class="login-box">
       <div class="login-logo">
-        <a href="<?php echo base_url(); ?>assets/index2.html"><b>D32</b>Database</a>
+        <a href="<?php echo base_url(); ?>assets/index2.html"><b>D32 Databse System</b> 0.1</a>
       </div>
 
       <!-- /.login-logo -->

@@ -13,7 +13,7 @@ class Ikami extends AUTH_Controller {
 		$data['dataInstansi'] 	= $this->M_instansi->select_all();
 		$data['dataIkami'] 	= $this->M_ikami->select_all();
 
-		$data['page'] 		= "Ikami";
+		$data['page'] 		= "ikami";
 		$data['judul'] 		= "Data Ikami";
 		$data['deskripsi'] 	= "Manage Data Ikami";
 

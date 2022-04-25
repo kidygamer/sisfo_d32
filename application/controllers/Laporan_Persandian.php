@@ -13,7 +13,7 @@ class Laporan_Persandian extends AUTH_Controller {
 		$data['dataInstansi'] 	= $this->M_instansi->select_all();
 		$data['dataLaporan_Persandian'] 	= $this->M_laporan_persandian->select_all();
 
-		$data['page'] 		= "Laporan Persandian";
+		$data['page'] 		= "laporan_persandian";
 		$data['judul'] 		= "Data Laporan Persandian";
 		$data['deskripsi'] 	= "Manage Data Laporan Persandian";
 

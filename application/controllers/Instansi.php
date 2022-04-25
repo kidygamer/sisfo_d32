@@ -12,7 +12,7 @@ class Instansi extends AUTH_Controller {
 		$data['dataInstansi'] 	= $this->M_instansi->select_all();
 		$data['dataProvinsi'] 	= $this->M_instansi->select_provinsi();
 
-		$data['page'] 		= "Instansi Pemda";
+		$data['page'] 		= "instansi";
 		$data['judul'] 		= "Data Instansi Pemda";
 		$data['deskripsi'] 	= "Manage Data Instansi Pemda";
 

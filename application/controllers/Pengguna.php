@@ -12,7 +12,7 @@ class Pengguna extends AUTH_Controller {
 		$data['userdata'] 	    = $this->userdata;
 		$data['dataPengguna'] 	= $this->M_pengguna->select_all();
 
-		$data['page'] 		= "Pengguna";
+		$data['page'] 		= "pengguna";
 		$data['judul'] 		= "Data Pengguna Aplikasi";
 		$data['deskripsi'] 	= "Manage Data Pengguna";
 

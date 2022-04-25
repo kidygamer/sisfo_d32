@@ -13,7 +13,7 @@ class Tmpi extends AUTH_Controller {
 		$data['dataInstansi'] 	= $this->M_instansi->select_all();
 		$data['dataTmpi'] 	= $this->M_tmpi->select_all();
 
-		$data['page'] 		= "TMPI";
+		$data['page'] 		= "tmpi";
 		$data['judul'] 		= "Data TMPI";
 		$data['deskripsi'] 	= "Manage Data TMPI";
 

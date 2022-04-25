@@ -79,6 +79,14 @@
             <span>TMPI</span>
           </a>
         </li>
+
+
+         <li <?php if ($page == 'pic') {echo 'class="active"';} ?>>
+          <a href="<?php echo base_url('Pic'); ?>">
+            <i class="fa fa-male"></i>
+            <span>PIC Instansi</span>
+          </a>
+        </li>
       <?php
         }
       ?>
@@ -93,12 +101,12 @@
             </a>
           </li>
 
-          <li <?php if ($page == 'provinsi') {echo 'class="active"';} ?>>
-            <a href="<?php echo base_url('Instansi/dashboard'); ?>">
+          <!-- <li <?php //if ($page == 'provinsi') {echo 'class="active"';} ?>>
+            <a href="<?php //echo base_url('Instansi/dashboard'); ?>">
               <i class="fa fa-building"></i>
               <span>Provinsi</span>
             </a>
-          </li>
+          </li> -->
       <?php
         }
       ?>

@@ -9,10 +9,9 @@ class Pic extends AUTH_Controller {
 
 	public function index() {
 		$data['userdata'] 	= $this->userdata;
-		$data['dataInstansi'] 	= $this->M_pic->select_all();
-		$data['dataProvinsi'] 	= $this->M_pic->select_provinsi();
+		$data['dataPic'] 	= $this->M_pic->select_all();
 
-		$data['page'] 		= "PIC Instansi Pemda";
+		$data['page'] 		= "pic";
 		$data['judul'] 		= "Data PIC Instansi Pemda";
 		$data['deskripsi'] 	= "Manage Data PIC Instansi Pemda";
 

@@ -4,8 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class M_pic extends CI_Model {
 	public function select_all() {
 		$this->db->select('*');
-		$this->db->from('pic a');
-		$this->db->join('instansi b', 'a.Instansi = b.Id_Instansi');
+		$this->db->from('pic_instansi a');
+		$this->db->join('instansi b', 'a.Id_Instansi = b.Id_Instansi');
 		$this->db->where('a.archieved', '0');
 
 		$data = $this->db->get();

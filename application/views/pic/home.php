@@ -15,7 +15,7 @@
           </div>
         <?php endif ?>
   <div class="box-header">
-    <div class="col-md-6">
+    <div class="col-md-3">
         <?php 
             if ($userdata->role == 'administrator') {
         ?>
@@ -32,10 +32,10 @@
       <thead>
         <tr>
           <th>#</th>
+          <th>Kategori</th>
           <th>Nama PIC</th>
           <th>Nomor HP</th>
-          <th>Kategori</th>
-          <th style="text-align: center;">Detail</th>
+          <th style="text-align: center;">Aksi</th>
         </tr>
       </thead>
       <tbody id="data-instansi">
@@ -45,6 +45,7 @@
             ?>
             <tr>
               <td><?php echo $no; ?></td>
+              <td><?php echo $pic->Kategori; ?></td>
               <td><?php echo $pic->Nama_Instansi; ?></td>
               <td><?php echo $pic->nama; ?></td>
               <td class="text-center" style="min-width:230px;">
@@ -77,13 +78,37 @@
             <div class="modal-content">
               <form id="form-add-Pic" method="POST" action="<?php echo base_url('Pic/prosesTambah'); ?>" enctype="multipart/form-data">
                 <div class="modal-header">
-                    <center><h3 class="modal-title" id="exampleModalLabel">Tambah Data PIC</h3></center>
+                    <center><h3 class="modal-title" id="exampleModalLabel">Tambah Data PIC Instansi Pemda</h3></center>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    
+                     <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="Nama"><strong>Nama Lengkap</strong></label>
+                                <input type="text" class="form-control" name="Nama_PIC" aria-describedby="sizing-addon2" required placeholder="Nama Lengkap">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="Nomor_HP"><strong>Nomor HP</strong></label>
+                                <input type="number" class="form-control" name="Nomor_HP" aria-describedby="sizing-addon2" required minlength="0" min="0" placeholder="Nomor HP">
+                            </div>
+                        </div>
+                    </div>
+                   <div class="form-group">
+                        <label for="Kategori"><strong>Kategori</strong></label>
+                        <select name="kategori" placeholder="Pilih" required>
+                            <option value="">--Pilih--</option>
+                            <option value="Csirt">Csirt</option>
+                            <option value="CSM">CSM</option>
+                            <option value="IKAMI">IKAMI</option>
+                            <option value="Laporan Persandian">Laporan Persandian</option>
+                            <option value="TMPI">TMPI</option>
+                        </select>
+                    </div>                  
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Batalkan</button>

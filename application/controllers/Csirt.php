@@ -13,7 +13,7 @@ class CSIRT extends AUTH_Controller {
 		$data['dataInstansi'] 	= $this->M_instansi->select_all();
 		$data['dataCsirt'] 	= $this->M_csirt->select_all();
 
-		$data['page'] 		= "CSIRT";
+		$data['page'] 		= "csirt";
 		$data['judul'] 		= "Data CSIRT";
 		$data['deskripsi'] 	= "Manage Data CSIRT";
 

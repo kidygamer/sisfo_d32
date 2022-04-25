@@ -13,7 +13,7 @@ class Csm extends AUTH_Controller {
 		$data['dataInstansi'] 	= $this->M_instansi->select_all();
 		$data['dataCsm'] 	= $this->M_csm->select_all();
 
-		$data['page'] 		= "CSM";
+		$data['page'] 		= "csm";
 		$data['judul'] 		= "Data CSM";
 		$data['deskripsi'] 	= "Manage Data CSM";
 
