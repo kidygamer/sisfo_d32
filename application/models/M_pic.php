@@ -37,10 +37,11 @@ class M_pic extends CI_Model {
 	public function insert($data) {
 
 		$simpan=$this->db->query("INSERT INTO pic_instansi
-									(Nama_PIC,Nomor_HP,Kategori,Id_Instansi,updated_by)
+									(Nama_PIC,Nomor_HP,Jabatan,Kategori,Id_Instansi,updated_by)
       							  VALUES(								        
 								        ".$this->db->escape($data['Nama_PIC']).",
 								        ".$this->db->escape($data['Nomor_HP']).",
+								        ".$this->db->escape($data['Jabatan']).",
 								        ".$this->db->escape($data['Kategori']).",
 								        ".$this->db->escape($data['Id_Instansi']).",
 								        ".$this->db->escape($data['updated_by'])."
@@ -57,6 +58,7 @@ class M_pic extends CI_Model {
 		$update = $this->db->query("UPDATE pic_instansi SET
 	    							Nama_PIC				=".$this->db->escape($data['Nama_PIC']).",
 	    							Nomor_HP			=".$this->db->escape($data['Nomor_HP']).",
+	    							Jabatan				=".$this->db->escape($data['Jabatan']).",
 	    							Kategori			=".$this->db->escape($data['Kategori']).",
 	    							Id_Instansi			=".$this->db->escape($data['Id_Instansi']).",
 	    							updated_by			=".$this->db->escape($data['updated_by'])."

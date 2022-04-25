@@ -37,7 +37,7 @@
   
         <!-- lineChart -->
         <div class="col-lg-6 col-xs-12">
-          <div class="box box-info">
+          <div class="box box-info ">
             <div class="box-header with-border">
               <i class="fa fa-briefcase"></i>
               <h3 class="box-title">Grafik IKAMI <small><?= $dataInstansi->Nama_Instansi ?></small></h3>

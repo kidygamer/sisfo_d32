@@ -67,14 +67,14 @@ class Pengguna extends AUTH_Controller {
 			$hash = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
 		
 			$data = [
-					'username' => $this->input->post('username'),
-					'password' => $hash,
-					'role' => $this->input->post('role'),
-					'nama' => $this->input->post('nama'),
-					'nip' => $this->input->post('nip'),
-					'jabatan' => $this->input->post('jabatan'),
-					'unit' => $this->input->post('unit'),
-					'email' => $this->input->post('email')
+					'username'	=> $this->input->post('username'),
+					'password'	=> $hash,
+					'role' 		=> $this->input->post('role'),
+					'nama' 		=> $this->security->xss_clean($this->input->post('nama')),
+					'nip' 		=> $this->security->xss_clean($this->input->post('nip')),
+					'jabatan' 	=> $this->security->xss_clean($this->input->post('jabatan')),
+					'unit' 		=> $this->input->post('unit'),
+					'email' 	=> $this->security->xss_clean($this->input->post('email'))
 			];
 			
 			if($this->M_pengguna->insert($data)){
@@ -140,14 +140,14 @@ class Pengguna extends AUTH_Controller {
 		if ($this->form_validation->run() == TRUE) {
 		
 			$data = [
-					'id' => $this->input->post('id'),
-					'username' => $this->input->post('username'),
-					'role' => $this->input->post('role'),
-					'nama' => $this->input->post('nama'),
-					'nip' => $this->input->post('nip'),
-					'jabatan' => $this->input->post('jabatan'),
-					'unit' => $this->input->post('unit'),
-					'email' => $this->input->post('email')
+					'id' 		=> $this->input->post('id'),
+					'username' 	=> $this->input->post('username'),
+					'role' 		=> $this->input->post('role'),
+					'nama' 		=> $this->security->xss_clean($this->input->post('nama')),
+					'nip' 		=> $this->security->xss_clean($this->input->post('nip')),
+					'jabatan' 	=> $this->input->post('jabatan'),
+					'unit' 		=> $this->input->post('unit'),
+					'email' 	=> $this->security->xss_clean($this->input->post('email'))
 			];
 			
 			if($this->M_pengguna->update($data)){

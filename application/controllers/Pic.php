@@ -5,11 +5,13 @@ class Pic extends AUTH_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('M_pic');
+		$this->load->model('M_instansi');
 	}
 
 	public function index() {
 		$data['userdata'] 	= $this->userdata;
 		$data['dataPic'] 	= $this->M_pic->select_all();
+		$data['dataInstansi'] 	= $this->M_instansi->select_all();
 
 		$data['page'] 		= "pic";
 		$data['judul'] 		= "Data PIC Instansi Pemda";
@@ -21,61 +23,92 @@ class Pic extends AUTH_Controller {
 
 	public function prosesTambah() {
 		$data['userdata'] 		= $this->userdata;
+		$rules = array(
+	        array(
+	                'field' => 'Nama_PIC',
+	                'label' => 'Nama',
+	                'rules' => 'required|max_length[50]|regex_match[/^([a-z ])+$/i]'
+	        ),
+	        array(
+	                'field' => 'Nomor_HP',
+	                'label' => 'Nomor_HP',
+	                'rules' => 'required|numeric'
+	        )
 
-		$this->form_validation->set_rules('Nama_Instansi', 'Nama_Instansi', 'trim|required|min_length[10]|max_length[30]');
+		);
 
-		$check = $this->M_pic->select_by_name($this->input->post('Nama_Instansi'));
-		if ($check) {
-			$this->session->set_flashdata('error', 'Data <strong>Sudah Ada</strong> Pada Database!');
-			redirect('Instansi');
-		} else{
+		$this->form_validation->set_rules($rules);
+
+
+		if ($this->form_validation->run() == TRUE) {
+		
 			$data = [
-				'Nama_Instansi' => $this->security->xss_clean($this->input->post('Nama_Instansi')),
-				'Provinsi' 		=> $this->security->xss_clean($this->input->post('Provinsi')),
-				'updated_by' 	=> $data['userdata']->username
-		    ];
-			if ($this->form_validation->run() == TRUE) {
-
-				if($this->M_pic->insert($data)){
-					$this->session->set_flashdata('success', 'Data <strong>Berhasil</strong> Ditambahkan!');
-					redirect('Instansi');
-				} else {
-					$this->session->set_flashdata('error', 'Data <strong>Gagal</strong> Ditambahkan!');
-					redirect('Instansi');
-				}
+					'Nama_PIC'		=> $this->security->xss_clean($this->input->post('Nama_PIC')),
+					'Nomor_HP'		=> $this->security->xss_clean($this->input->post('Nomor_HP')),
+					'Jabatan'		=> $this->security->xss_clean($this->input->post('Jabatan')),	
+					'Kategori' 		=> $this->input->post('Kategori'),
+					'Id_Instansi'	=> $this->security->xss_clean($this->input->post('Id_Instansi')),
+					'updated_by'=> $data['userdata']->username
+			];
+			
+			if($this->M_pic->insert($data)){
+				$this->session->set_flashdata('success', 'Data <strong>Berhasil</strong> Ditambahkan!');
+				redirect('Pic');
 			} else {
-				$out['msg'] = show_err_msg(validation_errors());
-				$this->session->set_flashdata('error', 'Data <strong>Gagal</strong> Ditambahkan!'.$out['msg']);
-					redirect('Instansi');
+				$this->session->set_flashdata('error', 'Data <strong>Gagal</strong> Ditambahkan!');
+				redirect('Pic');
 			}
+		} else {
+			$out['msg'] = show_err_msg(validation_errors());
+			$this->session->set_flashdata('error', 'Data <strong>Gagal</strong> Ditambahkan!'.$out['msg']);
+			redirect('Pic');
 		}
 
+	 
 	}
 
 	public function prosesUpdate() {
 		$data['userdata'] 		= $this->userdata;
-		$this->form_validation->set_rules('Nama_Instansi', 'Nama_Instansi', 'trim|required|min_length[10]|max_length[50]');
+		$rules = array(
+	        array(
+	                'field' => 'Nama_PIC',
+	                'label' => 'Nama',
+	                'rules' => 'required|max_length[50]|regex_match[/^([a-z ])+$/i]'
+	        ),
+	        array(
+	                'field' => 'Nomor_HP',
+	                'label' => 'Nomor_HP',
+	                'rules' => 'required|numeric'
+	        )
+
+		);
+
+		$this->form_validation->set_rules($rules);
 
 		
-			$data = [
-				'Id_Instansi' 	=> $this->security->xss_clean($this->input->post('Id_Instansi')),
-				'Nama_Instansi' => $this->security->xss_clean($this->input->post('Nama_Instansi')),
-				'Provinsi' 		=> $this->security->xss_clean($this->input->post('Provinsi')),
-				'updated_by' 	=> $data['userdata']->username
-			];
 			if ($this->form_validation->run() == TRUE) {
+
+				$data = [
+					'Id_PIC'		=> $this->security->xss_clean($this->input->post('Id_PIC')),
+					'Nama_PIC'		=> $this->security->xss_clean($this->input->post('Nama_PIC')),
+					'Nomor_HP'		=> $this->security->xss_clean($this->input->post('Nomor_HP')),
+					'Jabatan'		=> $this->security->xss_clean($this->input->post('Jabatan')),	
+					'Kategori' 		=> $this->input->post('Kategori'),
+					'Id_Instansi'	=> $this->security->xss_clean($this->input->post('Id_Instansi')),
+					'updated_by'=> $data['userdata']->username
+				];
 				
 				if($this->M_pic->update($data)){
 					$this->session->set_flashdata('success', 'Data <strong>Berhasil</strong> Diupdate!');
-					redirect('Instansi');
+					redirect('Pic');
 				} else {
 					$this->session->set_flashdata('error', 'Data <strong>Gagal</strong> Diupdate!');
-					redirect('Instansi');
+					redirect('Pic');
 				}
 			} else {
 				$out['msg'] = show_err_msg(validation_errors());
 				$this->session->set_flashdata('error', 'Data <strong>Gagal</strong> Ditambahkan!'.$out['msg']);
-					redirect('Instansi');
+					redirect('Pic');
 			}
 			//print_r($data);
 
@@ -85,11 +118,11 @@ class Pic extends AUTH_Controller {
 
 		if($this->M_pic->archieve($id)){
 			$this->session->set_flashdata('success', 'Data <strong>Berhasil</strong> Diarsipkan!');
-			redirect('Instansi');
+			redirect('Pic');
 			//echo "success";
 		} else {
 			$this->session->set_flashdata('error', 'Data <strong>Gagal</strong> Diarsipkan!');
-			redirect('Instansi');
+			redirect('Pic');
 			//echo "failed";
 		}
 	}

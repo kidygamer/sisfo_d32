@@ -42,7 +42,7 @@
       </li>
       
       <?php 
-        if ($userdata->role == 'administrator' | $userdata->role == 'editor') {
+        if ($userdata->role == 'administrator' || $userdata->unit == 'D321') {
       ?>
 
         <li <?php if ($page == 'laporan_persandian') {echo 'class="active"';} ?>>
@@ -51,6 +51,13 @@
             <span>Laporan Persandian</span>
           </a>
         </li>
+      <?php
+        }
+      ?>
+
+      <?php 
+        if ($userdata->role == 'administrator' || $userdata->unit == 'D322') {
+      ?>
 
         <li <?php if ($page == 'ikami') {echo 'class="active"';} ?>>
           <a href="<?php echo base_url('Ikami'); ?>">
@@ -65,7 +72,13 @@
             <span>CSM</span>
           </a>
         </li>
+      <?php
+        }
+      ?>
 
+      <?php 
+        if ($userdata->role == 'administrator' || $userdata->unit == 'D323') {
+      ?>
          <li <?php if ($page == 'csirt') {echo 'class="active"';} ?>>
           <a href="<?php echo base_url('Csirt'); ?>">
             <i class="fa fa-book"></i>
@@ -79,8 +92,13 @@
             <span>TMPI</span>
           </a>
         </li>
+      <?php
+        }
+      ?>
 
-
+      <?php 
+        if ($userdata->role == 'administrator' || $userdata->role == 'editor') {
+      ?>
          <li <?php if ($page == 'pic') {echo 'class="active"';} ?>>
           <a href="<?php echo base_url('Pic'); ?>">
             <i class="fa fa-male"></i>
