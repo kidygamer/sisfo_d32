@@ -41,41 +41,47 @@
         </a>
       </li>
       
+      <?php 
+        if ($userdata->role == 'administrator' | $userdata->role == 'editor') {
+      ?>
 
-      <li <?php if ($page == 'laporan_persandian') {echo 'class="active"';} ?>>
-        <a href="<?php echo base_url('Laporan_Persandian'); ?>">
-          <i class="fa fa-book"></i>
-          <span>Laporan Persandian</span>
-        </a>
-      </li>
+        <li <?php if ($page == 'laporan_persandian') {echo 'class="active"';} ?>>
+          <a href="<?php echo base_url('Laporan_Persandian'); ?>">
+            <i class="fa fa-book"></i>
+            <span>Laporan Persandian</span>
+          </a>
+        </li>
 
-      <li <?php if ($page == 'ikami') {echo 'class="active"';} ?>>
-        <a href="<?php echo base_url('Ikami'); ?>">
-          <i class="fa fa-book"></i>
-          <span>IKAMI</span>
-        </a>
-      </li>
+        <li <?php if ($page == 'ikami') {echo 'class="active"';} ?>>
+          <a href="<?php echo base_url('Ikami'); ?>">
+            <i class="fa fa-book"></i>
+            <span>IKAMI</span>
+          </a>
+        </li>
 
-      <li <?php if ($page == 'csm') {echo 'class="active"';} ?>>
-        <a href="<?php echo base_url('Csm'); ?>">
-          <i class="fa fa-book"></i>
-          <span>CSM</span>
-        </a>
-      </li>
+        <li <?php if ($page == 'csm') {echo 'class="active"';} ?>>
+          <a href="<?php echo base_url('Csm'); ?>">
+            <i class="fa fa-book"></i>
+            <span>CSM</span>
+          </a>
+        </li>
 
-       <li <?php if ($page == 'csirt') {echo 'class="active"';} ?>>
-        <a href="<?php echo base_url('Csirt'); ?>">
-          <i class="fa fa-book"></i>
-          <span>CSIRT</span>
-        </a>
-      </li>
+         <li <?php if ($page == 'csirt') {echo 'class="active"';} ?>>
+          <a href="<?php echo base_url('Csirt'); ?>">
+            <i class="fa fa-book"></i>
+            <span>CSIRT</span>
+          </a>
+        </li>
 
-       <li <?php if ($page == 'tmpi') {echo 'class="active"';} ?>>
-        <a href="<?php echo base_url('Tmpi'); ?>">
-          <i class="fa fa-book"></i>
-          <span>TMPI</span>
-        </a>
-      </li>
+         <li <?php if ($page == 'tmpi') {echo 'class="active"';} ?>>
+          <a href="<?php echo base_url('Tmpi'); ?>">
+            <i class="fa fa-book"></i>
+            <span>TMPI</span>
+          </a>
+        </li>
+      <?php
+        }
+      ?>
 
       <?php 
         if ($userdata->role == 'administrator') {

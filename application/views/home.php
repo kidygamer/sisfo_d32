@@ -244,11 +244,11 @@
   </div>
 
   
-  <div class="col-lg-11 col-xs-12">
+  <div class="col-lg-12 col-xs-12">
     <div class="box box-info">
       <div class="box-header with-border">
         <i class="fa fa-briefcase"></i>
-        <h3 class="box-title">Cyber Security Maturity <small>Data CSM <b><?php echo $jml_csm; ?></b></small></h3>
+        <h3 class="box-title">Cyber Security Maturity <small>Data CSM <b>Tahun 2020-2021</b></small></h3>
 
         <div class="box-tools pull-right">
           <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -257,7 +257,7 @@
         </div>
       </div>
       <div class="box-body">
-      <div style="width: 100%; height: 40px; position: absolute; top: 10%; left: 0; margin-top: -20px; line-height:19px; text-align: center;"> <h1><b><?php echo $jml_csm; ?></b></h1> </div>
+      <div style="width: 100%; height: 40px; position: absolute; top: 10%; left: 0; margin-top: -20px; line-height:19px; text-align: center;"> <h1><b><?php echo $jml_csm; ?></b><br> Provinsi</h1> </div>
         <canvas id="barChartcsm" style="height:250px" ></canvas>
       </div>
     </div>
