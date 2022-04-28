@@ -25,7 +25,16 @@
       </form>
     </div>
 
-   <center><strong><h3><?= $dataInstansi->Nama_Instansi ?></h3></strong></center>
+   <center>
+    <strong><h3><?= $dataInstansi->Nama_Instansi ?></h3></strong>
+    <?php 
+        if (empty($statusCsirt)) {
+          echo "<b>[Belum CSIRT]</b>";
+        }else {
+          echo "<b>[Sudah CSIRT]</b>";
+        }
+    ?>    
+  </center>
   </div>
   <!-- /.box-header -->
   <div class="box-body">
@@ -34,26 +43,89 @@
         <a href='#' data-toggle='modal' data-target='#showModal' class='form-control btn btn-primary'><i class='glyphicon glyphicon-signal'></i> Tampilkan Grafik</a>
     </div> -->
 
-  
+    <div class="row">
+      <div class="col-sm-7">
         <!-- lineChart -->
-        <div class="col-lg-6 col-xs-12">
+        <div class="col-lg-12 col-xs-12">
           <div class="box box-info ">
             <div class="box-header with-border">
-              <i class="fa fa-briefcase"></i>
+              <i class="fa  fa-area-chart"></i>
               <h3 class="box-title">Grafik IKAMI <small><?= $dataInstansi->Nama_Instansi ?></small></h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                 </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
               </div>
             </div>
             <div class="box-body">
-              <canvas id="lineChart" style="height:250px" ></canvas>
+              <?php 
+                if (empty($det_ikami)) {
+                  echo "Data IKAMI tidak ditemukan";
+                }else {
+              ?>
+                  <canvas id="lineChart" style="height:250px" ></canvas>
+              <?php
+                }
+              ?>              
             </div>
           </div>
         </div>
         <!-- end of lineChart -->
+      </div>
+      <div class="col-sm-5">
+       
+          <div class="box box-info ">
+            <div class="box-header with-border">
+              <i class="fa fa-male"></i>
+              <h3 class="box-title">PIC <small><?= $dataInstansi->Nama_Instansi ?></small></h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="box-body">
+              <?php 
+                if (count($dataPic)==0) {
+                  echo "Data PIC tidak ditemukan";
+                }else {
+              ?>
+                  <table class="table table-bordered table-striped">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Bag.</th>
+                        <th>Nama</th>
+                        <th>No.HP</th>
+                      </tr>
+                    </thead>
+                    <tbody id="data-instansi">
+                      <?php
+                        $no = 1;
+                        foreach ($dataPic as $pic) {
+                          ?>
+                          <tr>
+                            <td><?php echo $no; ?></td>
+                            <td><b><?php echo $pic->Kategori; ?></b></td>
+                            <td><center><?php echo $pic->Nama_PIC ?></center></td>
+                            <td><center><?php echo $pic->Nomor_HP ?></center></td>
+                          </tr>
+                          <?php
+                          $no++;
+                        }
+                      ?>
+                    </tbody>
+                    
+                  </table>
+              <?php
+                }
+              ?>     
+            
+            </div>
+          </div>
+        
+      </div>
+    </div>
 
     <table class="table table-striped">
       <?php

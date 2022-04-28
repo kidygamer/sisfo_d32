@@ -203,11 +203,6 @@ class CSIRT extends AUTH_Controller {
 			$rows = $this->security->xss_clean($this->input->post('Narahubung'));
 		}
 
-		
-
-	       // print_r($data_narahubung);
-	       // echo "<br>";
-	       // echo $rows;
 
 		$data = [
 				'Id_CSIRT' 			=> $this->input->post('Id_CSIRT'),

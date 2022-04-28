@@ -79,7 +79,7 @@ class M_instansi extends CI_Model {
 	}
 
 	public function select_ikami($id) {
-		$this->db->select('*');
+		$this->db->select('a.Tahun, a.Nilai');
 		$this->db->from('ikami a');
 		$this->db->join('instansi b', 'a.Instansi = b.Id_Instansi');
 		$this->db->where('a.Instansi', $id);
@@ -99,6 +99,32 @@ class M_instansi extends CI_Model {
 		$this->db->where('a.Tahun', $year);
 		$this->db->order_by('Tahun','ASC');
 
+
+		$data = $this->db->get();
+
+		return $data->result();
+	}
+
+	public function select_pic_by_instansi($id) {
+		$this->db->select('*');
+		$this->db->from('pic_instansi a');
+		$this->db->join('instansi b', 'a.Id_Instansi = b.Id_Instansi','left');
+		$this->db->where('b.Id_Instansi', $id);
+		$this->db->where('a.archieved', '0');
+		$this->db->order_by('a.Id_PIC','ASC');
+
+		$data = $this->db->get();
+
+		return $data->result();
+	}
+
+	public function select_statusCsirt_byInstansi($id) {
+		$this->db->select('a.Status');
+		$this->db->from('csirt a');
+		$this->db->join('instansi b', 'a.Instansi = b.Id_Instansi');
+		$this->db->where('b.Id_Instansi', $id);
+		$this->db->where('a.archieved', '0');
+		$this->db->order_by('Tahun','DESC');
 
 		$data = $this->db->get();
 

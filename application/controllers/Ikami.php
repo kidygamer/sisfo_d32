@@ -170,6 +170,7 @@ class Ikami extends AUTH_Controller {
 			$this->session->set_flashdata('error', 'Data <strong>Gagal</strong> Diupdate!'.$out['msg']);
 			redirect('Ikami');
 		}
+		//echo $new_name;
 
 		//print_r($data);
 	 

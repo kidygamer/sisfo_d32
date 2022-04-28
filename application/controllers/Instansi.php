@@ -26,12 +26,14 @@ class Instansi extends AUTH_Controller {
 
 		$data['dataGrand'] 		= $this->M_instansi->select_grand($id);
 		$data['det_ikami']		= $this->M_instansi->select_ikami($id);
+		$data['dataPic']		= $this->M_instansi->select_pic_by_instansi($id);
+		$data['statusCsirt']	= $this->M_instansi->select_statusCsirt_byInstansi($id);
 
 		$data['page'] 		= "Detail Instansi";
 		$data['judul'] 		= "Detail Data";
 		$data['deskripsi'] 	= "(Laporan Persandian, IKAMI, CSM, TMPI, dan CSIRT)";
 
-		//print_r($data['dataGrand'] );
+		//print_r($data['statusCsirt'] );
 
 		$this->template->views('instansi/detail_grand_v2', $data);
 	}
@@ -43,6 +45,7 @@ class Instansi extends AUTH_Controller {
 		$year  = $this->security->xss_clean($this->input->post('Tahun'));
 		
 		$data['dataInstansi'] 	= $this->M_instansi->select_by_id($id);
+		$data['dataPic']		= $this->M_instansi->select_pic_by_instansi($id);
 
 		if ($year == 'all') {
 			$data['dataGrand'] 	= $this->M_instansi->select_grand($id);

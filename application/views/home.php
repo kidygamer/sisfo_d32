@@ -151,7 +151,7 @@
   <div class="col-lg-6 col-xs-12">
     <div class="box box-info">
       <div class="box-header with-border">
-        <i class="fa fa-briefcase"></i>
+        <i class="fa fa-pie-chart"></i>
         <h3 class="box-title">CSIRT <small>PROVINSI</small></h3>
 
         <div class="box-tools pull-right">
@@ -170,7 +170,7 @@
   <div class="col-lg-6 col-xs-12">
     <div class="box box-primary">
       <div class="box-header with-border">
-        <i class="fa fa-briefcase"></i>
+        <i class="fa fa-pie-chart"></i>
         <h3 class="box-title">CSIRT <small>KAB./KOTA</small></h3>
 
         <div class="box-tools pull-right">
@@ -189,7 +189,7 @@
   <div class="col-lg-6 col-xs-12">
     <div class="box box-info">
       <div class="box-header with-border">
-        <i class="fa fa-briefcase"></i>
+        <i class="fa fa-bar-chart"></i>
         <h3 class="box-title">TMPI PROVINSI <small><b>2020</b>: <?php echo $jml_tmpi20; ?> data</small></h3>
 
         <div class="box-tools pull-right">
@@ -208,7 +208,7 @@
   <div class="col-lg-6 col-xs-12">
     <div class="box box-info">
       <div class="box-header with-border">
-        <i class="fa fa-briefcase"></i>
+        <i class="fa fa-bar-chart"></i>
         <h3 class="box-title">TMPI PROVINSI <small><b>2021</b>: <?php echo $jml_tmpi21; ?> data</small></h3>
 
         <div class="box-tools pull-right">
@@ -227,7 +227,7 @@
   <div class="col-lg-12 col-xs-12">
     <div class="box box-info">
       <div class="box-header with-border">
-        <i class="fa fa-briefcase"></i>
+        <i class="fa fa-bar-chart"></i>
         <h3 class="box-title">TMPI PROVINSI <small><b>2019</b></small></h3>
 
         <div class="box-tools pull-right">
@@ -247,7 +247,7 @@
   <div class="col-lg-12 col-xs-12">
     <div class="box box-info">
       <div class="box-header with-border">
-        <i class="fa fa-briefcase"></i>
+        <i class="fa fa-bar-chart"></i>
         <h3 class="box-title">Cyber Security Maturity <small>Data CSM <b>Tahun 2020-2021</b></small></h3>
 
         <div class="box-tools pull-right">
@@ -266,7 +266,7 @@
   <div class="col-lg-6 col-xs-12">
     <div class="box box-info">
       <div class="box-header with-border">
-        <i class="fa fa-briefcase"></i>
+        <i class="fa fa-pie-chart"></i>
         <h3 class="box-title">Laporan Persandian 2020 <small>PROVINSI</small></h3>
 
         <div class="box-tools pull-right">
@@ -285,7 +285,7 @@
   <div class="col-lg-6 col-xs-12">
     <div class="box box-info">
       <div class="box-header with-border">
-        <i class="fa fa-briefcase"></i>
+        <i class="fa fa-bar-chart"></i>
         <h3 class="box-title">Laporan Persandian 2020 <small>Perbandingan Jumlah Instansi</small></h3>
 
         <div class="box-tools pull-right">
@@ -303,7 +303,7 @@
   <div class="col-lg-6 col-xs-12">
     <div class="box box-info">
       <div class="box-header with-border">
-        <i class="fa fa-briefcase"></i>
+        <i class="fa fa-area-chart"></i>
         <h3 class="box-title">IKAMI <small>Jawa Barat</small></h3>
 
         <div class="box-tools pull-right">

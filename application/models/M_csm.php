@@ -7,7 +7,7 @@ class M_csm extends CI_Model {
 		$this->db->from('csm a');
 		$this->db->join('instansi b', 'a.Instansi = b.Id_Instansi');
 		$this->db->where('a.archieved', '0');
-		$this->db->order_by('Tahun','DESC');
+		$this->db->order_by('Tahun','ASC');
 
 
 		$data = $this->db->get();

@@ -16,13 +16,7 @@
         <?php endif ?>
   <div class="box-header">
     <div class="col-md-3">
-        <?php 
-            if ($userdata->role == 'administrator') {
-        ?>
-                <a href="#" data-toggle="modal" data-target="#addModal" class="form-control btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Tambah Data</a>
-        <?php
-            }
-        ?>    
+        <a href="#" data-toggle="modal" data-target="#addModal" class="form-control btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Tambah Data</a> 
         
     </div>
   </div>
