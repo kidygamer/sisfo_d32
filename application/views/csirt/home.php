@@ -222,7 +222,7 @@
                     </div> -->    
                     <div class="form-group">
                           <label for="Narahubung"><strong>Narahubung</strong></label>
-                          <textarea class="form-control" name="Narahubung" placeholder="Narahubung" required rows="5"></textarea>
+                          <textarea class="form-control" name="Narahubung" placeholder="Narahubung" required rows="5" required></textarea>
                     </div>        
                     
                     <div class="form-group">
@@ -326,13 +326,13 @@
                             <div class="col-sm-6">
                               <div class="form-group">
                                   <label for="Nama_Narahubung"><strong>Nama Narahubung</strong></label>
-                                  <input type="text" id="names" class="form-control" placeholder="Nama Narahubung" name="Nama_Narahubung[]" aria-describedby="sizing-addon2">
+                                  <input type="text" id="names" class="form-control" placeholder="Nama Narahubung" name="Nama_Narahubung[]" aria-describedby="sizing-addon2" required>
                                </div> 
                             </div>
                             <div class="col-sm-6">
                               <div class="form-group">
                                   <label for="Nomor_HP"><strong>Nomor HP</strong></label>
-                                  <input type="text" id="mobnos" class="form-control" placeholder="Nomor HP" name="Nomor_HP[]" aria-describedby="sizing-addon2" min="0">
+                                  <input type="text" id="mobnos" class="form-control" placeholder="Nomor HP" name="Nomor_HP[]" aria-describedby="sizing-addon2" min="0" required>
                               </div> 
                             </div> 
                                         <!-- <div class="col-sm-1">

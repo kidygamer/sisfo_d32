@@ -77,44 +77,49 @@ class Laporan_Persandian extends AUTH_Controller {
 	                'field' => 'Jml_PHKS',
 	                'label' => 'Jumlah Pola Hubungan Komunikasi Sandi',
 	                'rules' => 'required|numeric|min_length[1]'
+	        ),
+	        array(
+	                'field' => 'Dokumen',
+	                'label' => '',
+	                'rules' => 'callback_file_check'
 	        )
 		);
 
 		$this->form_validation->set_rules($rules);
 
-		$nama_instansi = $this->M_instansi->select_by_id($this->security->xss_clean($this->input->post('Instansi')));
-		$new_name = "Laporan Persandian-".$nama_instansi->Nama_Instansi."-".$this->security->xss_clean($this->input->post('Tahun'));
-		$config['upload_path'] = "./assets/pdf_files/laporan_persandian";
-		$config['allowed_types'] = "pdf";
-		$config['max_size'] = 30000;
-		$config['file_name'] = $new_name; 
-		$this->load->library('upload',$config);
-
-		if ($this->upload->do_upload('Dokumen')) {
-			$file_pdf = $this->upload->data();
-
-			$dokumen_lapsan = $file_pdf['file_name'];
-		}else {
-			$dokumen_lapsan = NULL;
-		}
-
-		$data = [
-				'Tahun' 		=> $this->security->xss_clean($this->input->post('Tahun')),
-				'Jml_Kebijakan'	=> $this->security->xss_clean($this->input->post('Jml_Kebijakan')),
-				'Saran_uBSSN' 	=> $this->security->xss_clean($this->input->post('Saran_uBSSN')),
-				'Jml_SDM' 		=> $this->security->xss_clean($this->input->post('Jml_SDM')),
-				'Jml_Palsan' 	=> $this->security->xss_clean($this->input->post('Jml_Palsan')),
-				'Jml_APU' 		=> $this->security->xss_clean($this->input->post('Jml_APU')),
-				'Jml_SE' 		=> $this->security->xss_clean($this->input->post('Jml_SE')),
-				'Jml_PDok' 		=> $this->security->xss_clean($this->input->post('Jml_PDok')),
-				'Jml_LKamsi' 	=> $this->security->xss_clean($this->input->post('Jml_LKamsi')),
-				'Jml_PHKS' 		=> $this->security->xss_clean($this->input->post('Jml_PHKS')),
-				'Instansi' 		=> $this->security->xss_clean($this->input->post('Instansi')),
-				'Dokumen' 		=> $dokumen_lapsan,				
-				'updated_by' 	=> $data['userdata']->username
-		];
-
 		if ($this->form_validation->run() == TRUE) {
+			$nama_instansi = $this->M_instansi->select_by_id($this->security->xss_clean($this->input->post('Instansi')));
+			$new_name = "Laporan Persandian-".$nama_instansi->Nama_Instansi."-".$this->security->xss_clean($this->input->post('Tahun'));
+			$config['upload_path'] = "./assets/pdf_files/laporan_persandian";
+			$config['allowed_types'] = "pdf";
+			$config['max_size'] = 30000;
+			$config['file_name'] = $new_name; 
+			$this->load->library('upload',$config);
+
+			if ($this->upload->do_upload('Dokumen')) {
+				$file_pdf = $this->upload->data();
+
+				$dokumen_lapsan = $file_pdf['file_name'];
+			}else {
+				$dokumen_lapsan = NULL;
+			}
+
+			$data = [
+					'Tahun' 		=> $this->security->xss_clean($this->input->post('Tahun')),
+					'Jml_Kebijakan'	=> $this->security->xss_clean($this->input->post('Jml_Kebijakan')),
+					'Saran_uBSSN' 	=> $this->security->xss_clean($this->input->post('Saran_uBSSN')),
+					'Jml_SDM' 		=> $this->security->xss_clean($this->input->post('Jml_SDM')),
+					'Jml_Palsan' 	=> $this->security->xss_clean($this->input->post('Jml_Palsan')),
+					'Jml_APU' 		=> $this->security->xss_clean($this->input->post('Jml_APU')),
+					'Jml_SE' 		=> $this->security->xss_clean($this->input->post('Jml_SE')),
+					'Jml_PDok' 		=> $this->security->xss_clean($this->input->post('Jml_PDok')),
+					'Jml_LKamsi' 	=> $this->security->xss_clean($this->input->post('Jml_LKamsi')),
+					'Jml_PHKS' 		=> $this->security->xss_clean($this->input->post('Jml_PHKS')),
+					'Instansi' 		=> $this->security->xss_clean($this->input->post('Instansi')),
+					'Dokumen' 		=> $dokumen_lapsan,				
+					'updated_by' 	=> $data['userdata']->username
+			];
+		
 			if($this->M_laporan_persandian->insert($data)){
 				$this->session->set_flashdata('success', 'Data <strong>Berhasil</strong> Ditambahkan!');
 				redirect('Laporan_Persandian');
@@ -182,52 +187,59 @@ class Laporan_Persandian extends AUTH_Controller {
 	                'field' => 'Jml_PHKS',
 	                'label' => 'Jumlah Pola Hubungan Komunikasi Sandi',
 	                'rules' => 'required|numeric|min_length[1]'
+	        ),
+	        array(
+	                'field' => 'Dokumen',
+	                'label' => '',
+	                'rules' => 'callback_file_check'
 	        )
 		);
 
+
 		$this->form_validation->set_rules($rules);
 
-		$nama_instansi = $this->M_instansi->select_by_id($this->input->post('Instansi'));
-		$new_name = "Laporan Persandian-".$nama_instansi->Nama_Instansi."-".$this->input->post('Tahun');
-		$config['upload_path'] = "./assets/pdf_files/laporan_persandian";
-		$config['allowed_types'] = "pdf";
-		$config['max_size'] = 30000;
-		$config['file_name'] = $new_name; 
-		$this->load->library('upload',$config);
-
-		if ($this->upload->do_upload('Dokumen')) {
-			$file_pdf = $this->upload->data();
-
-			$dokumen_lapsan = $file_pdf['file_name'];
-		}else {
-			$dokumen_lapsan =  $this->input->post('recent_dokumen');
-		}
-
-		$data = [
-			    'Id_LapSan' 	=> $this->security->xss_clean($this->input->post('Id_LapSan')),
-				'Tahun' 		=> $this->security->xss_clean($this->input->post('Tahun')),
-				'Jml_Kebijakan'	=> $this->security->xss_clean($this->input->post('Jml_Kebijakan')),
-				'Saran_uBSSN' 	=> $this->security->xss_clean($this->input->post('Saran_uBSSN')),
-				'Jml_SDM' 		=> $this->security->xss_clean($this->input->post('Jml_SDM')),
-				'Jml_Palsan' 	=> $this->security->xss_clean($this->input->post('Jml_Palsan')),
-				'Jml_APU' 		=> $this->security->xss_clean($this->input->post('Jml_APU')),
-				'Jml_SE' 		=> $this->security->xss_clean($this->input->post('Jml_SE')),
-				'Jml_PDok' 		=> $this->security->xss_clean($this->input->post('Jml_PDok')),
-				'Jml_LKamsi' 	=> $this->security->xss_clean($this->input->post('Jml_LKamsi')),
-				'Jml_PHKS' 		=> $this->security->xss_clean($this->input->post('Jml_PHKS')),
-				'Instansi' 		=> $this->security->xss_clean($this->input->post('Instansi')),
-				'Instansi' 		=> $this->security->xss_clean($this->input->post('Instansi')),
-				'Dokumen'		=> $dokumen_lapsan,				
-				'updated_by' 	=> $data['userdata']->username
-		];
-
 		if ($this->form_validation->run() == TRUE) {
+
+			$nama_instansi = $this->M_instansi->select_by_id($this->input->post('Instansi'));
+			$new_name = "Laporan Persandian-".$nama_instansi->Nama_Instansi."-".$this->input->post('Tahun');
+			$config['upload_path'] = "./assets/pdf_files/laporan_persandian";
+			$config['allowed_types'] = "pdf";
+			$config['max_size'] = 30000;
+			$config['file_name'] = $new_name; 
+			$this->load->library('upload',$config);
+			
+			if ($this->upload->do_upload('Dokumen')) {
+				$file_pdf = $this->upload->data();
+
+				$dokumen_lapsan = $file_pdf['file_name'];
+			}else {
+				$dokumen_lapsan =  $this->input->post('recent_dokumen');
+			}
+
+			$data = [
+				    'Id_LapSan' 	=> $this->security->xss_clean($this->input->post('Id_LapSan')),
+					'Tahun' 		=> $this->security->xss_clean($this->input->post('Tahun')),
+					'Jml_Kebijakan'	=> $this->security->xss_clean($this->input->post('Jml_Kebijakan')),
+					'Saran_uBSSN' 	=> $this->security->xss_clean($this->input->post('Saran_uBSSN')),
+					'Jml_SDM' 		=> $this->security->xss_clean($this->input->post('Jml_SDM')),
+					'Jml_Palsan' 	=> $this->security->xss_clean($this->input->post('Jml_Palsan')),
+					'Jml_APU' 		=> $this->security->xss_clean($this->input->post('Jml_APU')),
+					'Jml_SE' 		=> $this->security->xss_clean($this->input->post('Jml_SE')),
+					'Jml_PDok' 		=> $this->security->xss_clean($this->input->post('Jml_PDok')),
+					'Jml_LKamsi' 	=> $this->security->xss_clean($this->input->post('Jml_LKamsi')),
+					'Jml_PHKS' 		=> $this->security->xss_clean($this->input->post('Jml_PHKS')),
+					'Instansi' 		=> $this->security->xss_clean($this->input->post('Instansi')),
+					'Instansi' 		=> $this->security->xss_clean($this->input->post('Instansi')),
+					'Dokumen'		=> $dokumen_lapsan,				
+					'updated_by' 	=> $data['userdata']->username
+			];
+
 			if($this->M_laporan_persandian->update($data)){
 				$this->session->set_flashdata('success', 'Data <strong>Berhasil</strong> Diupdate!');
 				redirect('Laporan_Persandian');
 			} else {
 				$this->session->set_flashdata('error', 'Data <strong>Gagal</strong> Diupdate!');
-				echo "update failed";
+				//echo "update failed";
 				redirect('Laporan_Persandian');
 			}
 		} else {
@@ -251,7 +263,26 @@ class Laporan_Persandian extends AUTH_Controller {
 		}
 	}
 
-	}
+	 /*
+     * file value and type check during validation
+     */
+    public function file_check($str){
+        $allowed_mime_type_arr = array('application/pdf');
+        $mime = get_mime_by_extension($_FILES['Dokumen']['name']);
+        if(isset($_FILES['Dokumen']['name']) && $_FILES['Dokumen']['name']!=""){
+            if(in_array($mime, $allowed_mime_type_arr)){
+                return true;
+            }else{
+                $this->session->set_flashdata('error', 'Dokumen harus format PDF. Data <strong>Gagal</strong> Tersimpan!');
+				redirect('Laporan_Persandian');
+            }
+        }else{
+             $this->session->set_flashdata('error', 'Harap memilih dokumen utk diunggah.');
+				redirect('Laporan_Persandian');
+        }
+    }
+
+}
 
 /* End of file Laporan_Persandian.php */
 /* Location: ./application/controllers/Laporan_Persandian.php */

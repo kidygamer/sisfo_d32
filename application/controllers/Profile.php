@@ -21,26 +21,31 @@ class Profile extends AUTH_Controller {
 		$data['userdata'] 		= $this->userdata;
 		$this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[4]|max_length[15]');
 		$this->form_validation->set_rules('nama', 'Nama', 'trim|required');
+		$this->form_validation->set_rules('foto', '', 'callback_file_check');
 
 		$id = $this->userdata->id;
 		//$data = $this->input->post();
 		
 		if ($this->form_validation->run() == TRUE) {
+
 			
-			$new_name = "ProfilePicture-".$data['userdata']->username;
+	        //upload configuration
+	        $new_name = "ProfilePicture-".$data['userdata']->username;
 			$config['upload_path'] = "./assets/img";
 			$config['allowed_types'] = "jpg|jpeg|png";
 			$config['max_size'] = 30000;
 			$config['file_name'] = $new_name; 
 			$this->load->library('upload',$config);
 
-			if ($this->upload->do_upload('foto')) {
+	        //upload file to directory
+	        if ($this->upload->do_upload('foto')) {
 				$file_foto = $this->upload->data();
 
 				$profile_picture = $file_foto['file_name'];
 			}else {
 				$profile_picture = $this->input->post('recent_foto');
 			}
+	       
 
 			$data = [
 				'username' => $this->input->post('username'),
@@ -111,6 +116,25 @@ class Profile extends AUTH_Controller {
 			redirect('Profile');
 		}
 	}
+
+	 /*
+     * file value and type check during validation
+     */
+    public function file_check($str){
+        $allowed_mime_type_arr = array('image/jpg','image/jpeg','image/png');
+        $mime = get_mime_by_extension($_FILES['foto']['name']);
+        if(isset($_FILES['foto']['name']) && $_FILES['foto']['name']!=""){
+            if(in_array($mime, $allowed_mime_type_arr)){
+                return true;
+            }else{
+                $this->form_validation->set_message('file_check', 'Foto Profil harus format .jpg/.jpeg/.png. Data <strong>Gagal</strong> Tersimpan!');
+                return false;
+            }
+        }else{
+            $this->form_validation->set_message('file_check', 'Harap memilih foto utk diunggah.');
+            return false;
+        }
+    }
 
 }
 

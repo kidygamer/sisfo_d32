@@ -42,37 +42,42 @@ class Tmpi extends AUTH_Controller {
 	                'field' => 'Level',
 	                'label' => 'Level',
 	                'rules' => 'required'
+	        ),
+	        array(
+	                'field' => 'Dokumen',
+	                'label' => '',
+	                'rules' => 'callback_file_check'
 	        )
 		);
 
 		$this->form_validation->set_rules($rules);
 
-		$nama_instansi = $this->M_instansi->select_by_id($this->security->xss_clean($this->input->post('Instansi')));
-		$new_name = "TMPI-".$nama_instansi->Nama_Instansi."-".$this->security->xss_clean($this->input->post('Tahun'));
-		$config['upload_path'] = "./assets/pdf_files/tmpi";
-		$config['allowed_types'] = 'xls|xlsx|pdf';
-		$config['max_size'] = 30000;
-		$config['file_name'] = $new_name; 
-		$this->load->library('upload',$config);
-
-		if ($this->upload->do_upload('Dokumen')) {
-			$file_pdf = $this->upload->data();
-
-			$dokumen_tmpi = $file_pdf['file_name'];
-		}else {
-			$dokumen_tmpi = NULL;
-		}
-
-		$data = [
-				'Tahun' 		=> $this->security->xss_clean($this->input->post('Tahun')),
-				'Nilai_TMPI' 			=> $this->security->xss_clean($this->input->post('Nilai_TMPI')),
-				'Level' => $this->security->xss_clean($this->input->post('Level')),
-				'Instansi' 		=> $this->security->xss_clean($this->input->post('Instansi')),
-				'Dokumen' 		=> $dokumen_tmpi,				
-				'updated_by' 	=> $data['userdata']->username
-		];
-
 		if ($this->form_validation->run() == TRUE) {
+			$nama_instansi = $this->M_instansi->select_by_id($this->security->xss_clean($this->input->post('Instansi')));
+			$new_name = "TMPI-".$nama_instansi->Nama_Instansi."-".$this->security->xss_clean($this->input->post('Tahun'));
+			$config['upload_path'] = "./assets/pdf_files/tmpi";
+			$config['allowed_types'] = 'xls|xlsx';
+			$config['max_size'] = 30000;
+			$config['file_name'] = $new_name; 
+			$this->load->library('upload',$config);
+
+			if ($this->upload->do_upload('Dokumen')) {
+				$file_pdf = $this->upload->data();
+
+				$dokumen_tmpi = $file_pdf['file_name'];
+			}else {
+				$dokumen_tmpi = NULL;
+			}
+
+			$data = [
+					'Tahun' 		=> $this->security->xss_clean($this->input->post('Tahun')),
+					'Nilai_TMPI' 	=> $this->security->xss_clean($this->input->post('Nilai_TMPI')),
+					'Level' 		=> $this->security->xss_clean($this->input->post('Level')),
+					'Instansi' 		=> $this->security->xss_clean($this->input->post('Instansi')),
+					'Dokumen' 		=> $dokumen_tmpi,				
+					'updated_by' 	=> $data['userdata']->username
+			];
+
 			if($this->M_tmpi->insert($data)){
 				$this->session->set_flashdata('success', 'Data <strong>Berhasil</strong> Ditambahkan!');
 				redirect('Tmpi');
@@ -110,6 +115,11 @@ class Tmpi extends AUTH_Controller {
 	                'field' => 'Level',
 	                'label' => 'Level',
 	                'rules' => 'required'
+	        ),
+	        array(
+	                'field' => 'Dokumen',
+	                'label' => '',
+	                'rules' => 'callback_file_check'
 	        )
 		);
 
@@ -174,6 +184,25 @@ class Tmpi extends AUTH_Controller {
 			//echo "failed";
 		}
 	}
+
+	/*
+     * file value and type check during validation
+     */
+    public function file_check($str){
+        $allowed_mime_type_arr = array('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet','application/vnd.ms-excel');
+        $mime = get_mime_by_extension($_FILES['Dokumen']['name']);
+        if(isset($_FILES['Dokumen']['name']) && $_FILES['Dokumen']['name']!=""){
+            if(in_array($mime, $allowed_mime_type_arr)){
+                return true;
+            }else{
+                $this->session->set_flashdata('error', 'Dokumen harus format .xls atau .xlsx. Data <strong>Gagal</strong> Tersimpan!');
+				redirect('Tmpi');
+            }
+        }else{
+             $this->session->set_flashdata('error', 'Harap memilih dokumen utk diunggah.');
+				redirect('Tmpi');
+        }
+    }
 
 
 }

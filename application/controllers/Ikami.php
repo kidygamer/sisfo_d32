@@ -48,38 +48,43 @@ class Ikami extends AUTH_Controller {
 	                'field' => 'Nilai',
 	                'label' => 'Nilai IKAMI',
 	                'rules' => 'required|numeric|max_length[4]'
+	        ),
+	        array(
+	                'field' => 'Dokumen',
+	                'label' => '',
+	                'rules' => 'callback_file_check'
 	        )
 		);
 
 		$this->form_validation->set_rules($rules);
 
-		$nama_instansi = $this->M_instansi->select_by_id($this->security->xss_clean($this->input->post('Instansi')));
-		$new_name = "Ikami-".$nama_instansi->Nama_Instansi."-".$this->security->xss_clean($this->input->post('Tahun'));
-		$config['upload_path'] = "./assets/pdf_files/ikami";
-		$config['allowed_types'] = "pdf";
-		$config['max_size'] = 30000;
-		$config['file_name'] = $new_name; 
-		$this->load->library('upload',$config);
-
-		if ($this->upload->do_upload('Dokumen')) {
-			$file_pdf = $this->upload->data();
-
-			$dokumen_ikami = $file_pdf['file_name'];
-		}else {
-			$dokumen_ikami = NULL;
-		}
-
-		$data = [
-				'Tahun' 		=> $this->security->xss_clean($this->input->post('Tahun')),
-				'Hasil_IKAMI' 	=> $this->security->xss_clean($this->input->post('Hasil_IKAMI')),
-				'Kategori_SE' 	=> $this->security->xss_clean($this->input->post('Kategori_SE')),
-				'Nilai'			=> $this->security->xss_clean($this->input->post('Nilai')),
-				'Dokumen' 		=> $dokumen_ikami,	
-				'Instansi' 		=> $this->security->xss_clean($this->input->post('Instansi')),			
-				'updated_by' 	=> $data['userdata']->username
-		];
-
 		if ($this->form_validation->run() == TRUE) {
+			$nama_instansi = $this->M_instansi->select_by_id($this->security->xss_clean($this->input->post('Instansi')));
+			$new_name = "Ikami-".$nama_instansi->Nama_Instansi."-".$this->security->xss_clean($this->input->post('Tahun'));
+			$config['upload_path'] = "./assets/pdf_files/ikami";
+			$config['allowed_types'] = "pdf";
+			$config['max_size'] = 30000;
+			$config['file_name'] = $new_name; 
+			$this->load->library('upload',$config);
+
+			if ($this->upload->do_upload('Dokumen')) {
+				$file_pdf = $this->upload->data();
+
+				$dokumen_ikami = $file_pdf['file_name'];
+			}else {
+				$dokumen_ikami = NULL;
+			}
+
+			$data = [
+					'Tahun' 		=> $this->security->xss_clean($this->input->post('Tahun')),
+					'Hasil_IKAMI' 	=> $this->security->xss_clean($this->input->post('Hasil_IKAMI')),
+					'Kategori_SE' 	=> $this->security->xss_clean($this->input->post('Kategori_SE')),
+					'Nilai'			=> $this->security->xss_clean($this->input->post('Nilai')),
+					'Dokumen' 		=> $dokumen_ikami,	
+					'Instansi' 		=> $this->security->xss_clean($this->input->post('Instansi')),			
+					'updated_by' 	=> $data['userdata']->username
+			];
+		
 			if($this->M_ikami->insert($data)){
 				$this->session->set_flashdata('success', 'Data <strong>Berhasil</strong> Ditambahkan!');
 				redirect('Ikami');
@@ -122,40 +127,45 @@ class Ikami extends AUTH_Controller {
 	                'field' => 'Nilai',
 	                'label' => 'Nilai IKAMI',
 	                'rules' => 'required|numeric|max_length[4]'
+	        ),
+	        array(
+	                'field' => 'Dokumen',
+	                'label' => '',
+	                'rules' => 'callback_file_check'
 	        )
 		);
 
 
 		$this->form_validation->set_rules($rules);
 
-		$nama_instansi = $this->M_instansi->select_by_id($this->security->xss_clean($this->input->post('Instansi')));
-		$new_name = "Ikami-".$nama_instansi->Nama_Instansi."-".$this->security->xss_clean($this->input->post('Tahun'));
-		$config['upload_path'] = "./assets/pdf_files/ikami";
-		$config['allowed_types'] = "pdf";
-		$config['max_size'] = 30000;
-		$config['file_name'] = $new_name; 
-		$this->load->library('upload',$config);
-
-		if ($this->upload->do_upload('Dokumen')) {
-			$file_pdf = $this->upload->data();
-
-			$dokumen_ikami = $file_pdf['file_name'];
-		}else {
-			$dokumen_ikami =  $this->input->post('recent_dokumen');
-		}
-
-		$data = [
-				'Id_IKAMI' 		=> $this->security->xss_clean($this->input->post('Id_IKAMI')),
-				'Tahun' 		=> $this->security->xss_clean($this->input->post('Tahun')),
-				'Hasil_IKAMI' 	=> $this->security->xss_clean($this->input->post('Hasil_IKAMI')),
-				'Kategori_SE' 	=> $this->security->xss_clean($this->input->post('Kategori_SE')),
-				'Nilai' 		=> $this->security->xss_clean($this->input->post('Nilai')),
-				'Dokumen' 		=> $dokumen_ikami,	
-				'Instansi' 		=> $this->security->xss_clean($this->input->post('Instansi')),			
-				'updated_by' 	=> $data['userdata']->username
-		];
-
 		if ($this->form_validation->run() == TRUE) {
+			$nama_instansi = $this->M_instansi->select_by_id($this->security->xss_clean($this->input->post('Instansi')));
+			$new_name = "Ikami-".$nama_instansi->Nama_Instansi."-".$this->security->xss_clean($this->input->post('Tahun'));
+			$config['upload_path'] = "./assets/pdf_files/ikami";
+			$config['allowed_types'] = "pdf";
+			$config['max_size'] = 30000;
+			$config['file_name'] = $new_name; 
+			$this->load->library('upload',$config);
+
+			if ($this->upload->do_upload('Dokumen')) {
+				$file_pdf = $this->upload->data();
+
+				$dokumen_ikami = $file_pdf['file_name'];
+			}else {
+				$dokumen_ikami =  $this->input->post('recent_dokumen');
+			}
+
+			$data = [
+					'Id_IKAMI' 		=> $this->security->xss_clean($this->input->post('Id_IKAMI')),
+					'Tahun' 		=> $this->security->xss_clean($this->input->post('Tahun')),
+					'Hasil_IKAMI' 	=> $this->security->xss_clean($this->input->post('Hasil_IKAMI')),
+					'Kategori_SE' 	=> $this->security->xss_clean($this->input->post('Kategori_SE')),
+					'Nilai' 		=> $this->security->xss_clean($this->input->post('Nilai')),
+					'Dokumen' 		=> $dokumen_ikami,	
+					'Instansi' 		=> $this->security->xss_clean($this->input->post('Instansi')),			
+					'updated_by' 	=> $data['userdata']->username
+			];
+
 			if($this->M_ikami->update($data)){
 				$this->session->set_flashdata('success', 'Data <strong>Berhasil</strong> Diupdate!');
 				//echo "update success";
@@ -188,6 +198,25 @@ class Ikami extends AUTH_Controller {
 			//echo "failed";
 		}
 	}
+
+	/*
+     * file value and type check during validation
+     */
+    public function file_check($str){
+        $allowed_mime_type_arr = array('application/pdf');
+        $mime = get_mime_by_extension($_FILES['Dokumen']['name']);
+        if(isset($_FILES['Dokumen']['name']) && $_FILES['Dokumen']['name']!=""){
+            if(in_array($mime, $allowed_mime_type_arr)){
+                return true;
+            }else{
+                $this->session->set_flashdata('error', 'Dokumen harus format PDF.Data <strong>Gagal</strong> Tersimpan!');
+				redirect('Ikami');
+            }
+        }else{
+             $this->session->set_flashdata('error', 'Harap memilih dokumen utk diunggah.');
+				redirect('Ikami');
+        }
+    }
 
 
 }

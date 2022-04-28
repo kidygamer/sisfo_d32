@@ -39,7 +39,7 @@
         <p>Instansi</p>
       </div>
       <div class="icon">
-        <i class="ion ion-ios-book"></i>
+        <i class="ion ion-stats-bars"></i>
       </div>
       <a href="<?php echo base_url('Instansi') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
     </div>
@@ -52,7 +52,7 @@
         <p> Data Laporan Persandian</p>
       </div>
       <div class="icon">
-        <i class="ion ion-ios-book"></i>
+        <i class="ion ion-stats-bars"></i>
       </div>
       <a href="<?php echo base_url('Laporan_Persandian') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
     </div>
@@ -65,7 +65,7 @@
         <p> Data IKAMI</p>
       </div>
       <div class="icon">
-        <i class="ion ion-ios-book"></i>
+        <i class="ion ion-stats-bars"></i>
       </div>
       <a href="<?php echo base_url('Ikami') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
     </div>
@@ -78,7 +78,7 @@
         <p> Data CSM</p>
       </div>
       <div class="icon">
-        <i class="ion ion-ios-book"></i>
+        <i class="ion ion-stats-bars"></i>
       </div>
       <a href="<?php echo base_url('Csm') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
     </div>
@@ -91,7 +91,7 @@
         <p> Data CSIRT</p>
       </div>
       <div class="icon">
-        <i class="ion ion-ios-book"></i>
+        <i class="ion ion-stats-bars"></i>
       </div>
       <a href="<?php echo base_url('Csirt') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
     </div>
@@ -104,7 +104,7 @@
         <p> Data TMPI</p>
       </div>
       <div class="icon">
-        <i class="ion ion-ios-book"></i>
+        <i class="ion-stats-bars"></i>
       </div>
       <a href="<?php echo base_url('Tmpi') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
     </div>
@@ -300,7 +300,7 @@
     </div>
   </div>
 
-  <div class="col-lg-6 col-xs-12">
+ <!--  <div class="col-lg-6 col-xs-12">
     <div class="box box-info">
       <div class="box-header with-border">
         <i class="fa fa-area-chart"></i>
@@ -316,7 +316,7 @@
         <canvas id="lineChart" style="height:250px" ></canvas>
       </div>
     </div>
-  </div>
+  </div> -->
 
 </div>
 
@@ -656,60 +656,60 @@ var pieChartCanvas = $("#pieChart").get(0).getContext("2d");
   barChart.Bar(barData, barOptions);
 
   //data test line
-  var lineChartCanvas = $("#lineChart").get(0).getContext("2d");
-  var lineChart = new Chart(lineChartCanvas);
-  var lineData = {
-    labels: [
-      <?php
-              foreach ($det_ikami as $detikami) {
-              echo '"';
-              echo $detikami->Tahun;
-              echo '",';
-              }  
-        ?>
-    ],
-    datasets: [{
-        label               : 'Digital Goods',
-        fillColor           : 'rgba(0, 236, 255, 0.8)',
-        strokeColor         : 'rgba(60,141,188,0.8)',
-        pointColor          : '#3b8bba',
-        pointStrokeColor    : 'rgba(60,141,188,1)',
-        pointHighlightFill  : '#fff',
-        pointHighlightStroke: 'rgba(60,141,188,1)', 
-        data: [
-          <?php
-              foreach ($det_ikami as $detikami) {
-              echo '"';
-              echo $detikami->Nilai;
-              echo '",';
-              }  
-            ?>
-        ],
-        label: "Jawa Barat",
-        backgroundColor: "rgba(100, 101, 188, 1.0)",
-        borderColor: "rgba(100, 101, 188, 0.1)",
-        fill: false
-      }]
-      };
-      var lineOptions = {
-      showScale               : true,
-      scaleShowGridLines      : true,
-      scaleGridLineColor      : 'rgba(0,0,0,.05)',
-      scaleGridLineWidth      : 1,
-      scaleShowHorizontalLines: true,
-      scaleShowVerticalLines  : true,
-      bezierCurve             : true,
-      bezierCurveTension      : 0.3,
-      pointDot                : true,
-      pointDotRadius          : 4,
-      pointDotStrokeWidth     : 1,
-      pointHitDetectionRadius : 20,
-      datasetStroke           : true,
-      datasetStrokeWidth      : 5,
-      datasetFill             : true,
-      legendTemplate          : '<ul class="<%=name.toLowerCase()%>-legend"><% for (var i=0; i<datasets.length; i++){%><li><span style="background-color:<%=datasets[i].lineColor%>"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>',
-      maintainAspectRatio     : true,
-      responsive              : true
-    };
-  lineChart.Line(lineData, lineOptions);
+  // var lineChartCanvas = $("#lineChart").get(0).getContext("2d");
+  // var lineChart = new Chart(lineChartCanvas);
+  // var lineData = {
+  //   labels: [
+  //     <?php
+  //             foreach ($det_ikami as $detikami) {
+  //             echo '"';
+  //             echo $detikami->Tahun;
+  //             echo '",';
+  //             }  
+  //       ?>
+  //   ],
+  //   datasets: [{
+  //       label               : 'Digital Goods',
+  //       fillColor           : 'rgba(0, 236, 255, 0.8)',
+  //       strokeColor         : 'rgba(60,141,188,0.8)',
+  //       pointColor          : '#3b8bba',
+  //       pointStrokeColor    : 'rgba(60,141,188,1)',
+  //       pointHighlightFill  : '#fff',
+  //       pointHighlightStroke: 'rgba(60,141,188,1)', 
+  //       data: [
+  //         <?php
+  //             foreach ($det_ikami as $detikami) {
+  //             echo '"';
+  //             echo $detikami->Nilai;
+  //             echo '",';
+  //             }  
+  //           ?>
+  //       ],
+  //       label: "Jawa Barat",
+  //       backgroundColor: "rgba(100, 101, 188, 1.0)",
+  //       borderColor: "rgba(100, 101, 188, 0.1)",
+  //       fill: false
+  //     }]
+  //     };
+  //     var lineOptions = {
+  //     showScale               : true,
+  //     scaleShowGridLines      : true,
+  //     scaleGridLineColor      : 'rgba(0,0,0,.05)',
+  //     scaleGridLineWidth      : 1,
+  //     scaleShowHorizontalLines: true,
+  //     scaleShowVerticalLines  : true,
+  //     bezierCurve             : true,
+  //     bezierCurveTension      : 0.3,
+  //     pointDot                : true,
+  //     pointDotRadius          : 4,
+  //     pointDotStrokeWidth     : 1,
+  //     pointHitDetectionRadius : 20,
+  //     datasetStroke           : true,
+  //     datasetStrokeWidth      : 5,
+  //     datasetFill             : true,
+  //     legendTemplate          : '<ul class="<%=name.toLowerCase()%>-legend"><% for (var i=0; i<datasets.length; i++){%><li><span style="background-color:<%=datasets[i].lineColor%>"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>',
+  //     maintainAspectRatio     : true,
+  //     responsive              : true
+  //   };
+  // lineChart.Line(lineData, lineOptions);
 </script>
