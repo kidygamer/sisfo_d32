@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 28, 2022 at 05:27 AM
+-- Generation Time: May 09, 2022 at 02:33 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.28
 
@@ -47,7 +47,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `username`, `password`, `role`, `nama`, `nip`, `jabatan`, `unit`, `email`, `foto`, `last_logout`, `archieved`) VALUES
-(1, 'admin_master', '$2y$10$HLzu/Pt2OcUKIFhp2zY/iujfSC9OUng/H/.BcE.Nd/QTx0I8C4tCa', 'administrator', 'FRC', '123456789012345678', 'Pengolah Data', 'D321', 'dummy@gmail.com', 'ProfilePicture-admin_master1.png', '2022-04-22 03:05:09', '0'),
+(1, 'admin_master', '$2y$10$HLzu/Pt2OcUKIFhp2zY/iujfSC9OUng/H/.BcE.Nd/QTx0I8C4tCa', 'administrator', 'FRC', '123456789012345678', 'Pengolah Data', 'D321', 'dummy@gmail.com', 'ProfilePicture-admin_master3.jpg', '2022-04-28 07:49:04', '0'),
 (2, 'editor_jane', '$2y$10$.k.8q1bk36DP2SLeQCjwguD6z7P1N.TooD22QQrzEQiWXdorZyHoK', 'editor', 'Jane Doe', '199909092022031009', 'Pengolah Data', 'D322', 'jane@gmail.com', NULL, '2022-04-22 02:37:26', '1'),
 (9, 'editor_jim', '$2y$10$EFiGq8To7nS3guM15Aq3GeBwOPY3/hf8S4bGtwLmh8epzU5tCscSm', 'editor', 'Jim Doe', '199707072022031003', 'Pengolah Data', 'D323', 'jim@gmail.com', NULL, '2022-04-14 03:05:50', '0'),
 (10, 'editor_yanti', '$2y$10$HZriRyi2/v5/TD45t0YLU.KamjPCLIvF9BbPIfJyKxEB8cUwZ.p8a', 'editor', 'Siti Maryanti', '199505042022032006', 'Pengolah Data', 'D323', 'siti.maryanti@gmail.com', NULL, '2022-04-18 05:04:06', '0'),
@@ -81,7 +81,7 @@ CREATE TABLE `csirt` (
 --
 
 INSERT INTO `csirt` (`Id_CSIRT`, `Status`, `Nomor_Sertifikat`, `Tgl_STR`, `Tgl_Launching`, `Nama_CSIRT`, `Narahubung`, `Dokumen`, `Instansi`, `Tahun`, `upadated_at`, `updated_by`, `archieved`) VALUES
-(1, 'Sudah CSIRT', '005/CSIRT.01.02/BSSN/05/2021', '2021-05-05', '2021-05-05', 'BaliProv-CSIRT', 'I Made Widiartha, ST., MAP.-081237777674', NULL, 290, 2021, '2022-04-22 02:10:01', 'admin_master', '0'),
+(1, 'Sudah CSIRT', '005/CSIRT.01.02/BSSN/05/2021', '2021-05-05', '2021-05-05', 'BaliProv-CSIRT', 'I Made Widiartha, ST., MAP.-081237777674', NULL, 290, 2021, '2022-04-28 06:23:19', 'admin_master', '0'),
 (2, 'Sudah CSIRT', '006/CSIRT.01.02/BSSN/05/2021', '2021-05-25', '2021-05-25', 'JambiProv-CSIRT', 'Faransisco, S.I.P., M.P.-082178168111, Moch. Mawardi, S.I.P-081369972298', '', 80, 2021, '2022-04-20 05:41:55', 'admin_master', '0'),
 (3, 'Sudah CSIRT', '008/CSIRT.01.02/BSSN/05/2021', '2021-05-19', '2021-05-19', 'BengkuluProv-CSIRT', NULL, 'CSIRT-Provinsi_Bengkulu-20212.pdf', 146, 2021, '2022-04-18 05:38:21', 'admin_master', '0'),
 (4, 'Sudah CSIRT', '010/CSIRT.01.02/BSSN/05/2021', '2021-05-27', '2021-05-27', 'PapuabaratProv-CSIRT', 'Zaenal Fanumbi, ST - 082238953683', 'CSIRT-Provinsi_Papua_Barat-2021.pdf', 537, 2021, '2022-04-21 01:35:40', 'editor_yanti', '0'),
@@ -153,7 +153,7 @@ INSERT INTO `csm` (`Id_CSM`, `Tahun`, `Skor`, `Lv_Kematangan`, `Dokumen`, `Insta
 (5, 2020, 3.95, '4', 'Csm-Provinsi_Jawa_Barat-2020.pdf', 174, '2022-04-28 03:03:02', 'editor_dian', '0'),
 (6, 2020, 3.33, '3', 'Csm-Provinsi_Jawa_Tengah-2020.pdf', 209, '2022-04-28 03:03:11', 'editor_dian', '0'),
 (7, 2020, 3.27, '3', 'Csm-Provinsi_Jawa_Timur-2020.pdf', 251, '2022-04-28 03:03:19', 'editor_dian', '0'),
-(8, 2020, 3.11, '3', NULL, 361, '2022-04-12 06:04:34', '0', '0'),
+(8, 2020, 3.11, '3', NULL, 361, '2022-04-28 06:30:43', 'admin_master', '0'),
 (9, 2020, 2.89, '3', 'Csm-Provinsi_Nusa_Tenggara_Barat-2020.pdf', 300, '2022-04-28 03:05:11', 'editor_dian', '0'),
 (10, 2020, 3.37, '3', 'Csm-Provinsi_Gorontalo-2020.pdf', 412, '2022-04-28 03:05:26', 'editor_dian', '0'),
 (11, 2021, 3.95, '4', 'Csm-Provinsi_Sumatera_Selatan-20211.pdf', 112, '2022-04-28 03:05:46', 'editor_dian', '0'),
@@ -207,7 +207,7 @@ INSERT INTO `ikami` (`Id_IKAMI`, `Tahun`, `Hasil_IKAMI`, `Kategori_SE`, `Nilai`,
 (18, 2021, 'Tidak Layak', 'Tinggi', 64, 'Ikami-Pemkab_Sumbawa_Barat-2021.pdf', 308, '2022-04-28 02:56:01', 'editor_dian', '0'),
 (19, 2021, 'Tidak Layak', 'Tinggi', 155, NULL, 483, '2022-04-07 01:31:20', NULL, '0'),
 (20, 2022, 'Pemenuhan KK Dasar', 'Tinggi', 438, 'Ikami-Pemkab_Karawang-2022.pdf', 186, '2022-04-28 02:57:42', 'editor_dian', '0'),
-(23, 2022, 'Baik', 'Strategis', 626, NULL, 245, '2022-04-28 02:59:20', 'editor_dian', '0'),
+(23, 2022, 'Baik', 'Strategis', 626, 'Ikami-Provinsi_DI_Yogyakarta-2022.pdf', 245, '2022-04-28 07:16:55', 'admin_master', '0'),
 (24, 2022, 'Tidak Layak', 'Tinggi', 186, 'Ikami-Pemkot_Batam-2022.pdf', 78, '2022-04-28 03:01:22', 'editor_dian', '0');
 
 -- --------------------------------------------------------
@@ -824,7 +824,7 @@ INSERT INTO `laporan_persandian` (`Id_LapSan`, `Tahun`, `Saran_uBSSN`, `Jml_Kebi
 (8, 2020, '1. Mengadakan pelatian sandiman utk meningkatkan kualitas SDM di persandian.\r\n2. Melakukan sosialisasi keamanan informasi digital kpd Pemda dikarenakan kurangnya perahatian dan SDM daerah ttg persandian', NULL, 2, 0, 0, 4, NULL, NULL, NULL, 77, 'Laporan_Persandian-Pemkab_Anambas-2020.pdf', NULL, NULL, '0'),
 (9, 2020, '1. Terus melakukan koordinasi, komunikasi dan kerja sama dengan PemProv.\r\n 2. Memberikan bantuan alat-alat terkait kontra penginderaan diikiuti pelatihan pemanfaatan alat tsb. \r\n3. Membantu menekankan dan menegaskan pentingnya urusan persandian.', NULL, 7, 5, 2, 13, NULL, NULL, NULL, 80, 'Laporan_Persandian-Provinsi_Jambi-2020.pdf', NULL, NULL, '0'),
 (10, 2020, '1. Memberikan bantuan peralatan pendukung utama persandian. \r\n2. Mengadakan diklat teknis cyber crime kpd personil sandi Pemda.', 0, 7, 3, 1, 12, 0, 0, 0, 81, 'Laporan_Persandian-Pemkab_Batanghari-2020.pdf', '2022-04-22 04:00:27', 'admin_master', '0'),
-(11, 2020, 'Mengadakan pelatihan di bidang Keamanan Informasi dan diklat teknis cyber crime bg personil Sandi Pemerintah Kab./Kota.', NULL, 7, 4, 0, 0, NULL, NULL, NULL, 82, NULL, '2022-04-22 04:06:01', NULL, '0'),
+(11, 2020, 'Mengadakan pelatihan di bidang Keamanan Informasi dan diklat teknis cyber crime bg personil Sandi Pemerintah Kab./Kota.', 0, 7, 4, 0, 0, 0, 0, 0, 82, NULL, '2022-04-28 06:14:53', 'admin_master', '0'),
 (12, 2020, 'Meningkatkan pelayanan pelatihan daerah.', NULL, 4, 1, 1, 2, NULL, NULL, NULL, 84, 'Laporan_Persandian-Pemkab_Merangin-2020.pdf', NULL, NULL, '0'),
 (13, 2020, 'Pemda sangat mendukung BSSN dalam meningkatkan kualitas dan kwantitas  SDM persandian.', NULL, 4, 2, 1, 17, NULL, NULL, NULL, 85, 'Laporan_Persandian-Pemkab_Muaro_Jambi-2020.pdf', NULL, NULL, '0'),
 (14, 2020, '1. Mempermudah daerah dalam syarat dan seleksi penerimaan persandian.\r\n2. Waktu diklat persandian cukup 7-15 hari saja. \r\n3. Sharing kegiatan dan bantuan alat keamanan informasi. \r\n4. Memberikan kewenangan pada PemProv dlm melaksanakan diklat. \r\n5. Pengembangan email sanapati smp tingkat kecamatan ', NULL, 23, 0, 0, 0, NULL, NULL, NULL, 87, 'Laporan_Persandian-Pemkab_Tanjung_Jabung_Barat-2020.pdf', NULL, NULL, '0'),
@@ -985,7 +985,7 @@ INSERT INTO `tmpi` (`Id_TMPI`, `Tahun`, `Nilai_TMPI`, `Level`, `Instansi`, `Doku
 (35, 2020, 0.43, 1, 385, NULL, '2022-04-12 06:02:41', NULL, '0'),
 (36, 2021, 1.18, 1, 483, 'TMPI-Provinsi_Maluku-2021.xlsx', '2022-04-18 06:28:39', 'editor_yanti', '0'),
 (37, 2021, 0.88, 1, 537, 'TMPI-Provinsi_Papua_Barat-2021.xlsx', '2022-04-18 06:29:10', 'editor_yanti', '0'),
-(38, 2021, 2, 2, 217, NULL, '2022-04-12 06:02:51', NULL, '0'),
+(38, 2021, 2, 2, 217, NULL, '2022-04-28 07:21:06', 'admin_master', '0'),
 (39, 2021, 0.62, 1, 278, NULL, '2022-04-12 06:02:55', NULL, '0'),
 (40, 2021, 1.79, 2, 228, NULL, '2022-04-12 06:03:04', NULL, '0'),
 (41, 2021, 1.64, 2, 198, NULL, '2022-04-12 06:03:09', NULL, '0'),
