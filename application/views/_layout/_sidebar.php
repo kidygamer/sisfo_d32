@@ -42,7 +42,7 @@
       </li>
       
       <?php 
-        if ($userdata->role == 'administrator' || $userdata->unit == 'D321') {
+        if ($userdata->role == 'administrator' || $userdata->role == 'pimpinan' || $userdata->unit == 'D321') {
       ?>
 
         <li <?php if ($page == 'laporan_persandian') {echo 'class="active"';} ?>>
@@ -56,7 +56,7 @@
       ?>
 
       <?php 
-        if ($userdata->role == 'administrator' || $userdata->unit == 'D322') {
+        if ($userdata->role == 'administrator' || $userdata->role == 'pimpinan' || $userdata->unit == 'D322') {
       ?>
 
         <li <?php if ($page == 'ikami') {echo 'class="active"';} ?>>
@@ -77,7 +77,7 @@
       ?>
 
       <?php 
-        if ($userdata->role == 'administrator' || $userdata->unit == 'D323') {
+        if ($userdata->role == 'administrator' || $userdata->role == 'pimpinan' || $userdata->unit == 'D323') {
       ?>
          <li <?php if ($page == 'csirt') {echo 'class="active"';} ?>>
           <a href="<?php echo base_url('Csirt'); ?>">
