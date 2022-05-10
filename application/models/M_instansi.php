@@ -37,11 +37,11 @@ class M_instansi extends CI_Model {
 				    UNION SELECT Tahun FROM csirt
 				    UNION SELECT Tahun FROM tmpi
 				) as a
-				LEFT JOIN laporan_persandian lp ON lp.Instansi = instansi.Id_Instansi AND lp.Tahun = a.Tahun
-				LEFT JOIN csirt ON csirt.Instansi = instansi.Id_Instansi AND csirt.Tahun = a.Tahun
-				LEFT JOIN ikami ON ikami.Instansi = instansi.Id_Instansi AND ikami.Tahun = a.Tahun
-				LEFT JOIN csm ON csm.Instansi = instansi.Id_Instansi AND csm.Tahun = a.Tahun
-				LEFT JOIN tmpi ON tmpi.Instansi = instansi.Id_Instansi AND tmpi.Tahun = a.Tahun 
+				LEFT JOIN laporan_persandian lp ON lp.Instansi = instansi.Id_Instansi AND lp.Tahun = a.Tahun AND lp.archieved = '0'
+				LEFT JOIN csirt ON csirt.Instansi = instansi.Id_Instansi AND csirt.Tahun = a.Tahun AND csirt.archieved = '0'
+				LEFT JOIN ikami ON ikami.Instansi = instansi.Id_Instansi AND ikami.Tahun = a.Tahun AND ikami.archieved = '0'
+				LEFT JOIN csm ON csm.Instansi = instansi.Id_Instansi AND csm.Tahun = a.Tahun AND csm.archieved = '0'
+				LEFT JOIN tmpi ON tmpi.Instansi = instansi.Id_Instansi AND tmpi.Tahun = a.Tahun AND tmpi.archieved = '0'
 				WHERE instansi.Id_Instansi = '{$id}'";
 
 		$data = $this->db->query($sql);
@@ -65,11 +65,11 @@ class M_instansi extends CI_Model {
 				    UNION SELECT Tahun FROM csirt
 				    UNION SELECT Tahun FROM tmpi
 				) as a
-				LEFT JOIN laporan_persandian lp ON lp.Instansi = instansi.Id_Instansi AND lp.Tahun = a.Tahun
-				LEFT JOIN csirt ON csirt.Instansi = instansi.Id_Instansi AND csirt.Tahun = a.Tahun
-				LEFT JOIN ikami ON ikami.Instansi = instansi.Id_Instansi AND ikami.Tahun = a.Tahun
-				LEFT JOIN csm ON csm.Instansi = instansi.Id_Instansi AND csm.Tahun = a.Tahun
-				LEFT JOIN tmpi ON tmpi.Instansi = instansi.Id_Instansi AND tmpi.Tahun = a.Tahun 
+				LEFT JOIN laporan_persandian lp ON lp.Instansi = instansi.Id_Instansi AND lp.Tahun = a.Tahun AND lp.archieved = '0'
+				LEFT JOIN csirt ON csirt.Instansi = instansi.Id_Instansi AND csirt.Tahun = a.Tahun AND csirt.archieved = '0'
+				LEFT JOIN ikami ON ikami.Instansi = instansi.Id_Instansi AND ikami.Tahun = a.Tahun AND ikami.archieved = '0'
+				LEFT JOIN csm ON csm.Instansi = instansi.Id_Instansi AND csm.Tahun = a.Tahun AND csm.archieved = '0'
+				LEFT JOIN tmpi ON tmpi.Instansi = instansi.Id_Instansi AND tmpi.Tahun = a.Tahun AND tmpi.archieved = '0'
 				WHERE instansi.Id_Instansi = '{$id}' AND a.Tahun = '{$year}'";
 
 		$data = $this->db->query($sql);
@@ -83,6 +83,7 @@ class M_instansi extends CI_Model {
 		$this->db->from('ikami a');
 		$this->db->join('instansi b', 'a.Instansi = b.Id_Instansi');
 		$this->db->where('a.Instansi', $id);
+		$this->db->where('a.archieved', '0');
 		$this->db->order_by('Tahun','ASC');
 
 
@@ -97,6 +98,7 @@ class M_instansi extends CI_Model {
 		$this->db->join('instansi b', 'a.Instansi = b.Id_Instansi');
 		$this->db->where('a.Instansi', $id);
 		$this->db->where('a.Tahun', $year);
+		$this->db->where('a.archieved', '0');
 		$this->db->order_by('Tahun','ASC');
 
 

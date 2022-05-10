@@ -130,9 +130,6 @@ class Profile extends AUTH_Controller {
                 $this->form_validation->set_message('file_check', 'Foto Profil harus format .jpg/.jpeg/.png. Data <strong>Gagal</strong> Tersimpan!');
                 return false;
             }
-        }else{
-            $this->form_validation->set_message('file_check', 'Harap memilih foto utk diunggah.');
-            return false;
         }
     }
 
