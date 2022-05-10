@@ -276,9 +276,6 @@ class Laporan_Persandian extends AUTH_Controller {
                 $this->session->set_flashdata('error', 'Dokumen harus format PDF. Data <strong>Gagal</strong> Tersimpan!');
 				redirect('Laporan_Persandian');
             }
-        }else{
-             $this->session->set_flashdata('error', 'Harap memilih dokumen utk diunggah.');
-				redirect('Laporan_Persandian');
         }
     }
 

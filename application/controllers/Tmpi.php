@@ -198,9 +198,6 @@ class Tmpi extends AUTH_Controller {
                 $this->session->set_flashdata('error', 'Dokumen harus format .xls atau .xlsx. Data <strong>Gagal</strong> Tersimpan!');
 				redirect('Tmpi');
             }
-        }else{
-             $this->session->set_flashdata('error', 'Harap memilih dokumen utk diunggah.');
-				redirect('Tmpi');
         }
     }
 

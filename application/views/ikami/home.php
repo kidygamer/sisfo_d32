@@ -17,7 +17,7 @@
   <div class="box-header">
     <div class="col-md-3">
         <?php 
-            if ($userdata->role == 'administrator' || $userdata->unit == 'D322') {
+            if (($userdata->role == 'administrator' || $userdata->unit == 'D322') && $userdata->role != 'pimpinan') {
                 echo "<a href='#' data-toggle='modal' data-target='#addModal' class='form-control btn btn-primary'><i class='glyphicon glyphicon-pencil'></i> Tambah Data</a>";
             }
         ?> 
@@ -35,7 +35,7 @@
           <th>Detail</th>
           <th>Dokumen</th>
             <?php 
-                if ($userdata->role == 'administrator' || $userdata->unit == 'D322') {
+                if (($userdata->role == 'administrator' || $userdata->unit == 'D322') && $userdata->role != 'pimpinan') {
                     echo "<th style='text-align: center;width: 5%;'>Aksi</th>";
                 }
             ?>
@@ -67,7 +67,7 @@
               </td>
               
                 <?php 
-                    if ($userdata->role == 'administrator' || $userdata->unit == 'D322') {
+                    if (($userdata->role == 'administrator' || $userdata->unit == 'D322') && $userdata->role != 'pimpinan') {
                 ?>
                         <td class="text-center" style="min-width:230px;">
                             <a href="#" data-toggle="modal" data-target="#updateModal<?=$ikami->Id_IKAMI?>" class="btn btn-warning btn-sm"><i class="glyphicon glyphicon-repeat"></i> Update</a>

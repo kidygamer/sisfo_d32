@@ -272,9 +272,6 @@ class CSIRT extends AUTH_Controller {
                 $this->session->set_flashdata('error', 'Dokumen harus format PDF. Data <strong>Gagal</strong> Tersimpan!');
 				redirect('CSIRT');
             }
-        }else{
-             $this->session->set_flashdata('error', 'Harap memilih dokumen utk diunggah.');
-				redirect('CSIRT');
         }
     }
 

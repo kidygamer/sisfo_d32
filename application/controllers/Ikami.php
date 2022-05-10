@@ -212,9 +212,6 @@ class Ikami extends AUTH_Controller {
                 $this->session->set_flashdata('error', 'Dokumen harus format PDF.Data <strong>Gagal</strong> Tersimpan!');
 				redirect('Ikami');
             }
-        }else{
-             $this->session->set_flashdata('error', 'Harap memilih dokumen utk diunggah.');
-				redirect('Ikami');
         }
     }
 

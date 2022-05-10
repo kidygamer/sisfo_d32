@@ -46,6 +46,7 @@ class Instansi extends AUTH_Controller {
 		
 		$data['dataInstansi'] 	= $this->M_instansi->select_by_id($id);
 		$data['dataPic']		= $this->M_instansi->select_pic_by_instansi($id);
+		$data['statusCsirt']	= $this->M_instansi->select_statusCsirt_byInstansi($id);
 
 		if ($year == 'all') {
 			$data['dataGrand'] 	= $this->M_instansi->select_grand($id);
