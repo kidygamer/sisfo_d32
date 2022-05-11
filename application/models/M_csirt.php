@@ -14,6 +14,20 @@ class M_csirt extends CI_Model {
 		return $data->result();
 	}
 
+	public function select_map_status() {
+		$this->db->select('*');
+		$this->db->from('csirt a');
+		$this->db->join('instansi b', 'a.Instansi = b.Id_Instansi');
+		$this->db->join('wilayah_provinsi c', 'c.id = b.Provinsi');
+		$this->db->where('a.Status', 'Sudah CSIRT');
+		$this->db->like('b.Nama_Instansi', 'Provinsi', 'both');
+
+
+		$data = $this->db->get();
+
+		return $data->result();
+	}
+
 	public function select_by_id($id) {
 		$sql = "SELECT * FROM csirt WHERE Id_CSIRT = '{$id}'";
 

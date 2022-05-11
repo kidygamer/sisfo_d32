@@ -7,7 +7,106 @@
           selectedColor: null,
       backgroundColor: '#00008B',
       color: '#7FFF00',
-      hoverColor: '#F8F8FF'
+      hoverColor: '#F8F8FF',
+      legend:{
+        horizontal: true,
+        title:'Warna'
+      },
+      onLabelShow: function(event, label, code)
+      {
+          var vcsirtstatla = "Sudah Launching";
+          var vcsirtstatlm = "Belum Launching";
+          var map_path = [
+            <?php
+            foreach ($sel_map_status as $map_status) {
+            echo '"';
+            echo $map_status->code_vmap;
+            echo '",';
+            }  
+          ?>
+          ];
+          console.log(code);
+          if(map_path.indexOf(code) !== -1){
+            label.append("<br> CSIRT :"+vcsirtstatla);
+          }
+          else{
+            label.append("<br> CSIRT :"+vcsirtstatlm);
+          }
+      },
+      onRegionClick: function(event, code, region){
+        console.log(region);
+        if(region == 'Aceh'){
+          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/1'); ?>";
+        }else if(region == 'Sumatera Utara'){
+          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/2'); ?>";
+        }else if(region == 'Sumatera Barat'){
+          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/6'); ?>";
+        }else if(region == 'Riau'){
+          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/3'); ?>";
+        }else if(region == 'Jambi'){
+          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/5'); ?>";
+        }else if(region == 'Sumatera Selatan'){
+          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/7'); ?>";
+        }else if(region == 'Bengkulu'){
+          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/9'); ?>";
+        }else if(region == 'Lampung'){
+          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/8'); ?>";
+        }else if(region == 'Kep. Bangka Belitung'){
+          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/10'); ?>";
+        }else if(region == 'Kep. Riau'){
+          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/4'); ?>";
+        }else if(region == 'DKI Jakarta'){
+          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/13'); ?>";
+        }else if(region == 'Jawa Barat'){
+          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/12'); ?>";
+        }else if(region == 'Jawa Tengah'){
+          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/14'); ?>";
+        }else if(region == 'Banten'){
+          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/11'); ?>";
+        }else if(region == 'Jawa Timur'){
+          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/16'); ?>";
+        }else if(region == 'Yogyakarta'){
+          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/15'); ?>";
+        }else if(region == 'Bali'){
+          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/17'); ?>";
+        }else if(region == 'Nusa Tenggara Barat'){
+          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/18'); ?>";
+        }else if(region == 'Nusa Tenggara Timur'){
+          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/19'); ?>";
+        }else if(region == 'Kalimantan Barat'){
+          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/20'); ?>";
+        }else if(region == 'Kalimantan Tengah'){
+          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/21'); ?>";
+        }else if(region == 'Kalimantan Selatan'){
+          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/22'); ?>";
+        }else if(region == 'Kalimantan Utara'){
+          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/23'); ?>";
+        }else if(region == 'Kalimantan Timur'){
+          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/24'); ?>";
+        }else if(region == 'Sulawesi Utara'){
+          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/25'); ?>";
+        }else if(region == 'Gorontalo'){
+          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/26'); ?>";
+        }else if(region == 'Sulawesi Barat'){
+          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/27'); ?>";
+        }else if(region == 'Sulawesi Selatan'){
+          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/28'); ?>";
+        }else if(region == 'Sulawesi Tengah'){
+          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/29'); ?>";
+        }else if(region == 'Sulawesi Tenggara'){
+          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/30'); ?>";
+        }else if(region == 'Maluku'){
+          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/31'); ?>";
+        }else if(region == 'Maluku Utara'){
+          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/32'); ?>";
+        }else if(region == 'Papua'){
+          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/33'); ?>";
+        }else if(region == 'Papua Barat'){
+          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/34'); ?>";
+        }else{
+          window.location.href ="<?php echo base_url('Home'); ?>";
+        }
+      }
       });
 
     jQuery('#vmap').vectorMap('set','colors',{
@@ -23,7 +122,7 @@
       <?php
               foreach ($sel_map2 as $codevmap2) {
               echo $codevmap2->code_vmap;
-              echo ":'#FF1493',";
+              echo ":'#ff6600',";
               }  
         ?>
     });
@@ -32,14 +131,14 @@
 
 <div class="row">
   <div class="col-lg-4 col-xs-4">
-    <div class="small-box bg-pink">
+    <div class="small-box bg-cyan">
       <div class="inner">
         <h3><?php echo $jml_instansi; ?></h3>
 
         <p>Instansi</p>
       </div>
       <div class="icon">
-        <i class="ion ion-stats-bars"></i>
+        <i class="ion ion-ios-book"></i>
       </div>
       <a href="<?php echo base_url('Instansi') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
     </div>
@@ -52,7 +151,7 @@
         <p> Data Laporan Persandian</p>
       </div>
       <div class="icon">
-        <i class="ion ion-stats-bars"></i>
+        <i class="ion ion-ios-book"></i>
       </div>
       <a href="<?php echo base_url('Laporan_Persandian') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
     </div>
@@ -65,7 +164,7 @@
         <p> Data IKAMI</p>
       </div>
       <div class="icon">
-        <i class="ion ion-stats-bars"></i>
+        <i class="ion ion-ios-book"></i>
       </div>
       <a href="<?php echo base_url('Ikami') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
     </div>
@@ -78,7 +177,7 @@
         <p> Data CSM</p>
       </div>
       <div class="icon">
-        <i class="ion ion-stats-bars"></i>
+        <i class="ion ion-ios-book"></i>
       </div>
       <a href="<?php echo base_url('Csm') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
     </div>
@@ -91,7 +190,7 @@
         <p> Data CSIRT</p>
       </div>
       <div class="icon">
-        <i class="ion ion-stats-bars"></i>
+        <i class="ion ion-ios-book"></i>
       </div>
       <a href="<?php echo base_url('Csirt') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
     </div>
@@ -104,7 +203,7 @@
         <p> Data TMPI</p>
       </div>
       <div class="icon">
-        <i class="ion-stats-bars"></i>
+        <i class="ion ion-ios-book"></i>
       </div>
       <a href="<?php echo base_url('Tmpi') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
     </div>
@@ -114,27 +213,8 @@
     <div class="box box-info">
       <div class="box-header with-border">
         <i class="fa fa-briefcase"></i>
-        <h3 class="box-title">TMPI INDONESIA<small> Data Pesebaran Level</small></h3>
-
-        <div class="box-tools pull-right">
-          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-          </button>
-          
-        </div>
-      </div>
-      <div class="box-body">
-        <div id="vmap" style="height: 400px;"></div>
-
-      </div>
-    </div>
-  </div>
-
-  <!-- <div class="col-lg-12 col-xs-12">
-    <div class="box box-info">
-      <div class="box-header with-border">
-        <i class="fa fa-briefcase"></i>
-        <h3 class="box-title">Computer Security Incident Response Team <small>Data CSIRT</small></h3>
-
+        <h3 class="box-title">Data Pesebaran TMPI INDONESIA</h3>
+        
         <div class="box-tools pull-right">
           <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
           </button>
@@ -142,22 +222,26 @@
         </div>
       </div>
       <div class="box-body">
-        <div id="vmap" style="height: 400px;"></div>
+
+        <div id="vmap" style="height: 600px;">
+        <div style= "width:60px; height:25px; background-color:#7FFF00; top:15px; left:35px; position:relative; float:left; text-align:center; border-radius: 25px;"><strong> Level 1 </strong></div>
+        <div style= "width:60px; height:25px; background-color:#ff6600; top:15px; left:45px; position:relative; float:left; text-align:center; border-radius: 25px;"><strong> Level 2 </strong></div>
+        <div style= "width:60px; height:25px; background-color:#FF0000; top:15px; left:55px; position:relative; float:left; text-align:center; border-radius: 25px;"><strong> Level 3 </strong></div>
+        </div>
 
       </div>
     </div>
-  </div> -->
+  </div>
 
   <div class="col-lg-6 col-xs-12">
     <div class="box box-info">
       <div class="box-header with-border">
-        <i class="fa fa-pie-chart"></i>
-        <h3 class="box-title">CSIRT <small>PROVINSI</small></h3>
+        <i class="fa fa-briefcase"></i>
+        <h3 class="box-title">CSIRT <small>Provinsi</small></h3>
 
         <div class="box-tools pull-right">
           <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
           </button>
-          
         </div>
       </div>
       <div class="box-body">
@@ -170,13 +254,12 @@
   <div class="col-lg-6 col-xs-12">
     <div class="box box-primary">
       <div class="box-header with-border">
-        <i class="fa fa-pie-chart"></i>
-        <h3 class="box-title">CSIRT <small>KAB./KOTA</small></h3>
+        <i class="fa fa-briefcase"></i>
+        <h3 class="box-title">CSIRT <small>Kab./Kota</small></h3>
 
         <div class="box-tools pull-right">
           <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
           </button>
-          
         </div>
       </div>
       <div class="box-body">
@@ -186,20 +269,37 @@
     </div>
   </div>
 
-  <div class="col-lg-6 col-xs-12">
+  <div class="col-lg-12 col-xs-12">
     <div class="box box-info">
       <div class="box-header with-border">
-        <i class="fa fa-bar-chart"></i>
-        <h3 class="box-title">TMPI PROVINSI <small><b>2020</b>: <?php echo $jml_tmpi20; ?> data</small></h3>
+        <i class="fa fa-briefcase"></i>
+        <h3 class="box-title">TMPI 2019<small></small></h3>
 
         <div class="box-tools pull-right">
           <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
           </button>
-          
         </div>
       </div>
       <div class="box-body">
-     
+      <div style="width: 100%; height: 40px; position: absolute; top: 20%; left: 0; margin-top: -20px; line-height:19px; text-align: center;"> <h1><b><?php echo $jml_tmpi19; ?> Provinsi</b></h1> </div>
+        <canvas id="barChart2019" style="height:250px" ></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-6 col-xs-12">
+    <div class="box box-info">
+      <div class="box-header with-border">
+        <i class="fa fa-briefcase"></i>
+        <h3 class="box-title">TMPI 2020: <small><b><?php echo $jml_tmpi20; ?> Provinsi</b></small></h3>
+
+        <div class="box-tools pull-right">
+          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+          </button>
+        </div>
+      </div>
+      <div class="box-body">
+      <div style="width: 100%; height: 40px; position: absolute; top: 20%; left: 0; margin-top: -20px; line-height:19px; text-align: center;"> </div>
         <canvas id="barChart2020" style="height:250px" ></canvas>
       </div>
     </div>
@@ -208,71 +308,30 @@
   <div class="col-lg-6 col-xs-12">
     <div class="box box-info">
       <div class="box-header with-border">
-        <i class="fa fa-bar-chart"></i>
-        <h3 class="box-title">TMPI PROVINSI <small><b>2021</b>: <?php echo $jml_tmpi21; ?> data</small></h3>
+        <i class="fa fa-briefcase"></i>
+        <h3 class="box-title">TMPI 2021: <small><b><?php echo $jml_tmpi21; ?> Provinsi</b></small></h3>
 
         <div class="box-tools pull-right">
           <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
           </button>
-          
         </div>
       </div>
       <div class="box-body">
+      <div style="width: 100%; height: 40px; position: absolute; top: 20%; left: 28%; margin-top: -20px; line-height:19px; text-align: center;"></div>
         <canvas id="barChart2021" style="height:250px" ></canvas>
       </div>
     </div>
   </div>
 
-
-  <div class="col-lg-12 col-xs-12">
+   <div class="col-lg-6 col-xs-12">
     <div class="box box-info">
       <div class="box-header with-border">
-        <i class="fa fa-bar-chart"></i>
-        <h3 class="box-title">TMPI PROVINSI <small><b>2019</b></small></h3>
+        <i class="fa fa-briefcase"></i>
+        <h3 class="box-title">Laporan Persandian Provinsi</h3>
 
         <div class="box-tools pull-right">
           <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
           </button>
-          
-        </div>
-      </div>
-      <div class="box-body">
-      <div style="width: 100%; height: 40px; position: absolute; top: 20%; left: 0; margin-top: -20px; line-height:19px; text-align: center;"> <h1>TMPI PROVINSI 2019<br><b><?php echo $jml_tmpi19; ?></b></h1> </div>
-        <canvas id="barChart2019" style="height:250px" ></canvas>
-      </div>
-    </div>
-  </div>
-
-  
-  <div class="col-lg-12 col-xs-12">
-    <div class="box box-info">
-      <div class="box-header with-border">
-        <i class="fa fa-bar-chart"></i>
-        <h3 class="box-title">Cyber Security Maturity <small>Data CSM <b>Tahun 2020-2021</b></small></h3>
-
-        <div class="box-tools pull-right">
-          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-          </button>
-          
-        </div>
-      </div>
-      <div class="box-body">
-      <div style="width: 100%; height: 40px; position: absolute; top: 10%; left: 0; margin-top: -20px; line-height:19px; text-align: center;"> <h1><b><?php echo $jml_csm; ?></b><br> Provinsi</h1> </div>
-        <canvas id="barChartcsm" style="height:250px" ></canvas>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-lg-6 col-xs-12">
-    <div class="box box-info">
-      <div class="box-header with-border">
-        <i class="fa fa-pie-chart"></i>
-        <h3 class="box-title">Laporan Persandian 2020 <small>PROVINSI</small></h3>
-
-        <div class="box-tools pull-right">
-          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-          </button>
-          
         </div>
       </div>
       <div class="box-body">
@@ -285,13 +344,12 @@
   <div class="col-lg-6 col-xs-12">
     <div class="box box-info">
       <div class="box-header with-border">
-        <i class="fa fa-bar-chart"></i>
-        <h3 class="box-title">Laporan Persandian 2020 <small>Perbandingan Jumlah Instansi</small></h3>
+        <i class="fa fa-briefcase"></i>
+        <h3 class="box-title">Laporan Persandian Kab.Kota</h3>
 
         <div class="box-tools pull-right">
           <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
           </button>
-          
         </div>
       </div>
       <div class="box-body">
@@ -300,16 +358,35 @@
     </div>
   </div>
 
+  <div class="col-lg-11 col-xs-12">
+    <div class="box box-info">
+      <div class="box-header with-border">
+        <i class="fa fa-briefcase"></i>
+        <h3 class="box-title">Cyber Security Maturity <small>Data CSM <b><?php echo $jml_csm; ?></b></small></h3>
+
+        <div class="box-tools pull-right">
+          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+          </button>
+        </div>
+      </div>
+      <div class="box-body">
+      <div style="width: 100%; height: 40px; position: absolute; top: 10%; left: 0; margin-top: -20px; line-height:19px; text-align: center;"> <h1><b><?php echo $jml_csm; ?></b></h1> </div>
+        <canvas id="barChartcsm" style="height:250px" ></canvas>
+      </div>
+    </div>
+  </div>
+
+ 
+
  <!--  <div class="col-lg-6 col-xs-12">
     <div class="box box-info">
       <div class="box-header with-border">
-        <i class="fa fa-area-chart"></i>
+        <i class="fa fa-briefcase"></i>
         <h3 class="box-title">IKAMI <small>Jawa Barat</small></h3>
 
         <div class="box-tools pull-right">
           <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
           </button>
-          <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
         </div>
       </div>
       <div class="box-body">
@@ -320,8 +397,7 @@
 
 </div>
 
-<script src="<?php echo base_url(); ?>assets/plugins/chartjs/Chart.min.js"></script>
-
+<script src="<?php echo base_url(); ?>assets/plugins/chartjs/Chart.js"></script>
 <script>
 //data test
 var pieChartCanvas = $("#pieChart").get(0).getContext("2d");
@@ -554,7 +630,7 @@ var pieChartCanvas = $("#pieChart").get(0).getContext("2d");
     ],
         datasets:[{
             label:"Level Kematangan",  
-            label:"Level TMPI",  
+            label:"Level CSM",  
             fillColor           : 'rgba(236, 0, 255, 0.83)',
             strokeColor         : 'rgba(236, 0, 255, 0.83)',
             pointColor          : '#3b8bba',
@@ -621,7 +697,7 @@ var pieChartCanvas = $("#pieChart").get(0).getContext("2d");
   };
   pieChart.Doughnut(PieData, pieOptions);
 
-  //data test bar 4
+  //data test bar 5
   var barChartCanvas = $("#barChartlapsan").get(0).getContext("2d");
   var barChart = new Chart(barChartCanvas);
   var barData = {
@@ -656,60 +732,60 @@ var pieChartCanvas = $("#pieChart").get(0).getContext("2d");
   barChart.Bar(barData, barOptions);
 
   //data test line
-  // var lineChartCanvas = $("#lineChart").get(0).getContext("2d");
-  // var lineChart = new Chart(lineChartCanvas);
-  // var lineData = {
-  //   labels: [
-  //     <?php
-  //             foreach ($det_ikami as $detikami) {
-  //             echo '"';
-  //             echo $detikami->Tahun;
-  //             echo '",';
-  //             }  
-  //       ?>
-  //   ],
-  //   datasets: [{
-  //       label               : 'Digital Goods',
-  //       fillColor           : 'rgba(0, 236, 255, 0.8)',
-  //       strokeColor         : 'rgba(60,141,188,0.8)',
-  //       pointColor          : '#3b8bba',
-  //       pointStrokeColor    : 'rgba(60,141,188,1)',
-  //       pointHighlightFill  : '#fff',
-  //       pointHighlightStroke: 'rgba(60,141,188,1)', 
-  //       data: [
-  //         <?php
-  //             foreach ($det_ikami as $detikami) {
-  //             echo '"';
-  //             echo $detikami->Nilai;
-  //             echo '",';
-  //             }  
-  //           ?>
-  //       ],
-  //       label: "Jawa Barat",
-  //       backgroundColor: "rgba(100, 101, 188, 1.0)",
-  //       borderColor: "rgba(100, 101, 188, 0.1)",
-  //       fill: false
-  //     }]
-  //     };
-  //     var lineOptions = {
-  //     showScale               : true,
-  //     scaleShowGridLines      : true,
-  //     scaleGridLineColor      : 'rgba(0,0,0,.05)',
-  //     scaleGridLineWidth      : 1,
-  //     scaleShowHorizontalLines: true,
-  //     scaleShowVerticalLines  : true,
-  //     bezierCurve             : true,
-  //     bezierCurveTension      : 0.3,
-  //     pointDot                : true,
-  //     pointDotRadius          : 4,
-  //     pointDotStrokeWidth     : 1,
-  //     pointHitDetectionRadius : 20,
-  //     datasetStroke           : true,
-  //     datasetStrokeWidth      : 5,
-  //     datasetFill             : true,
-  //     legendTemplate          : '<ul class="<%=name.toLowerCase()%>-legend"><% for (var i=0; i<datasets.length; i++){%><li><span style="background-color:<%=datasets[i].lineColor%>"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>',
-  //     maintainAspectRatio     : true,
-  //     responsive              : true
-  //   };
-  // lineChart.Line(lineData, lineOptions);
+  var lineChartCanvas = $("#lineChart").get(0).getContext("2d");
+  var lineChart = new Chart(lineChartCanvas);
+  var lineData = {
+    labels: [
+      <?php
+              foreach ($det_ikami as $detikami) {
+              echo '"';
+              echo $detikami->Tahun;
+              echo '",';
+              }  
+        ?>
+    ],
+    datasets: [{
+        label               : 'Digital Goods',
+        fillColor           : 'rgba(0, 236, 255, 0.8)',
+        strokeColor         : 'rgba(60,141,188,0.8)',
+        pointColor          : '#3b8bba',
+        pointStrokeColor    : 'rgba(60,141,188,1)',
+        pointHighlightFill  : '#fff',
+        pointHighlightStroke: 'rgba(60,141,188,1)', 
+        data: [
+          <?php
+              foreach ($det_ikami as $detikami) {
+              echo '"';
+              echo $detikami->Nilai;
+              echo '",';
+              }  
+            ?>
+        ],
+        label: "Jawa Barat",
+        backgroundColor: "rgba(100, 101, 188, 1.0)",
+        borderColor: "rgba(100, 101, 188, 0.1)",
+        fill: false
+      }]
+      };
+      var lineOptions = {
+      showScale               : true,
+      scaleShowGridLines      : true,
+      scaleGridLineColor      : 'rgba(0,0,0,.05)',
+      scaleGridLineWidth      : 1,
+      scaleShowHorizontalLines: true,
+      scaleShowVerticalLines  : true,
+      bezierCurve             : true,
+      bezierCurveTension      : 0.3,
+      pointDot                : true,
+      pointDotRadius          : 4,
+      pointDotStrokeWidth     : 1,
+      pointHitDetectionRadius : 20,
+      datasetStroke           : true,
+      datasetStrokeWidth      : 5,
+      datasetFill             : true,
+      legendTemplate          : '<ul class="<%=name.toLowerCase()%>-legend"><% for (var i=0; i<datasets.length; i++){%><li><span style="background-color:<%=datasets[i].lineColor%>"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>',
+      maintainAspectRatio     : true,
+      responsive              : true
+    };
+  lineChart.Line(lineData, lineOptions);
 </script>

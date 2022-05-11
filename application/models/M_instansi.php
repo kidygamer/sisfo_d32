@@ -22,6 +22,15 @@ class M_instansi extends CI_Model {
 		return $data->row();
 	}
 
+	public function select_instansi_by_provinsi($id)
+	{
+		$sql = "SELECT Nama_Instansi FROM instansi JOIN wilayah_provinsi ON instansi.Provinsi = wilayah_provinsi.id WHERE wilayah_provinsi.id = '{$id}'";
+
+		$data = $this->db->query($sql);
+
+		return $data->result();
+	}
+
 	public function select_grand($id) {
 		$sql = "SELECT instansi.Nama_Instansi, a.Tahun, 
                 lp.Saran_uBSSN, lp.Jml_Kebijakan, lp.Jml_SDM, lp.Jml_Palsan, lp.Jml_APU, lp.Jml_SE, lp.Jml_PDok, lp.Jml_LKamsi, lp.Jml_PHKS, lp.Dokumen,

@@ -19,6 +19,17 @@ class Instansi extends AUTH_Controller {
 		$this->template->views('instansi/home', $data);
 	}
 
+	public function instansi_by_prov($id)
+	{
+		$data['dataInstansi'] 	= $this->M_instansi->select_instansi_by_provinsi($id);
+		$data['page'] 		= "instansi";
+		$data['judul'] 		= "Data Instansi Pemda Per Provinsi";
+		$data['deskripsi'] 	= "Manage Data Instansi Pemda";
+
+		print_r($data['dataInstansi']);
+
+	}
+
 	public function detail_grand($id)
 	{
 		$data['userdata'] 		= $this->userdata;
