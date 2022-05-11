@@ -22,7 +22,8 @@ class Instansi extends AUTH_Controller {
 	public function instansi_by_prov($id)
 	{
 		$data['userdata'] 		= $this->userdata;
-		$data['dataProvinsi'] 	= $this->M_instansi->select_provinsi_by_id($id);
+		//$data['dataProvinsi'] 	= $this->M_instansi->select_provinsi_by_id($id);
+		$data['dataProvinsi'] 	= $this->M_instansi->select_provinsi_by_vmap($id);
 		$data['dataInstansi'] 	= $this->M_instansi->select_instansi_by_provinsi($id);
 		$data['page'] 			= "instansi";
 		$data['judul'] 			= "Instansi Pemda Per Provinsi";

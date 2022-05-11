@@ -36,6 +36,7 @@ class Home extends AUTH_Controller {
 		$data['sel_map'] 				= $this->M_tmpi->select_maplv3();
 		$data['sel_map2'] 				= $this->M_tmpi->select_maplv2();
 		$data['sel_map_status'] 		= $this->M_csirt->select_map_status();
+		$data['sel_vmap_code'] 			= $this->M_csirt->select_map_code();
 
 		$data['page'] 			= "home";
 		$data['judul'] 			= "Beranda";

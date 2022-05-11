@@ -31,9 +31,18 @@ class M_instansi extends CI_Model {
 		return $data->row();
 	}
 
+	public function select_provinsi_by_vmap($id)
+	{
+		$sql = "SELECT nama FROM wilayah_provinsi WHERE code_vmap = '{$id}'";
+
+		$data = $this->db->query($sql);
+
+		return $data->row();
+	}
+
 	public function select_instansi_by_provinsi($id)
 	{
-		$sql = "SELECT Nama_Instansi FROM instansi JOIN wilayah_provinsi ON instansi.Provinsi = wilayah_provinsi.id WHERE wilayah_provinsi.id = '{$id}'";
+		$sql = "SELECT Nama_Instansi FROM instansi JOIN wilayah_provinsi ON instansi.Provinsi = wilayah_provinsi.id WHERE wilayah_provinsi.code_vmap = '{$id}'";
 
 		$data = $this->db->query($sql);
 

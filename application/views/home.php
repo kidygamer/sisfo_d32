@@ -34,78 +34,22 @@
           }
       },
       onRegionClick: function(event, code, region){
-        console.log(region);
-        if(region == 'Aceh'){
-          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/1'); ?>";
-        }else if(region == 'Sumatera Utara'){
-          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/2'); ?>";
-        }else if(region == 'Sumatera Barat'){
-          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/6'); ?>";
-        }else if(region == 'Riau'){
-          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/3'); ?>";
-        }else if(region == 'Jambi'){
-          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/5'); ?>";
-        }else if(region == 'Sumatera Selatan'){
-          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/7'); ?>";
-        }else if(region == 'Bengkulu'){
-          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/9'); ?>";
-        }else if(region == 'Lampung'){
-          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/8'); ?>";
-        }else if(region == 'Kep. Bangka Belitung'){
-          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/10'); ?>";
-        }else if(region == 'Kep. Riau'){
-          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/4'); ?>";
-        }else if(region == 'DKI Jakarta'){
-          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/13'); ?>";
-        }else if(region == 'Jawa Barat'){
-          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/12'); ?>";
-        }else if(region == 'Jawa Tengah'){
-          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/14'); ?>";
-        }else if(region == 'Banten'){
-          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/11'); ?>";
-        }else if(region == 'Jawa Timur'){
-          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/16'); ?>";
-        }else if(region == 'Yogyakarta'){
-          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/15'); ?>";
-        }else if(region == 'Bali'){
-          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/17'); ?>";
-        }else if(region == 'Nusa Tenggara Barat'){
-          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/18'); ?>";
-        }else if(region == 'Nusa Tenggara Timur'){
-          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/19'); ?>";
-        }else if(region == 'Kalimantan Barat'){
-          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/20'); ?>";
-        }else if(region == 'Kalimantan Tengah'){
-          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/21'); ?>";
-        }else if(region == 'Kalimantan Selatan'){
-          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/22'); ?>";
-        }else if(region == 'Kalimantan Utara'){
-          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/23'); ?>";
-        }else if(region == 'Kalimantan Timur'){
-          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/24'); ?>";
-        }else if(region == 'Sulawesi Utara'){
-          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/25'); ?>";
-        }else if(region == 'Gorontalo'){
-          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/26'); ?>";
-        }else if(region == 'Sulawesi Barat'){
-          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/27'); ?>";
-        }else if(region == 'Sulawesi Selatan'){
-          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/28'); ?>";
-        }else if(region == 'Sulawesi Tengah'){
-          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/29'); ?>";
-        }else if(region == 'Sulawesi Tenggara'){
-          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/30'); ?>";
-        }else if(region == 'Maluku'){
-          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/31'); ?>";
-        }else if(region == 'Maluku Utara'){
-          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/32'); ?>";
-        }else if(region == 'Papua'){
-          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/33'); ?>";
-        }else if(region == 'Papua Barat'){
-          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/34'); ?>";
+        console.log(code);
+        var map_code = [
+            <?php
+            foreach ($sel_vmap_code as $map_code) {
+            echo '"';
+            echo $map_code->code_vmap;
+            echo '",';
+            }  
+          ?>
+        ];
+        if(map_code.indexOf(code) !== -1){
+          window.location.href ="<?php echo base_url('Instansi/instansi_by_prov/'); ?>"+code;
         }else{
-          window.location.href ="<?php echo base_url('Home'); ?>";
+           window.location.href ="<?php echo base_url('Home'); ?>";
         }
+        
       }
       });
 

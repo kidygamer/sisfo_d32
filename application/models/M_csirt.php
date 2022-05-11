@@ -28,6 +28,17 @@ class M_csirt extends CI_Model {
 		return $data->result();
 	}
 
+	public function select_map_code() {
+		$this->db->select('code_vmap');
+		$this->db->from('wilayah_provinsi a');
+		$this->db->join('instansi b', 'a.id = b.Provinsi');
+		$this->db->like('b.Nama_Instansi', 'Provinsi', 'both');
+
+		$data = $this->db->get();
+
+		return $data->result();
+	}
+
 	public function select_by_id($id) {
 		$sql = "SELECT * FROM csirt WHERE Id_CSIRT = '{$id}'";
 
