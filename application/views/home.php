@@ -212,18 +212,18 @@
   <div class="col-lg-12 col-xs-12">
     <div class="box box-info">
       <div class="box-header with-border">
-        <i class="fa fa-briefcase"></i>
-        <h3 class="box-title">Data Pesebaran TMPI INDONESIA</h3>
+        <i class="fa fa-map"></i>
+        <h3 class="box-title">PETA INDONESIA</h3>
         
         <div class="box-tools pull-right">
           <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
           </button>
-          <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
         </div>
       </div>
       <div class="box-body">
 
         <div id="vmap" style="height: 600px;">
+        <div style= "width:100px; height:25px; background-color:#999966; top:15px; left:25px; position:relative; float:left; text-align:center;"><strong> LEVEL TMPI : </strong></div>
         <div style= "width:60px; height:25px; background-color:#7FFF00; top:15px; left:35px; position:relative; float:left; text-align:center; border-radius: 25px;"><strong> Level 1 </strong></div>
         <div style= "width:60px; height:25px; background-color:#ff6600; top:15px; left:45px; position:relative; float:left; text-align:center; border-radius: 25px;"><strong> Level 2 </strong></div>
         <div style= "width:60px; height:25px; background-color:#FF0000; top:15px; left:55px; position:relative; float:left; text-align:center; border-radius: 25px;"><strong> Level 3 </strong></div>
@@ -236,7 +236,7 @@
   <div class="col-lg-6 col-xs-12">
     <div class="box box-info">
       <div class="box-header with-border">
-        <i class="fa fa-briefcase"></i>
+        <i class="fa fa-pie-chart"></i>
         <h3 class="box-title">CSIRT <small>Provinsi</small></h3>
 
         <div class="box-tools pull-right">
@@ -254,7 +254,7 @@
   <div class="col-lg-6 col-xs-12">
     <div class="box box-primary">
       <div class="box-header with-border">
-        <i class="fa fa-briefcase"></i>
+        <i class="fa fa-pie-chart"></i>
         <h3 class="box-title">CSIRT <small>Kab./Kota</small></h3>
 
         <div class="box-tools pull-right">
@@ -272,7 +272,7 @@
   <div class="col-lg-12 col-xs-12">
     <div class="box box-info">
       <div class="box-header with-border">
-        <i class="fa fa-briefcase"></i>
+        <i class="fa fa-bar-chart"></i>
         <h3 class="box-title">TMPI 2019<small></small></h3>
 
         <div class="box-tools pull-right">
@@ -290,7 +290,7 @@
   <div class="col-lg-6 col-xs-12">
     <div class="box box-info">
       <div class="box-header with-border">
-        <i class="fa fa-briefcase"></i>
+        <i class="fa fa-bar-chart"></i>
         <h3 class="box-title">TMPI 2020: <small><b><?php echo $jml_tmpi20; ?> Provinsi</b></small></h3>
 
         <div class="box-tools pull-right">
@@ -308,7 +308,7 @@
   <div class="col-lg-6 col-xs-12">
     <div class="box box-info">
       <div class="box-header with-border">
-        <i class="fa fa-briefcase"></i>
+        <i class="fa fa-bar-chart"></i>
         <h3 class="box-title">TMPI 2021: <small><b><?php echo $jml_tmpi21; ?> Provinsi</b></small></h3>
 
         <div class="box-tools pull-right">
@@ -326,7 +326,7 @@
    <div class="col-lg-6 col-xs-12">
     <div class="box box-info">
       <div class="box-header with-border">
-        <i class="fa fa-briefcase"></i>
+        <i class="fa fa-pie-chart"></i>
         <h3 class="box-title">Laporan Persandian Provinsi</h3>
 
         <div class="box-tools pull-right">
@@ -344,7 +344,7 @@
   <div class="col-lg-6 col-xs-12">
     <div class="box box-info">
       <div class="box-header with-border">
-        <i class="fa fa-briefcase"></i>
+        <i class="fa fa-bar-chart"></i>
         <h3 class="box-title">Laporan Persandian Kab.Kota</h3>
 
         <div class="box-tools pull-right">
@@ -358,10 +358,10 @@
     </div>
   </div>
 
-  <div class="col-lg-11 col-xs-12">
+  <div class="col-lg-12 col-xs-12">
     <div class="box box-info">
       <div class="box-header with-border">
-        <i class="fa fa-briefcase"></i>
+        <i class="fa fa-bar-chart"></i>
         <h3 class="box-title">Cyber Security Maturity <small>Data CSM <b><?php echo $jml_csm; ?></b></small></h3>
 
         <div class="box-tools pull-right">
@@ -381,7 +381,7 @@
  <!--  <div class="col-lg-6 col-xs-12">
     <div class="box box-info">
       <div class="box-header with-border">
-        <i class="fa fa-briefcase"></i>
+        <i class="fa fa-bar-chart"></i>
         <h3 class="box-title">IKAMI <small>Jawa Barat</small></h3>
 
         <div class="box-tools pull-right">
@@ -641,7 +641,7 @@ var pieChartCanvas = $("#pieChart").get(0).getContext("2d");
               <?php
         foreach ($val_csm as $valcsm) {
           echo '"';
-          echo $valcsm->Lv_Kematangan;
+          echo $valcsm->Skor;
           echo '",';
         }  
       ?>
