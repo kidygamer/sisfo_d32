@@ -28,8 +28,8 @@
     <table id="list-data" class="table table-bordered table-striped">
       <thead>
         <tr>
-          <th>#</th>
-          <th style="width:25%">Nama Instansi</th>
+          <th style="width:5%"><center>#</center></th>
+          <th style="width:25%"><center>Nama Instansi</center></th>
           <th><center>Tahun</center></th>
           <th><center>Nilai TMPI</center></th>
           <th><center>Level</center></th>          
@@ -54,6 +54,7 @@
               <td><center><?php echo $tmpi->Nilai_TMPI ?></center></td>
               <td><center><?php echo $tmpi->Level ?></center></td>
               <td>
+                <center>
                 <?php
                     if ($tmpi->Dokumen==NUlL) {
                         echo "Belum Diunggah";
@@ -63,6 +64,7 @@
                 <?php
                     }
                 ?>
+                </center>
               </td>
               
                 <?php 

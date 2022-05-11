@@ -28,8 +28,8 @@
     <table id="list-data" class="table table-bordered table-striped">
       <thead>
         <tr>
-          <th>#</th>
-          <th>Nama Instansi</th>
+          <th style="width:5%"><center>#</center></th>
+          <th><center>Nama Instansi</center></th>
           <th><center>Nama CSIRT</center></th>
           <th><center>Detail</center></th>
           <th><center>Dokumen</center></th>
@@ -46,22 +46,26 @@
           foreach ($dataCsirt as $csirt) {
             ?>
             <tr>
-              <td><?php echo $no; ?></td>
+              <td><center><?php echo $no; ?></center></td>
               <td><?php echo $csirt->Nama_Instansi; ?></td>
               <td><center><?php echo $csirt->Nama_CSIRT ?></center></td>
               <td>
-                <a href="#" data-toggle="modal" data-target="#detailModal<?=$csirt->Id_CSIRT?>" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-eye-open"></i> Lihat</a>
+                <center>
+                  <a href="#" data-toggle="modal" data-target="#detailModal<?=$csirt->Id_CSIRT?>" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-eye-open"></i> Lihat</a>
+                </center>
               </td>
               <td>
-                <?php
-                    if ($csirt->Dokumen==NUlL) {
-                        echo "Belum Diunggah";
-                    }else{
-                ?>
-                    <a target="_blank" href="<?= base_url('assets')?>/pdf_files/csirt/<?= $csirt->Dokumen?>" class="btn btn-success btn-sm"><center><i class="glyphicon glyphicon-download"></i>Download</center></a>
-                <?php
-                    }
-                ?>
+                <center>
+                  <?php
+                      if ($csirt->Dokumen==NUlL) {
+                          echo "Belum Diunggah";
+                      }else{
+                  ?>
+                      <a target="_blank" href="<?= base_url('assets')?>/pdf_files/csirt/<?= $csirt->Dokumen?>" class="btn btn-success btn-sm"><center><i class="glyphicon glyphicon-download"></i>Download</center></a>
+                  <?php
+                      }
+                  ?>
+                </center>
               </td>
               
                 <?php 

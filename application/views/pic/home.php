@@ -25,12 +25,12 @@
     <table id="list-data" class="table table-bordered table-striped">
       <thead>
         <tr>
-          <th>#</th>
-          <th>Kategori</th>
-          <th>Instansi</th>
-          <th>Nama PIC</th>
-          <th>Nomor HP</th>
-          <th style="text-align: center;">Aksi</th>
+          <th style="width:5%"><center>#</center></th>
+          <th><center>Kategori</center></th>
+          <th><center>Instansi</center></th>
+          <th><center>Nama PIC</center></th>
+          <th><center>Nomor HP</center></th>
+          <th><center>Aksi</center></th>
         </tr>
       </thead>
       <tbody id="data-instansi">
@@ -39,7 +39,7 @@
           foreach ($dataPic as $pic) {
             ?>
             <tr>
-              <td><?php echo $no; ?></td>
+              <td><center><?php echo $no; ?></center></td>
               <td><?php echo $pic->Kategori; ?></td>
               <td><?php echo $pic->Nama_Instansi; ?></td>
               <td><?php echo $pic->Nama_PIC; ?></td>

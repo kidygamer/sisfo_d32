@@ -28,12 +28,12 @@
     <table id="list-data" class="table table-bordered table-striped">
       <thead>
         <tr>
-          <th>#</th>
-          <th>Nama Instansi</th>
+          <th style="width:5%"><center>#</center></th>
+          <th><center>Nama Instansi</center></th>
           <th><center>Tahun</center></th>
           <th><center>Hasil</center></th>          
-          <th>Detail</th>
-          <th>Dokumen</th>
+          <th><center>Detail</center></th>
+          <th><center>Dokumen</center></th>
             <?php 
                 if (($userdata->role == 'administrator' || $userdata->unit == 'D322') && $userdata->role != 'pimpinan') {
                     echo "<th style='text-align: center;width: 5%;'>Aksi</th>";
@@ -47,23 +47,27 @@
           foreach ($dataIkami as $ikami) {
             ?>
             <tr>
-              <td><?php echo $no; ?></td>
+              <td><center><?php echo $no; ?></center></td>
               <td><?php echo $ikami->Nama_Instansi; ?></td>
               <td><center><?php echo $ikami->Tahun ?></center></td>
               <td><center><?php echo $ikami->Hasil_IKAMI ?></center></td>
               <td>
-                <a href="#" data-toggle="modal" data-target="#detailModal<?=$ikami->Id_IKAMI?>" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-eye-open"></i> Lihat</a>
+                <center>
+                    <a href="#" data-toggle="modal" data-target="#detailModal<?=$ikami->Id_IKAMI?>" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-eye-open"></i> Lihat</a>
+                </center>
               </td>
               <td>
-                <?php
-                    if ($ikami->Dokumen==NUlL) {
-                        echo "Belum Diunggah";
-                    }else{
-                ?>
-                    <a target="_blank" href="<?= base_url('assets')?>/pdf_files/ikami/<?= $ikami->Dokumen?>" class="btn btn-success btn-sm"><center><i class="glyphicon glyphicon-download"></i>Download</center></a>
-                <?php
-                    }
-                ?>
+                <center>
+                    <?php
+                        if ($ikami->Dokumen==NUlL) {
+                            echo "Belum Diunggah";
+                        }else{
+                    ?>
+                        <a target="_blank" href="<?= base_url('assets')?>/pdf_files/ikami/<?= $ikami->Dokumen?>" class="btn btn-success btn-sm"><center><i class="glyphicon glyphicon-download"></i>Download</center></a>
+                    <?php
+                        }
+                    ?>
+                </center>
               </td>
               
                 <?php 

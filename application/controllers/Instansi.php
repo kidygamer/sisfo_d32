@@ -21,12 +21,15 @@ class Instansi extends AUTH_Controller {
 
 	public function instansi_by_prov($id)
 	{
+		$data['userdata'] 		= $this->userdata;
+		$data['dataProvinsi'] 	= $this->M_instansi->select_provinsi_by_id($id);
 		$data['dataInstansi'] 	= $this->M_instansi->select_instansi_by_provinsi($id);
-		$data['page'] 		= "instansi";
-		$data['judul'] 		= "Data Instansi Pemda Per Provinsi";
-		$data['deskripsi'] 	= "Manage Data Instansi Pemda";
+		$data['page'] 			= "instansi";
+		$data['judul'] 			= "Instansi Pemda Per Provinsi";
+		$data['deskripsi'] 		= "";
 
-		print_r($data['dataInstansi']);
+		//print_r($data['dataInstansi']);
+		$this->template->views('instansi/instansi_by_prov', $data);
 
 	}
 

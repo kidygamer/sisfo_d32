@@ -28,12 +28,12 @@
     <table id="list-data" class="table table-bordered table-striped">
       <thead>
         <tr>
-          <th>#</th>
-          <th>Nama Instansi</th>
+          <th style="width:5%"><center>#</center></th>
+          <th><center>Nama Instansi</center></th>
           <th><center>Tahun</center></th>
           <th><center>Skor</center></th>
           <th><center>Level Kematangan</center></th>          
-          <th>Dokumen</th>
+          <th><center>Dokumen</center></th>
             <?php 
                 if (($userdata->role == 'administrator' || $userdata->unit == 'D322') && $userdata->role != 'pimpinan') {
                     echo "<th style='text-align: center;width: 5%;'>Aksi</th>";
@@ -47,21 +47,23 @@
           foreach ($dataCsm as $csm) {
             ?>
             <tr>
-              <td><?php echo $no; ?></td>
+              <td><center><?php echo $no; ?></center></td>
               <td><?php echo $csm->Nama_Instansi; ?></td>
               <td><center><?php echo $csm->Tahun ?></center></td>
               <td><center><?php echo $csm->Skor ?></center></td>
               <td><center><?php echo $csm->Lv_Kematangan ?></center></td>
               <td>
-                <?php
-                    if ($csm->Dokumen==NUlL) {
-                        echo "Belum Diunggah";
-                    }else{
-                ?>
-                    <a target="_blank" href="<?= base_url('assets')?>/pdf_files/csm/<?= $csm->Dokumen?>" class="btn btn-success btn-sm"><center><i class="glyphicon glyphicon-download"></i>Download</center></a>
-                <?php
-                    }
-                ?>
+                <center>
+                    <?php
+                        if ($csm->Dokumen==NUlL) {
+                            echo "Belum Diunggah";
+                        }else{
+                    ?>
+                        <a target="_blank" href="<?= base_url('assets')?>/pdf_files/csm/<?= $csm->Dokumen?>" class="btn btn-success btn-sm"><center><i class="glyphicon glyphicon-download"></i>Download</center></a>
+                    <?php
+                        }
+                    ?>
+                </center>
               </td>
               
                 <?php 

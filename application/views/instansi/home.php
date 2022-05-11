@@ -31,10 +31,10 @@
     <table id="list-data" class="table table-bordered table-striped">
       <thead>
         <tr>
-          <th>#</th>
-          <th>Nama Instansi</th>
-          <th>Provinsi</th>
-          <th style="text-align: center;">Detail</th>
+          <th style="width:5%"><center>#</center></th>
+          <th><center>Nama Instansi</center></th>
+          <th><center>Provinsi</center></th>
+          <th><center>Detail</center></th>
         </tr>
       </thead>
       <tbody id="data-instansi">
@@ -43,7 +43,7 @@
           foreach ($dataInstansi as $instansi) {
             ?>
             <tr>
-              <td><?php echo $no; ?></td>
+              <td style="width:5%"><center><?php echo $no; ?></center></td>
               <td><?php echo $instansi->Nama_Instansi; ?></td>
               <td><?php echo $instansi->nama; ?></td>
               <td class="text-center" style="min-width:230px;">

@@ -44,15 +44,15 @@ class Home extends AUTH_Controller {
 		
 	}
 
-	public function editor()
-	{
-		echo "Ini page editor";
-	}
+	// public function editor()
+	// {
+	// 	echo "Ini page editor";
+	// }
 
-	public function pimpinan()
-	{
-		echo "Ini page pimpinan";
-	}
+	// public function pimpinan()
+	// {
+	// 	echo "Ini page pimpinan";
+	// }
 }
 
 /* End of file Home.php */

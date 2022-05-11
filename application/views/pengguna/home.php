@@ -24,10 +24,10 @@
     <table id="list-data" class="table table-bordered table-striped">
       <thead>
         <tr>
-          <th>#</th>
-          <th>Username</th>
-          <th>Nama</th>
-          <th style="text-align: center;">Aksi</th>
+          <th style="width:5%"><center>#</center></th>
+          <th><center>Username</center></th>
+          <th><center>Nama</center></th>
+          <th><center>Aksi</center></th>
         </tr>
       </thead>
       <tbody id="data-instansi">
@@ -36,7 +36,7 @@
           foreach ($dataPengguna as $user) {
             ?>
             <tr>
-              <td><?php echo $no; ?></td>
+              <td><center><?php echo $no; ?></center></td>
               <td><?php echo $user->username; ?></td>
               <td><?php echo $user->nama ?></td>
               <td class="text-center" style="min-width:230px;">
@@ -69,7 +69,7 @@
                 <div class="modal-body">
                 	<table class="table table-striped">
                 		<tr><td><b>Nama</b></td><td><?= $value->nama ?></td></tr>
-                		<tr><td><b>nip</b></td><td><?= $value->nip ?></td></tr>
+                		<tr><td><b>NIP</b></td><td><?= $value->nip ?></td></tr>
                 		<tr><td><b>Jabatan</b></td><td><?= $value->jabatan ?></td></tr>
                         <tr><td><b>Sub-unit</b></td><td><?= $value->unit ?></td></tr>
                 		<tr><td><b>Email</b></td><td><?= $value->email ?></td></tr>

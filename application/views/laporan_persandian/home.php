@@ -28,11 +28,11 @@
     <table id="list-data" class="table table-bordered table-striped">
       <thead>
         <tr>
-          <th>#</th>
-          <th>Nama Instansi</th>
-          <th>Tahun</th>
-          <th>Detail</th>
-          <th>Dokumen</th>
+          <th style="width:5%"><center>#</center></th>
+          <th><center>Nama Instansi</center></th>
+          <th><center>Tahun</center></th>
+          <th><center>Detail</center></th>
+          <th><center>Dokumen</center></th>
             <?php 
                 if (($userdata->role == 'administrator' || $userdata->unit == 'D321') && $userdata->role != 'pimpinan') {
                     echo "<th style='text-align: center;width: 5%;'>Aksi</th>";
@@ -46,22 +46,26 @@
           foreach ($dataLaporan_Persandian as $lapsan) {
             ?>
             <tr>
-              <td><?php echo $no; ?></td>
+              <td><center><?php echo $no; ?></center></td>
               <td><?php echo $lapsan->Nama_Instansi; ?></td>
-              <td><?php echo $lapsan->Tahun ?></td>
+              <td><center><?php echo $lapsan->Tahun ?></center></td>
               <td>
-              	<a href="#" data-toggle="modal" data-target="#detailModal<?=$lapsan->Id_LapSan?>" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-eye-open"></i> Lihat</a>
+                <center>
+              	 <a href="#" data-toggle="modal" data-target="#detailModal<?=$lapsan->Id_LapSan?>" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-eye-open"></i> Lihat</a>
+                </center>
               </td>
               <td>
-                <?php
-                    if ($lapsan->Dokumen==NUlL) {
-                        echo "Belum Diunggah";
-                    }else{
-                ?>
-                    <a target="_blank" href="<?= base_url('assets')?>/pdf_files/laporan_persandian/<?= $lapsan->Dokumen?>" class="btn btn-success btn-sm"><center><i class="glyphicon glyphicon-download"></i>Download</center></a>
-                <?php
-                    }
-                ?>
+                <center>
+                    <?php
+                        if ($lapsan->Dokumen==NUlL) {
+                            echo "Belum Diunggah";
+                        }else{
+                    ?>
+                        <a target="_blank" href="<?= base_url('assets')?>/pdf_files/laporan_persandian/<?= $lapsan->Dokumen?>" class="btn btn-success btn-sm"><center><i class="glyphicon glyphicon-download"></i>Download</center></a>
+                    <?php
+                        }
+                    ?>
+                </center>
               </td>
               
                 <?php 
