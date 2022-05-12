@@ -9,4 +9,20 @@
 
   <!-- nav -->
   <?php echo @$_nav; ?>
+  <style type="text/css">
+    .image-cropper {
+      width: 100px;
+      height: 100px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 50%;
+    }
+
+    .rounded {
+      display: inline;
+      margin: 0 auto;
+      height: 100%;
+      width: auto;
+    }
+  </style>
 </header>

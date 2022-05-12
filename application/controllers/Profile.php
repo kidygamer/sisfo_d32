@@ -28,7 +28,6 @@ class Profile extends AUTH_Controller {
 		
 		if ($this->form_validation->run() == TRUE) {
 
-			
 	        //upload configuration
 	        $new_name = "ProfilePicture-".$data['userdata']->username;
 			$config['upload_path'] = "./assets/img";
@@ -39,9 +38,22 @@ class Profile extends AUTH_Controller {
 
 	        //upload file to directory
 	        if ($this->upload->do_upload('foto')) {
-				$file_foto = $this->upload->data();
+	        	$file_foto = $this->upload->data();
 
-				$profile_picture = $file_foto['file_name'];
+	        	$config['image_library']='gd2';
+                $config['source_image']='./assets/img/'.$file_foto['file_name'];
+                $config['create_thumb']= TRUE;
+                $config['maintain_ratio']= FALSE;
+                $config['quality']= '75%';
+               	$config['x_axis'] = 100;
+				$config['y_axis'] = 60;
+                $config['new_image']= './assets/img/'.$file_foto['file_name'];
+                $this->load->library('image_lib', $config);
+                $this->image_lib->crop();
+ 
+                $avatar=$file_foto['file_name'];
+
+				$profile_picture = $avatar;
 			}else {
 				$profile_picture = $this->input->post('recent_foto');
 			}

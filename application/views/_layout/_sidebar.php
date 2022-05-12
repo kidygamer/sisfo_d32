@@ -5,13 +5,13 @@
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel">
       <div class="pull-left image">
-        <?php if ($userdata->foto==NUlL) {
+       <?php if ($userdata->foto==NUlL) {
           ?>
             <img src="<?php echo base_url(); ?>assets/img/ProfilePicture-1.jpg" class="user-image" alt="User Image">
           <?php
           }else{
           ?>
-            <img  src="<?php echo base_url(); ?>assets/img/<?php echo $userdata->foto; ?>" class="user-image" alt="User Image">
+             <img src="<?php echo base_url(); ?>assets/img/<?php echo $userdata->foto; ?>" class="user-image" alt="User Image">
           <?php
           } ?>
       </div>
