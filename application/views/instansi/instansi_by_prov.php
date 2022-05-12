@@ -15,6 +15,7 @@
         <tr>
           <th>#</th>
           <th>Nama Instansi</th>
+          <th>Detail</th>
         </tr>
       </thead>
       <tbody id="data-instansi">
@@ -25,6 +26,9 @@
             <tr>
               <td style="width:5%; text-align: center;"><?php echo $no; ?></td>
               <td><?php echo $instansi->Nama_Instansi; ?></td>
+              <td>
+                <a href="<?php echo base_url('Instansi/detail_grand/'.$instansi->Id_Instansi); ?>" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-eye-open"></i> Detail</a>
+              </td>
             </tr>
             <?php
             $no++;
