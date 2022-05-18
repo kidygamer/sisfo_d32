@@ -24,5 +24,20 @@
       height: 100%;
       width: auto;
     }
+
+    .image-cropper2 {
+      width: 50px;
+      height: 50px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 50%;
+    }
+
+    .rounded2 {
+      display: inline;
+      margin: 0 auto;
+      height: 100%;
+      width: auto;
+    }
   </style>
 </header>

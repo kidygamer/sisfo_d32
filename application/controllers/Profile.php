@@ -42,7 +42,7 @@ class Profile extends AUTH_Controller {
 
 	        	$config['image_library']='gd2';
                 $config['source_image']='./assets/img/'.$file_foto['file_name'];
-                $config['create_thumb']= TRUE;
+                $config['create_thumb']= FALSE;
                 $config['maintain_ratio']= FALSE;
                 $config['quality']= '75%';
                	$config['x_axis'] = 100;
