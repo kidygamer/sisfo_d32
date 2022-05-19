@@ -73,12 +73,18 @@
                 ?>
                       <td class="text-center" style="min-width:230px;">
                         <a href="#" data-toggle="modal" data-target="#updateModal<?=$csirt->Id_CSIRT?>" class="btn btn-warning btn-sm"><i class="glyphicon glyphicon-repeat"></i> Update</a>
-                        <a href="#" data-toggle="modal" data-target="#deleteModal<?=$csirt->Id_CSIRT?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</a> 
+                        <?php 
+                          if ($userdata->role == 'administrator'){
+                        ?>
+                            <a href="#" data-toggle="modal" data-target="#deleteModal<?=$csirt->Id_CSIRT?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</a> 
+                        <?php
+                          }
+                        ?>                        
                       </td>
                 <?php
                     }
                 ?>   
-              </td>
+              
             </tr>
             <?php
             $no++;

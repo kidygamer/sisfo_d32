@@ -72,7 +72,13 @@
                 ?>  
                         <td class="text-center" style="min-width:230px;">
                             <a href="#" data-toggle="modal" data-target="#updateModal<?=$tmpi->Id_TMPI?>" class="btn btn-warning btn-sm"><i class="glyphicon glyphicon-repeat"></i> Update</a>
-                            <a href="#" data-toggle="modal" data-target="#deleteModal<?=$tmpi->Id_TMPI?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</a>
+                            <?php 
+                              if ($userdata->role == 'administrator'){
+                            ?>
+                                <a href="#" data-toggle="modal" data-target="#deleteModal<?=$tmpi->Id_TMPI?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</a>  
+                            <?php
+                              }
+                            ?> 
                         </td>
                 <?php
                     } 

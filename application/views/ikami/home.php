@@ -74,12 +74,19 @@
                     if (($userdata->role == 'administrator' || $userdata->unit == 'D322') && $userdata->role != 'pimpinan') {
                 ?>
                         <td class="text-center" style="min-width:230px;">
-                            <a href="#" data-toggle="modal" data-target="#updateModal<?=$ikami->Id_IKAMI?>" class="btn btn-warning btn-sm"><i class="glyphicon glyphicon-repeat"></i> Update</a>
-                            <a href="#" data-toggle="modal" data-target="#deleteModal<?=$ikami->Id_IKAMI?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</a>   
+                            <a href="#" data-toggle="modal" data-target="#updateModal<?=$ikami->Id_IKAMI?>" class="btn btn-warning btn-sm"><i class="glyphicon glyphicon-repeat"></i> Update</a> 
+                            <?php 
+                              if ($userdata->role == 'administrator'){
+                            ?>
+                                <a href="#" data-toggle="modal" data-target="#deleteModal<?=$ikami->Id_IKAMI?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</a>  
+                            <?php
+                              }
+                            ?>  
+                        </td> 
                 <?php
                     }
                 ?>   
-              </td>
+              
             </tr>
             <?php
             $no++;
