@@ -61,7 +61,7 @@
                           echo "Belum Diunggah";
                       }else{
                   ?>
-                      <a target="_blank" href="<?= base_url('assets')?>/pdf_files/csirt/<?= $csirt->Dokumen?>" class="btn btn-success btn-sm"><center><i class="glyphicon glyphicon-download"></i>Download</center></a>
+                      <a href="<?= base_url('assets')?>/pdf_files/csirt/<?= $csirt->Dokumen?>" download="<?php echo "CSIRT-".$csirt->Nama_Instansi."-".$csirt->Tahun?>" class="btn btn-success btn-sm"><center><i class="glyphicon glyphicon-download"></i>Unduh</center></a>
                   <?php
                       }
                   ?>

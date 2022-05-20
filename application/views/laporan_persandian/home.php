@@ -61,7 +61,7 @@
                             echo "Belum Diunggah";
                         }else{
                     ?>
-                        <a target="_blank" href="<?= base_url('assets')?>/pdf_files/laporan_persandian/<?= $lapsan->Dokumen?>" class="btn btn-success btn-sm"><center><i class="glyphicon glyphicon-download"></i>Download</center></a>
+                        <a href="<?= base_url('assets')?>/pdf_files/laporan_persandian/<?= $lapsan->Dokumen?>" download="<?php echo "Laporan Persandian-".$lapsan->Nama_Instansi."-".$lapsan->Tahun?>" class="btn btn-success btn-sm"><center><i class="glyphicon glyphicon-download"></i>Unduh</center></a>
                     <?php
                         }
                     ?>

@@ -60,7 +60,7 @@
                         echo "Belum Diunggah";
                     }else{
                 ?>
-                    <a target="_blank" href="<?= base_url('assets')?>/pdf_files/tmpi/<?= $tmpi->Dokumen?>" class="btn btn-success btn-sm"><center><i class="glyphicon glyphicon-download"></i>Download</center></a>
+                    <a target="_blank" href="<?= base_url('assets')?>/pdf_files/tmpi/<?= $tmpi->Dokumen?>" class="btn btn-success btn-sm"><center><i class="glyphicon glyphicon-download"></i>Unduh</center></a>
                 <?php
                     }
                 ?>

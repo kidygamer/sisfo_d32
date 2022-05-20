@@ -62,8 +62,8 @@
                         if ($ikami->Dokumen==NUlL) {
                             echo "Belum Diunggah";
                         }else{
-                    ?>
-                        <a target="_blank" href="<?= base_url('assets')?>/pdf_files/ikami/<?= $ikami->Dokumen?>" class="btn btn-success btn-sm"><center><i class="glyphicon glyphicon-download"></i>Download</center></a>
+                    ?>                        
+                        <a href="<?= base_url('assets')?>/pdf_files/ikami/<?= $ikami->Dokumen?>" download="<?php echo "Ikami-".$ikami->Nama_Instansi."-".$ikami->Tahun?>" class="btn btn-success btn-sm"><center><i class="glyphicon glyphicon-download"></i>Unduh</center></a>
                     <?php
                         }
                     ?>
