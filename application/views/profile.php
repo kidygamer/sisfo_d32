@@ -35,7 +35,7 @@
   <div class="col-md-9">
     <div class="nav-tabs-custom">
       <ul class="nav nav-tabs">
-        <li class="active"><a href="#settings" data-toggle="tab">Settings</a></li>
+        <li class="active"><a href="#settings" data-toggle="tab">Ubah Username</a></li>
         <li><a href="#password" data-toggle="tab">Ubah Password</a></li>
       </ul>
       <div class="tab-content">
@@ -48,7 +48,7 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="inputNama" class="col-sm-2 control-label">Name</label>
+              <label for="inputNama" class="col-sm-2 control-label">Nama</label>
               <div class="col-sm-10">
                 <input type="text" class="form-control" placeholder="Name" name="nama" value="<?php echo $userdata->nama; ?>">
               </div>

@@ -49,7 +49,7 @@
           <!-- Menu Footer-->
           <li class="user-footer">
             <div class="pull-left">
-              <a href="<?php echo base_url('Profile'); ?>" class="btn btn-default btn-flat">Profile</a>
+              <a href="<?php echo base_url('Profile'); ?>" class="btn btn-default btn-flat">Edit Profile</a>
             </div>
             <div class="pull-right">
               <a href="<?php echo base_url('Auth/logout'); ?>" class="btn btn-default btn-flat">Sign out</a>
