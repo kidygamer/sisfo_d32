@@ -44,7 +44,7 @@
             <div class="form-group">
               <label for="inputUsername" class="col-sm-2 control-label">Username</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id= placeholder="Username" name="username" value="<?php echo $userdata->username; ?>">
+                <input type="text" class="form-control" id= placeholder='Username' name="username" value="<?php echo $userdata->username; ?>">
               </div>
             </div>
             <div class="form-group">
