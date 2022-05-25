@@ -27,7 +27,7 @@ class Pic extends AUTH_Controller {
 	        array(
 	                'field' => 'Nama_PIC',
 	                'label' => 'Nama',
-	                'rules' => 'required|max_length[50]|regex_match[/^([a-z ])+$/i]'
+	                'rules' => 'required|max_length[50]'
 	        ),
 	        array(
 	                'field' => 'Nomor_HP',
@@ -73,7 +73,7 @@ class Pic extends AUTH_Controller {
 	        array(
 	                'field' => 'Nama_PIC',
 	                'label' => 'Nama',
-	                'rules' => 'required|max_length[50]|regex_match[/^([a-z ])+$/i]'
+	                'rules' => 'required|max_length[50]'
 	        ),
 	        array(
 	                'field' => 'Nomor_HP',
