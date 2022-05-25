@@ -119,11 +119,19 @@
                                 <label for="Kategori"><strong>Kategori PIC</strong></label>
                                 <select name="Kategori" placeholder="Pilih" required>
                                     <option value="">--Pilih--</option>
-                                    <option value="Csirt">Csirt</option>
-                                    <option value="CSM">CSM</option>
-                                    <option value="IKAMI">IKAMI</option>
-                                    <option value="Laporan Persandian">Laporan Persandian</option>
-                                    <option value="TMPI">TMPI</option>
+                                    <?php 
+                                        if ($userdata->unit == 'D323' && $userdata->role != 'pimpinan') {
+                                    ?>
+                                            <option value="Csirt">Csirt</option>
+                                            <option value="TMPI">TMPI</option>
+                                    <?php }else if ($userdata->unit == 'D322' && $userdata->role != 'pimpinan') {
+                                    ?>
+                                            <option value="CSM">CSM</option>
+                                            <option value="IKAMI">IKAMI</option>
+                                    <?php }else if ($userdata->unit == 'D321' && $userdata->role != 'pimpinan') { ?>
+                                            <option value="Laporan Persandian">Laporan Persandian</option>
+                                    <?php }?>
+                                                                                  
                                 </select>
                             </div>    
                         </div>
