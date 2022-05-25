@@ -50,7 +50,7 @@
             <div class="form-group">
               <label for="inputNama" class="col-sm-2 control-label">Nama</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" placeholder="Name" name="nama" value="<?php echo $userdata->nama; ?>">
+                <input type="text" class="form-control" placeholder="Nama" name="nama" value="<?php echo $userdata->nama; ?>">
               </div>
             </div>
             <div class="form-group">

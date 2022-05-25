@@ -25,7 +25,7 @@ class Pengguna extends AUTH_Controller {
 	        array(
 	                'field' => 'nama',
 	                'label' => 'Nama',
-	                'rules' => 'required|max_length[50]|regex_match[/^([a-z ])+$/i]'
+	                'rules' => 'required|max_length[50]'
 	        ),
 	        array(
 	                'field' => 'nip',
@@ -99,7 +99,7 @@ class Pengguna extends AUTH_Controller {
 	        array(
 	                'field' => 'nama',
 	                'label' => 'Nama',
-	                'rules' => 'required|max_length[50]|regex_match[/^([a-z ])+$/i]'
+	                'rules' => 'required|max_length[50]'
 	        ),
 	        array(
 	                'field' => 'nip',
