@@ -11,7 +11,7 @@ class Auth extends CI_Controller {
 	public function index() {
 		$session = $this->session->userdata('status');
 		$vals = [
-            'word'          => substr(str_shuffle('1234567890'), 0, 6),
+            'word'          => substr(str_shuffle('123456789'), 0, 6),
             'img_path'      => './assets/img/captcha/',
             'img_url'       => base_url('assets/img/captcha/'),
             'img_width'     => '150',
@@ -73,7 +73,7 @@ class Auth extends CI_Controller {
 			}else{
 				$this->session->set_flashdata('error_msg', 'Captcha Salah');
 				redirect('Auth');
-				//"salah".$post_code."<br>".$captcha;
+				//echo "salah".$post_code."<br>".$captcha;
 			}
 
 			
@@ -84,6 +84,11 @@ class Auth extends CI_Controller {
 	}
 
 	public function logout() {
+		// $data['userdata'] 		= $this->session()->id;
+		// $id = $data['userdata']->id;
+		// echo $id;
+		// $dateTime = date("Y-m-d H:i:s"); 
+  //   	$this->M_auth->updateLogoutTime($dateTime);
 		$this->session->sess_destroy();
 		redirect('Auth');
 	}

@@ -117,24 +117,40 @@
                         <div class="col-sm-6">
                            <div class="form-group">
                                 <label for="Kategori"><strong>Kategori PIC</strong></label>
-                                <select name="Kategori" placeholder="Pilih" required>
-                                    <option value="">--Pilih--</option>
-
-                                    <?php                                          
-                                            if ($userdata->unit == 'D323' && ($userdata->role == 'editor' || $userdata->role == 'administrator')) {
-                                        ?>
-                                                <option value="Csirt">Csirt</option>
-                                                <option value="TMPI">TMPI</option>
-                                        <?php }else if ($userdata->unit == 'D322' && ($userdata->role == 'editor' || $userdata->role == 'administrator'))  {
-                                        ?>
-                                                <option value="CSM">CSM</option>
-                                                <option value="IKAMI">IKAMI</option>
-                                        <?php }else if ($userdata->unit == 'D321' && ($userdata->role == 'editor' || $userdata->role == 'administrator'))  { ?>
-                                                <option value="Laporan Persandian">Laporan Persandian</option>
-                                        <?php }
-                                    ?>
-                                                                                  
-                                </select>
+                                <?php 
+                                    if ($userdata->role == 'administrator') {
+                                ?>
+                                    <select name="Kategori" placeholder="Pilih" required>
+                                         <option value="">--Pilih--</option>
+                                         <option value="Laporan Persandian">Laporan Persandian</option>
+                                         <option value="CSM">CSM</option>
+                                         <option value="IKAMI">IKAMI</option>
+                                         <option value="Csirt">Csirt</option>
+                                         <option value="TMPI">TMPI</option>
+                                    </select>
+                                <?php
+                                    }else{
+                                ?>
+                                    <select name="Kategori" placeholder="Pilih" required>
+                                        <option value="">--Pilih--</option>
+                                            <?php                                          
+                                                if ($userdata->unit == 'D323' && $userdata->role == 'editor') {
+                                            ?>
+                                                    <option value="Csirt">Csirt</option>
+                                                    <option value="TMPI">TMPI</option>
+                                            <?php }else if ($userdata->unit == 'D322' && $userdata->role == 'editor')  {
+                                            ?>
+                                                    <option value="CSM">CSM</option>
+                                                    <option value="IKAMI">IKAMI</option>
+                                            <?php }else if ($userdata->unit == 'D321' && $userdata->role == 'editor')  { ?>
+                                                    <option value="Laporan Persandian">Laporan Persandian</option>
+                                            <?php }
+                                        ?>                                                                                  
+                                    </select>
+                                <?php
+                                    }
+                                ?>
+                                
                             </div>    
                         </div>
                     </div>
@@ -203,14 +219,38 @@
                         <div class="col-sm-6">
                            <div class="form-group">
                                 <label for="Kategori"><strong>Kategori PIC</strong></label>
-                                <select name="Kategori" placeholder="Pilih" required>
-                                    <option value="">--Pilih--</option>
-                                    <option value="Csirt" <?php if ($value->Kategori == "Csirt") : ?> selected<?php endif; ?>>Csirt</option>
-                                    <option value="CSM" <?php if ($value->Kategori == "CSM") : ?> selected<?php endif; ?>>CSM</option>
-                                    <option value="IKAMI" <?php if ($value->Kategori == "IKAMI") : ?> selected<?php endif; ?>>IKAMI</option>
-                                    <option value="Laporan Persandian" <?php if ($value->Kategori == "Laporan Persandian") : ?> selected<?php endif; ?>>Laporan Persandian</option>
-                                    <option value="TMPI" <?php if ($value->Kategori == "TMPI") : ?> selected<?php endif; ?>>TMPI</option>
-                                </select>
+                                <?php 
+                                    if ($userdata->role == 'administrator') {
+                                ?>
+                                    <select name="Kategori" placeholder="Pilih" required>
+                                        <option value="Csirt" <?php if ($value->Kategori == "Csirt") : ?> selected<?php endif; ?>>Csirt</option>
+                                        <option value="CSM" <?php if ($value->Kategori == "CSM") : ?> selected<?php endif; ?>>CSM</option>
+                                        <option value="IKAMI" <?php if ($value->Kategori == "IKAMI") : ?> selected<?php endif; ?>>IKAMI</option>
+                                        <option value="Laporan Persandian" <?php if ($value->Kategori == "Laporan Persandian") : ?> selected<?php endif; ?>>Laporan Persandian</option>
+                                        <option value="TMPI" <?php if ($value->Kategori == "TMPI") : ?> selected<?php endif; ?>>TMPI</option>
+                                    </select>
+                                <?php
+                                    }else{
+                                ?>
+                                    <select name="Kategori" placeholder="Pilih" required>
+                                            <?php                                          
+                                                if ($userdata->unit == 'D323' && $userdata->role == 'editor') {
+                                            ?>
+                                                    <option value="Csirt" <?php if ($value->Kategori == "Csirt") : ?> selected<?php endif; ?>>Csirt</option>
+                                                    <option value="TMPI" <?php if ($value->Kategori == "TMPI") : ?> selected<?php endif; ?>>TMPI</option>
+                                            <?php }else if ($userdata->unit == 'D322' && $userdata->role == 'editor')  {
+                                            ?>
+                                                    <option value="CSM" <?php if ($value->Kategori == "CSM") : ?> selected<?php endif; ?>>CSM</option>
+                                                    <option value="IKAMI" <?php if ($value->Kategori == "IKAMI") : ?> selected<?php endif; ?>>IKAMI</option>
+                                            <?php }else if ($userdata->unit == 'D321' && $userdata->role == 'editor')  { ?>
+                                                    <option value="Laporan Persandian" <?php if ($value->Kategori == "Laporan Persandian") : ?> selected<?php endif; ?>>Laporan Persandian</option>
+                                            <?php }
+                                        ?>                                                                                  
+                                    </select>
+                                <?php
+                                    }
+                                ?>
+                                
                             </div>  
                         </div>
                     </div>
@@ -240,7 +280,7 @@
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Anda yakin menghapus data PIC <?=  $value->Kategori ?> instansi <b><?=  $value->Nama_Instansi ?></b>?</div>
+                <div class="modal-body">Anda yakin menghapus data <b>PIC <?=  $value->Kategori ?></b> instansi <b><?=  $value->Nama_Instansi ?></b>?</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Batalkan</button>
                     <a href="<?= base_url('Pic/archieve/' . $value->Id_PIC) ?>" class="btn btn-danger">Hapus</a>

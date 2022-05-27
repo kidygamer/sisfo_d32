@@ -15,6 +15,17 @@ class M_auth extends CI_Model {
 			return false;
 		}
 	}
+
+	// public function updateLogoutTime($dateTime="") {
+ //      $data = array(
+ //             'last_logout' => $dateTime,
+ //      );
+ //      $userId = $this->session->userdata('id');
+ //      $this->db->where('id', $userId);
+ //      $this->db->update('admin' ,$data);
+ //      return $this->db->affected_rows();
+	// }
+
 }
 
 /* End of file M_auth.php */
