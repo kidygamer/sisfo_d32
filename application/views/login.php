@@ -45,6 +45,11 @@
             <input type="password" class="form-control" placeholder="Password" name="password">
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
           </div>
+          <div class="form-group has-feedback">
+             <?=$captcha?><br/>
+            <input type="text" class="form-control" name="captcha">
+            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+          </div>
           <div class="row">
             <!-- <div class="col-xs-8">
               <div class="checkbox icheck">

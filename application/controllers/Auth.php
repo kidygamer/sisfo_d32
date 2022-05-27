@@ -4,17 +4,42 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Auth extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
+		$this->load->helper('captcha');
 		$this->load->model('M_auth');
 	}
 	
 	public function index() {
 		$session = $this->session->userdata('status');
+		$vals = [
+            'word'          => substr(str_shuffle('1234567890'), 0, 6),
+            'img_path'      => './assets/img/captcha/',
+            'img_url'       => base_url('assets/img/captcha/'),
+            'img_width'     => '150',
+            'img_height'    => 30,
+            'expiration'    => 7200,
+            'word_length'   => 8,
+            'font_size'     => 16,
+            'img_id'        => 'Imageid',
+            'pool'          => '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ',
+    
+            'colors'        => [
+                    'background'=> [255, 255, 255],
+                    'border'    => [255, 255, 255],
+                    'text'      => [0, 0, 0],
+                    'grid'      => [255, 40, 40]
+                ]
+            ];
 
-		if ($session == '') {
-			$this->load->view('login');
-		} else {
-			redirect('Home');
-		}
+        $captcha = create_captcha($vals);
+
+	    $this->session->set_userdata('captcha', $captcha['word']);
+	    $this->load->view('login', ['captcha' => $captcha['image']]);
+
+		// if ($session == '') {
+		// 	$this->load->view('login');
+		// } else {
+		// 	redirect('Home');
+		// }
 	}
 
 	public function login() {
@@ -22,31 +47,36 @@ class Auth extends CI_Controller {
 		$this->form_validation->set_rules('password', 'Password', 'required');
 
 		if ($this->form_validation->run() == TRUE) {
-			$username = $this->input->post('username');
-			$password = $this->input->post('password');
+			$username = $this->security->xss_clean($this->input->post('username'));
+			$password = $this->security->xss_clean($this->input->post('password'));
+			$post_code  = $this->input->post('captcha');
+	    	$captcha    = $this->session->userdata('captcha');
 
 			$data = $this->M_auth->login($username);
 			$password_db = $data->password;
 
-			if (password_verify($password, $password_db)) {
-				$session = [
-					'userdata' => $data,
-					'status' => "Loged in"
-				];
-				$this->session->set_userdata($session);
+			if ($post_code && ($post_code == $captcha)) {
+				//echo "benar".$post_code."<br>".$captcha;
+				if (password_verify($password, $password_db)) {
+					$session = [
+						'userdata' => $data,
+						'status' => "Loged in"
+					];
+					$this->session->set_userdata($session);
 
-				if ($session['userdata']->role == 'administrator') {
 					redirect('Home');
-				}else if ($session['userdata']->role == 'editor') {
-					redirect('Home');
-				} else {
-					redirect('Home');
-				}	
-				
-			} else {				
-				$this->session->set_flashdata('error_msg', 'Username / Password Anda Salah.');
+					
+				} else {				
+					$this->session->set_flashdata('error_msg', 'Username / Password Anda Salah.');
+					redirect('Auth');
+				}
+			}else{
+				$this->session->set_flashdata('error_msg', 'Captcha Salah');
 				redirect('Auth');
+				//"salah".$post_code."<br>".$captcha;
 			}
+
+			
 		} else {
 			$this->session->set_flashdata('error_msg', validation_errors());
 			redirect('Auth');

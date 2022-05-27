@@ -119,18 +119,20 @@
                                 <label for="Kategori"><strong>Kategori PIC</strong></label>
                                 <select name="Kategori" placeholder="Pilih" required>
                                     <option value="">--Pilih--</option>
-                                    <?php 
-                                        if ($userdata->unit == 'D323' && $userdata->role != 'pimpinan') {
+
+                                    <?php                                          
+                                            if ($userdata->unit == 'D323' && ($userdata->role == 'editor' || $userdata->role == 'administrator')) {
+                                        ?>
+                                                <option value="Csirt">Csirt</option>
+                                                <option value="TMPI">TMPI</option>
+                                        <?php }else if ($userdata->unit == 'D322' && ($userdata->role == 'editor' || $userdata->role == 'administrator'))  {
+                                        ?>
+                                                <option value="CSM">CSM</option>
+                                                <option value="IKAMI">IKAMI</option>
+                                        <?php }else if ($userdata->unit == 'D321' && ($userdata->role == 'editor' || $userdata->role == 'administrator'))  { ?>
+                                                <option value="Laporan Persandian">Laporan Persandian</option>
+                                        <?php }
                                     ?>
-                                            <option value="Csirt">Csirt</option>
-                                            <option value="TMPI">TMPI</option>
-                                    <?php }else if ($userdata->unit == 'D322' && $userdata->role != 'pimpinan') {
-                                    ?>
-                                            <option value="CSM">CSM</option>
-                                            <option value="IKAMI">IKAMI</option>
-                                    <?php }else if ($userdata->unit == 'D321' && $userdata->role != 'pimpinan') { ?>
-                                            <option value="Laporan Persandian">Laporan Persandian</option>
-                                    <?php }?>
                                                                                   
                                 </select>
                             </div>    
@@ -238,7 +240,7 @@
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Anda yakin menghapus data instansi <b><?=  $value->Nama_Instansi ?></b>?</div>
+                <div class="modal-body">Anda yakin menghapus data PIC <?=  $value->Kategori ?> instansi <b><?=  $value->Nama_Instansi ?></b>?</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Batalkan</button>
                     <a href="<?= base_url('Pic/archieve/' . $value->Id_PIC) ?>" class="btn btn-danger">Hapus</a>
