@@ -84,11 +84,11 @@ class Auth extends CI_Controller {
 	}
 
 	public function logout() {
-		// $data['userdata'] 		= $this->session()->id;
-		// $id = $data['userdata']->id;
-		// echo $id;
-		// $dateTime = date("Y-m-d H:i:s"); 
-  //   	$this->M_auth->updateLogoutTime($dateTime);
+		$data['userdata'] 		= $this->session->userdata['userdata'];
+		$id = $data['userdata']->id;
+		//print_r($id);
+		$dateTime = date("Y-m-d H:i:s"); 
+    	$this->M_auth->updateLogoutTime($id,$dateTime);
 		$this->session->sess_destroy();
 		redirect('Auth');
 	}

@@ -16,15 +16,13 @@ class M_auth extends CI_Model {
 		}
 	}
 
-	// public function updateLogoutTime($dateTime="") {
- //      $data = array(
- //             'last_logout' => $dateTime,
- //      );
- //      $userId = $this->session->userdata('id');
- //      $this->db->where('id', $userId);
- //      $this->db->update('admin' ,$data);
- //      return $this->db->affected_rows();
-	// }
+	public function updateLogoutTime($id,$dateTime) {
+		$sql = "UPDATE admin SET last_logout='" .$dateTime ."' WHERE id='" .$id."'";
+
+		$this->db->query($sql);
+
+		return $this->db->affected_rows();
+	}
 
 }
 
