@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 24, 2022 at 10:04 AM
+-- Generation Time: May 30, 2022 at 04:40 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -38,7 +38,7 @@ CREATE TABLE `admin` (
   `unit` enum('D32','D321','D322','D323') DEFAULT NULL,
   `email` varchar(100) NOT NULL,
   `foto` varchar(255) DEFAULT NULL,
-  `last_logout` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `last_logout` timestamp NULL DEFAULT NULL,
   `archieved` enum('0','1','','') NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -47,11 +47,11 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `username`, `password`, `role`, `nama`, `nip`, `jabatan`, `unit`, `email`, `foto`, `last_logout`, `archieved`) VALUES
-(1, 'admin_master', '$2y$10$HLzu/Pt2OcUKIFhp2zY/iujfSC9OUng/H/.BcE.Nd/QTx0I8C4tCa', 'administrator', 'MasterAdmin', '123456789012345678', 'Pengolah Data', 'D321', 'dummy@gmail.com', 'ProfilePicture-admin_master1.jpg', '2022-05-18 02:31:07', '0'),
+(1, 'admin_master', '$2y$10$HLzu/Pt2OcUKIFhp2zY/iujfSC9OUng/H/.BcE.Nd/QTx0I8C4tCa', 'administrator', 'MasterAdmin', '123456789012345678', 'Pengolah Data', 'D321', 'dummy@gmail.com', 'ProfilePicture-admin_master1.jpg', '2022-05-30 00:45:32', '0'),
 (2, 'editor_jane', '$2y$10$.k.8q1bk36DP2SLeQCjwguD6z7P1N.TooD22QQrzEQiWXdorZyHoK', 'editor', 'Jane Doe', '199909092022031009', 'Pengolah Data', 'D322', 'jane@gmail.com', NULL, '2022-04-22 02:37:26', '1'),
 (9, 'editor_jim', '$2y$10$EFiGq8To7nS3guM15Aq3GeBwOPY3/hf8S4bGtwLmh8epzU5tCscSm', 'editor', 'Jim Doe', '199707072022031003', 'Pengolah Data', 'D323', 'jim@gmail.com', NULL, '2022-04-14 03:05:50', '0'),
 (10, 'editor_yanti', '$2y$10$24P21XSEN4FmNUHPgi5p1.B8WTQlfeO2ZRXNCZWYnfWMtmx3fp6/2', 'editor', 'Siti Maryanti', '199505042022032006', 'Pengolah Data', 'D323', 'siti.maryanti@gmail.com', 'ProfilePicture-editor_yanti1.jpeg', '2022-05-12 08:23:58', '0'),
-(11, 'editor_dian', '$2y$10$2gZMwFwvd61NXk974EeVTejlXnLkVDRT04c45C04lobyM9Qtubj9C', 'editor', 'Rosdiana', '199306062022032002', 'Pengolah Data Keamanan', 'D322', 'rwonna4@gmail.com', 'ProfilePicture-editor_dian.jpg', '2022-05-19 02:02:19', '0'),
+(11, 'editor_dian', '$2y$10$2gZMwFwvd61NXk974EeVTejlXnLkVDRT04c45C04lobyM9Qtubj9C', 'editor', 'Rosdiana', '199306062022032002', 'Pengolah Data Keamanan', 'D322', 'rwonna4@gmail.com', 'ProfilePicture-editor_dian.jpg', '2022-05-30 00:43:00', '0'),
 (12, 'korpok_james', '$2y$10$zW0iaVW75kVav8CcS/V39.A92I/yqV7TCbkYA3tCQ0jJeNV7xg3Ha', 'pimpinan', 'James Doe', '197001011990011001', 'Korpok', 'D321', 'james@gmail.com', NULL, '2022-04-24 18:27:07', '0');
 
 -- --------------------------------------------------------
@@ -1156,7 +1156,7 @@ ALTER TABLE `laporan_persandian`
 -- AUTO_INCREMENT for table `pic_instansi`
 --
 ALTER TABLE `pic_instansi`
-  MODIFY `Id_PIC` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `Id_PIC` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `tmpi`
