@@ -13,6 +13,42 @@ class M_pic extends CI_Model {
 		return $data->result();
 	}
 
+	public function select_all_picD321() {
+		$this->db->select('*');
+		$this->db->from('pic_instansi a');
+		$this->db->join('instansi b', 'a.Id_Instansi = b.Id_Instansi');
+		$this->db->where('a.archieved', '0');
+		$this->db->where('a.Kategori','Laporan Persandian');
+
+		$data = $this->db->get();
+
+		return $data->result();
+	}
+
+	public function select_all_picD322() {
+		$this->db->select('*');
+		$this->db->from('pic_instansi a');
+		$this->db->join('instansi b', 'a.Id_Instansi = b.Id_Instansi');
+		$this->db->where('a.archieved', '0');
+		$this->db->where("(a.Kategori='CSM' OR a.Kategori='IKAMI')", NULL, FALSE);
+
+		$data = $this->db->get();
+
+		return $data->result();
+	}
+
+	public function select_all_picD323() {
+		$this->db->select('*');
+		$this->db->from('pic_instansi a');
+		$this->db->join('instansi b', 'a.Id_Instansi = b.Id_Instansi');
+		$this->db->where('a.archieved', '0');
+		$this->db->where("(a.Kategori='CSIRT' OR a.Kategori='TMPI')", NULL, FALSE);
+
+		$data = $this->db->get();
+
+		return $data->result();
+	}
+
 	public function select_by_id($id) {
 		$sql = "SELECT * FROM pic WHERE Id_pic = '{$id}'";
 

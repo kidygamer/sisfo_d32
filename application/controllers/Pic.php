@@ -10,7 +10,20 @@ class Pic extends AUTH_Controller {
 
 	public function index() {
 		$data['userdata'] 	= $this->userdata;
-		$data['dataPic'] 	= $this->M_pic->select_all();
+		$unit = $data['userdata']->unit;
+		// echo $unit;
+		if ($unit=="D321") {
+			$data['dataPic'] 	= $this->M_pic->select_all_picD321();
+		}else if($unit=="D322"){
+			$data['dataPic'] 	= $this->M_pic->select_all_picD322();
+		}else if($unit=="D323"){
+			$data['dataPic'] 	= $this->M_pic->select_all_picD323();
+		}
+
+		if ($data['userdata']->role == "administrator") {
+			$data['dataPic'] 	= $this->M_pic->select_all();
+		}
+		
 		$data['dataInstansi'] 	= $this->M_instansi->select_all();
 
 		$data['page'] 		= "pic";
@@ -18,6 +31,7 @@ class Pic extends AUTH_Controller {
 		$data['deskripsi'] 	= "Manage Data PIC Instansi Pemda";
 
 		$this->template->views('pic/home', $data);
+		
 	}
 
 
