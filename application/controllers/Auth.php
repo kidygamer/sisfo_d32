@@ -16,7 +16,7 @@ class Auth extends CI_Controller {
             'img_url'       => base_url('assets/img/captcha/'),
             'img_width'     => '150',
             'img_height'    => 30,
-            'expiration'    => 1800,
+            'expiration'    => 300,
             'word_length'   => 8,
             'font_size'     => 16,
             'img_id'        => 'Imageid',

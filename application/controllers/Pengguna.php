@@ -16,7 +16,12 @@ class Pengguna extends AUTH_Controller {
 		$data['judul'] 		= "Data Pengguna Aplikasi";
 		$data['deskripsi'] 	= "Manage Data Pengguna";
 
-		$this->template->views('pengguna/home', $data);
+		if($data['userdata']->role =='administrator'){
+			$this->template->views('pengguna/home', $data);
+	    }else{
+			echo "Anda tidak berhak mengakses halaman ini";
+	    }
+		
 	}
 
 	public function prosesTambah() {

@@ -17,7 +17,12 @@ class CSIRT extends AUTH_Controller {
 		$data['judul'] 		= "Data CSIRT";
 		$data['deskripsi'] 	= "Manage Data CSIRT";
 
-		$this->template->views('csirt/home', $data);
+	    if($data['userdata']->unit =='D323' || $data['userdata']->role =='pimpinan'|| $data['userdata']->role =='administrator'){
+	    	$this->template->views('csirt/home', $data);
+	    }else{
+			echo "Anda tidak berhak mengakses halaman ini";
+	    }
+
 	}
 
 	public function prosesTambah() {
