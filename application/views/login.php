@@ -23,65 +23,67 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+  
   </head>
-  <body class="hold-transition login-page">
-    <div class="login-box">
-      <div class="login-logo">
-       <b>D32 Databse System</b> 0.1
-      </div>
+  <body style="background-image: url('<?php echo base_url(); ?>assets/img/bg-img.jpg');-moz-background-size: cover;-webkit-background-size: cover;-o-background-size: cover;background-size: cover;">
 
-      <!-- /.login-logo -->
-      <div class="login-box-body">
-        <p class="login-box-msg">
-          Log in to start your session
-        </p>
+        <div class="login-box">
+          <div class="login-logo" style="color:#ffffff">
+           <b>DASIS.PEMDA</b> v.0.1
+          </div>
 
-        <form action="<?php echo base_url('Auth/login'); ?>" method="post">
-          <div class="form-group has-feedback">
-            <input type="text" class="form-control" placeholder="Username" name="username">
-            <span class="glyphicon glyphicon-user form-control-feedback"></span>
-          </div>
-          <div class="form-group has-feedback">
-            <input type="password" class="form-control" placeholder="Password" name="password">
-            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-          </div>
-          <div class="form-group has-feedback">
-             <?=$captcha?><br/>
-            <input type="text" class="form-control" placeholder="Kode Captcha" name="captcha">
-          </div>
-          <div class="row">
-            <!-- <div class="col-xs-8">
-              <div class="checkbox icheck">
-                <label>
-                  <input type="checkbox"> Remember Me
-                </label>
+          <!-- /.login-logo -->
+          <div class="login-box-body">
+            <p class="login-box-msg">
+              Log in to start your session
+            </p>
+
+            <form action="<?php echo base_url('Auth/login'); ?>" method="post">
+              <div class="form-group has-feedback">
+                <input type="text" class="form-control" placeholder="Username" name="username">
+                <span class="glyphicon glyphicon-user form-control-feedback"></span>
               </div>
+              <div class="form-group has-feedback">
+                <input type="password" class="form-control" placeholder="Password" name="password">
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+              </div>
+              <div class="form-group has-feedback">
+                 <?=$captcha?><br/>
+                <input type="text" class="form-control" placeholder="Kode Captcha" name="captcha">
+              </div>
+              <div class="row">
+                <!-- <div class="col-xs-8">
+                  <div class="checkbox icheck">
+                    <label>
+                      <input type="checkbox"> Remember Me
+                    </label>
+                  </div>
+                </div> -->
+                <div class="col-xs-offset-8 col-xs-4">
+                  <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                </div>
+              </div>
+            </form>
+
+            <!-- <div class="social-auth-links text-center">
+              <p>- OR -</p>
+              <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using
+                Facebook</a>
+              <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using
+                Google+</a>
             </div> -->
-            <div class="col-xs-offset-8 col-xs-4">
-              <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
-            </div>
+            <!-- /.social-auth-links -->
+
+            <!-- <a href="#">I forgot my password</a><br>
+            <a href="register.html" class="text-center">Register a new membership</a> -->
+
           </div>
-        </form>
+          <!-- /.login-box-body -->
+          <?php
+            echo show_err_msg($this->session->flashdata('error_msg'));
+          ?>
+        </div>
 
-        <!-- <div class="social-auth-links text-center">
-          <p>- OR -</p>
-          <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using
-            Facebook</a>
-          <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using
-            Google+</a>
-        </div> -->
-        <!-- /.social-auth-links -->
-
-        <!-- <a href="#">I forgot my password</a><br>
-        <a href="register.html" class="text-center">Register a new membership</a> -->
-
-      </div>
-      <!-- /.login-box-body -->
-      <?php
-        echo show_err_msg($this->session->flashdata('error_msg'));
-      ?>
-    </div>
-    
 
     <!-- /.login-box -->
 
