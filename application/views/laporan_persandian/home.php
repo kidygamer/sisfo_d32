@@ -31,8 +31,15 @@
           <th style="width:5%"><center>#</center></th>
           <th><center>Nama Instansi</center></th>
           <th><center>Tahun</center></th>
+          <th><center>Nilai Evaluasi Garsan</center></th>
           <th><center>Detail</center></th>
-          <th><center>Dokumen</center></th>
+          <?php 
+                if ( $userdata->role != 'pimpinan') {
+           ?>
+                  <th><center>Dokumen</center></th> 
+           <?php
+                }
+          ?> 
             <?php 
                 if (($userdata->role == 'administrator' || $userdata->unit == 'D321') && $userdata->role != 'pimpinan') {
                     echo "<th style='text-align: center;width: 5%;'>Aksi</th>";
@@ -49,24 +56,40 @@
               <td><center><?php echo $no; ?></center></td>
               <td><?php echo $lapsan->Nama_Instansi; ?></td>
               <td><center><?php echo $lapsan->Tahun ?></center></td>
+              <td><center><?php echo empty($value->Nilai_Eval) ? "-" : $value->Nilai_Eval; ?></center></td>
               <td>
                 <center>
               	 <a href="#" data-toggle="modal" data-target="#detailModal<?=$lapsan->Id_LapSan?>" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-eye-open"></i> Lihat</a>
                 </center>
               </td>
-              <td>
-                <center>
-                    <?php
-                        if ($lapsan->Dokumen==NUlL) {
-                            echo "Belum Diunggah";
-                        }else{
-                    ?>
-                        <a href="<?= base_url('assets')?>/pdf_files/laporan_persandian/<?= $lapsan->Dokumen?>" download="<?php echo "Laporan Persandian-".$lapsan->Nama_Instansi."-".$lapsan->Tahun?>" class="btn btn-success btn-sm"><center><i class="glyphicon glyphicon-download"></i>Unduh</center></a>
-                    <?php
-                        }
-                    ?>
-                </center>
-              </td>
+              <?php 
+                if ( $userdata->role != 'pimpinan') {
+               ?>
+                       <td>
+                        <center>
+                            <?php
+                                if($lapsan->Dokumen==NUlL && $lapsan->Dokumen_Eval==NUlL){
+                                    echo "Belum Diunggah";
+                                }
+
+                                if ($lapsan->Dokumen!=NUlL) {
+                            ?>
+                                    <a href="<?= base_url('assets')?>/pdf_files/laporan_persandian/<?= $lapsan->Dokumen?>" download="<?php echo "Laporan Persandian-".$lapsan->Nama_Instansi."-".$lapsan->Tahun?>" class="btn btn-success btn-sm"><center><i class="glyphicon glyphicon-download"></i> Laporan</center></a>
+                            <?php
+                                }
+
+                                if ($lapsan->Dokumen_Eval!=NUlL) {
+                            ?>
+                                    <a href="<?= base_url('assets')?>/pdf_files/evaluasi_persandian/<?= $lapsan->Dokumen_Eval?>" download="<?php echo "Evaluasi Persandian-".$lapsan->Nama_Instansi."-".$lapsan->Tahun?>" class="btn btn-success btn-sm"><center><i class="glyphicon glyphicon-download"></i> Evaluasi</center></a>
+                            <?php
+                                }
+                            ?>
+                            
+                        </center>
+                      </td>
+               <?php
+                    }
+              ?>
               
                 <?php 
                     if (($userdata->role == 'administrator' || $userdata->unit == 'D321') && $userdata->role != 'pimpinan') {
@@ -108,6 +131,10 @@
                 </div>
                 <div class="modal-body">
                 	<table class="table table-striped">
+                        <tr>
+                            <td><b>Nilai Evaluasi Garsan</b></td>
+                            <td><?php echo empty($value->Nilai_Eval) ? "-" : $value->Nilai_Eval; ?></td>
+                        </tr>
                 		<tr>
                 			<td style="width:40%"><b>Jumlah SDM Persandian</b></td>
                 			<td><b><?php echo empty($value->Jml_SDM) ? "0" : $value->Jml_SDM; ?></b> orang</td>
@@ -261,10 +288,26 @@
                         </div>
                     </div>
                     <div class="form-group">
-                      <label for="Dokumen"><strong>Unggah Dokumen:</strong></label>
-                      <br>                      
-                      <input type="file" class="form-control" name="Dokumen"><br><small>*file format .pdf dengan ukuran maksimal 30Mb</small>
-                    </div>   
+                            <label for="Nilai_Eval"><strong>Nilai Evaluasi Garsan</strong></label>
+                            <input type="number" class="form-control" value="0" name="Nilai_Eval" aria-describedby="sizing-addon2" min="0">
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                              <label for="Dokumen"><strong>Unggah Dokumen Laporan Persandian:</strong></label>
+                              <br>                      
+                              <input type="file" class="form-control" name="Dokumen"><br><small>*file format .pdf dengan ukuran maksimal 30Mb</small>
+                            </div>  
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                              <label for="Dokumen"><strong>Unggah Dokumen Evaluasi Garsan:</strong></label>
+                              <br>                      
+                              <input type="file" class="form-control" name="Dokumen_Eval"><br><small>*file format .xls dengan ukuran maksimal 30Mb</small>
+                            </div>  
+                        </div>
+                    </div>
+                     
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Batalkan</button>
@@ -384,27 +427,54 @@
                             </div>
                         </div>
                     </div>
+                    <div class="form-group">
+                            <label for="Nilai_Eval"><strong>Nilai Evaluasi Garsan</strong></label>
+                            <input type="number" class="form-control" value="0" name="Nilai_Eval" aria-describedby="sizing-addon2" min="0" value="<?php echo empty($value->Nilai_Eval) ? "0" : $value->Nilai_Eval; ?>">
+                    </div>
+                    <div class="row">
+                        
+                        <div class="col-sm-6">
+                            <input type="hidden" name="recent_dokumen" value="<?php echo $value->Dokumen?>">
+                            <div class="form-group">
+                                <label for="Dokumen"><strong>Unggah Dokumen Laporan Persandian:</strong></label>
+                                <br>                      
+                                <input type="file" class="form-control" name="Dokumen"><br><small>*file format .pdf dengan ukuran maksimal 30Mb</small>      
+                            </div>
+                        </div>  
+                        
+                        <div class="col-sm-6">
+                            <input type="hidden" name="recent_dokumen_eval" value="<?php echo $value->Dokumen_Eval?>">
+                            <div class="form-group">
+                              <label for="Dokumen"><strong>Unggah Dokumen Evaluasi Garsan:</strong></label>
+                              <br>                      
+                              <input type="file" class="form-control" name="Dokumen_Eval"><br><small>*file format .xls dengan ukuran maksimal 30Mb</small>
+                            </div>  
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-sm-6">
                              <?php
                                 if ($value->Dokumen==NUlL) {
-                                    echo "Dokumen Belum Diunggah";
+                                    echo "Dokumen Laporan Belum Diunggah";
                                 }else{
                             ?>
                                <a target="_blank" href="<?= base_url('assets')?>/pdf_files/laporan_persandian/<?= $value->Dokumen?>"><img src="<?= base_url('assets')?>/img/PDF_icon.png" width="20%"><br><?= $value->Dokumen ?></a>
                             <?php
                                 }
-                            ?>
-                            
+                            ?>                            
                         </div>
                         <div class="col-sm-6">
-                            <input type="hidden" name="recent_dokumen" value="<?php echo $value->Dokumen?>">
-                            <div class="form-group">
-                              <label for="Dokumen"><strong>Unggah Dokumen:</strong></label>
-                              <br>                      
-                              <input type="file" class="form-control" name="Dokumen"><br><small>*file format .pdf dengan ukuran maksimal 30Mb</small>      
-                            </div>
+                             <?php
+                                if ($value->Dokumen_Eval==NUlL) {
+                                    echo "Dokumen Evaluasi Belum Diunggah";
+                                }else{
+                            ?>
+                               <a target="_blank" href="<?= base_url('assets')?>/pdf_files/evaluasi_persandian/<?= $value->Dokumen_Eval?>"><img src="<?= base_url('assets')?>/img/Excel_icon.png" width="20%"><br><?= $value->Dokumen_Eval ?></a>
+                            <?php
+                                }
+                            ?>                            
                         </div>
+                        
                     </div>
                 </div>
                 <div class="modal-footer">

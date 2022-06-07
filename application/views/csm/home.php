@@ -32,8 +32,14 @@
           <th><center>Nama Instansi</center></th>
           <th><center>Tahun</center></th>
           <th><center>Skor</center></th>
-          <th><center>Level Kematangan</center></th>          
-          <th><center>Dokumen</center></th>
+          <th><center>Level Kematangan</center></th>  
+           <?php 
+                if ( $userdata->role != 'pimpinan') {
+           ?>
+                  <th><center>Dokumen</center></th> 
+           <?php
+                }
+          ?> 
             <?php 
                 if (($userdata->role == 'administrator' || $userdata->unit == 'D322') && $userdata->role != 'pimpinan') {
                     echo "<th style='text-align: center;width: 5%;'>Aksi</th>";
@@ -52,19 +58,25 @@
               <td><center><?php echo $csm->Tahun ?></center></td>
               <td><center><?php echo $csm->Skor ?></center></td>
               <td><center><?php echo $csm->Lv_Kematangan ?></center></td>
-              <td>
-                <center>
-                    <?php
-                        if ($csm->Dokumen==NUlL) {
-                            echo "Belum Diunggah";
-                        }else{
-                    ?>
-                        <a href="<?= base_url('assets')?>/pdf_files/csm/<?= $csm->Dokumen?>" download="<?php echo "CSM-".$csm->Nama_Instansi."-".$csm->Tahun?>" class="btn btn-success btn-sm"><center><i class="glyphicon glyphicon-download"></i>Unduh</center></a>
-                    <?php
-                        }
-                    ?>
-                </center>
-              </td>
+               <?php 
+                if ( $userdata->role != 'pimpinan') {
+               ?>
+                       <td>
+                        <center>
+                          <?php
+                              if ($csm->Dokumen==NUlL) {
+                                  echo "Belum Diunggah";
+                              }else{
+                          ?>
+                              <a href="<?= base_url('assets')?>/pdf_files/csm/<?= $csm->Dokumen?>" download="<?php echo "CSM-".$csm->Nama_Instansi."-".$csm->Tahun?>" class="btn btn-success btn-sm"><center><i class="glyphicon glyphicon-download"></i>Unduh</center></a>
+                          <?php
+                              }
+                          ?>
+                        </center>
+                      </td>
+               <?php
+                    }
+              ?> 
               
                 <?php 
                     if (($userdata->role == 'administrator' || $userdata->unit == 'D322') && $userdata->role != 'pimpinan') {

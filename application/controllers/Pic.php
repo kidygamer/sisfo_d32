@@ -17,13 +17,13 @@ class Pic extends AUTH_Controller {
 		}else if($unit=="D322"){
 			$data['dataPic'] 	= $this->M_pic->select_all_picD322();
 		}else if($unit=="D323"){
-			$data['dataPic'] 	= $this->M_pic->select_all_picD323();
+			$data['dataPic'] = $this->M_pic->select_all_picD323();
 		}
 
 		if ($data['userdata']->role == "administrator") {
 			$data['dataPic'] 	= $this->M_pic->select_all();
 		}
-		
+
 		$data['dataInstansi'] 	= $this->M_instansi->select_all();
 
 		$data['page'] 		= "pic";
@@ -63,7 +63,7 @@ class Pic extends AUTH_Controller {
 					'Kategori' 		=> $this->input->post('Kategori'),
 					'Id_Instansi'	=> $this->security->xss_clean($this->input->post('Id_Instansi')),
 					'updated_by'=> $data['userdata']->username
-			];
+			]; 
 			
 			if($this->M_pic->insert($data)){
 				$this->session->set_flashdata('success', 'Data <strong>Berhasil</strong> Ditambahkan!');

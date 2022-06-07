@@ -32,12 +32,19 @@
           <th><center>Nama Instansi</center></th>
           <th><center>Nama CSIRT</center></th>
           <th><center>Detail</center></th>
-          <th><center>Dokumen</center></th>
-            <?php 
+          <?php 
+                if ( $userdata->role != 'pimpinan') {
+           ?>
+                  <th><center>Dokumen</center></th> 
+           <?php
+                }
+          ?> 
+
+          <?php 
                 if (($userdata->role == 'administrator' || $userdata->unit == 'D323') && $userdata->role != 'pimpinan') {
                   echo "<th style='text-align: center;width: 5%;'>Aksi</th>";
                 }
-            ?>           
+          ?>           
         </tr>
       </thead>
       <tbody id="data-instansi">
@@ -54,19 +61,26 @@
                   <a href="#" data-toggle="modal" data-target="#detailModal<?=$csirt->Id_CSIRT?>" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-eye-open"></i> Lihat</a>
                 </center>
               </td>
-              <td>
-                <center>
-                  <?php
-                      if ($csirt->Dokumen==NUlL) {
-                          echo "Belum Diunggah";
-                      }else{
-                  ?>
-                      <a href="<?= base_url('assets')?>/pdf_files/csirt/<?= $csirt->Dokumen?>" download="<?php echo "CSIRT-".$csirt->Nama_Instansi."-".$csirt->Tahun?>" class="btn btn-success btn-sm"><center><i class="glyphicon glyphicon-download"></i>Unduh</center></a>
-                  <?php
-                      }
-                  ?>
-                </center>
-              </td>
+              <?php 
+                if ( $userdata->role != 'pimpinan') {
+               ?>
+                       <td>
+                        <center>
+                          <?php
+                              if ($csirt->Dokumen==NUlL) {
+                                  echo "Belum Diunggah";
+                              }else{
+                          ?>
+                              <a href="<?= base_url('assets')?>/pdf_files/csirt/<?= $csirt->Dokumen?>" download="<?php echo "CSIRT-".$csirt->Nama_Instansi."-".$csirt->Tahun?>" class="btn btn-success btn-sm"><center><i class="glyphicon glyphicon-download"></i>Unduh</center></a>
+                          <?php
+                              }
+                          ?>
+                        </center>
+                      </td>
+               <?php
+                    }
+              ?> 
+             
               
                 <?php 
                     if (($userdata->role == 'administrator' || $userdata->unit == 'D323') && $userdata->role != 'pimpinan') {

@@ -32,8 +32,14 @@
           <th style="width:25%"><center>Nama Instansi</center></th>
           <th><center>Tahun</center></th>
           <th><center>Nilai TMPI</center></th>
-          <th><center>Level</center></th>          
-          <th>Dokumen</th>
+          <th><center>Level</center></th>   
+           <?php 
+                if ( $userdata->role != 'pimpinan') {
+           ?>
+                  <th><center>Dokumen</center></th> 
+           <?php
+                }
+          ?>      
            <?php 
                 if (($userdata->role == 'administrator' || $userdata->unit == 'D323') && $userdata->role != 'pimpinan') {
                     
@@ -53,19 +59,25 @@
               <td><center><?php echo $tmpi->Tahun ?></center></td>
               <td><center><?php echo $tmpi->Nilai_TMPI ?></center></td>
               <td><center><?php echo $tmpi->Level ?></center></td>
-              <td>
-                <center>
-                <?php
-                    if ($tmpi->Dokumen==NUlL) {
-                        echo "Belum Diunggah";
-                    }else{
-                ?>
-                    <a target="_blank" href="<?= base_url('assets')?>/pdf_files/tmpi/<?= $tmpi->Dokumen?>" class="btn btn-success btn-sm"><center><i class="glyphicon glyphicon-download"></i>Unduh</center></a>
-                <?php
+               <?php 
+                if ( $userdata->role != 'pimpinan') {
+               ?>
+                       <td>
+                        <center>
+                          <?php
+                              if ($tmpi->Dokumen==NUlL) {
+                                  echo "Belum Diunggah";
+                              }else{
+                          ?>
+                              <a target="_blank" href="<?= base_url('assets')?>/pdf_files/tmpi/<?= $tmpi->Dokumen?>" class="btn btn-success btn-sm"><center><i class="glyphicon glyphicon-download"></i>Unduh</center></a>
+                          <?php
+                              }
+                          ?>
+                        </center>
+                      </td>
+               <?php
                     }
-                ?>
-                </center>
-              </td>
+              ?>
               
                 <?php 
                     if (($userdata->role == 'administrator' || $userdata->unit == 'D323') && $userdata->role != 'pimpinan') {
