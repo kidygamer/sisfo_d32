@@ -50,7 +50,7 @@
         <li <?php if ($page == 'laporan_persandian') {echo 'class="active"';} ?>>
           <a href="<?php echo base_url('Laporan_Persandian'); ?>">
             <i class="fa fa-book"></i>
-            <span>Evaluasi Garsan</span>
+            <span>Evaluasi Laksan</span>
           </a>
         </li>
       <?php

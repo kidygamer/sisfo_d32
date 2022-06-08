@@ -31,7 +31,7 @@
           <th style="width:5%"><center>#</center></th>
           <th><center>Nama Instansi</center></th>
           <th><center>Tahun</center></th>
-          <th><center>Nilai Evaluasi Garsan</center></th>
+          <th><center>Nilai Evaluasi Laksan</center></th>
           <th><center>Detail</center></th>
           <?php 
                 if ( $userdata->role != 'pimpinan') {
@@ -132,7 +132,7 @@
                 <div class="modal-body">
                 	<table class="table table-striped">
                         <tr>
-                            <td><b>Nilai Evaluasi Garsan</b></td>
+                            <td><b>Nilai Evaluasi Laksan</b></td>
                             <td><?php echo empty($value->Nilai_Eval) ? "-" : $value->Nilai_Eval; ?></td>
                         </tr>
                 		<tr>
@@ -288,7 +288,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                            <label for="Nilai_Eval"><strong>Nilai Evaluasi Garsan</strong></label>
+                            <label for="Nilai_Eval"><strong>Nilai Evaluasi Laksan</strong></label>
                             <input type="number" class="form-control" value="0" name="Nilai_Eval" aria-describedby="sizing-addon2" min="0">
                     </div>
                     <div class="row">
@@ -301,7 +301,7 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                              <label for="Dokumen"><strong>Unggah Dokumen Evaluasi Garsan:</strong></label>
+                              <label for="Dokumen"><strong>Unggah Dokumen Evaluasi Laksan:</strong></label>
                               <br>                      
                               <input type="file" class="form-control" name="Dokumen_Eval"><br><small>*file format .xls dengan ukuran maksimal 30Mb</small>
                             </div>  
@@ -428,7 +428,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                            <label for="Nilai_Eval"><strong>Nilai Evaluasi Garsan</strong></label>
+                            <label for="Nilai_Eval"><strong>Nilai Evaluasi Laksan</strong></label>
                             <input type="number" class="form-control" value="0" name="Nilai_Eval" aria-describedby="sizing-addon2" min="0" value="<?php echo empty($value->Nilai_Eval) ? "0" : $value->Nilai_Eval; ?>">
                     </div>
                     <div class="row">
@@ -445,7 +445,7 @@
                         <div class="col-sm-6">
                             <input type="hidden" name="recent_dokumen_eval" value="<?php echo $value->Dokumen_Eval?>">
                             <div class="form-group">
-                              <label for="Dokumen"><strong>Unggah Dokumen Evaluasi Garsan:</strong></label>
+                              <label for="Dokumen"><strong>Unggah Dokumen Evaluasi Laksan:</strong></label>
                               <br>                      
                               <input type="file" class="form-control" name="Dokumen_Eval"><br><small>*file format .xls dengan ukuran maksimal 30Mb</small>
                             </div>  
