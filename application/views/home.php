@@ -5,8 +5,8 @@
           enableZoom: true,
           showTooltip: true,
           selectedColor: null,
-      backgroundColor: '#00008B',
-      color: '#7FFF00',
+      backgroundColor: '#3c8dbc',
+      color: '#FFFFFF',
       hoverColor: '#F8F8FF',
       legend:{
         horizontal: true,
@@ -55,9 +55,9 @@
 
     jQuery('#vmap').vectorMap('set','colors',{
       <?php
-              foreach ($sel_map as $codevmap) {
-              echo $codevmap->code_vmap;
-              echo ":'#FF0000',";
+              foreach ($sel_map3 as $codevmap3) {
+              echo $codevmap3->code_vmap;
+              echo ":'#29cc54',";
               }  
         ?>
     });
@@ -66,7 +66,16 @@
       <?php
               foreach ($sel_map2 as $codevmap2) {
               echo $codevmap2->code_vmap;
-              echo ":'#ff6600',";
+              echo ":'#faec2f',";
+              }  
+        ?>
+    });
+
+    jQuery('#vmap').vectorMap('set','colors',{
+      <?php
+              foreach ($sel_map1 as $codevmap1) {
+              echo $codevmap1->code_vmap;
+              echo ":'#eb1325',";
               }  
         ?>
     });
@@ -74,6 +83,30 @@
     </script>
 
 <div class="row">
+   <div class="col-lg-12 col-xs-12">
+    <div class="box box-info">
+      <div class="box-header with-border">
+        <i class="fa fa-map"></i>
+        <h3 class="box-title">INDONESIA</h3>
+        
+        <div class="box-tools pull-right">
+          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+          </button>
+        </div>
+      </div>
+      <div class="box-body">
+
+        <div id="vmap" style="height: 600px;">
+        <div style= "width:100px; height:25px; background-color:#ffffff; top:15px; left:55px; position:relative; float:left; text-align:center; border-radius: 25px;"><strong> Belum TMPI  </strong></div>
+        <div style= "width:60px; height:25px; background-color:#eb1325; top:15px; left:55px; position:relative; float:left; text-align:center; border-radius: 25px;"><strong> Level 1 </strong></div>
+        <div style= "width:60px; height:25px; background-color:#faec2f; top:15px; left:55px; position:relative; float:left; text-align:center; border-radius: 25px;"><strong> Level 2 </strong></div>
+        <div style= "width:60px; height:25px; background-color:#29cc54; top:15px; left:55px; position:relative; float:left; text-align:center; border-radius: 25px;"><strong> Level 3 </strong></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
   <div class="col-lg-4 col-xs-4">
     <div class="small-box bg-orange">
       <div class="inner">
@@ -92,7 +125,7 @@
       <div class="inner">
         <h3><?php echo $jml_laporan_persandian; ?></h3>
 
-        <p> Data Laporan Persandian</p>
+        <p> Data Evaluasi Laksan</p>
       </div>
       <div class="icon">
         <i class="ion ion-ios-book"></i>
@@ -153,30 +186,7 @@
     </div>
   </div>
 
-  <div class="col-lg-12 col-xs-12">
-    <div class="box box-info">
-      <div class="box-header with-border">
-        <i class="fa fa-map"></i>
-        <h3 class="box-title">PETA INDONESIA</h3>
-        
-        <div class="box-tools pull-right">
-          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-          </button>
-        </div>
-      </div>
-      <div class="box-body">
-
-        <div id="vmap" style="height: 600px;">
-        <div style= "width:100px; height:25px; background-color:#999966; top:15px; left:25px; position:relative; float:left; text-align:center;"><strong> LEVEL TMPI : </strong></div>
-        <div style= "width:60px; height:25px; background-color:#7FFF00; top:15px; left:35px; position:relative; float:left; text-align:center; border-radius: 25px;"><strong> Level 1 </strong></div>
-        <div style= "width:60px; height:25px; background-color:#ff6600; top:15px; left:45px; position:relative; float:left; text-align:center; border-radius: 25px;"><strong> Level 2 </strong></div>
-        <div style= "width:60px; height:25px; background-color:#FF0000; top:15px; left:55px; position:relative; float:left; text-align:center; border-radius: 25px;"><strong> Level 3 </strong></div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
+ 
   <div class="col-lg-6 col-xs-12">
     <div class="box box-info">
       <div class="box-header with-border">

@@ -46,7 +46,7 @@ class Instansi extends AUTH_Controller {
 
 		$data['page'] 		= "Detail Instansi";
 		$data['judul'] 		= "Detail Data";
-		$data['deskripsi'] 	= "(Laporan Persandian, IKAMI, CSM, TMPI, dan CSIRT)";
+		$data['deskripsi'] 	= "(Evaluasi Laksan, IKAMI, CSM, TMPI, dan CSIRT)";
 
 		//print_r($data['statusCsirt'] );
 

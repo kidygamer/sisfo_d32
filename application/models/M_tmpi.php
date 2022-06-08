@@ -43,6 +43,20 @@ class M_tmpi extends CI_Model {
 		return $data->result();
 	}
 
+	public function select_maplv1() {
+		$this->db->select('*');
+		$this->db->from('tmpi a');
+		$this->db->join('instansi b', 'a.Instansi = b.Id_Instansi');
+		$this->db->join('wilayah_provinsi c', 'c.id = b.Provinsi');
+		$this->db->where('a.Level', '1');
+		$this->db->like('b.Nama_Instansi', 'Provinsi', 'both');
+
+
+		$data = $this->db->get();
+
+		return $data->result();
+	}
+
 	public function select_by_id($id) {
 		$sql = "SELECT * FROM tmpi WHERE Id_TMPI = '{$id}'";
 

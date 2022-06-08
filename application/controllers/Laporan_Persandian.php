@@ -14,8 +14,8 @@ class Laporan_Persandian extends AUTH_Controller {
 		$data['dataLaporan_Persandian'] 	= $this->M_laporan_persandian->select_all();
 
 		$data['page'] 		= "laporan_persandian";
-		$data['judul'] 		= "Data Laporan Persandian";
-		$data['deskripsi'] 	= "Manage Data Laporan Persandian";
+		$data['judul'] 		= "Data Evaluasi Laksan";
+		$data['deskripsi'] 	= "Manage Data Evaluasi Laksan";
 
 		if($data['userdata']->unit =='D321' || $data['userdata']->role =='pimpinan'|| $data['userdata']->role =='administrator'){
 			$this->template->views('laporan_persandian/home', $data);

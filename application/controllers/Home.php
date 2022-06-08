@@ -33,8 +33,9 @@ class Home extends AUTH_Controller {
 		$data['jml_tmpi20']				= $this->M_chart->total_tmpi20();
 		$data['jml_tmpi21']				= $this->M_chart->total_tmpi21();
 		$data['val_csm']				= $this->M_chart->select_csm();
-		$data['sel_map'] 				= $this->M_tmpi->select_maplv3();
+		$data['sel_map3'] 				= $this->M_tmpi->select_maplv3();
 		$data['sel_map2'] 				= $this->M_tmpi->select_maplv2();
+		$data['sel_map1'] 				= $this->M_tmpi->select_maplv1();
 		$data['sel_map_status'] 		= $this->M_csirt->select_map_status();
 		$data['sel_vmap_code'] 			= $this->M_csirt->select_map_code();
 
