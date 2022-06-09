@@ -105,7 +105,7 @@ class Laporan_Persandian extends AUTH_Controller {
 		if ($this->form_validation->run() == TRUE) {
 			$nama_instansi = $this->M_instansi->select_by_id($this->security->xss_clean($this->input->post('Instansi')));
 
-			$new_name = "Laporan Persandian-".$nama_instansi->Nama_Instansi."-".$this->security->xss_clean($this->input->post('Tahun'));
+			$new_name = "Laporan Laksan-".$nama_instansi->Nama_Instansi."-".$this->security->xss_clean($this->input->post('Tahun'));
 			$config['upload_path'] = "./assets/pdf_files/laporan_persandian";
 			$config['allowed_types'] = "pdf";
 			$config['max_size'] = 30000;
@@ -120,7 +120,7 @@ class Laporan_Persandian extends AUTH_Controller {
 				$dokumen_lapsan = NULL;
 			}
 
-			$new_name2 = "Evaluasi Persandian-".$nama_instansi->Nama_Instansi."-".$this->security->xss_clean($this->input->post('Tahun'));
+			$new_name2 = "Evaluasi Laksan-".$nama_instansi->Nama_Instansi."-".$this->security->xss_clean($this->input->post('Tahun'));
 			$config2['upload_path'] = "./assets/pdf_files/evaluasi_persandian";
 			$config2['allowed_types'] = 'xls|xlsx';
 			$config2['max_size'] = 30000;
@@ -226,9 +226,19 @@ class Laporan_Persandian extends AUTH_Controller {
 	                'rules' => 'required|numeric|min_length[1]'
 	        ),
 	        array(
+	                'field' => 'Nilai_Eval',
+	                'label' => 'Nilai Evaluasi Garsan',
+	                'rules' => 'numeric|min_length[1]'
+	        ),
+	        array(
 	                'field' => 'Dokumen',
 	                'label' => '',
 	                'rules' => 'callback_file_check'
+	        ),
+	         array(
+	                'field' => 'Dokumen_Eval',
+	                'label' => '',
+	                'rules' => 'callback_file_check2'
 	        )
 		);
 
@@ -238,7 +248,7 @@ class Laporan_Persandian extends AUTH_Controller {
 		if ($this->form_validation->run() == TRUE) {
 
 			$nama_instansi = $this->M_instansi->select_by_id($this->input->post('Instansi'));
-			$new_name = "Laporan Persandian-".$nama_instansi->Nama_Instansi."-".$this->input->post('Tahun');
+			$new_name = "Laporan Laksan-".$nama_instansi->Nama_Instansi."-".$this->input->post('Tahun');
 			$config['upload_path'] = "./assets/pdf_files/laporan_persandian";
 			$config['allowed_types'] = "pdf";
 			$config['max_size'] = 30000;
@@ -253,7 +263,7 @@ class Laporan_Persandian extends AUTH_Controller {
 				$dokumen_lapsan =  $this->input->post('recent_dokumen');
 			}
 
-			$new_name2 = "Evaluasi Persandian-".$nama_instansi->Nama_Instansi."-".$this->security->xss_clean($this->input->post('Tahun'));
+			$new_name2 = "Evaluasi Laksan-".$nama_instansi->Nama_Instansi."-".$this->security->xss_clean($this->input->post('Tahun'));
 			$config2['upload_path'] = "./assets/pdf_files/evaluasi_persandian";
 			$config2['allowed_types'] = 'xls|xlsx';
 			$config2['max_size'] = 30000;

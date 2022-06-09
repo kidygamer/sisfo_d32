@@ -203,7 +203,7 @@
                         <div class="col-sm-6">
                           <div class="form-group">
                               <label for="Tgl_Launching"><strong>Tanggal Launching</strong></label>
-                              <input type="date" class="form-control" name="Tgl_Launching" aria-describedby="sizing-addon2" max="<?= date("Y-m-d") ?>" required>
+                              <input type="date" class="form-control" name="Tgl_Launching" aria-describedby="sizing-addon2" required>
                           </div>
                         </div>
                     </div>  
@@ -217,7 +217,7 @@
                         <div class="col-sm-6">
                           <div class="form-group">
                               <label for="Tgl_STR"><strong>Tanggal STR</strong></label>
-                              <input type="date" class="form-control" name="Tgl_STR" aria-describedby="sizing-addon2" max="<?= date("Y-m-d") ?>">
+                              <input type="date" class="form-control" name="Tgl_STR" aria-describedby="sizing-addon2">
                           </div>
                         </div>
                     </div>
