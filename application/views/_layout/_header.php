@@ -1,10 +1,10 @@
 <header class="main-header">
   <!-- Logo -->
-  <a href="<?php echo base_url(); ?>" class="logo">
+  <a href="<?php echo base_url('Home'); ?>" class="logo">
     <!-- mini logo for sidebar mini 50x50 pixels -->
     <span class="logo-mini"><small>D32</small></span>
     <!-- logo for regular state and mobile devices -->
-    <span class="logo-lg"><b>Database</b>D32</span>
+    <span class="logo-lg"><b>DASIS.</b>PEMDA</span>
   </a>
 
   <!-- nav -->

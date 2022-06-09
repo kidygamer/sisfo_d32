@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DatabaseD32</title>
+    <title>Dasis.Pemda</title>
     <!-- meta -->
     <?php echo @$_meta; ?>
 

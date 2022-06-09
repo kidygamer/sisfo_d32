@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 07, 2022 at 09:00 AM
+-- Generation Time: Jun 09, 2022 at 02:56 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -47,13 +47,13 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `username`, `password`, `role`, `nama`, `nip`, `jabatan`, `unit`, `email`, `foto`, `last_logout`, `archieved`) VALUES
-(1, 'admin_master', '$2y$10$HLzu/Pt2OcUKIFhp2zY/iujfSC9OUng/H/.BcE.Nd/QTx0I8C4tCa', 'administrator', 'AdminMAster', '123456789012345678', 'Pengolah Data', 'D321', 'dummy@gmail.com', 'ProfilePicture-admin_master1.jpg', '2022-06-05 07:57:25', '0'),
+(1, 'admin_master', '$2y$10$HLzu/Pt2OcUKIFhp2zY/iujfSC9OUng/H/.BcE.Nd/QTx0I8C4tCa', 'administrator', 'AdminMaster', '123456789012345678', 'Pengolah Data', 'D321', 'dummy@gmail.com', 'ProfilePicture-admin_master1.jpg', '2022-06-09 00:48:48', '0'),
 (2, 'editor_jane', '$2y$10$.k.8q1bk36DP2SLeQCjwguD6z7P1N.TooD22QQrzEQiWXdorZyHoK', 'editor', 'Jane Doe', '199909092022031009', 'Pengolah Data', 'D322', 'jane@gmail.com', NULL, '2022-04-22 02:37:26', '1'),
 (9, 'editor_jim', '$2y$10$EFiGq8To7nS3guM15Aq3GeBwOPY3/hf8S4bGtwLmh8epzU5tCscSm', 'editor', 'Jim Doe', '199707072022031003', 'Pengolah Data', 'D323', 'jim@gmail.com', NULL, '2022-04-14 03:05:50', '0'),
-(10, 'editor_yanti', '$2y$10$24P21XSEN4FmNUHPgi5p1.B8WTQlfeO2ZRXNCZWYnfWMtmx3fp6/2', 'editor', 'Siti Maryanti', '199505042022032006', 'Pengolah Data', 'D323', 'siti.maryanti@gmail.com', 'ProfilePicture-editor_yanti1.jpeg', '2022-06-06 02:31:55', '0'),
-(11, 'editor_dian', '$2y$10$2gZMwFwvd61NXk974EeVTejlXnLkVDRT04c45C04lobyM9Qtubj9C', 'editor', 'Rosdiana', '199306062022032002', 'Pengolah Data Keamanan', 'D322', 'rwonna4@gmail.com', 'ProfilePicture-editor_dian.jpg', '2022-06-06 02:10:32', '0'),
-(12, 'korpok_james', '$2y$10$zW0iaVW75kVav8CcS/V39.A92I/yqV7TCbkYA3tCQ0jJeNV7xg3Ha', 'pimpinan', 'James Doe', '197001011990011001', 'Korpok', 'D321', 'james@gmail.com', NULL, '2022-06-06 02:09:20', '0'),
-(13, 'editor_niah', '$2y$10$NKEllST7AL/Vr2X/J9LxTeLJ2gZNRxisS/fblbzaF6JyahIjtSGFK', 'editor', 'Niah', '199801302022032001', 'Pengolah Data', 'D321', 'fitria.chusniah@gmail.com', NULL, '2022-06-07 01:22:04', '0');
+(10, 'editor_yanti', '$2y$10$24P21XSEN4FmNUHPgi5p1.B8WTQlfeO2ZRXNCZWYnfWMtmx3fp6/2', 'editor', 'Siti Maryanti', '199505042022032006', 'Pengolah Data', 'D323', 'siti.maryanti@gmail.com', 'ProfilePicture-editor_yanti1.jpeg', '2022-06-07 07:27:22', '0'),
+(11, 'editor_dian', '$2y$10$2gZMwFwvd61NXk974EeVTejlXnLkVDRT04c45C04lobyM9Qtubj9C', 'editor', 'Rosdiana', '199306062022032002', 'Pengolah Data Keamanan', 'D322', 'rwonna4@gmail.com', 'ProfilePicture-editor_dian.jpg', '2022-06-07 07:28:32', '0'),
+(12, 'korpok_james', '$2y$10$zW0iaVW75kVav8CcS/V39.A92I/yqV7TCbkYA3tCQ0jJeNV7xg3Ha', 'pimpinan', 'James Doe', '197001011990011001', 'Korpok', 'D321', 'james@gmail.com', NULL, '2022-06-08 07:39:03', '0'),
+(13, 'editor_niah', '$2y$10$NKEllST7AL/Vr2X/J9LxTeLJ2gZNRxisS/fblbzaF6JyahIjtSGFK', 'editor', 'Niah', '199801302022032001', 'Pengolah Data', 'D321', 'fitria.chusniah@gmail.com', 'ProfilePicture-editor_niah.jpg', '2022-06-07 07:29:32', '0');
 
 -- --------------------------------------------------------
 
