@@ -56,7 +56,7 @@
               <td><center><?php echo $no; ?></center></td>
               <td><?php echo $lapsan->Nama_Instansi; ?></td>
               <td><center><?php echo $lapsan->Tahun ?></center></td>
-              <td><center><?php echo empty($value->Nilai_Eval) ? "-" : $value->Nilai_Eval; ?></center></td>
+              <td><center><?php echo empty($lapsan->Nilai_Eval) ? "-" : $lapsan->Nilai_Eval; ?></center></td>
               <td>
                 <center>
               	 <a href="#" data-toggle="modal" data-target="#detailModal<?=$lapsan->Id_LapSan?>" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-eye-open"></i> Lihat</a>
@@ -429,7 +429,7 @@
                     </div>
                     <div class="form-group">
                             <label for="Nilai_Eval"><strong>Nilai Evaluasi Laksan</strong></label>
-                            <input type="number" class="form-control" value="0" name="Nilai_Eval" aria-describedby="sizing-addon2" min="0" value="<?php echo empty($value->Nilai_Eval) ? "0" : $value->Nilai_Eval; ?>">
+                            <input type="number" class="form-control" name="Nilai_Eval" aria-describedby="sizing-addon2" min="0" value="<?php echo empty($value->Nilai_Eval) ? "0" : $value->Nilai_Eval; ?>">
                     </div>
                     <div class="row">
                         

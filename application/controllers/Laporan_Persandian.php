@@ -17,7 +17,7 @@ class Laporan_Persandian extends AUTH_Controller {
 		$data['judul'] 		= "Data Evaluasi Laksan";
 		$data['deskripsi'] 	= "Manage Data Evaluasi Laksan";
 
-		if($data['userdata']->unit =='D321' || $data['userdata']->role =='pimpinan'|| $data['userdata']->role =='administrator'){
+		if($data['userdata']->role =='editor'|| $data['userdata']->role =='pimpinan'|| $data['userdata']->role =='administrator'){
 			$this->template->views('laporan_persandian/home', $data);
 	    }else{
 			echo "Anda tidak berhak mengakses halaman ini";
@@ -303,7 +303,6 @@ class Laporan_Persandian extends AUTH_Controller {
 				redirect('Laporan_Persandian');
 			} else {
 				$this->session->set_flashdata('error', 'Data <strong>Gagal</strong> Diupdate!');
-				//echo "update failed";
 				redirect('Laporan_Persandian');
 			}
 		} else {

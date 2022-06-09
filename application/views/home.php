@@ -83,29 +83,6 @@
     </script>
 
 <div class="row">
-   <div class="col-lg-12 col-xs-12">
-    <div class="box box-info">
-      <div class="box-header with-border">
-        <i class="fa fa-map"></i>
-        <h3 class="box-title">INDONESIA</h3>
-        
-        <div class="box-tools pull-right">
-          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-          </button>
-        </div>
-      </div>
-      <div class="box-body">
-
-        <div id="vmap" style="height: 600px;">
-        <div style= "width:100px; height:25px; background-color:#ffffff; top:15px; left:55px; position:relative; float:left; text-align:center; border-radius: 25px;"><strong> Belum TMPI  </strong></div>
-        <div style= "width:60px; height:25px; background-color:#eb1325; top:15px; left:55px; position:relative; float:left; text-align:center; border-radius: 25px;"><strong> Level 1 </strong></div>
-        <div style= "width:60px; height:25px; background-color:#faec2f; top:15px; left:55px; position:relative; float:left; text-align:center; border-radius: 25px;"><strong> Level 2 </strong></div>
-        <div style= "width:60px; height:25px; background-color:#29cc54; top:15px; left:55px; position:relative; float:left; text-align:center; border-radius: 25px;"><strong> Level 3 </strong></div>
-        </div>
-
-      </div>
-    </div>
-  </div>
 
   <div class="col-lg-4 col-xs-4">
     <div class="small-box bg-orange">
@@ -183,6 +160,30 @@
         <i class="ion ion-ios-book"></i>
       </div>
       <a href="<?php echo base_url('Tmpi') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+    </div>
+  </div>
+
+  <div class="col-lg-12 col-xs-12">
+    <div class="box box-info">
+      <div class="box-header with-border">
+        <i class="fa fa-map"></i>
+        <h3 class="box-title">INDONESIA</h3>
+        
+        <div class="box-tools pull-right">
+          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+          </button>
+        </div>
+      </div>
+      <div class="box-body">
+
+        <div id="vmap" style="height: 600px;">
+        <div style= "width:100px; height:25px; background-color:#ffffff; top:15px; left:55px; position:relative; float:left; text-align:center; border-radius: 25px;"><strong> Belum TMPI  </strong></div>
+        <div style= "width:60px; height:25px; background-color:#eb1325; top:15px; left:55px; position:relative; float:left; text-align:center; border-radius: 25px;"><strong> Level 1 </strong></div>
+        <div style= "width:60px; height:25px; background-color:#faec2f; top:15px; left:55px; position:relative; float:left; text-align:center; border-radius: 25px;"><strong> Level 2 </strong></div>
+        <div style= "width:60px; height:25px; background-color:#29cc54; top:15px; left:55px; position:relative; float:left; text-align:center; border-radius: 25px;"><strong> Level 3 </strong></div>
+        </div>
+
+      </div>
     </div>
   </div>
 

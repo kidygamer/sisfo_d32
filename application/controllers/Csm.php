@@ -17,7 +17,7 @@ class Csm extends AUTH_Controller {
 		$data['judul'] 		= "Data CSM";
 		$data['deskripsi'] 	= "Manage Data CSM";
 
-		if($data['userdata']->unit =='D322' || $data['userdata']->role =='pimpinan'|| $data['userdata']->role =='administrator'){
+		if($data['userdata']->role =='editor'|| $data['userdata']->role =='pimpinan'|| $data['userdata']->role =='administrator'){
 	    	$this->template->views('csm/home', $data);
 	    }else{
 			echo "Anda tidak berhak mengakses halaman ini";

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 09, 2022 at 02:56 AM
+-- Generation Time: Jun 09, 2022 at 04:41 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -47,10 +47,10 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `username`, `password`, `role`, `nama`, `nip`, `jabatan`, `unit`, `email`, `foto`, `last_logout`, `archieved`) VALUES
-(1, 'admin_master', '$2y$10$HLzu/Pt2OcUKIFhp2zY/iujfSC9OUng/H/.BcE.Nd/QTx0I8C4tCa', 'administrator', 'AdminMaster', '123456789012345678', 'Pengolah Data', 'D321', 'dummy@gmail.com', 'ProfilePicture-admin_master1.jpg', '2022-06-09 00:48:48', '0'),
+(1, 'admin_master', '$2y$10$HLzu/Pt2OcUKIFhp2zY/iujfSC9OUng/H/.BcE.Nd/QTx0I8C4tCa', 'administrator', 'AdminMaster', '123456789012345678', 'Pengolah Data', 'D321', 'dummy@gmail.com', 'ProfilePicture-admin_master1.jpg', '2022-06-09 01:08:27', '0'),
 (2, 'editor_jane', '$2y$10$.k.8q1bk36DP2SLeQCjwguD6z7P1N.TooD22QQrzEQiWXdorZyHoK', 'editor', 'Jane Doe', '199909092022031009', 'Pengolah Data', 'D322', 'jane@gmail.com', NULL, '2022-04-22 02:37:26', '1'),
 (9, 'editor_jim', '$2y$10$EFiGq8To7nS3guM15Aq3GeBwOPY3/hf8S4bGtwLmh8epzU5tCscSm', 'editor', 'Jim Doe', '199707072022031003', 'Pengolah Data', 'D323', 'jim@gmail.com', NULL, '2022-04-14 03:05:50', '0'),
-(10, 'editor_yanti', '$2y$10$24P21XSEN4FmNUHPgi5p1.B8WTQlfeO2ZRXNCZWYnfWMtmx3fp6/2', 'editor', 'Siti Maryanti', '199505042022032006', 'Pengolah Data', 'D323', 'siti.maryanti@gmail.com', 'ProfilePicture-editor_yanti1.jpeg', '2022-06-07 07:27:22', '0'),
+(10, 'editor_yanti', '$2y$10$24P21XSEN4FmNUHPgi5p1.B8WTQlfeO2ZRXNCZWYnfWMtmx3fp6/2', 'editor', 'Siti Maryanti', '199505042022032006', 'Pengolah Data', 'D323', 'siti.maryanti@gmail.com', 'ProfilePicture-editor_yanti1.jpeg', '2022-06-09 02:34:21', '0'),
 (11, 'editor_dian', '$2y$10$2gZMwFwvd61NXk974EeVTejlXnLkVDRT04c45C04lobyM9Qtubj9C', 'editor', 'Rosdiana', '199306062022032002', 'Pengolah Data Keamanan', 'D322', 'rwonna4@gmail.com', 'ProfilePicture-editor_dian.jpg', '2022-06-07 07:28:32', '0'),
 (12, 'korpok_james', '$2y$10$zW0iaVW75kVav8CcS/V39.A92I/yqV7TCbkYA3tCQ0jJeNV7xg3Ha', 'pimpinan', 'James Doe', '197001011990011001', 'Korpok', 'D321', 'james@gmail.com', NULL, '2022-06-08 07:39:03', '0'),
 (13, 'editor_niah', '$2y$10$NKEllST7AL/Vr2X/J9LxTeLJ2gZNRxisS/fblbzaF6JyahIjtSGFK', 'editor', 'Niah', '199801302022032001', 'Pengolah Data', 'D321', 'fitria.chusniah@gmail.com', 'ProfilePicture-editor_niah.jpg', '2022-06-07 07:29:32', '0');
@@ -122,7 +122,14 @@ INSERT INTO `csirt` (`Id_CSIRT`, `Status`, `Nomor_Sertifikat`, `Tgl_STR`, `Tgl_L
 (38, 'Sudah CSIRT', '059/CSIRT.01.02.01/BSSN/02/2022', '2022-02-08', '2022-02-08', 'SemarangKota-CSIRT', 'Siti Arkunah, S.Kom., M.Kom. - 08156509296 ', 'CSIRT-pemkot_Semarang-2022.pdf', 242, 2022, '2022-04-22 07:06:00', 'editor_yanti', '0'),
 (39, 'Sudah CSIRT', '062/CSIRT.01.02/BSSN/03/2022', '2022-03-28', '2022-03-28', 'SumutProv-CSIRT', NULL, 'CSIRT-Provinsi_Sumatera_Utara-2022.pdf', 25, 2022, '2022-04-22 07:06:03', 'admin_master', '0'),
 (40, 'Sudah CSIRT', '065/CSIRT.01.02/BSSN/04/2022', '2022-04-07', '2022-04-07', 'SulutProv-CSIRT', 'Huntoro, S.Si - 08229640769 ', 'CSIRT-Provinsi_Sulawesi_Utara-2022.pdf', 396, 2022, '2022-04-22 07:06:07', 'editor_yanti', '0'),
-(41, 'Sudah CSIRT', '055/CSIRT.01.02.01/BSSN/02/2022', '2022-02-04', '2022-02-21', 'TangerangKota-CSIRT', 'BUDI HAMZAH PERMANA, SE, MM - 08119623490 ', 'CSIRT-Pemkot_Tangerang-2022.pdf', 172, 2022, '2022-04-22 07:06:10', 'editor_yanti', '0');
+(41, 'Sudah CSIRT', '055/CSIRT.01.02.01/BSSN/02/2022', '2022-02-04', '2022-02-21', 'TangerangKota-CSIRT', 'BUDI HAMZAH PERMANA, SE, MM - 08119623490 ', 'CSIRT-Pemkot_Tangerang-2022.pdf', 172, 2022, '2022-04-22 07:06:10', 'editor_yanti', '0'),
+(54, 'Sudah CSIRT', '066/CSIRT.01.02/BSSN/04/2022', '2022-05-17', '2022-05-17', 'Aceh-CSIRT', 'Ramlan, S.Sos. - 08126984866\r\nFahmi, ST., M.Si. - 082268683366\r\nSheila De Tiroina, SE. - 081377101987', 'CSIRT-Provinsi_Aceh-2022.pdf', 1, 2022, '2022-06-09 01:40:08', 'editor_yanti', '0'),
+(55, 'Sudah CSIRT', '067/CSIRT.01.02/BSSN/04/2022', '2022-04-14', '2022-06-08', 'NTTProv-CSIRT', '-', 'CSIRT-Provinsi_Nusa_Tenggara_Timur-2022.pdf', 311, 2022, '2022-06-09 01:42:15', 'editor_yanti', '0'),
+(56, 'Sudah CSIRT', '071/CSIRT/01.02/BSSN/05/2022', '2022-05-24', '2022-06-09', 'SultraProv-CSIRT', '-', 'CSIRT-Provinsi_Sulawesi_Tenggara-2022.pdf', 465, 2022, '2022-06-09 01:54:39', 'editor_yanti', '0'),
+(57, 'Sudah CSIRT', '064/CSIRT/01.02.01/BSSN/2022', '2022-04-05', '2022-04-05', 'SOLO-CSIRT', 'Dwi Arista Handaru, ST. - 085725095995', 'CSIRT-Pemkot_Surakarta-2022.pdf', 243, 2022, '2022-06-09 01:50:47', 'editor_yanti', '0'),
+(58, 'Sudah CSIRT', '068/CSIRT.01.02/BSSN/05/2022', '2022-05-19', '2022-05-19', 'KALTARAPROV-CSIRT', 'Dra. Hj. Sitti Asridah - 082150991722', 'CSIRT-Provinsi_Kalimantan_Utara-2022.pdf', 378, 2022, '2022-06-09 01:53:31', 'editor_yanti', '0'),
+(59, 'Sudah CSIRT', '-', '2022-06-29', '2022-06-29', 'LampungProv-CSIRT', 'Arie Komeliyya, S.T., M.M., M.T. - 0811792236\r\nDarwin, S.E. - 081379435607\r\nIswarawati, S.Komp. - 081927808419', NULL, 130, 2022, '2022-06-09 02:00:00', 'editor_yanti', '0'),
+(60, 'Sudah CSIRT', '070/CSIRT.01.02.01/BSSN/05/2022', '2022-05-19', '2022-05-19', 'DemakKab-CSIRT', 'Nur Kusaeni, S.Kom. - 085866562229', 'CSIRT-Pemkab_Demak-2022.pdf', 212, 2022, '2022-06-09 02:08:28', 'editor_yanti', '0');
 
 -- --------------------------------------------------------
 
@@ -910,7 +917,9 @@ INSERT INTO `laporan_persandian` (`Id_LapSan`, `Tahun`, `Saran_uBSSN`, `Jml_Kebi
 (89, 2020, '1. Membuka pelatihan dasar persandian dan keamanan sistem informasi melalui virtual meeting.\r\n2. Pelaksanaan pinjam pakai peralatan persandian agar dilaksanakan secara merata di setiap daerah.\r\n3. Adanya dukungan intens pelaksanaan kegiatan persandian dan keamanan informasi.', NULL, 2, 0, 0, 16, NULL, NULL, NULL, 453, 'Laporan_Persandian-Pemkab_Banggai_Kepulauan-2020.pdf', NULL, NULL, '2022-03-30 07:49:35', NULL, '0'),
 (90, 2020, '1. Pelaksanaan pinjam pakai peralatan persandian agar dilakukan secara merata di seluruh daerah.\r\n2. Adanya dukungan intens ke Pemda sbg bentuk pelaksanaan persandian dan keamanan informasi.', NULL, 7, 7, 3, 1, NULL, NULL, NULL, 464, 'Laporan_Persandian-Pemkot_Palu-2020.pdf', NULL, NULL, NULL, NULL, '0'),
 (91, 2020, '1. Perlu pelaksanaan optimalisasi penyelenggaraan persandian melalui penugasan lulusan STSN.\r\n2. BSSN perlu melakukan kunjungan ke daerah-daerah utk sosialisasi kpd Forkopimda Provinsi ttg pentingnya Kamsisan.', NULL, 7, 5, 2, 6, NULL, NULL, NULL, 483, 'Laporan_Persandian-Provinsi_Maluku-2020.pdf', NULL, NULL, NULL, NULL, '0'),
-(92, 2020, '1. Memberikan Palsan dan APU ke Dinas Komunikasi Informatika Persandian dan Statistik Kab. Teluk Bintuni.\r\n2. Mengunjungi Kab.Teluk Bintuni utk memberikan pencerahan kpd pimpinan daerah ttg pentingnya persandian.', NULL, 5, 0, 0, 0, NULL, NULL, NULL, 507, 'Laporan_Persandian-Pemkab_Teluk_Bintuni-2020.pdf', NULL, NULL, NULL, NULL, '0');
+(92, 2020, '1. Memberikan Palsan dan APU ke Dinas Komunikasi Informatika Persandian dan Statistik Kab. Teluk Bintuni.\r\n2. Mengunjungi Kab.Teluk Bintuni utk memberikan pencerahan kpd pimpinan daerah ttg pentingnya persandian.', NULL, 5, 0, 0, 0, NULL, NULL, NULL, 507, 'Laporan_Persandian-Pemkab_Teluk_Bintuni-2020.pdf', NULL, NULL, NULL, NULL, '0'),
+(111, 2022, 'dcsdfsdfsdfsdfsd', 0, 0, 0, 0, 0, 0, 0, 0, 82, 'Laporan_Laksan-Pemkab_Bungo-2022.pdf', 'Evaluasi_Laksan-Pemkab_Bungo-2022.xlsx', 0, '2022-06-09 02:35:04', 'editor_niah', '0'),
+(112, 2022, 'gdhdhjzgdjsgd\\shgdes', 0, 0, 0, 0, 0, 0, 0, 0, 2, 'Laporan_Laksan-Pemkab_Aceh_Barat-2022.pdf', 'Evaluasi_Laksan-Pemkab_Aceh_Barat-20221.xlsx', 0, '2022-06-09 02:36:57', 'editor_niah', '0');
 
 -- --------------------------------------------------------
 
@@ -929,13 +938,6 @@ CREATE TABLE `pic_instansi` (
   `updated_by` text DEFAULT NULL,
   `archieved` enum('0','1','','') NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `pic_instansi`
---
-
-INSERT INTO `pic_instansi` (`Id_PIC`, `Nama_PIC`, `Nomor_HP`, `Jabatan`, `Kategori`, `Id_Instansi`, `updated_at`, `updated_by`, `archieved`) VALUES
-(11, 'James Doe', '089789678567', 'Kadis', 'CSIRT', 218, '2022-05-30 04:20:48', 'editor_yanti', '0');
 
 -- --------------------------------------------------------
 
@@ -1136,7 +1138,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `csirt`
 --
 ALTER TABLE `csirt`
-  MODIFY `Id_CSIRT` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `Id_CSIRT` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT for table `csm`
@@ -1160,7 +1162,7 @@ ALTER TABLE `instansi`
 -- AUTO_INCREMENT for table `laporan_persandian`
 --
 ALTER TABLE `laporan_persandian`
-  MODIFY `Id_LapSan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
+  MODIFY `Id_LapSan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
 
 --
 -- AUTO_INCREMENT for table `pic_instansi`
