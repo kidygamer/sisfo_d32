@@ -154,7 +154,7 @@ class Laporan_Persandian extends AUTH_Controller {
 					'Dokumen' 		=> $dokumen_lapsan,
 					'Dokumen_Eval'	=> $dokumen_eval,	
 					'Nilai_Eval'	=> $this->security->xss_clean($this->input->post('Nilai_Eval')),
-					'Kategori'	=> $this->security->xss_clean($this->input->post('Kategori')),		
+					'Kategori'		=> $this->security->xss_clean($this->input->post('Kategori')),		
 					'updated_by' 	=> $data['userdata']->username
 			];
 		
