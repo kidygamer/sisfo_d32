@@ -38,7 +38,7 @@ class M_laporan_persandian extends CI_Model {
 	public function insert($data) {
 
 		$simpan=$this->db->query("INSERT INTO laporan_persandian
-									(Tahun,Saran_uBSSN,Jml_Kebijakan,Jml_SDM,Jml_Palsan,Jml_APU,Jml_SE,Jml_PDok,Jml_LKamsi,Jml_PHKS,Instansi,Dokumen,Dokumen_Eval,Nilai_Eval,updated_by)
+									(Tahun,Saran_uBSSN,Jml_Kebijakan,Jml_SDM,Jml_Palsan,Jml_APU,Jml_SE,Jml_PDok,Jml_LKamsi,Jml_PHKS,Instansi,Dokumen,Dokumen_Eval,Nilai_Eval,Kategori,updated_by)
       							  VALUES(								        
 								        ".$this->db->escape($data['Tahun']).",
 								        ".$this->db->escape($data['Saran_uBSSN']).",
@@ -54,6 +54,7 @@ class M_laporan_persandian extends CI_Model {
 								        ".$this->db->escape($data['Dokumen']).",
 								        ".$this->db->escape($data['Dokumen_Eval']).",
 								        ".$this->db->escape($data['Nilai_Eval']).",
+								        ".$this->db->escape($data['Kategori']).",
 								        ".$this->db->escape($data['updated_by'])."
       								)");
 	    if($simpan){
@@ -79,6 +80,7 @@ class M_laporan_persandian extends CI_Model {
 	    							Dokumen=".$this->db->escape($data['Dokumen']).",
 	    							Dokumen_Eval=".$this->db->escape($data['Dokumen_Eval']).",
 	    							Nilai_Eval=".$this->db->escape($data['Nilai_Eval']).",
+	    							Kategori=".$this->db->escape($data['Kategori']).",
 	    							updated_by=".$this->db->escape($data['updated_by'])."
 	    							WHERE Id_LapSan=".$this->db->escape($data['Id_LapSan'])."
 	    ");

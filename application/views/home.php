@@ -282,7 +282,7 @@
     <div class="box box-info">
       <div class="box-header with-border">
         <i class="fa fa-pie-chart"></i>
-        <h3 class="box-title">Evaluasi Laksan Provinsi</h3>
+        <h3 class="box-title">Evaluasi Laksan Provinsi 2020</h3>
 
         <div class="box-tools pull-right">
           <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -300,7 +300,7 @@
     <div class="box box-info">
       <div class="box-header with-border">
         <i class="fa fa-bar-chart"></i>
-        <h3 class="box-title">Evaluasi Laksan Kab.Kota</h3>
+        <h3 class="box-title">Evaluasi Laksan 2020</h3>
 
         <div class="box-tools pull-right">
           <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>

@@ -250,6 +250,18 @@
                   <td></td>
                     <td></td>
                 </tr>
+                <tr>
+                  <td><b>Kategori</b></td>
+                    <td><?php echo empty($value->Kategori) ? "-" : $value->Kategori; ?></td>
+                  <td></td>
+                    <td></td>
+                  <td></td>
+                    <td></td>
+                  <td></td>
+                    <td></td>
+                  <td></td>
+                    <td></td>
+                </tr>
               </table>
             </td>
            

@@ -120,9 +120,9 @@ class Laporan_Persandian extends AUTH_Controller {
 				$dokumen_lapsan = NULL;
 			}
 
-			$new_name2 = "Evaluasi Laksan-".$nama_instansi->Nama_Instansi."-".$this->security->xss_clean($this->input->post('Tahun'));
+			$new_name2 = "BA Audit Evaluasi Laksan-".$nama_instansi->Nama_Instansi."-".$this->security->xss_clean($this->input->post('Tahun'));
 			$config2['upload_path'] = "./assets/pdf_files/evaluasi_persandian";
-			$config2['allowed_types'] = 'xls|xlsx';
+			$config2['allowed_types'] = 'pdf';
 			$config2['max_size'] = 30000;
 			$config2['file_name'] = $new_name2; 
 			$this->upload->initialize($config2);
@@ -153,7 +153,8 @@ class Laporan_Persandian extends AUTH_Controller {
 					'Instansi' 		=> $this->security->xss_clean($this->input->post('Instansi')),
 					'Dokumen' 		=> $dokumen_lapsan,
 					'Dokumen_Eval'	=> $dokumen_eval,	
-					'Nilai_Eval'	=> $this->security->xss_clean($this->input->post('Nilai_Eval')),		
+					'Nilai_Eval'	=> $this->security->xss_clean($this->input->post('Nilai_Eval')),
+					'Kategori'	=> $this->security->xss_clean($this->input->post('Kategori')),		
 					'updated_by' 	=> $data['userdata']->username
 			];
 		
@@ -263,9 +264,9 @@ class Laporan_Persandian extends AUTH_Controller {
 				$dokumen_lapsan =  $this->input->post('recent_dokumen');
 			}
 
-			$new_name2 = "Evaluasi Laksan-".$nama_instansi->Nama_Instansi."-".$this->security->xss_clean($this->input->post('Tahun'));
+			$new_name2 = "BA Audit Evaluasi Laksan-".$nama_instansi->Nama_Instansi."-".$this->security->xss_clean($this->input->post('Tahun'));
 			$config2['upload_path'] = "./assets/pdf_files/evaluasi_persandian";
-			$config2['allowed_types'] = 'xls|xlsx';
+			$config2['allowed_types'] = 'pdf';
 			$config2['max_size'] = 30000;
 			$config2['file_name'] = $new_name2; 
 			$this->upload->initialize($config2);
@@ -294,7 +295,8 @@ class Laporan_Persandian extends AUTH_Controller {
 					'Instansi' 		=> $this->security->xss_clean($this->input->post('Instansi')),
 					'Dokumen'		=> $dokumen_lapsan,	
 					'Dokumen_Eval'	=> $dokumen_eval,
-					'Nilai_Eval'	=> $this->security->xss_clean($this->input->post('Nilai_Eval')),				
+					'Nilai_Eval'	=> $this->security->xss_clean($this->input->post('Nilai_Eval')),
+					'Kategori'	    => $this->security->xss_clean($this->input->post('Kategori')),						
 					'updated_by' 	=> $data['userdata']->username
 			];
 
@@ -343,13 +345,13 @@ class Laporan_Persandian extends AUTH_Controller {
     }
 
     public function file_check2($str){
-        $allowed_mime_type_arr = array('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet','application/vnd.ms-excel');
+        $allowed_mime_type_arr = array('application/pdf');
         $mime = get_mime_by_extension($_FILES['Dokumen_Eval']['name']);
         if(isset($_FILES['Dokumen_Eval']['name']) && $_FILES['Dokumen_Eval']['name']!=""){
             if(in_array($mime, $allowed_mime_type_arr)){
                 return true;
             }else{
-                $this->session->set_flashdata('error', 'Dokumen harus format .xls atau .xlsx. Data <strong>Gagal</strong> Tersimpan!');
+                $this->session->set_flashdata('error', 'Dokumen harus format PDF. Data <strong>Gagal</strong> Tersimpan!');
 				redirect('Laporan_Persandian');
             }
         }

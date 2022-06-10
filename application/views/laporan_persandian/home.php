@@ -31,7 +31,8 @@
           <th style="width:5%"><center>#</center></th>
           <th><center>Nama Instansi</center></th>
           <th><center>Tahun</center></th>
-          <th><center>Nilai Evaluasi Laksan</center></th>
+          <th><center>Nilai</center></th>
+          <th><center>Kategori</center></th>
           <th><center>Detail</center></th>
           <?php 
                 if ( $userdata->role != 'pimpinan') {
@@ -57,6 +58,7 @@
               <td><?php echo $lapsan->Nama_Instansi; ?></td>
               <td><center><?php echo $lapsan->Tahun ?></center></td>
               <td><center><?php echo empty($lapsan->Nilai_Eval) ? "-" : $lapsan->Nilai_Eval; ?></center></td>
+              <td><center><?php echo empty($lapsan->Kategori) ? "-" : $lapsan->Kategori; ?></center></td>
               <td>
                 <center>
               	 <a href="#" data-toggle="modal" data-target="#detailModal<?=$lapsan->Id_LapSan?>" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-eye-open"></i> Lihat</a>
@@ -134,6 +136,10 @@
                         <tr>
                             <td><b>Nilai Evaluasi Laksan</b></td>
                             <td><?php echo empty($value->Nilai_Eval) ? "-" : $value->Nilai_Eval; ?></td>
+                        </tr>
+                         <tr>
+                            <td><b>Kategori</b></td>
+                            <td><?php echo empty($value->Kategori) ? "-" : $value->Kategori; ?></td>
                         </tr>
                 		<tr>
                 			<td style="width:40%"><b>Jumlah SDM Persandian</b></td>
@@ -288,8 +294,19 @@
                         </div>
                     </div>
                     <div class="form-group">
-                            <label for="Nilai_Eval"><strong>Nilai Evaluasi Laksan</strong></label>
-                            <input type="number" class="form-control" value="0" name="Nilai_Eval" aria-describedby="sizing-addon2" min="0">
+                        <label for="Nilai_Eval"><strong>Nilai Evaluasi Laksan</strong></label>
+                        <input type="number" class="form-control" placeholder="Nilai Evaluasi" name="Nilai_Eval" aria-describedby="sizing-addon2" min="0" step="any">
+                    </div>
+                     <div class="form-group">
+                        <label for="Kategori"><strong>Kategori</strong></label>
+                        <select name="Kategori" placeholder="Kategori">
+                          <option value="" selected disabled>--Pilih--</option>
+                          <option value="Sangat Baik/Sangat Tinggi">1. Sangat Baik/Sangat Tinggi</option>
+                          <option value="Baik/Tinggi">2. Baik/Tinggi</option>
+                          <option value="Cukup">3. Cukup</option>
+                          <option value="Kurang">4. Kurang</option>
+                          <option value="Sangat Kurang">5. Sangat Kurang</option>
+                        </select>
                     </div>
                     <div class="row">
                         <div class="col-sm-6">
@@ -303,7 +320,7 @@
                             <div class="form-group">
                               <label for="Dokumen"><strong>Unggah Dokumen Evaluasi Laksan:</strong></label>
                               <br>                      
-                              <input type="file" class="form-control" name="Dokumen_Eval"><br><small>*file format .xls dengan ukuran maksimal 30Mb</small>
+                              <input type="file" class="form-control" name="Dokumen_Eval"><br><small>*file format .pdf dengan ukuran maksimal 30Mb</small>
                             </div>  
                         </div>
                     </div>
@@ -427,9 +444,20 @@
                             </div>
                         </div>
                     </div>
+                      <div class="form-group">
+                        <label for="Nilai_Eval"><strong>Nilai Evaluasi Laksan</strong></label>
+                        <input type="number" class="form-control" placeholder="Nilai Evaluasi" name="Nilai_Eval" aria-describedby="sizing-addon2" min="0" step="any" value="<?= $value->Nilai_Eval ?>">
+                    </div>
                     <div class="form-group">
-                            <label for="Nilai_Eval"><strong>Nilai Evaluasi Laksan</strong></label>
-                            <input type="number" class="form-control" name="Nilai_Eval" aria-describedby="sizing-addon2" min="0" value="<?php echo empty($value->Nilai_Eval) ? "0" : $value->Nilai_Eval; ?>">
+                        <label for="Kategori"><strong>Kategori</strong></label>
+                        <select name="Kategori" placeholder="Kategori">
+                          <option value="" selected disabled>--Pilih--</option>
+                          <option value="Sangat Baik/Sangat Tinggi" <?php if ($value->Kategori == "Sangat Baik/Sangat Tinggi") : ?> selected<?php endif; ?>>1. Sangat Baik/Sangat Tinggi</option>
+                          <option value="Baik/Tinggi" <?php if ($value->Kategori == "Baik/Tinggi") : ?> selected<?php endif; ?>>2. Baik/Tinggi</option>
+                          <option value="Cukup" <?php if ($value->Kategori == "Cukup") : ?> selected<?php endif; ?>>3. Cukup</option>
+                          <option value="Kurang" <?php if ($value->Kategori == "Kurang") : ?> selected<?php endif; ?>>4. Kurang</option>
+                          <option value="Sangat Kurang" <?php if ($value->Kategori == "Sangat Kurang") : ?> selected<?php endif; ?>>4. Sangat Kurang</option>
+                        </select>
                     </div>
                     <div class="row">
                         
@@ -447,7 +475,7 @@
                             <div class="form-group">
                               <label for="Dokumen"><strong>Unggah Dokumen Evaluasi Laksan:</strong></label>
                               <br>                      
-                              <input type="file" class="form-control" name="Dokumen_Eval"><br><small>*file format .xls dengan ukuran maksimal 30Mb</small>
+                              <input type="file" class="form-control" name="Dokumen_Eval"><br><small>*file format .pdf dengan ukuran maksimal 30Mb</small>
                             </div>  
                         </div>
                     </div>
