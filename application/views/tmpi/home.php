@@ -148,7 +148,7 @@
                     </div>
                     <div class="form-group">
                         <label for="Nilai_TMPI"><strong>Nilai TMPI</strong></label>
-                        <input type="number" class="form-control" placeholder="Nilai TMPI" name="Nilai_TMPI" aria-describedby="sizing-addon2" min="0" required step="any">
+                        <input type="number" class="form-control" placeholder="Nilai TMPI (contoh: 80,85)" name="Nilai_TMPI" aria-describedby="sizing-addon2" min="0" required step="any">
                     </div>
                     <div class="form-group">
                         <label for="Level"><strong>Level</strong></label>
@@ -212,7 +212,7 @@
                     </div>
                     <div class="form-group">
                         <label for="Nilai_TMPI"><strong>Nilai TMPI</strong></label>
-                        <input type="number" class="form-control" placeholder="Nilai TMPI" name="Nilai_TMPI" aria-describedby="sizing-addon2" min="0" required step="any" value="<?= $value->Nilai_TMPI ?>">
+                        <input type="number" class="form-control" placeholder="Nilai TMPI (contoh: 80,85)" name="Nilai_TMPI" aria-describedby="sizing-addon2" min="0" required step="any" value="<?= $value->Nilai_TMPI ?>">
                     </div>
                     <div class="form-group">
                         <label for="Level"><strong>Level</strong></label>

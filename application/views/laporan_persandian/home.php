@@ -295,7 +295,7 @@
                     </div>
                     <div class="form-group">
                         <label for="Nilai_Eval"><strong>Nilai Evaluasi Laksan</strong></label>
-                        <input type="number" class="form-control" placeholder="Nilai Evaluasi" name="Nilai_Eval" aria-describedby="sizing-addon2" min="0" step="any">
+                        <input type="number" class="form-control" placeholder="Nilai Evaluasi (contoh: 80,85)" name="Nilai_Eval" aria-describedby="sizing-addon2" min="0" step="any">
                     </div>
                      <div class="form-group">
                         <label for="Kategori"><strong>Kategori</strong></label>
@@ -446,7 +446,7 @@
                     </div>
                       <div class="form-group">
                         <label for="Nilai_Eval"><strong>Nilai Evaluasi Laksan</strong></label>
-                        <input type="number" class="form-control" placeholder="Nilai Evaluasi" name="Nilai_Eval" aria-describedby="sizing-addon2" min="0" step="any" value="<?= $value->Nilai_Eval ?>">
+                        <input type="number" class="form-control" placeholder="Nilai Evaluasi (contoh: 80,85)" name="Nilai_Eval" aria-describedby="sizing-addon2" min="0" step="any" value="<?= $value->Nilai_Eval ?>">
                     </div>
                     <div class="form-group">
                         <label for="Kategori"><strong>Kategori</strong></label>
