@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 13, 2022 at 02:44 AM
+-- Generation Time: Jun 14, 2022 at 09:48 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -52,7 +52,7 @@ INSERT INTO `admin` (`id`, `username`, `password`, `role`, `nama`, `nip`, `jabat
 (9, 'editor_jim', '$2y$10$EFiGq8To7nS3guM15Aq3GeBwOPY3/hf8S4bGtwLmh8epzU5tCscSm', 'editor', 'Jim Doe', '199707072022031003', 'Pengolah Data', 'D323', 'jim@gmail.com', NULL, '2022-04-14 03:05:50', '0'),
 (10, 'editor_yanti', '$2y$10$24P21XSEN4FmNUHPgi5p1.B8WTQlfeO2ZRXNCZWYnfWMtmx3fp6/2', 'editor', 'Siti Maryanti', '199505042022032006', 'Pengolah Data', 'D323', 'siti.maryanti@gmail.com', 'ProfilePicture-editor_yanti1.jpeg', '2022-06-09 02:34:21', '0'),
 (11, 'editor_dian', '$2y$10$2gZMwFwvd61NXk974EeVTejlXnLkVDRT04c45C04lobyM9Qtubj9C', 'editor', 'Rosdiana', '199306062022032002', 'Pengolah Data Keamanan', 'D322', 'rwonna4@gmail.com', 'ProfilePicture-editor_dian.jpg', '2022-06-07 07:28:32', '0'),
-(12, 'korpok_james', '$2y$10$zW0iaVW75kVav8CcS/V39.A92I/yqV7TCbkYA3tCQ0jJeNV7xg3Ha', 'pimpinan', 'James Doe', '197001011990011001', 'Korpok', 'D321', 'james@gmail.com', NULL, '2022-06-10 04:19:18', '0'),
+(12, 'korpok_james', '$2y$10$zW0iaVW75kVav8CcS/V39.A92I/yqV7TCbkYA3tCQ0jJeNV7xg3Ha', 'pimpinan', 'James Doe', '197001011990011001', 'Korpok', 'D321', 'james@gmail.com', NULL, '2022-06-14 03:11:54', '0'),
 (13, 'editor_niah', '$2y$10$NKEllST7AL/Vr2X/J9LxTeLJ2gZNRxisS/fblbzaF6JyahIjtSGFK', 'editor', 'Niah', '199801302022032001', 'Pengolah Data', 'D321', 'fitria.chusniah@gmail.com', 'ProfilePicture-editor_niah.jpg', '2022-06-10 01:58:42', '0');
 
 -- --------------------------------------------------------
@@ -919,14 +919,6 @@ INSERT INTO `laporan_persandian` (`Id_LapSan`, `Tahun`, `Saran_uBSSN`, `Jml_Kebi
 (90, 2020, '1. Pelaksanaan pinjam pakai peralatan persandian agar dilakukan secara merata di seluruh daerah.\r\n2. Adanya dukungan intens ke Pemda sbg bentuk pelaksanaan persandian dan keamanan informasi.', NULL, 7, 7, 3, 1, NULL, NULL, NULL, 464, 'Laporan_Persandian-Pemkot_Palu-2020.pdf', NULL, NULL, NULL, NULL, NULL, '0'),
 (91, 2020, '1. Perlu pelaksanaan optimalisasi penyelenggaraan persandian melalui penugasan lulusan STSN.\r\n2. BSSN perlu melakukan kunjungan ke daerah-daerah utk sosialisasi kpd Forkopimda Provinsi ttg pentingnya Kamsisan.', 0, 7, 5, 2, 6, 0, 0, 0, 483, 'Laporan_Persandian-Provinsi_Maluku-2020.pdf', 'BA_Audit_Evaluasi_Laksan-Provinsi_Maluku-2020.pdf', 73.52, 'Cukup', '2022-06-10 04:20:16', 'editor_niah', '0'),
 (92, 2020, '1. Memberikan Palsan dan APU ke Dinas Komunikasi Informatika Persandian dan Statistik Kab. Teluk Bintuni.\r\n2. Mengunjungi Kab.Teluk Bintuni utk memberikan pencerahan kpd pimpinan daerah ttg pentingnya persandian.', NULL, 5, 0, 0, 0, NULL, NULL, NULL, 507, 'Laporan_Persandian-Pemkab_Teluk_Bintuni-2020.pdf', NULL, NULL, NULL, NULL, NULL, '0'),
-(113, 2020, '-', 0, 0, 0, 0, 0, 0, 0, 0, 1, NULL, 'BA_Audit_Evaluasi_Laksan-Provinsi_Aceh-2020.pdf', 75.52, 'Baik/Tinggi', '2022-06-10 02:43:29', 'admin_master', '0'),
-(114, 2020, '-', 0, 0, 0, 0, 0, 0, 0, 0, 157, '', 'BA_Audit_Evaluasi_Laksan-Provinsi_Kepulauan_Bangka_Belitung-2020.pdf', 57.64, 'Kurang', '2022-06-10 04:22:04', 'editor_niah', '0'),
-(115, 2020, '-', 0, 0, 0, 0, 0, 0, 0, 0, 165, NULL, 'BA_Audit_Evaluasi_Laksan-Provinsi_Banten-2020.pdf', 49.66, 'Sangat Kurang', '2022-06-10 02:46:23', 'admin_master', '0'),
-(116, 2020, '-', 0, 0, 0, 0, 0, 0, 0, 0, 245, NULL, 'BA_Audit_Evaluasi_Laksan-Provinsi_DI_Yogyakarta-2020.pdf', 93.22, 'Sangat Baik/Sangat Tinggi', '2022-06-10 02:48:00', 'admin_master', '0'),
-(117, 2020, '-', 0, 0, 0, 0, 0, 0, 0, 0, 209, NULL, 'BA_Audit_Evaluasi_Laksan-Provinsi_Jawa_Tengah-2020.pdf', 76.21, 'Baik/Tinggi', '2022-06-10 02:48:58', 'admin_master', '0'),
-(118, 2020, '-', 0, 0, 0, 0, 0, 0, 0, 0, 251, '', 'BA_Audit_Evaluasi_Laksan-Provinsi_Jawa_Timur-2020.pdf', 67.81, 'Cukup', '2022-06-10 04:22:50', 'editor_niah', '0'),
-(119, 2020, '-', 0, 0, 0, 0, 0, 0, 0, 0, 364, NULL, 'BA_Audit_Evaluasi_Laksan-Provinsi_Kalimantan_Selatan-2020.pdf', 57.99, 'Kurang', '2022-06-10 02:51:13', 'admin_master', '0'),
-(120, 2020, '-', 0, 0, 0, 0, 0, 0, 0, 0, 349, '', 'BA_Audit_Evaluasi_Laksan-Provinsi_Kalimantan_Tengah-2020.pdf', 80.78, 'Baik/Tinggi', '2022-06-10 04:24:09', 'editor_niah', '0'),
 (121, 2020, '-', 0, 0, 0, 0, 0, 0, 0, 0, 385, NULL, 'BA_Audit_Evaluasi_Laksan-Provinsi_Kalimantan_Timur-2020.pdf', 40.24, 'Sangat Kurang', '2022-06-10 02:54:26', 'admin_master', '0'),
 (122, 2020, '-', 0, 0, 0, 0, 0, 0, 0, 0, 130, NULL, 'BA_Audit_Evaluasi_Laksan-Provinsi_Lampung-2020.pdf', 68.58, 'Cukup', '2022-06-10 02:55:19', 'admin_master', '0'),
 (123, 2020, '-', 0, 0, 0, 0, 0, 0, 0, 0, 495, NULL, 'BA_Audit_Evaluasi_Laksan-Provinsi_Maluku_Utara-2020.pdf', 46.82, 'Sangat Kurang', '2022-06-10 02:55:58', 'admin_master', '0'),
@@ -940,7 +932,10 @@ INSERT INTO `laporan_persandian` (`Id_LapSan`, `Tahun`, `Saran_uBSSN`, `Jml_Kebi
 (131, 2020, '-', 0, 0, 0, 0, 0, 0, 0, 0, 396, NULL, 'BA_Audit_Evaluasi_Laksan-Provinsi_Sulawesi_Utara-2020.pdf', 57.92, 'Kurang', '2022-06-10 03:02:56', 'admin_master', '0'),
 (132, 2020, '-', 0, 0, 0, 0, 0, 0, 0, 0, 92, NULL, 'BA_Audit_Evaluasi_Laksan-Provinsi_Sumatera_Barat-2020.pdf', 69.53, 'Cukup', '2022-06-10 03:04:01', 'admin_master', '0'),
 (133, 2020, '-', 0, 0, 0, 0, 0, 0, 0, 0, 112, NULL, 'BA_Audit_Evaluasi_Laksan-Provinsi_Sumatera_Selatan-2020.pdf', 82.53, 'Baik/Tinggi', '2022-06-10 03:04:56', 'admin_master', '0'),
-(134, 2020, '-', 0, 0, 0, 0, 0, 0, 0, 0, 25, '', 'BA_Audit_Evaluasi_Laksan-Provinsi_Sumatera_Utara-2020.pdf', 74.21, 'Cukup', '2022-06-10 04:25:09', 'editor_niah', '0');
+(134, 2020, '-', 0, 0, 0, 0, 0, 0, 0, 0, 25, '', 'BA_Audit_Evaluasi_Laksan-Provinsi_Sumatera_Utara-2020.pdf', 74.21, 'Cukup', '2022-06-10 04:25:09', 'editor_niah', '0'),
+(135, 2022, 'sdfasgdfhagchadsbcd', 0, 0, 0, 0, 0, 0, 0, 0, 82, NULL, 'BA_Audit_Evaluasi_Laksan-Pemkab_Bungo-2022.pdf', 80.85, 'Baik/Tinggi', '2022-06-13 01:16:47', 'admin_master', '0'),
+(136, 2022, 'sdfszdfszfzsdfzs', 0, 0, 0, 0, 0, 0, 0, 0, 2, NULL, 'BA_Audit_Evaluasi_Laksan-Pemkab_Aceh_Barat-2022.pdf', 90.85, 'Baik/Tinggi', '2022-06-13 01:17:28', 'admin_master', '0'),
+(137, 2020, 'fgfgbvgbvnvvb', 0, 0, 0, 0, 0, 0, 0, 0, 82, NULL, 'BA_Audit_Evaluasi_Laksan-Pemkab_Bungo-2020.pdf', 90.87, 'Sangat Baik/Sangat Tinggi', '2022-06-13 01:24:39', 'admin_master', '0');
 
 -- --------------------------------------------------------
 
@@ -1183,7 +1178,7 @@ ALTER TABLE `instansi`
 -- AUTO_INCREMENT for table `laporan_persandian`
 --
 ALTER TABLE `laporan_persandian`
-  MODIFY `Id_LapSan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=135;
+  MODIFY `Id_LapSan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=138;
 
 --
 -- AUTO_INCREMENT for table `pic_instansi`

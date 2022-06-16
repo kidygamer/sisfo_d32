@@ -1,11 +1,12 @@
 <script type="text/javascript">
 	var MyTable = $('#list-data').dataTable({
 		  "paging": true,
-		  "lengthChange": true,
+		  "lengthChange": false,
 		  "searching": true,
 		  "ordering": true,
 		  "info": true,
-		  "autoWidth": false
+		  "autoWidth": false,
+		  "pageLength": 25
 		});
 
 	window.onload = function() {
