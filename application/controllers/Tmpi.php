@@ -18,7 +18,7 @@ class Tmpi extends AUTH_Controller {
 		$data['deskripsi'] 	= "Manage Data TMPI";
 
 		if($data['userdata']->role =='editor'|| $data['userdata']->role =='pimpinan'|| $data['userdata']->role =='administrator'){
-			$this->template->views('Tmpi/home', $data);
+			$this->template->views('tmpi/home', $data);
 	    }else{
 			echo "Anda tidak berhak mengakses halaman ini";
 	    }
