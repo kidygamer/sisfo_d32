@@ -237,16 +237,16 @@ class CSIRT extends AUTH_Controller {
 
 			if($this->M_csirt->update($data)){
 				$this->session->set_flashdata('success', 'Data <strong>Berhasil</strong> Diupdate!');
-				redirect('CSIRT');
+				redirect('Csirt');
 			} else {
 				$this->session->set_flashdata('error', 'Data <strong>Gagal</strong> Diupdate!');
 				echo "update failed";
-				redirect('CSIRT');
+				redirect('Csirt');
 			}
 		} else {
 			$out['msg'] = show_err_msg(validation_errors());
 			$this->session->set_flashdata('error', 'Data <strong>Gagal</strong> Diupdate!'.$out['msg']);
-			redirect('CSIRT');
+			redirect('Csirt');
 		}
 	 
 	}
@@ -255,11 +255,11 @@ class CSIRT extends AUTH_Controller {
 
 		if($this->M_csirt->archieve($id)){
 			$this->session->set_flashdata('success', 'Data <strong>Berhasil</strong> Diarsipkan!');
-			redirect('CSIRT');
+			redirect('Csirt');
 			//echo "success";
 		} else {
 			$this->session->set_flashdata('error', 'Data <strong>Gagal</strong> Diarsipkan!');
-			redirect('CSIRT');
+			redirect('Csirt');
 			//echo "failed";
 		}
 	}
@@ -275,7 +275,7 @@ class CSIRT extends AUTH_Controller {
                 return true;
             }else{
                 $this->session->set_flashdata('error', 'Dokumen harus format PDF. Data <strong>Gagal</strong> Tersimpan!');
-				redirect('CSIRT');
+				redirect('Csirt');
             }
         }
     }
