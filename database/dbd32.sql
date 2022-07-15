@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 14, 2022 at 09:48 AM
+-- Generation Time: Jul 15, 2022 at 05:18 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -47,12 +47,12 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `username`, `password`, `role`, `nama`, `nip`, `jabatan`, `unit`, `email`, `foto`, `last_logout`, `archieved`) VALUES
-(1, 'admin_master', '$2y$10$HLzu/Pt2OcUKIFhp2zY/iujfSC9OUng/H/.BcE.Nd/QTx0I8C4tCa', 'administrator', 'AdminMaster', '123456789012345678', 'Pengolah Data', 'D321', 'dummy@gmail.com', 'ProfilePicture-admin_master1.jpg', '2022-06-10 03:08:37', '0'),
+(1, 'admin_master', '$2y$10$HLzu/Pt2OcUKIFhp2zY/iujfSC9OUng/H/.BcE.Nd/QTx0I8C4tCa', 'administrator', 'AdminMaster', '123456789012345678', 'Pengolah Data', 'D321', 'dummy@gmail.com', 'ProfilePicture-admin_master1.jpg', '2022-07-14 02:04:44', '0'),
 (2, 'editor_jane', '$2y$10$.k.8q1bk36DP2SLeQCjwguD6z7P1N.TooD22QQrzEQiWXdorZyHoK', 'editor', 'Jane Doe', '199909092022031009', 'Pengolah Data', 'D322', 'jane@gmail.com', NULL, '2022-04-22 02:37:26', '1'),
 (9, 'editor_jim', '$2y$10$EFiGq8To7nS3guM15Aq3GeBwOPY3/hf8S4bGtwLmh8epzU5tCscSm', 'editor', 'Jim Doe', '199707072022031003', 'Pengolah Data', 'D323', 'jim@gmail.com', NULL, '2022-04-14 03:05:50', '0'),
-(10, 'editor_yanti', '$2y$10$24P21XSEN4FmNUHPgi5p1.B8WTQlfeO2ZRXNCZWYnfWMtmx3fp6/2', 'editor', 'Siti Maryanti', '199505042022032006', 'Pengolah Data', 'D323', 'siti.maryanti@gmail.com', 'ProfilePicture-editor_yanti1.jpeg', '2022-06-09 02:34:21', '0'),
-(11, 'editor_dian', '$2y$10$2gZMwFwvd61NXk974EeVTejlXnLkVDRT04c45C04lobyM9Qtubj9C', 'editor', 'Rosdiana', '199306062022032002', 'Pengolah Data Keamanan', 'D322', 'rwonna4@gmail.com', 'ProfilePicture-editor_dian.jpg', '2022-06-07 07:28:32', '0'),
-(12, 'korpok_james', '$2y$10$zW0iaVW75kVav8CcS/V39.A92I/yqV7TCbkYA3tCQ0jJeNV7xg3Ha', 'pimpinan', 'James Doe', '197001011990011001', 'Korpok', 'D321', 'james@gmail.com', NULL, '2022-06-14 03:11:54', '0'),
+(10, 'editor_yanti', '$2y$10$24P21XSEN4FmNUHPgi5p1.B8WTQlfeO2ZRXNCZWYnfWMtmx3fp6/2', 'editor', 'Siti Maryanti', '199505042022032006', 'Pengolah Data', 'D323', 'siti.maryanti@gmail.com', 'ProfilePicture-editor_yanti1.jpeg', '2022-06-28 08:16:39', '0'),
+(11, 'editor_dian', '$2y$10$2gZMwFwvd61NXk974EeVTejlXnLkVDRT04c45C04lobyM9Qtubj9C', 'editor', 'Rosdiana', '199306062022032002', 'Pengolah Data Keamanan', 'D322', 'rwonna4@gmail.com', 'ProfilePicture-editor_dian.jpg', '2022-07-06 02:14:28', '0'),
+(12, 'korpok_james', '$2y$10$zW0iaVW75kVav8CcS/V39.A92I/yqV7TCbkYA3tCQ0jJeNV7xg3Ha', 'pimpinan', 'James Doe', '197001011990011001', 'Korpok', 'D321', 'james@gmail.com', NULL, '2022-06-21 07:22:31', '0'),
 (13, 'editor_niah', '$2y$10$NKEllST7AL/Vr2X/J9LxTeLJ2gZNRxisS/fblbzaF6JyahIjtSGFK', 'editor', 'Niah', '199801302022032001', 'Pengolah Data', 'D321', 'fitria.chusniah@gmail.com', 'ProfilePicture-editor_niah.jpg', '2022-06-10 01:58:42', '0');
 
 -- --------------------------------------------------------
@@ -171,6 +171,25 @@ INSERT INTO `csm` (`Id_CSM`, `Tahun`, `Skor`, `Lv_Kematangan`, `Dokumen`, `Insta
 (15, 2021, 3.4, '3', 'Csm-Provinsi_Jawa_Tengah-2021.pdf', 209, '2022-04-28 03:06:34', 'editor_dian', '0'),
 (16, 2021, 3.53, '3', 'Csm-Provinsi_Jawa_Timur-2021.pdf', 251, '2022-04-28 03:06:50', 'editor_dian', '0'),
 (21, 2019, 3.53, '3', 'Csm-Provinsi_Jawa_Timur-2021.pdf', 251, '2022-05-10 07:18:03', 'editor_dian', '1');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `fasilitas_lki`
+--
+
+CREATE TABLE `fasilitas_lki` (
+  `Id_FLKI` int(11) NOT NULL,
+  `No_Surat` text NOT NULL,
+  `Tgl_Pelaksanaan` date NOT NULL,
+  `Instansi` int(11) NOT NULL,
+  `Jenis_LKI` enum('Workshop','Sosialisasi','Bimtek','') NOT NULL,
+  `PIC` text NOT NULL,
+  `Keterangan_Kegiatan` text NOT NULL,
+  `Laporan_Kegiatan` text DEFAULT NULL,
+  `updated_by` varchar(20) NOT NULL,
+  `archieved` enum('0','1') NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -1100,6 +1119,13 @@ ALTER TABLE `csm`
   ADD KEY `Instansi` (`Instansi`);
 
 --
+-- Indexes for table `fasilitas_lki`
+--
+ALTER TABLE `fasilitas_lki`
+  ADD PRIMARY KEY (`Id_FLKI`),
+  ADD KEY `fk_instansi` (`Instansi`);
+
+--
 -- Indexes for table `ikami`
 --
 ALTER TABLE `ikami`
@@ -1163,6 +1189,12 @@ ALTER TABLE `csm`
   MODIFY `Id_CSM` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
+-- AUTO_INCREMENT for table `fasilitas_lki`
+--
+ALTER TABLE `fasilitas_lki`
+  MODIFY `Id_FLKI` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `ikami`
 --
 ALTER TABLE `ikami`
@@ -1207,6 +1239,12 @@ ALTER TABLE `csirt`
 --
 ALTER TABLE `csm`
   ADD CONSTRAINT `csm_ibfk_1` FOREIGN KEY (`Instansi`) REFERENCES `instansi` (`Id_Instansi`);
+
+--
+-- Constraints for table `fasilitas_lki`
+--
+ALTER TABLE `fasilitas_lki`
+  ADD CONSTRAINT `fasilitas_lki_ibfk_1` FOREIGN KEY (`Instansi`) REFERENCES `instansi` (`Id_Instansi`);
 
 --
 -- Constraints for table `ikami`

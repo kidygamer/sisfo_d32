@@ -98,6 +98,13 @@
         }
       ?>
 
+      <li <?php if ($page == 'fasilitas_lki') {echo 'class="active"';} ?>>
+        <a href="<?php echo base_url('Fasilitas_Lki'); ?>">
+          <i class="fa fa-building"></i>
+          <span>Fasilitas LKI</span>
+        </a>
+      </li>
+
       <?php 
         if ($userdata->role == 'administrator' || $userdata->role == 'editor') {
       ?>
