@@ -145,7 +145,15 @@
                     </tr>
                     <tr>
                       <td><b>Narahubung</b></td>
-                      <td><?php echo empty($value->Narahubung) ? "-" : $value->Narahubung; ?></td>
+                      <td><?php  
+                              if (empty($value->Narahubung)) {
+                                echo   "-";
+                              }else{
+                                echo nl2br($value->Narahubung);
+                              }
+                          ?>
+                            
+                      </td>
                     </tr>
                   </table>
                  

@@ -17,7 +17,7 @@
   <div class="box-header">
     <div class="col-md-3">
          <?php 
-                    if (($userdata->role == 'administrator' || $userdata->unit == 'D322') && $userdata->role != 'pimpinan') {
+                    if ($userdata->role != 'pimpinan') {
                 ?>
                        <a href="#" data-toggle="modal" data-target="#addModal" class="form-control btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Tambah Data</a>
                 <?php
@@ -38,7 +38,11 @@
           <th><center>Kegiatan</center></th> 
           <th><center>Detail</center></th> 
           <th><center>Laporan</center></th> 
-          <th><center>Aksi</center></th>
+          <?php 
+                if ($userdata->role != 'pimpinan') {
+                    echo "<th style='text-align: center;width: 5%;'>Aksi</th>";
+                }
+            ?>
         </tr>
       </thead>
       <tbody id="data-fasilitas_lki">
@@ -72,7 +76,7 @@
               </td>
              
                 <?php 
-                    if (($userdata->role == 'administrator' || $userdata->unit == 'D322') && $userdata->role != 'pimpinan') {
+                    if ($userdata->role != 'pimpinan') {
                 ?>
                         <td class="text-center" style="min-width:100px;">
                          <a href="#" data-toggle="modal" data-target="#updateModal<?=$flki->Id_FLKI?>" class="btn btn-warning btn-sm"><i class="glyphicon glyphicon-repeat"></i> Update</a>
