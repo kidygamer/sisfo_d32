@@ -6,7 +6,7 @@
 		  "ordering": true,
 		  "info": true,
 		  "autoWidth": false,
-		  "pageLength": 25
+		  "pageLength": 10
 		});
 
 	window.onload = function() {

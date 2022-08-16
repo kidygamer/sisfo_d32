@@ -125,7 +125,7 @@
                                          <option value="Laporan Persandian">Laporan Persandian</option>
                                          <option value="CSM">CSM</option>
                                          <option value="IKAMI">IKAMI</option>
-                                         <option value="Csirt">Csirt</option>
+                                         <option value="Csirt">CSIRT</option>
                                          <option value="TMPI">TMPI</option>
                                     </select>
                                 <?php
@@ -136,7 +136,7 @@
                                             <?php                                          
                                                 if ($userdata->unit == 'D323' && $userdata->role == 'editor') {
                                             ?>
-                                                    <option value="Csirt">Csirt</option>
+                                                    <option value="Csirt">CSIRT</option>
                                                     <option value="TMPI">TMPI</option>
                                             <?php }else if ($userdata->unit == 'D322' && $userdata->role == 'editor')  {
                                             ?>
@@ -223,7 +223,7 @@
                                     if ($userdata->role == 'administrator') {
                                 ?>
                                     <select name="Kategori" placeholder="Pilih" required>
-                                        <option value="Csirt" <?php if ($value->Kategori == "Csirt") : ?> selected<?php endif; ?>>Csirt</option>
+                                        <option value="Csirt" <?php if ($value->Kategori == "Csirt") : ?> selected<?php endif; ?>>CSIRT</option>
                                         <option value="CSM" <?php if ($value->Kategori == "CSM") : ?> selected<?php endif; ?>>CSM</option>
                                         <option value="IKAMI" <?php if ($value->Kategori == "IKAMI") : ?> selected<?php endif; ?>>IKAMI</option>
                                         <option value="Laporan Persandian" <?php if ($value->Kategori == "Laporan Persandian") : ?> selected<?php endif; ?>>Laporan Persandian</option>
@@ -236,7 +236,7 @@
                                             <?php                                          
                                                 if ($userdata->unit == 'D323' && $userdata->role == 'editor') {
                                             ?>
-                                                    <option value="Csirt" <?php if ($value->Kategori == "Csirt") : ?> selected<?php endif; ?>>Csirt</option>
+                                                    <option value="Csirt" <?php if ($value->Kategori == "Csirt") : ?> selected<?php endif; ?>>CSIRT</option>
                                                     <option value="TMPI" <?php if ($value->Kategori == "TMPI") : ?> selected<?php endif; ?>>TMPI</option>
                                             <?php }else if ($userdata->unit == 'D322' && $userdata->role == 'editor')  {
                                             ?>
