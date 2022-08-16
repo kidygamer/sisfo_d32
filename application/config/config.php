@@ -25,7 +25,7 @@ date_default_timezone_set("Asia/Jakarta");
 */
 // $root = "http://" .$_SERVER['HTTP_HOST'];
 // $root .= str_replace(basename($_SERVER['SCRIPT_NAME']), "", $_SERVER['SCRIPT_NAME']);
-$config['base_url'] = 'http://10.10.131.149';
+$config['base_url'] = 'http://10.10.119.15/sisfo_d32/';
 //AdminLTE-CRUD-With-Codeigniter-master
 
 /*
